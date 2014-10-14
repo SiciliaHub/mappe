@@ -12,8 +12,8 @@ body { margin:0; padding:0; }
 
   #map-ui {
     position: absolute;
-    bottom: 2px;
-    left: 2px;
+    top: 2px;
+    right: 2px;
     z-index: 100;
     border-width: 1px;
     -webkit-border-radius: 3px 3px 3px 3px;
