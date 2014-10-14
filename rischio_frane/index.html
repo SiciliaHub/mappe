@@ -56,17 +56,15 @@
 	var rischio_frana = L.tileLayer.wms("http://map.sitr.regione.sicilia.it/ArcGIS/services/PAI_F33/Geomorfologia_Rischio_f33/MapServer/WMSServer", {
 		layers: '0',
 		format: 'image/png',
-		continuousWorld: true,
 		transparent: true,
 		attribution: "SITR Regione Siciliana"
-	});	
+	}).addTo(map);
 
 	var rischio_frana_agg = L.tileLayer.wms("http://map.sitr.regione.sicilia.it/ArcGIS/services/PAI_F33/Geomorfologia_Rischio_Agg_f33/MapServer/WMSServer", {
 		layers: '0',
 		format: 'image/png',
-		continuousWorld: true,
 		transparent: true
-	}).addTo(map);		
+	}).addTo(map);	
 	
 	map.fitBounds(bounds);
 
