@@ -7,3 +7,5 @@ Il SITR Sicilia pubblica il servizio in WMS: da questo è stata creata una carta
 
 Alla *mappa* si accede da qui: http://siciliahub.github.io/mappe/rischio_frane/
 
+La sorgente dei dati è questa: http://www.sitr.regione.sicilia.it/geoportale/it/metadata/details/574
+
