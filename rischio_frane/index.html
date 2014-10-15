@@ -28,11 +28,16 @@
 
 
 	<script>
+
 	var southWest = L.latLng(36.61535,11.93834),
 	northEast = L.latLng(38.57218,15.78952),
 	bounds = L.latLngBounds(southWest, northEast);
 
-	var map = L.map('map',{maxBounds: bounds,minZoom:4,maxZoom:15})
+	var southWestB = L.latLng(34.61535,9.93834),
+	northEastB = L.latLng(40.57218,17.78952),
+	boundsB = L.latLngBounds(southWestB, northEastB);
+
+	var map = L.map('map',{maxBounds: boundsB,minZoom:4,maxZoom:15})
 
 
 	var layer = L.tileLayer('http://{s}.acetate.geoiq.com/tiles/acetate/{z}/{x}/{y}.png',{
