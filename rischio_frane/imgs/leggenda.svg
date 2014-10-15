@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="legenda.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="56.98604"
+     inkscape:cy="599.42288"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#999999;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect2985"
+       width="144.1965"
+       height="81.196495"
+       x="196.90175"
+       y="424.26392"
+       ry="5.5269728"
+       inkscape:export-filename="C:\Users\aborruso\Documents\GitHub\mappe\rischio_frane\imgs\leggenda.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       id="g3779"
+       transform="translate(2.4165056,2.9999843)"
+       inkscape:export-filename="C:\Users\aborruso\Documents\GitHub\mappe\rischio_frane\imgs\leggenda.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         ry="0"
+         y="428.25107"
+         x="201.88889"
+         height="13.222222"
+         width="28.777779"
+         id="rect2987"
+         style="fill:#e60000;fill-opacity:1;stroke:#999999;stroke-width:0.77777779;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         style="fill:#ffaa00;fill-opacity:1;stroke:#999999;stroke-width:0.77777779;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+         id="rect3757"
+         width="28.777779"
+         height="13.222222"
+         x="201.88889"
+         y="446.25107"
+         ry="0" />
+      <rect
+         ry="0"
+         y="464.25107"
+         x="201.88889"
+         height="13.222222"
+         width="28.777779"
+         id="rect3759"
+         style="fill:#ffff00;fill-opacity:1;stroke:#999999;stroke-width:0.77777779;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+      <rect
+         style="fill:#ffffbe;fill-opacity:1;stroke:#999999;stroke-width:0.77777779;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+         id="rect3761"
+         width="28.777779"
+         height="13.222222"
+         x="201.88889"
+         y="482.25107"
+         ry="0" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3763"
+         y="492.55212"
+         x="235.75"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
+         xml:space="preserve"><tspan
+           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Calibri;-inkscape-font-specification:Calibri"
+           y="492.55212"
+           x="235.75"
+           id="tspan3765"
+           sodipodi:role="line">Rischio moderato</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
+         x="235.75"
+         y="474.55212"
+         id="text3767"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3769"
+           x="235.75"
+           y="474.55212"
+           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Calibri;-inkscape-font-specification:Calibri">Rischio medio</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3771"
+         y="456.55212"
+         x="235.75"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
+         xml:space="preserve"><tspan
+           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Calibri;-inkscape-font-specification:Calibri"
+           y="456.55212"
+           x="235.75"
+           id="tspan3773"
+           sodipodi:role="line">Rischio elevato</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Open Sans;-inkscape-font-specification:Open Sans"
+         x="235.75"
+         y="438.55212"
+         id="text3775"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3777"
+           x="235.75"
+           y="438.55212"
+           style="font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Calibri;-inkscape-font-specification:Calibri">Rischio molto elevato</tspan></text>
+    </g>
+  </g>
+</svg>
