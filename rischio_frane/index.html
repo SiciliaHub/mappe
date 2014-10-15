@@ -60,7 +60,7 @@
 	var realvista = L.tileLayer.wms("http://213.215.135.196/reflector/open/service?", {
 		layers: 'rv1',
 		format: 'image/jpeg',
-		attribution: "RealVista1.0"
+		attribution: "Ortofoto: <a target='_blank' href='http://www.realvista.it/website/Joomla/'>RealVista1.0</a>"
 	}).addTo(map);	
 
 	var layermini = L.tileLayer('http://{s}.acetate.geoiq.com/tiles/acetate/{z}/{x}/{y}.png',{
@@ -74,7 +74,7 @@
 		layers: '0',
 		format: 'image/png',
 		transparent: true,
-		attribution: "SITR Regione Siciliana"
+		attribution: "Dati: <a target='_blank' href='http://www.sitr.regione.sicilia.it/geoportale/it/metadata/details/159'>Regione Siciliana</a>"
 	}).addTo(map);
 
 	var rischio_frana_agg = L.tileLayer.wms("http://map.sitr.regione.sicilia.it/ArcGIS/services/PAI_F33/Geomorfologia_Rischio_Agg_f33/MapServer/WMSServer", {
