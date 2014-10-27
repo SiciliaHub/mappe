@@ -98,14 +98,16 @@
 	legend.onAdd = function (map) {
 
 		var div = L.DomUtil.create('div', 'info legend');
-  
-    div.innerHTML = '<a border="0" title="classificazione rischio" target="_blank" href="http://www.provincia.pu.it/protezionecivile/piano-provinciale-di-emergenza/lanalisi-dei-rischi/il-rischio-idrogeologico/"><img src="./imgs/leggenda.png"></a>';
 
-    return div;
-};
+		div.innerHTML = '<a border="0" title="classificazione rischio" target="_blank" href="http://www.provincia.pu.it/protezionecivile/piano-provinciale-di-emergenza/lanalisi-dei-rischi/il-rischio-idrogeologico/"><img src="./imgs/leggenda.png"></a>';
 
-legend.addTo(map);
+		return div;
+	};
 
-</script>
+	legend.addTo(map);
+
+	
+
+	</script>
 </body>
 </html>
