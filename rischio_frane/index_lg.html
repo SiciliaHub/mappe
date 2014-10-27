@@ -10,14 +10,12 @@
 	<meta charset="UTF-8">
 	<title>Rischio Frane - Regione Siciliana</title>
 	
-	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
-
-	
 	<link rel="stylesheet" type="text/css" href="./css/stile.css">
 	
 	<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.css' rel='stylesheet' />
 
 	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
 
 	<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.js'></script>
 
@@ -53,11 +51,11 @@
 		minZoom:4,
 		maxZoom:16,
 		legendControl: {
-        position: 'topright'
-    	}
+			position: 'topright'
+		}
 	})
 
-    map.legendControl.addLegend('La carta del rischio frane per ');
+	map.legendControl.addLegend('La carta del rischio frane per ');
 
 
 	var layer = L.tileLayer('http://{s}.acetate.geoiq.com/tiles/acetate/{z}/{x}/{y}.png',{
