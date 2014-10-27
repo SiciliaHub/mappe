@@ -32,9 +32,6 @@
 </head>
 <body>
 	<div id="map">
-		<div id="map-ui">
-			<p>La carta del rischio frane per <strong><a href="https://www.facebook.com/groups/opendatasicilia/permalink/597005833751409/" target="_blank">OpenDataSicilia</a></strong></p>
-		</div>
 	</div>
 
 
@@ -49,7 +46,16 @@
 	northEastB = L.latLng(40.57218,17.78952),
 	boundsB = L.latLngBounds(southWestB, northEastB);
 
-	var map = L.map('map',{maxBounds: boundsB,minZoom:4,maxZoom:16})
+	var map = L.map('map',{
+		maxBounds: boundsB,
+		minZoom:4,
+		maxZoom:16,
+		legendControl: {
+        position: 'topright'
+    	}
+	})
+
+    map.legendControl.addLegend('La carta del rischio frane per ');
 
 
 	var layer = L.tileLayer('http://{s}.acetate.geoiq.com/tiles/acetate/{z}/{x}/{y}.png',{
