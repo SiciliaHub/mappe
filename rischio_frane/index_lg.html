@@ -55,7 +55,8 @@
 		}
 	})
 
-	map.legendControl.addLegend('La carta del rischio frane per ');
+
+	
 
 
 	var layer = L.tileLayer('http://{s}.acetate.geoiq.com/tiles/acetate/{z}/{x}/{y}.png',{
@@ -99,18 +100,19 @@
 
 	L.control.locate().addTo(map);
 
-	var legend = L.control({position: 'bottomleft'});
+	var legendaa = L.control({position: 'bottomleft'});
 
-	legend.onAdd = function (map) {
+	legendaa.onAdd = function (map) {
 
-		var div = L.DomUtil.create('div', 'info legend');
+		var div = L.DomUtil.create('div', 'info legendaa');
 
 		div.innerHTML = '<a border="0" title="classificazione rischio" target="_blank" href="http://www.provincia.pu.it/protezionecivile/piano-provinciale-di-emergenza/lanalisi-dei-rischi/il-rischio-idrogeologico/"><img src="./imgs/leggenda.png"></a>';
 
 		return div;
 	};
 
-	legend.addTo(map);
+	legendaa.addTo(map);
+	map.legendControl.addLegend('La carta del rischio frane per ');
 
 	
 
