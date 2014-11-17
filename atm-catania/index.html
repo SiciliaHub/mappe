@@ -18,11 +18,11 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.js"></script> <!-- this is the javascript file that does the magic-->
 	<script src="js/leaflet.markercluster.js"></script>
 	
-				<script src='data/exp_griglia.js' ></script>
+				<script src='data/exp_fermateatm.js' ></script>
 				
 	<script>
-		var map = L.map('map', { zoomControl:true });
-		var additional_attrib = 'created with <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">qgis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors<br>';
+		var map = L.map('map', { zoomControl:true }).fitBounds([[37.483660911,15.0132799345],[37.5405435506,15.139816038]]);
+		var additional_attrib = 'created w. <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">qgis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors<br>';
 	var feature_group = new L.featureGroup([]);
 
 	var raster_group = new L.LayerGroup([]);
@@ -31,15 +31,15 @@
 	map.attributionControl.addAttribution(additional_attrib + '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>');	
 	basemap.addTo(map);	
 	var layerOrder=new Array();
-				function pop_griglia(feature, layer) {
-										var popupContent = '<table><tr><th scope="row">left</th><td>' + Autolinker.link(String(feature.properties.left)) + '</td></tr><tr><th scope="row">top</th><td>' + Autolinker.link(String(feature.properties.top)) + '</td></tr><tr><th scope="row">right</th><td>' + Autolinker.link(String(feature.properties.right)) + '</td></tr><tr><th scope="row">bottom</th><td>' + Autolinker.link(String(feature.properties.bottom)) + '</td></tr><tr><th scope="row">PNTCNT</th><td>' + Autolinker.link(String(feature.properties.PNTCNT)) + '</td></tr></table>';
+				function pop_fermateatm(feature, layer) {
+										var popupContent = '<table><tr><th scope="row">Numero</th><td>' + Autolinker.link(String(feature.properties.Numero)) + '</td></tr></table>';
 					layer.bindPopup(popupContent);
 
 
 				}
 						
-				var exp_grigliaJSON = new L.geoJson(exp_griglia,{
-					onEachFeature: pop_griglia,
+				var exp_fermateatmJSON = new L.geoJson(exp_fermateatm,{
+					onEachFeature: pop_fermateatm,
 					style: function (feature) {
 						return {fillColor: feature.properties.color_qgis2leaf,
 								color: '#000',
@@ -48,10 +48,10 @@
 								fillOpacity: feature.properties.transp_qgis2leaf};
 						}
 					});
-				feature_group.addLayer(exp_grigliaJSON);
+				feature_group.addLayer(exp_fermateatmJSON);
 				
 						//add comment sign to hide this layer on the map in the initial view.
-						exp_grigliaJSON.addTo(map);
+						exp_fermateatmJSON.addTo(map);
 		var title = new L.Control();
 		title.onAdd = function (map) {
 			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
@@ -59,20 +59,11 @@
 			return this._div;
 	    };
 	    title.update = function () {
-			this._div.innerHTML = '<h2>Catania - Densità delle fermate ATM</h2>giocando con i dati aperti'
+			this._div.innerHTML = '<h2>Catania - Densità delle fermate ATM</h2>'
 		};
 		title.addTo(map);
-	L.control.layers({'OSM Black & White': basemap},{"griglia": exp_grigliaJSON},{collapsed:false}).addTo(map);
-		map.locate({setView: true, maxZoom: 16});
-		function onLocationFound(e) {
-    		var radius = e.accuracy / 2;
-			L.marker(e.latlng).addTo(map)
-        	.bindPopup("You are within " + radius + " meters from this point").openPopup();
-			L.circle(e.latlng, radius).addTo(map);
-		}
-		map.on('locationfound', onLocationFound);
-		
-		map.fitBounds(feature_group.getBounds());
+	L.control.layers({'OSM Black & White': basemap},{"fermate_atm": exp_fermateatmJSON},{collapsed:false}).addTo(map);
+	L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
 	</script>
 </body>
 </html>
