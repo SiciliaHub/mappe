@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Open Data Sicilia - Le Ortofoto a risoluzione di 14 cm. del SITR della Regione Sicilia</title>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  
+  
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+
+  <link rel="stylesheet" href="./css/leaflet-sidebar.css" />
+
+  <style>
+  body {
+    padding: 0;
+    margin: 0;
+    background-color: #81D1DF;
+  }
+
+  html, body{
+    height: 100%;
+    font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+    background-color: #81D1DF;
+  }
+
+  #map {
+    height: 100%;
+    font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+    background-color: #81D1DF;
+  }
+
+  </style>
+
+</head>
+<body>
+
+  <div id="sidebar" class="sidebar collapsed">
+    <!-- Nav tabs -->
+    <ul class="sidebar-tabs" role="tablist">
+      <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+      <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="sidebar-content active">
+      <div class="sidebar-pane" id="home">
+        <h2>Ortofoto 14 centimetri</h2>
+        <p>Il <a href="http://www.sitr.regione.sicilia.it/geoportale" target="_blank">S.I.T.R. della Regione Siciliana</a> ha rilasciato da poco le ortofoto con risoluzione al pixel di <strong>14 cm.</strong>, per alcuni centri abitati. Fai click sul nome per zoomare nell'area corrispondente:</p>
+        <ul>
+          <li><a id="myLink" href="#" onclick="vaia(38.1228,13.3327,12);">Palermo</a></li>
+          <li><a id="myLink" href="#" onclick="vaia(38.0235,12.5349,14);">Trapani</a></li>
+          <li><a id="myLink" href="#" onclick="vaia(38.1944,15.5544,14);">Messina</a></li>
+          <li><a id="myLink" href="#" onclick="vaia(36.9239,14.7135,14);">Ragusa</a></li>
+          <li><a id="myLink" href="#" onclick="vaia(37.5442,14.2780,14);">Enna</a></li>
+        </ul>
+        <p><strong>Nota bene</strong>: purtroppo il servizio non è molto rapido, perché al momento non è stato fatto il caching</p>
+
+        <p>A responsive sidebar for mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> or <a href="http://openlayers.org/">OpenLayers</a>.</p>
+
+      </div>
+      <div class="sidebar-pane" id="settings"><h1>Settings</h1></div>
+    </div>
+  </div>
+
+  <div id="map" class="sidebar-map"></div>
+
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+  
+
+  <script src="./lib/leaflet/leaflet-src.js"></script>
+
+
+  <script src="./lib/proj4-compressed.js"></script>
+  <script src="./src/proj4leaflet.js"></script>
+
+
+  <script src="./lib/hash/leaflet-hash.js"></script>
+
+  <script src="./lib/sidebar/leaflet-sidebar.js"></script>
+  
+  <script src="./data/province.js"></script>
+
+  <script type="text/javascript">
+
+  
+
+  function vaia(lat, lon, zooml) {
+    map.setView([lat,lon], zooml);
+  }
+
+  var crs = new L.Proj.CRS('EPSG:25833',
+    '+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs ',
+    {
+      resolutions: [
+      78643.2, 39321.6, 19660.8, 9830.4, 4915.2, 2457.6, 1228.8, 614.4, 307.2, 153.6, 76.8, 38.4, 19.2, 9.6, 4.8, 2.4, 1.2, 0.6, 0.3, 0.15
+      ],
+      origin: [0, 0]
+    }),
+  map = new L.Map('map', {
+    crs: crs,
+    maxZoom: 19,
+    minZoom:7
+  });
+
+
+  var provstyle = {
+    'color': '#000',
+    'weight': 0.2,
+    'opacity': 1,
+    'fillOpacity': 0,
+    'fillColor': '#FF2424'
+  };
+
+  L.geoJson(geojsonFeature, {
+    style: provstyle,
+    zIndex: 0
+  }).addTo(map);
+
+  L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Palermo_ata20122013/MapServer/WMSServer', {
+    layers: '0',
+    format: 'image/png',
+    maxZoom: 20,
+    minZoom: 0,
+    transparent: 'true',
+    attribution: 'SITR Regione Siciliana',
+    zIndex: 200
+  }).addTo(map);
+
+  L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Trapani_ata20122013/MapServer/WMSServer', {
+    layers: '0',
+    format: 'image/png',
+    maxZoom: 20,
+    minZoom: 0,
+    transparent: 'true'
+  }).addTo(map);
+
+  L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Messina_ata20122013/MapServer/WMSServer', {
+    layers: '0',
+    format: 'image/png',
+    maxZoom: 20,
+    minZoom: 0,
+    transparent: 'true'
+  }).addTo(map);
+
+  L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Ragusa_ata20122013/MapServer/WMSServer', {
+    layers: '0',
+    format: 'image/png',
+    maxZoom: 20,
+    minZoom: 0,
+    transparent: 'true'
+  }).addTo(map);
+
+  L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Enna_ata20122013/MapServer/WMSServer', {
+    layers: '0',
+    format: 'image/png',
+    maxZoom: 20,
+    minZoom: 0,
+    transparent: 'true'
+  }).addTo(map);
+
+
+
+  map.setView([37.5141,14.0405], 7);
+
+  var hash = new L.Hash(map);
+
+  var sidebar = L.control.sidebar('sidebar').addTo(map);
+
+  </script>
+</body>
+</html>
