@@ -138,7 +138,7 @@
   L.geoJson(geojsonFeature, {
     style: provstyle,
     zIndex: 0
-  }).addTo(map);
+  });
 
   L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Palermo_ata20122013/MapServer/WMSServer', {
     layers: '0',
@@ -146,7 +146,7 @@
     maxZoom: 20,
     minZoom: 0,
     transparent: 'true',
-    attribution: 'SITR Regione Siciliana',
+    attribution: 'SITR Regione Siciliana | &copy; OpenStreetMap contributors',
     zIndex: 200
   }).addTo(map);
 
@@ -155,7 +155,8 @@
     format: 'image/png',
     maxZoom: 20,
     minZoom: 0,
-    transparent: 'true'
+    transparent: 'true',
+    zIndex: 200
   }).addTo(map);
 
   L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Messina_ata20122013/MapServer/WMSServer', {
@@ -163,7 +164,8 @@
     format: 'image/png',
     maxZoom: 20,
     minZoom: 0,
-    transparent: 'true'
+    transparent: 'true',
+    zIndex: 200
   }).addTo(map);
 
   L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Ragusa_ata20122013/MapServer/WMSServer', {
@@ -171,11 +173,21 @@
     format: 'image/png',
     maxZoom: 20,
     minZoom: 0,
-    transparent: 'true'
+    transparent: 'true',
+    zIndex: 200
   }).addTo(map);
 
   L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Enna_ata20122013/MapServer/WMSServer', {
     layers: '0',
+    format: 'image/png',
+    maxZoom: 20,
+    minZoom: 0,
+    transparent: 'true',
+    zIndex: 200
+  }).addTo(map);  
+
+  L.tileLayer.wms('http://ows.terrestris.de/osm/service?', {
+    layers: 'OSM-WMS',
     format: 'image/png',
     maxZoom: 20,
     minZoom: 0,
