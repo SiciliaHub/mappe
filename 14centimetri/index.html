@@ -54,7 +54,7 @@
         <ul>
           <li><a id="myLink" href="#" onclick="vaia(38.1228,13.3327,12);sidebar.close()">Palermo</a></li>
           <li><a id="myLink" href="#" onclick="vaia(38.0235,12.5349,14);sidebar.close()">Trapani</a></li>
-          <li><a id="myLink" href="#" onclick="vaia(38.1944,15.5544,14);sidebar.close()">Messina</a></li>
+          <!-- <li><a id="myLink" href="#" onclick="vaia(38.1944,15.5544,14);sidebar.close()">Messina</a></li> -->
           <li><a id="myLink" href="#" onclick="vaia(36.9239,14.7135,14);sidebar.close()">Ragusa</a></li>
           <li><a id="myLink" href="#" onclick="vaia(37.5656,14.2751,16);sidebar.close()">Enna</a></li>
         </ul>
@@ -67,7 +67,7 @@
         <ul>
           <li><a href="http://www.sitr.regione.sicilia.it/geoportale/it/metadata/details/638" target="_blank">Ortofoto 14cm area urbana di Trapani - Volo ATA 2012-2013</a></li>
           <li><a href="http://www.sitr.regione.sicilia.it/geoportale/it/metadata/details/637" target="_blank">Ortofoto 14cm area urbana di Palemo - Volo ATA 2012-2013</a></li>
-          <li><a href="http://www.sitr.regione.sicilia.it/geoportale/it/metadata/details/636" target="_blank">Ortofoto 14cm area urbana di Messina - Volo ATA 2012-2013</a></li>
+          <!-- <li><a href="http://www.sitr.regione.sicilia.it/geoportale/it/metadata/details/636" target="_blank">Ortofoto 14cm area urbana di Messina - Volo ATA 2012-2013</a></li> -->
           <li><a href="http://www.sitr.regione.sicilia.it/geoportale/it/metadata/details/635" target="_blank">Ortofoto 14cm area urbana di Ragusa - Volo ATA 2012-2013</a></li>
           <li><a href="http://www.sitr.regione.sicilia.it/geoportale/it/metadata/details/634" target="_blank">Ortofoto 14cm area urbana di Enna - Volo ATA 2012-2013</a></li>
         </ul>
@@ -159,14 +159,14 @@
     zIndex: 200
   }).addTo(map);
 
-  L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Messina_ata20122013/MapServer/WMSServer', {
-    layers: '0',
-    format: 'image/png',
-    maxZoom: 20,
-    minZoom: 0,
-    transparent: 'true',
-    zIndex: 200
-  }).addTo(map);
+  // L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Messina_ata20122013/MapServer/WMSServer', {
+  //   layers: '0',
+  //   format: 'image/png',
+  //   maxZoom: 20,
+  //   minZoom: 0,
+  //   transparent: 'true',
+  //   zIndex: 200
+  // }).addTo(map);
 
   L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Ragusa_ata20122013/MapServer/WMSServer', {
     layers: '0',
