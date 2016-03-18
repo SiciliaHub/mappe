@@ -42,53 +42,54 @@
 	<script src="./js/leaflet-minimap/dist/Control.MiniMap.min.js" type="text/javascript"></script>
 
 	<script src="./js/proj4-compressed.js"></script>
-  	<script src="./js/proj4leaflet.js"></script>
+	<script src="./js/proj4leaflet.js"></script>
 
 	<script src="./js/sidebar/leaflet-sidebar.js"></script>
 
 </head>
 <body>
 	<div id="sidebar" class="sidebar collapsed">
-    <!-- Nav tabs -->
-    <ul class="sidebar-tabs" role="tablist">
-      <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-      <li><a href="#settings" role="tab"><i class="fa fa-info"></i></a></li>
-      <li><a href="#tools" role="tab"><i class="fa fa-wrench"></i></a></li>
-    </ul>
+		<!-- Nav tabs -->
+		<ul class="sidebar-tabs" role="tablist">
+			<li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+			<li><a href="#settings" role="tab"><i class="fa fa-info"></i></a></li>
+			<li><a href="#tools" role="tab"><i class="fa fa-wrench"></i></a></li>
+		</ul>
 
-    <!-- Tab panes -->
-    <div class="sidebar-content active">
-      <div class="sidebar-pane" id="home">
-        <h2>Le vie dei Beati Paoli</h2>
-        <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed aliquam tellus, non ornare velit. Aliquam erat volutpat. Etiam odio arcu, sagittis eu consequat id, tincidunt et justo. Sed pulvinar dui sit amet magna rhoncus, a consectetur quam interdum. Pellentesque eget massa mattis, posuere mauris nec, volutpat nisl. Praesent lectus turpis, finibus vitae hendrerit ac, porttitor sed dolor. Donec rhoncus est vel lectus efficitur, vitae mattis urna ornare. Praesent pharetra consectetur pharetra. Suspendisse accumsan semper volutpat. Sed sagittis nibh risus, et condimentum mauris pharetra et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-</p>
+		<!-- Tab panes -->
+		<div class="sidebar-content active">
+			<div class="sidebar-pane" id="home">
+				<h2>Le vie dei Beati Paoli</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed aliquam tellus, non ornare velit. Aliquam erat volutpat. Etiam odio arcu, sagittis eu consequat id, tincidunt et justo. Sed pulvinar dui sit amet magna rhoncus, a consectetur quam interdum. Pellentesque eget massa mattis, posuere mauris nec, volutpat nisl. Praesent lectus turpis, finibus vitae hendrerit ac, porttitor sed dolor. Donec rhoncus est vel lectus efficitur, vitae mattis urna ornare. Praesent pharetra consectetur pharetra. Suspendisse accumsan semper volutpat. Sed sagittis nibh risus, et condimentum mauris pharetra et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</p>
 
-      </div>
-      <div class="sidebar-pane" id="settings">
-        <h2>Informazioni</h2>
-        <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed aliquam tellus, non ornare velit. Aliquam erat volutpat. Etiam odio arcu, sagittis eu consequat id, tincidunt et justo. Sed pulvinar dui sit amet magna rhoncus, a consectetur quam interdum. Pellentesque eget massa mattis, posuere mauris nec, volutpat nisl. Praesent lectus turpis, finibus vitae hendrerit ac, porttitor sed dolor. Donec rhoncus est vel lectus efficitur, vitae mattis urna ornare. Praesent pharetra consectetur pharetra. Suspendisse accumsan semper volutpat. Sed sagittis nibh risus, et condimentum mauris pharetra et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-</p>
-      </div>
-      <div class="sidebar-pane" id="tools">
-        <h2>Strumenti</h2>
-        <p>I principali strumenti usati per realizzare questa semplice mappa:</p>
-        <ul>
-          <li><a href="http://leafletjs.com/" target="_blank">Leaflet, per creare l'interfaccia di <i>web mapping</i></a></li>
-          <li><a href="https://github.com/turbo87/sidebar-v2/" target="_blank">sidebar-v2</a>, per creare questa sidebar a scomparsa;</li>
-          <li><a href="https://github.com/mlevans/leaflet-hash" target="_blank">leaflet-hash</a>, per generare URL che contengono livello di zoom e posizione corrente</li>
-       
-        </ul>
-      </div>
-    </div>
-  </div>
+			</div>
+			<div class="sidebar-pane" id="settings">
+				<h2>Informazioni</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed aliquam tellus, non ornare velit. Aliquam erat volutpat. Etiam odio arcu, sagittis eu consequat id, tincidunt et justo. Sed pulvinar dui sit amet magna rhoncus, a consectetur quam interdum. Pellentesque eget massa mattis, posuere mauris nec, volutpat nisl. Praesent lectus turpis, finibus vitae hendrerit ac, porttitor sed dolor. Donec rhoncus est vel lectus efficitur, vitae mattis urna ornare. Praesent pharetra consectetur pharetra. Suspendisse accumsan semper volutpat. Sed sagittis nibh risus, et condimentum mauris pharetra et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				</p>
+			</div>
+			<div class="sidebar-pane" id="tools">
+				<h2>Strumenti</h2>
+				<p>I principali strumenti usati per realizzare questa semplice mappa:</p>
+				<ul>
+					<li><a href="http://leafletjs.com/" target="_blank">Leaflet, per creare l'interfaccia di <i>web mapping</i></a></li>
+					<li><a href="https://github.com/turbo87/sidebar-v2/" target="_blank">sidebar-v2</a>, per creare questa sidebar a scomparsa;</li>
+					<li><a href="https://github.com/mlevans/leaflet-hash" target="_blank">leaflet-hash</a>, per generare URL che contengono livello di zoom e posizione corrente</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
 	<div id="mapid" class="sidebar-map"></div>
 
 	
 	<script> 
+
 	var southWest = L.latLng(38.09307759377460,13.32714538069623),northEast = L.latLng(38.13750358264909,13.38600368351606),
-    bounds = L.latLngBounds(southWest, northEast);
+	bounds = L.latLngBounds(southWest, northEast);
 
 	var url = 'https://fa8ccd066adbb2461fbf4b14d1fa88164cac1d02.googledrive.com/host/0B6ILXbOb66_kaXJCOVg3YVVIeEE/data/decreti/rt';
 	var mymap = L.map('mapid', {
@@ -105,14 +106,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed aliquam tellus,
 		id: 'mapbox.streets'
 	});
 
-	L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Palermo_ata20122013/MapServer/WMSServer', {
-    layers: '0',
-    format: 'image/png',
-    maxZoom: 20,
-    minZoom: 0,
-    transparent: 'true',
-    attribution: 'SITR Regione Siciliana'
-  }).addTo(mymap);
+	var sitr = L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Palermo_ata20122013/MapServer/WMSServer', {
+		layers: '0',
+		format: 'image/png',
+		maxZoom: 20,
+		minZoom: 0,
+		transparent: 'true',
+		attribution: 'SITR Regione Siciliana'
+	}).addTo(mymap);
 
 	var tile = L.tileLayer('./data/tiles/{z}/{x}/{y}.png', {
 		minZoom: 13,
@@ -123,6 +124,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed aliquam tellus,
 	
 	mymap.addLayer(tile);
 
+	var baseMaps = {
+		"SITR": sitr
+	};
+
+	var overlayMaps = {
+		"I Beati Paoli": tile
+	};
+
+	L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+	
 	var hash = new L.Hash(mymap);
 
 	var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
