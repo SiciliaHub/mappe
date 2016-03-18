@@ -1,6 +1,6 @@
 # Mappa online
 
-[siciliahub.github.io/mappe/beatipaoli_levie](siciliahub.github.io/mappe/beatipaoli_levie)
+[siciliahub.github.io/mappe/beatipaoli_levie](http://siciliahub.github.io/mappe/beatipaoli_levie)
 
 ## Appunti da ordinare
 
