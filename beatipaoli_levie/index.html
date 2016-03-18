@@ -8,6 +8,8 @@
 
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 	<link rel="stylesheet" href="./js/leaflet/dist/leaflet.css" />
 	<style>
 	body {
@@ -27,6 +29,9 @@
 	}
 
 	</style>
+	
+	<link rel="stylesheet" href="./css/leaflet-sidebar.css" />
+
 	<script src="./js/leaflet/dist/leaflet.js"></script>
 	<link rel="stylesheet" href="./js/leaflet.markercluster/dist/MarkerCluster.css" />
 	<link rel="stylesheet" href="./js/leaflet.markercluster/dist/MarkerCluster.Default.css" />
@@ -39,9 +44,46 @@
 	<script src="./js/proj4-compressed.js"></script>
   	<script src="./js/proj4leaflet.js"></script>
 
+	<script src="./js/sidebar/leaflet-sidebar.js"></script>
+
 </head>
 <body>
-	<div id="mapid" ></div>
+	<div id="sidebar" class="sidebar collapsed">
+    <!-- Nav tabs -->
+    <ul class="sidebar-tabs" role="tablist">
+      <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+      <li><a href="#settings" role="tab"><i class="fa fa-info"></i></a></li>
+      <li><a href="#tools" role="tab"><i class="fa fa-wrench"></i></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="sidebar-content active">
+      <div class="sidebar-pane" id="home">
+        <h2>Le vie dei Beati Paoli</h2>
+        <p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed aliquam tellus, non ornare velit. Aliquam erat volutpat. Etiam odio arcu, sagittis eu consequat id, tincidunt et justo. Sed pulvinar dui sit amet magna rhoncus, a consectetur quam interdum. Pellentesque eget massa mattis, posuere mauris nec, volutpat nisl. Praesent lectus turpis, finibus vitae hendrerit ac, porttitor sed dolor. Donec rhoncus est vel lectus efficitur, vitae mattis urna ornare. Praesent pharetra consectetur pharetra. Suspendisse accumsan semper volutpat. Sed sagittis nibh risus, et condimentum mauris pharetra et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</p>
+
+      </div>
+      <div class="sidebar-pane" id="settings">
+        <h2>Informazioni</h2>
+        <p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed aliquam tellus, non ornare velit. Aliquam erat volutpat. Etiam odio arcu, sagittis eu consequat id, tincidunt et justo. Sed pulvinar dui sit amet magna rhoncus, a consectetur quam interdum. Pellentesque eget massa mattis, posuere mauris nec, volutpat nisl. Praesent lectus turpis, finibus vitae hendrerit ac, porttitor sed dolor. Donec rhoncus est vel lectus efficitur, vitae mattis urna ornare. Praesent pharetra consectetur pharetra. Suspendisse accumsan semper volutpat. Sed sagittis nibh risus, et condimentum mauris pharetra et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</p>
+      </div>
+      <div class="sidebar-pane" id="tools">
+        <h2>Strumenti</h2>
+        <p>I principali strumenti usati per realizzare questa semplice mappa:</p>
+        <ul>
+          <li><a href="http://leafletjs.com/" target="_blank">Leaflet, per creare l'interfaccia di <i>web mapping</i></a></li>
+          <li><a href="https://github.com/turbo87/sidebar-v2/" target="_blank">sidebar-v2</a>, per creare questa sidebar a scomparsa;</li>
+          <li><a href="https://github.com/mlevans/leaflet-hash" target="_blank">leaflet-hash</a>, per generare URL che contengono livello di zoom e posizione corrente</li>
+       
+        </ul>
+      </div>
+    </div>
+  </div>
+	<div id="mapid" class="sidebar-map"></div>
 
 	
 	<script> 
@@ -86,6 +128,8 @@
 	var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 	var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13});
 	var miniMap = new L.Control.MiniMap(osm2, { toggleDisplay: true }).addTo(mymap);
+
+	var sidebar = L.control.sidebar('sidebar').addTo(mymap);
 
 	</script>
 </body>
