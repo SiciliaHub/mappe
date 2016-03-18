@@ -134,7 +134,9 @@
 		"I Beati Paoli": tile
 	};
 
-	L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+	L.control.layers(baseMaps, overlayMaps,{
+		collapsed:false
+	}).addTo(mymap);
 	
 	var hash = new L.Hash(mymap);
 
