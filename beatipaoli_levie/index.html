@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,18 +15,15 @@
 		padding: 0;
 		margin: 0;
 	}
-
 	html, body{
 		height: 100%;
 		font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
 	}
-
 	#mapid {
 		height: 100%;
 		font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
 		background-color: #E4E5E5;
 	}
-
 	</style>
 	
 	<link rel="stylesheet" href="./css/leaflet-sidebar.css" />
@@ -87,47 +83,59 @@
 
 	
 	<script> 
-
 	var southWest = L.latLng(38.09307759377460,13.32714538069623),northEast = L.latLng(38.13750358264909,13.38600368351606),
 	bounds = L.latLngBounds(southWest, northEast);
-
-
-		
+	
 	var realvista = L.tileLayer.wms("http://213.215.135.196/reflector/open/service?", {
         layers: 'rv1',
         format: 'image/jpeg',
         attribution: "RealVista1.0 e-GEOS SpA | &copy; OpenStreetMap contributors",
         minZoom: 8,
         maxZoom: 20
-    	}); 		
-
+    	});   		
+	var OpenStreetMap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+		'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		id: 'mapbox.streets'
+	});
+	var sitr = L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Palermo_ata20122013/MapServer/WMSServer', {
+		layers: '0',
+		format: 'image/png',
+		maxZoom: 20,
+		minZoom: 0,
+		transparent: 'true',
+		attribution: '<a href="http://www.sitr.regione.sicilia.it/geoportale/" target="_blank">SITR Regione Siciliana</a>'
+	});
 	var tile = L.tileLayer('./data/tiles/{z}/{x}/{y}.png', {
 		minZoom: 13,
 		maxZoom: 17,
 		tms: true,
 		opacity: 0.5
 	});
-
+	var mymap = L.map('mapid', {
+		maxZoom: 17,
+		minZoom: 13,
+		maxBounds: bounds,
+		layers: [sitr, tile]
+	}).setView([38.11,13.35], 14);
 	var baseMaps = {
-		"realvista": realvista
+		"realvista": realvista,
+		"OpenStreetMap": OpenStreetMap,
 	};
-
 	var overlayMaps = {
 		"I Beati Paoli": tile
 	};
-
 	L.control.layers(baseMaps, overlayMaps,{
 		collapsed:true
 	}).addTo(mymap);
 	
 	var hash = new L.Hash(mymap);
-
 	var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 	var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13});
 	var miniMap = new L.Control.MiniMap(osm2, { toggleDisplay: true }).addTo(mymap);
-
 	var sidebar = L.control.sidebar('sidebar').addTo(mymap);
-
 	</script>
 </body>
 </html>
