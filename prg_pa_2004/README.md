@@ -3,7 +3,7 @@
 
 [**Mappa web**](http://www.gbvitrano.eu/qgis_server/prg_2004.html#12/38.1400/13.3469) elaborata con Qgis e le plugin  qgis2leaf e qgis2web con gli [Opendata del Comune di Palermo](http://www.comune.palermo.it/opendata_dld.php?id=320)
 
-[**Mappa realizzata con Umap**] (http://u.osmfr.org/m/75883/) che include anche i vincoli sul territorio. 
+[**Mappa realizzata con Umap**](http://u.osmfr.org/m/75883/) che include anche i vincoli sul territorio. 
 
 [**Webgis - Zonizzazione e vincoli**](https://qgiscloud.com/gbvitrano/Prg_2004_Pa) realizzato con Qgis Cloud - Zonizzazione e Vincoli sul territorio di Palermo - Anno 2004
 
