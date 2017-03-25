@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta name="description" content="Mappa del pendolarismo da e per Palermo - Istat 2011" />
+		<title>Mappa del pendolarismo da e per Palermo - Istat 2011</title>
+        <meta charset="utf-8">
+ <link rel="shortcut icon" href="http://www.gbvitrano.it/favicon.ico"/> 
+<link rel="icon" href="http://www.gbvitrano.it/favicon.png" type="image/png"/>  
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css" />
+        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css" />
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+				#title {
+padding: 6px 8px;
+position:fixed;
+top:20px;
+right:10px;
+z-index: 1000;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border: 2px solid #808080;
+border: 2px solid #fffff0;
+background-color:#fff;
+padding:2px;
+box-shadow: 0 3px 14px rgba(0,0,0,0.4)
+	}
+h2 {display: block;
+-webkit-margin-before: 0.83em;
+-webkit-margin-after: 0.83em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+font-weight: bold;
+font:"Helvetica Neue", Arial, Helvetica, sans-serif;
+font-size:18px;		
+color: #777;
+margin: 0 0 5px;}
+
+h3 { display: block;
+-webkit-margin-before: 0.83em;
+-webkit-margin-after: 0.83em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+font-weight: bold;
+font:"Helvetica Neue", Arial, Helvetica, sans-serif;
+font-size:10px;		
+color: #000;
+margin: 0 0 5px;
+}
+	#ods {
+position:fixed;
+top:25px;
+left: 10px;
+z-index: 999;}
+	#umap {
+position:fixed;
+top:25px;
+left: 70px;
+z-index: 999;}
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet-heat.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/OSMBuildings-Leaflet.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/Flussiinentrata0.js"></script>
+        <script src="data/DaaltreoriginiversoPalermo1.js"></script>
+        <script src="data/Flussiinuscita2.js"></script>
+        <script src="data/Versoaltredestinazioni3.js"></script>
+        <script src="data/Palermo4.js"></script>
+        <script>
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[37.3603048701,13.0096906171],[38.2039708907,14.5512385057]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a> <img src="http://gbvitrano.it/clip/gb/gb_01.png" width="24" height="24" Title=" Rielaborazione Opendata - Giovan Battista Vitrano" alt="Giovan Battista Vitrano"/></a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function geoJson2heat(geojson, weight) {
+          return geojson.features.map(function(feature) {
+            return [
+              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[0],
+              feature.properties[weight]
+            ];
+          });
+        }
+        function pop_Flussiinentrata0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Regione di origine</th>\
+                        <td>' + (feature.properties['Regione di'] !== null ? Autolinker.link(String(feature.properties['Regione di'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia di origine</th>\
+                        <td>' + (feature.properties['Provincia'] !== null ? Autolinker.link(String(feature.properties['Provincia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune di origine</th>\
+                        <td>' + (feature.properties['Comune di'] !== null ? Autolinker.link(String(feature.properties['Comune di'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Regione di destinazione</th>\
+                        <td>' + (feature.properties['Regione _2'] !== null ? Autolinker.link(String(feature.properties['Regione _2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia di destinazione</th>\
+                        <td>' + (feature.properties['Provinci_2'] !== null ? Autolinker.link(String(feature.properties['Provinci_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune di destinazione</th>\
+                        <td>' + (feature.properties['Comune d_2'] !== null ? Autolinker.link(String(feature.properties['Comune d_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi totali</th>\
+                        <td>' + (feature.properties['Flussi tot'] !== null ? Autolinker.link(String(feature.properties['Flussi tot'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi studio</th>\
+                        <td>' + (feature.properties['Flussi stu'] !== null ? Autolinker.link(String(feature.properties['Flussi stu'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi lavoro</th>\
+                        <td>' + (feature.properties['Flussi lav'] !== null ? Autolinker.link(String(feature.properties['Flussi lav'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distanza Minuti</th>\
+                        <td>' + (feature.properties['Distanza M'] !== null ? Autolinker.link(String(feature.properties['Distanza M'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distanza Km</th>\
+                        <td>' + (feature.properties['Distanza K'] !== null ? Autolinker.link(String(feature.properties['Distanza K'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_Flussiinentrata0(feature) {
+            if (feature.properties['Flussi tot'] >= 0.000000 && feature.properties['Flussi tot'] <= 2.000000 ) {
+                return {
+                pane: 'pane_Flussiinentrata0',
+                opacity: 1,
+                color: 'rgba(255,245,240,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 2.000000 && feature.properties['Flussi tot'] <= 3.000000 ) {
+                return {
+                pane: 'pane_Flussiinentrata0',
+                opacity: 1,
+                color: 'rgba(254,221,205,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 3.000000 && feature.properties['Flussi tot'] <= 8.000000 ) {
+                return {
+                pane: 'pane_Flussiinentrata0',
+                opacity: 1,
+                color: 'rgba(252,179,152,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 8.000000 && feature.properties['Flussi tot'] <= 16.000000 ) {
+                return {
+                pane: 'pane_Flussiinentrata0',
+                opacity: 1,
+                color: 'rgba(252,134,102,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 16.000000 && feature.properties['Flussi tot'] <= 33.000000 ) {
+                return {
+                pane: 'pane_Flussiinentrata0',
+                opacity: 1,
+                color: 'rgba(247,87,62,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 33.000000 && feature.properties['Flussi tot'] <= 70.000000 ) {
+                return {
+                pane: 'pane_Flussiinentrata0',
+                opacity: 1,
+                color: 'rgba(222,41,36,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 70.000000 && feature.properties['Flussi tot'] <= 233.000000 ) {
+                return {
+                pane: 'pane_Flussiinentrata0',
+                opacity: 1,
+                color: 'rgba(179,18,23,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 233.000000 && feature.properties['Flussi tot'] <= 7426.000000 ) {
+                return {
+                pane: 'pane_Flussiinentrata0',
+                opacity: 1,
+                color: 'rgba(103,0,13,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+        }
+        map.createPane('pane_Flussiinentrata0');
+        map.getPane('pane_Flussiinentrata0').style.zIndex = 600;
+        map.getPane('pane_Flussiinentrata0').style['mix-blend-mode'] = 'normal';
+    var layer_Flussiinentrata0 = new L.geoJson(json_Flussiinentrata0, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_Flussiinentrata0',
+        onEachFeature: pop_Flussiinentrata0,
+        style: style_Flussiinentrata0
+    });
+        bounds_group.addLayer(layer_Flussiinentrata0);
+        map.addLayer(layer_Flussiinentrata0);
+        function pop_DaaltreoriginiversoPalermo1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Regione di origine</th>\
+                        <td>' + (feature.properties['Regione di origine'] !== null ? Autolinker.link(String(feature.properties['Regione di origine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia di origine</th>\
+                        <td>' + (feature.properties['Provincia di origine'] !== null ? Autolinker.link(String(feature.properties['Provincia di origine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune di origine</th>\
+                        <td>' + (feature.properties['Comune di origine'] !== null ? Autolinker.link(String(feature.properties['Comune di origine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Regione di destinazione</th>\
+                        <td>' + (feature.properties['Regione di destinazione'] !== null ? Autolinker.link(String(feature.properties['Regione di destinazione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia di destinazione</th>\
+                        <td>' + (feature.properties['Provincia di destinazione'] !== null ? Autolinker.link(String(feature.properties['Provincia di destinazione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune di destinazione</th>\
+                        <td>' + (feature.properties['Comune di destinazione'] !== null ? Autolinker.link(String(feature.properties['Comune di destinazione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi totali</th>\
+                        <td>' + (feature.properties['Flussi totali'] !== null ? Autolinker.link(String(feature.properties['Flussi totali'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi studio</th>\
+                        <td>' + (feature.properties['Flussi studio'] !== null ? Autolinker.link(String(feature.properties['Flussi studio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi lavoro</th>\
+                        <td>' + (feature.properties['Flussi lavoro'] !== null ? Autolinker.link(String(feature.properties['Flussi lavoro'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distanza Minuti</th>\
+                        <td>' + (feature.properties['Distanza Minuti'] !== null ? Autolinker.link(String(feature.properties['Distanza Minuti'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distanza Km</th>\
+                        <td>' + (feature.properties['Distanza Km'] !== null ? Autolinker.link(String(feature.properties['Distanza Km'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_DaaltreoriginiversoPalermo1() {
+            return {
+                pane: 'pane_DaaltreoriginiversoPalermo1',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(84,84,84,1.0)',
+            }
+        }
+        map.createPane('pane_DaaltreoriginiversoPalermo1');
+        map.getPane('pane_DaaltreoriginiversoPalermo1').style.zIndex = 601;
+        map.getPane('pane_DaaltreoriginiversoPalermo1').style['mix-blend-mode'] = 'normal';
+        var layer_DaaltreoriginiversoPalermo1 = new L.geoJson(json_DaaltreoriginiversoPalermo1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_DaaltreoriginiversoPalermo1',
+            onEachFeature: pop_DaaltreoriginiversoPalermo1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_DaaltreoriginiversoPalermo1(feature))
+            }
+        });
+        bounds_group.addLayer(layer_DaaltreoriginiversoPalermo1);
+        map.addLayer(layer_DaaltreoriginiversoPalermo1);
+        function pop_Flussiinuscita2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Regione di origine</th>\
+                        <td>' + (feature.properties['Regione di'] !== null ? Autolinker.link(String(feature.properties['Regione di'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia di origine</th>\
+                        <td>' + (feature.properties['Provincia'] !== null ? Autolinker.link(String(feature.properties['Provincia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune di origine</th>\
+                        <td>' + (feature.properties['Comune di'] !== null ? Autolinker.link(String(feature.properties['Comune di'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Regione di destinazione</th>\
+                        <td>' + (feature.properties['Regione _2'] !== null ? Autolinker.link(String(feature.properties['Regione _2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia di destinazione</th>\
+                        <td>' + (feature.properties['Provinci_2'] !== null ? Autolinker.link(String(feature.properties['Provinci_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune di destinazione</th>\
+                        <td>' + (feature.properties['Comune d_2'] !== null ? Autolinker.link(String(feature.properties['Comune d_2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi totali</th>\
+                        <td>' + (feature.properties['Flussi tot'] !== null ? Autolinker.link(String(feature.properties['Flussi tot'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi studio</th>\
+                        <td>' + (feature.properties['Flussi stu'] !== null ? Autolinker.link(String(feature.properties['Flussi stu'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi lavoro</th>\
+                        <td>' + (feature.properties['Flussi lav'] !== null ? Autolinker.link(String(feature.properties['Flussi lav'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distanza Minuti</th>\
+                        <td>' + (feature.properties['Distanza M'] !== null ? Autolinker.link(String(feature.properties['Distanza M'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distanza Km</th>\
+                        <td>' + (feature.properties['Distanza K'] !== null ? Autolinker.link(String(feature.properties['Distanza K'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_Flussiinuscita2(feature) {
+            if (feature.properties['Flussi tot'] >= 0.000000 && feature.properties['Flussi tot'] <= 2.000000 ) {
+                return {
+                pane: 'pane_Flussiinuscita2',
+                opacity: 1,
+                color: 'rgba(166,206,227,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 2.000000 && feature.properties['Flussi tot'] <= 4.000000 ) {
+                return {
+                pane: 'pane_Flussiinuscita2',
+                opacity: 1,
+                color: 'rgba(142,177,231,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 4.000000 && feature.properties['Flussi tot'] <= 7.000000 ) {
+                return {
+                pane: 'pane_Flussiinuscita2',
+                opacity: 1,
+                color: 'rgba(119,147,235,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 7.000000 && feature.properties['Flussi tot'] <= 10.000000 ) {
+                return {
+                pane: 'pane_Flussiinuscita2',
+                opacity: 1,
+                color: 'rgba(95,118,239,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 10.000000 && feature.properties['Flussi tot'] <= 18.000000 ) {
+                return {
+                pane: 'pane_Flussiinuscita2',
+                opacity: 1,
+                color: 'rgba(71,88,243,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 18.000000 && feature.properties['Flussi tot'] <= 37.000000 ) {
+                return {
+                pane: 'pane_Flussiinuscita2',
+                opacity: 1,
+                color: 'rgba(47,59,247,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 37.000000 && feature.properties['Flussi tot'] <= 90.000000 ) {
+                return {
+                pane: 'pane_Flussiinuscita2',
+                opacity: 1,
+                color: 'rgba(23,29,251,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+            if (feature.properties['Flussi tot'] >= 90.000000 && feature.properties['Flussi tot'] <= 2038.000000 ) {
+                return {
+                pane: 'pane_Flussiinuscita2',
+                opacity: 1,
+                color: 'rgba(0,0,255,0.75)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+            }
+            }
+        }
+        map.createPane('pane_Flussiinuscita2');
+        map.getPane('pane_Flussiinuscita2').style.zIndex = 602;
+        map.getPane('pane_Flussiinuscita2').style['mix-blend-mode'] = 'normal';
+    var layer_Flussiinuscita2 = new L.geoJson(json_Flussiinuscita2, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_Flussiinuscita2',
+        onEachFeature: pop_Flussiinuscita2,
+        style: style_Flussiinuscita2
+    });
+        bounds_group.addLayer(layer_Flussiinuscita2);
+        map.addLayer(layer_Flussiinuscita2);
+        function pop_Versoaltredestinazioni3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Regione di origine</th>\
+                        <td>' + (feature.properties['Regione di origine'] !== null ? Autolinker.link(String(feature.properties['Regione di origine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia di origine</th>\
+                        <td>' + (feature.properties['Provincia di origine'] !== null ? Autolinker.link(String(feature.properties['Provincia di origine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune di origine</th>\
+                        <td>' + (feature.properties['Comune di origine'] !== null ? Autolinker.link(String(feature.properties['Comune di origine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Regione di destinazione</th>\
+                        <td>' + (feature.properties['Regione di destinazione'] !== null ? Autolinker.link(String(feature.properties['Regione di destinazione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia di destinazione</th>\
+                        <td>' + (feature.properties['Provincia di destinazione'] !== null ? Autolinker.link(String(feature.properties['Provincia di destinazione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune di destinazione</th>\
+                        <td>' + (feature.properties['Comune di destinazione'] !== null ? Autolinker.link(String(feature.properties['Comune di destinazione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi totali</th>\
+                        <td>' + (feature.properties['Flussi totali'] !== null ? Autolinker.link(String(feature.properties['Flussi totali'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi studio</th>\
+                        <td>' + (feature.properties['Flussi studio'] !== null ? Autolinker.link(String(feature.properties['Flussi studio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi lavoro</th>\
+                        <td>' + (feature.properties['Flussi lavoro'] !== null ? Autolinker.link(String(feature.properties['Flussi lavoro'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distanza Minuti</th>\
+                        <td>' + (feature.properties['Distanza Minuti'] !== null ? Autolinker.link(String(feature.properties['Distanza Minuti'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distanza Km</th>\
+                        <td>' + (feature.properties['Distanza Km'] !== null ? Autolinker.link(String(feature.properties['Distanza Km'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_Versoaltredestinazioni3() {
+            return {
+                pane: 'pane_Versoaltredestinazioni3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(149,128,12,1.0)',
+            }
+        }
+        map.createPane('pane_Versoaltredestinazioni3');
+        map.getPane('pane_Versoaltredestinazioni3').style.zIndex = 603;
+        map.getPane('pane_Versoaltredestinazioni3').style['mix-blend-mode'] = 'normal';
+        var layer_Versoaltredestinazioni3 = new L.geoJson(json_Versoaltredestinazioni3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Versoaltredestinazioni3',
+            onEachFeature: pop_Versoaltredestinazioni3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Versoaltredestinazioni3(feature))
+            }
+        });
+        bounds_group.addLayer(layer_Versoaltredestinazioni3);
+        map.addLayer(layer_Versoaltredestinazioni3);
+        function pop_Palermo4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Regione di origine</th>\
+                        <td>' + (feature.properties['Regione di origine'] !== null ? Autolinker.link(String(feature.properties['Regione di origine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia di origine</th>\
+                        <td>' + (feature.properties['Provincia di origine'] !== null ? Autolinker.link(String(feature.properties['Provincia di origine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune di origine</th>\
+                        <td>' + (feature.properties['Comune di origine'] !== null ? Autolinker.link(String(feature.properties['Comune di origine'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Regione di destinazione</th>\
+                        <td>' + (feature.properties['Regione di destinazione'] !== null ? Autolinker.link(String(feature.properties['Regione di destinazione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia di destinazione</th>\
+                        <td>' + (feature.properties['Provincia di destinazione'] !== null ? Autolinker.link(String(feature.properties['Provincia di destinazione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune di destinazione</th>\
+                        <td>' + (feature.properties['Comune di destinazione'] !== null ? Autolinker.link(String(feature.properties['Comune di destinazione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi totali</th>\
+                        <td>' + (feature.properties['Flussi totali'] !== null ? Autolinker.link(String(feature.properties['Flussi totali'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi studio</th>\
+                        <td>' + (feature.properties['Flussi studio'] !== null ? Autolinker.link(String(feature.properties['Flussi studio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Flussi lavoro</th>\
+                        <td>' + (feature.properties['Flussi lavoro'] !== null ? Autolinker.link(String(feature.properties['Flussi lavoro'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distanza Minuti</th>\
+                        <td>' + (feature.properties['Distanza Minuti'] !== null ? Autolinker.link(String(feature.properties['Distanza Minuti'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Distanza Km</th>\
+                        <td>' + (feature.properties['Distanza Km'] !== null ? Autolinker.link(String(feature.properties['Distanza Km'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_Palermo4() {
+            return {
+                pane: 'pane_Palermo4',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,71,49,1.0)',
+            }
+        }
+        map.createPane('pane_Palermo4');
+        map.getPane('pane_Palermo4').style.zIndex = 604;
+        map.getPane('pane_Palermo4').style['mix-blend-mode'] = 'normal';
+        var layer_Palermo4 = new L.geoJson(json_Palermo4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Palermo4',
+            onEachFeature: pop_Palermo4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Palermo4(feature))
+            }
+        });
+        bounds_group.addLayer(layer_Palermo4);
+        map.addLayer(layer_Palermo4);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/Palermo4.png" /> Palermo': layer_Palermo4,'<img src="legend/Versoaltredestinazioni3.png" /> Verso altre destinazioni': layer_Versoaltredestinazioni3,'Flussi in uscita<br /><table><tr><td style="text-align: center;"><img src="legend/Flussiinuscita2_020.png" /></td><td> 1 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinuscita2_241.png" /></td><td> 2 - 3 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinuscita2_472.png" /></td><td> 4 - 6 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinuscita2_7103.png" /></td><td> 7 - 9 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinuscita2_10184.png" /></td><td> 10 - 17 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinuscita2_18375.png" /></td><td> 18 - 36 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinuscita2_37906.png" /></td><td> 37 - 89 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinuscita2_9020387.png" /></td><td> 90 - 2038  </td></tr></table><hr>':layer_Flussiinuscita2,'<img src="legend/DaaltreoriginiversoPalermo1.png" /> Da altre origini verso Palermo': layer_DaaltreoriginiversoPalermo1,'Flussi in entrata<br /><table><tr><td style="text-align: center;"><img src="legend/Flussiinentrata0_020.png" /></td><td> 1 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinentrata0_231.png" /></td><td> 2 - 3 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinentrata0_382.png" /></td><td> 4- 7 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinentrata0_8163.png" /></td><td> 8 - 15 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinentrata0_16334.png" /></td><td> 16 - 32 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinentrata0_33705.png" /></td><td> 33 - 69 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinentrata0_702336.png" /></td><td> 70 - 232 </td></tr><tr><td style="text-align: center;"><img src="legend/Flussiinentrata0_23374267.png" /></td><td> 233 - 7426 </td></tr></table>': layer_Flussiinentrata0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+        <div id="title">
+<h2>&nbsp;Mappa del pendolarismo da e per Palermo - Istat 2011&nbsp;</h2> 
+<h3>&nbsp;fonte dati Istat <a href="http://dati-censimentopopolazione.istat.it/Index.aspx" title="ISTAT Censimento Popolazione 2011" target="_blank">Censimento Popolazione 2011</a>&nbsp;</h3></div>
+    <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
+<img src="legend/opendatasicilia.png" width="48px" title="opendatasicilia.it" alt="opendatasicilia"></a></div>
+    <div id="umap"><a href="http://u.osmfr.org/m/131321/" title="Switch uMap - Mappa del pendolarismo da e per Palermo - Istat 2011" target="_blank"> 
+<img src="legend/umap.png" width="68" title="Switch uMap - Mappa del pendolarismo da e per Palermo - Istat 2011" alt="uMap"></a></div>
+    </body>
+</html>

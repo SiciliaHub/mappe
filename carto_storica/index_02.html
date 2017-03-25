@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+ <title>Cartografia storica Palermo</title>
+  <link href="leaflet.css" rel="stylesheet" type="text/css">
+   <!-- <link rel="stylesheet" href="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.css" />-->
+		<!--[if lte IE 8]> <link rel="stylesheet" href="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.ie.css" />  <![endif]-->
+		<script src="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.js"></script>
+    <script src="http://labmod.org/maps/trento1915/leaflet-hash.js"></script>
+    <script src="http://frogcat.github.io/leaflet-tilelayer-mask/leaflet-tilelayer-mask.js"></script>
+    <script src="http://joker-x.github.io/Leaflet.geoCSV/lib/jquery.js"></script>
+
+    <style type="text/css">
+        body, html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
+
+        #map {
+            width: 99%;
+            height: 100%;
+        }
+#ods {
+position:fixed;
+bottom:20px;
+right:20px;
+z-index: 999;}
+     </style>
+
+</head>
+<body>
+    <body>
+        <div id="map">
+        </div>
+
+        <script type="text/JavaScript">
+        var southWest = L.latLng(38.098969492479725, 13.41679573059082),
+            northEast = L.latLng(38.13779704369437, 13.310022354125977),
+    	      bounds = L.latLngBounds(southWest, northEast);
+
+
+        var map = L.map('map', {attributionControl:true}).setView([38.11127,13.3534422], 14 );
+
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
+        });
+        basemap0.addTo(map);
+        var basemap1 = L.tileLayer.wms("http://213.215.135.196/reflector/open/service?", {
+                layers: 'rv1',
+                format: 'image/jpeg',attribution: '<a href="http://www.realvista.it/website/Joomla/" target="_blank">RealVista &copy; CC-BY Tiles</a> | <a href="http://openstreetmap.org">OpenStreetMap</a>',
+
+              });
+
+			       var basemap2 = L.tileLayer.mask("http://mapwarper.net/maps/tile/19706/{z}/{x}/{y}.png", {
+      attribution: '<a href="https://github.com/frogcat/leaflet-tileoverlay-mask" title="Leaflet-tileoverlay-mask">Leaflet-tileoverlay-mask</a> - Cartografia storica Palermo - Rielaborazione di <a href="https://twitter.com/aborruso" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/cirospat" title="Ciro Spataro">@cirospat</a>, <a href="https://twitter.com/napo " title="Maurizio Napolitano">@napo</a> <a href=" https://twitter.com/Piersoft" title="Francesco Piero Paolicelli">@piersoft</a> e <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a>',
+	  minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
+        });
+        basemap2.addTo(map);
+
+        var overlays = {
+          };
+         var layerControl = new L.Control.Layers({'OSM': basemap0,'RealVista': basemap1},overlays,{collapsed: false},{position:'topright'});
+         layerControl.addTo(map);
+         map.on("mousemove", function(e) {
+           basemap2.setCenter(e.containerPoint.x, e.containerPoint.y);
+         }).zoomControl.setPosition("topleft");
+
+	        var hash = new L.Hash(map);
+
+        </script>
+         <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
+<img src="images/opendatasicilia.png" width="48px" title="opendatasicilia.it" alt="opendatasicilia"></a></div>
+    </body>
+</html>

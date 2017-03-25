@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<meta property="og:url" content="http://coseerobe.gbvitrano.it" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Mappe - Rielaborazioni dataset opendata" />
+<meta property="og:description" content="Inquinamento acustico Comune di Palermo - Mappa del livello di rumore giornaliero da traffico veicolare (Lden) - Rielaborazione Opendata" />
+<meta property="og:site_name" content="coseerobe.gbvitrano.it" />
+<meta property="og:image" content="http://www.gbvitrano.eu/qgis_server/inq_acust/map_.png"/>
+<meta name="reply-to" content="gbvitrano@gmail.com">
+<meta name="author" content="Giovan Battista Vitrano">
+<link rel="shortcut icon" href="http://www.gbvitrano.it/favicon.ico"/> 
+<link rel="icon" href="http://www.gbvitrano.it/favicon.png" type="image/png"/>  
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE"/>
+<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+<meta name="robots" content="index,follow" />
+<meta name="creation_Date" content="03/11/2016">
+<meta name="description" content="Inquinamento acustico Comune di Palermo - Mappa del livello di rumore giornaliero da traffico veicolare (Lden) - Rielaborazione Opendata" />
+		<title>Inquinamento acustico Comune di Palermo - Giovan Battista Vitrano - Rielaborazione Opendata</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/leaflet.css" />
+		<link rel="stylesheet" href="css/MarkerCluster.css" />
+		<link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+		<link rel="stylesheet" type="text/css" href="css/own_style.css">
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		<script src="js/leaflet-hash.js"></script>
+		<script src="js/Autolinker.min.js"></script>
+		<script src="js/leaflet.markercluster.js"></script>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <style>
+#legenda {
+position:fixed;
+top:320px;
+right:10px;
+z-index: 1000;
+border-radius: 5px;
+-moz-border-radius: 5px;
+ -webkit-border-radius: 5px;
+ /*border: 2px solid #808080;*/
+  border: 2px solid #fffff0;
+background-color:#fff;
+padding:2px;
+box-shadow: 0 3px 14px rgba(0,0,0,0.4)
+	}
+	#geo {
+position:fixed;
+top:16px;
+left: 102px;
+z-index: 999;
+/* border-radius: 5px;
+-moz-border-radius: 5px;
+ -webkit-border-radius: 5px;
+ border: 2px solid #808080;
+  border: 2px solid #fffff0;
+background-color:#fff;
+padding:2px;
+box-shadow: 0 3px 14px rgba(0,0,0,0.4)*/
+	}
+		#mappa_not {
+position: absolute;
+float:right;
+top:16px;
+left:50px;
+z-index: 1000;
+	}
+</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script src="data/exp_Livello8085dB.js"></script>
+		<script src="data/exp_Livello7580dB.js"></script>
+		<script src="data/exp_Livello7075dB.js"></script>
+		<script src="data/exp_Livello6570dB.js"></script>
+		<script src="data/exp_Livello6065dB.js"></script>
+		<script src="data/exp_Livello5560dB.js"></script>
+		<script src="data/exp_Livello5055dB.js"></script>
+		<script src="data/exp_Livello4550dB.js"></script>
+		<script src="data/exp_Livello4045dB.js"></script>
+<script>
+		var map = L.map('map', {
+			zoomControl:true, maxZoom:19
+		}).fitBounds([[38.0506720669,13.1413491686],[38.2383124784,13.5405071635]]);
+		var hash = new L.Hash(map);
+		var additional_attrib = 'created w. <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">qgis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors';
+		var feature_group = new L.featureGroup([]);
+		var raster_group = new L.LayerGroup([]);
+		var basemap_0 = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', { 
+			attribution: additional_attrib + '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>  <a href="mailto:gbvitrano@gmail.com"><img src="http://gbvitrano.it/clip/gb/gb_01.png" width="24" height="24" Title=" Rielaborazione Opendata - Giovan Battista Vitrano" alt="Giovan Battista Vitrano"/></a> - <a href="http://www.arpa.sicilia.it/temi-ambientali/inquinamento-acustico/" title="Inquinamento acustico Comune di Palermo - Mappa del livello di rumore giornaliero da traffico veicolare (Lden) - Rielaborazione Opendata" target="_blank">Dataset Rumore</a>' 
+		});	
+		basemap_0.addTo(map);	
+		var layerOrder=new Array();
+		function pop_Livello4045dB(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">dB</th><td>' + Autolinker.link(String(feature.properties['ISOVALUE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleLivello4045dB(feature) {
+				return {
+					color: '#1a9641',
+					fillColor: '#1a9641',
+					weight: 1,
+					dashArray: '',
+					opacity: 0.75,
+					fillOpacity: 0.75
+				};
+
+		}
+		var exp_Livello4045dBJSON = new L.geoJson(exp_Livello4045dB,{
+			onEachFeature: pop_Livello4045dB,
+			style: doStyleLivello4045dB
+		});
+		layerOrder[layerOrder.length] = exp_Livello4045dBJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_Livello4045dBJSON);
+		function pop_Livello4550dB(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">dB</th><td>' + Autolinker.link(String(feature.properties['ISOVALUE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleLivello4550dB(feature) {
+				return {
+					color: '#60b755',
+					fillColor: '#60b755',
+					weight: 1,
+					dashArray: '',
+					opacity: 0.75,
+					fillOpacity: 0.75
+				};
+
+		}
+		var exp_Livello4550dBJSON = new L.geoJson(exp_Livello4550dB,{
+			onEachFeature: pop_Livello4550dB,
+			style: doStyleLivello4550dB
+		});
+		layerOrder[layerOrder.length] = exp_Livello4550dBJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_Livello4550dBJSON);
+		function pop_Livello5055dB(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">dB</th><td>' + Autolinker.link(String(feature.properties['ISOVALUE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleLivello5055dB(feature) {
+				return {
+					color: '#a6d96a',
+					fillColor: '#a6d96a',
+					weight: 1,
+					dashArray: '',
+					opacity: 0.75,
+					fillOpacity: 0.75
+				};
+
+		}
+		var exp_Livello5055dBJSON = new L.geoJson(exp_Livello5055dB,{
+			onEachFeature: pop_Livello5055dB,
+			style: doStyleLivello5055dB
+		});
+		layerOrder[layerOrder.length] = exp_Livello5055dBJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_Livello5055dBJSON);
+		function pop_Livello5560dB(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">dB</th><td>' + Autolinker.link(String(feature.properties['ISOVALUE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleLivello5560dB(feature) {
+				return {
+					color: '#d2ec95',
+					fillColor: '#d2ec95',
+					weight: 1,
+					dashArray: '',
+					opacity: 0.75,
+					fillOpacity: 0.75
+				};
+
+		}
+		var exp_Livello5560dBJSON = new L.geoJson(exp_Livello5560dB,{
+			onEachFeature: pop_Livello5560dB,
+			style: doStyleLivello5560dB
+		});
+		layerOrder[layerOrder.length] = exp_Livello5560dBJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_Livello5560dBJSON);
+		function pop_Livello6065dB(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">dB</th><td>' + Autolinker.link(String(feature.properties['ISOVALUE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleLivello6065dB(feature) {
+				return {
+					color: '#ffffc0',
+					fillColor: '#ffffc0',
+					weight: 1,
+					dashArray: '',
+					opacity: 0.75,
+					fillOpacity: 0.75
+				};
+
+		}
+		var exp_Livello6065dBJSON = new L.geoJson(exp_Livello6065dB,{
+			onEachFeature: pop_Livello6065dB,
+			style: doStyleLivello6065dB
+		});
+		layerOrder[layerOrder.length] = exp_Livello6065dBJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_Livello6065dBJSON);
+		function pop_Livello6570dB(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">dB</th><td>' + Autolinker.link(String(feature.properties['ISOVALUE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleLivello6570dB(feature) {
+				return {
+					color: '#fed690',
+					fillColor: '#fed690',
+					weight: 1,
+					dashArray: '',
+					opacity: 0.75,
+					fillOpacity: 0.75
+				};
+
+		}
+		var exp_Livello6570dBJSON = new L.geoJson(exp_Livello6570dB,{
+			onEachFeature: pop_Livello6570dB,
+			style: doStyleLivello6570dB
+		});
+		layerOrder[layerOrder.length] = exp_Livello6570dBJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_Livello6570dBJSON);
+		function pop_Livello7075dB(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">dB</th><td>' + Autolinker.link(String(feature.properties['ISOVALUE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleLivello7075dB(feature) {
+				return {
+					color: '#fdae61',
+					fillColor: '#fdae61',
+					weight: 1,
+					dashArray: '',
+					opacity: 0.75,
+					fillOpacity: 0.75
+				};
+
+		}
+		var exp_Livello7075dBJSON = new L.geoJson(exp_Livello7075dB,{
+			onEachFeature: pop_Livello7075dB,
+			style: doStyleLivello7075dB
+		});
+		layerOrder[layerOrder.length] = exp_Livello7075dBJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_Livello7075dBJSON);
+		function pop_Livello7580dB(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">dB</th><td>' + Autolinker.link(String(feature.properties['ISOVALUE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleLivello7580dB(feature) {
+				return {
+					color: '#ea633e',
+					fillColor: '#ea633e',
+					weight: 1,
+					dashArray: '',
+					opacity: 0.75,
+					fillOpacity: 0.75
+				};
+
+		}
+		var exp_Livello7580dBJSON = new L.geoJson(exp_Livello7580dB,{
+			onEachFeature: pop_Livello7580dB,
+			style: doStyleLivello7580dB
+		});
+		layerOrder[layerOrder.length] = exp_Livello7580dBJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_Livello7580dBJSON);
+		function pop_Livello8085dB(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">dB</th><td>' + Autolinker.link(String(feature.properties['ISOVALUE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleLivello8085dB(feature) {
+				return {
+					color: '#d7191c',
+					fillColor: '#d7191c',
+					weight: 1,
+					dashArray: '',
+					opacity: 0.75,
+					fillOpacity: 0.75
+				};
+
+		}
+		var exp_Livello8085dBJSON = new L.geoJson(exp_Livello8085dB,{
+			onEachFeature: pop_Livello8085dB,
+			style: doStyleLivello8085dB
+		});
+		layerOrder[layerOrder.length] = exp_Livello8085dBJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_Livello8085dBJSON);
+
+		feature_group.addTo(map);
+		var title = new L.Control();
+		title.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		title.update = function () {
+			this._div.innerHTML = '<h2>Mappa del livello di rumore giornaliero da traffico veicolare (Lden) della Città di Palermo</h2>Per ottimizzare la navigazione web, i poligoni sono stati semplificati con <a href="http://mapshaper.org/" title="A tool for topologically aware shape simplification. Reads and writes Shapefile, GeoJSON and TopoJSON formats." target="_blank">http://mapshaper.org/</a> - Fonte dati mappa rumore <a href="http://www.arpa.sicilia.it/temi-ambientali/inquinamento-acustico/" target="_blank" title="Datast mappa acustica strategica per l agglomerato di Palermo">ARPA SICILIA' 
+		};
+		title.addTo(map);
+		var legend = L.control({position: 'bottomright'});
+		legend.onAdd = function (map) {
+			var div = L.DomUtil.create('div', 'info legend');
+			div.innerHTML = "<table></table>";
+    		return div;
+		};
+		legend.addTo(map);
+	var baseMaps = {
+		'OSM Black & White': basemap_0
+	};
+		L.control.layers(baseMaps,{"Livello 80-85 dB" : exp_Livello8085dBJSON, "Livello 75-80 dB": exp_Livello7580dBJSON,"Livello 70-75 dB": exp_Livello7075dBJSON,"Livello 65-70 dB": exp_Livello6570dBJSON,"Livello 60-65 dB": exp_Livello6065dBJSON,"Livello 55-60 dB": exp_Livello5560dBJSON,"Livello 50-55 dB": exp_Livello5055dBJSON,"Livello 45-50 dB": exp_Livello4550dBJSON,"Livello 40-45 dB": exp_Livello4045dBJSON},{collapsed:false}).addTo(map);
+		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
+	</script>
+    <div id="geo"><a href="http://egdisegno.altervista.org/coseerobe/download/zip/mappa_rumore.zip" title="Clicca qui per scaricare i file geojson (dimensione file zip 40,6 mB) delle mappe dell'inquinamento acustico veicolare diurno/notturno giornaliero della Citta' di Palermo" target="_blank"> 
+<img src="pictures/geojson.png" width="48px" title="Clicca qui per scaricare i file geojson (dimensione file zip 40,6 mB) delle mappe dell'inquinamento acustico veicolare diurno/notturno giornaliero della Citta' di Palermo" alt="geojson"></a></div>
+
+    <div id="legenda">
+<img src="pictures/leg_lden.jpg" width="135px" title="Legenda rumore giornaliero da traffico veicolare (Lden)" alt="Legenda"></div>
+    <div id="mappa_not"><a href="http://u.osmfr.org/m/110074/" title="Visualizza la mappa del rumore notturno da traffico veicolare (Lnight road)" target="_blank">
+<img src="pictures/clip_not.png" width="42px" title="Visualizza la mappa del rumore notturno da traffico veicolare della Citta' di Palermo (Lnight road)" alt="Mappa rumore notturno"></a></div>
+</body>
+</html>

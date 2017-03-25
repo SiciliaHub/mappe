@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta name="description" content="Studio sulla vulnerabilità sismica degli residenziali edifici di Palermo" />
+		<title>Studio sulla vulnerabilità sismica degli edifici di Palermo </title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css" />
+        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css" />
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+		#title {
+padding: 6px 8px;
+position:fixed;
+top:20px;
+right:10px;
+z-index: 1000;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border: 2px solid #808080;
+border: 2px solid #fffff0;
+background-color:#fff;
+padding:2px;
+box-shadow: 0 3px 14px rgba(0,0,0,0.4)
+	}
+h2 {display: block;
+-webkit-margin-before: 0.83em;
+-webkit-margin-after: 0.83em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+font-weight: bold;
+font:"Helvetica Neue", Arial, Helvetica, sans-serif;
+font-size:18px;		
+color: #777;
+margin: 0 0 5px;}
+
+h3 { display: block;
+-webkit-margin-before: 0.83em;
+-webkit-margin-after: 0.83em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+font-weight: bold;
+font:"Helvetica Neue", Arial, Helvetica, sans-serif;
+font-size:10px;		
+color: #000;
+margin: 0 0 5px;
+}
+	#ods {
+position:fixed;
+top:25px;
+left: 10px;
+z-index: 999;}
+	#umap {
+position:fixed;
+top:25px;
+left: 70px;
+z-index: 999;}
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet-heat.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/OSMBuildings-Leaflet.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/Datinonutilizzabili0.js"></script>
+        <script src="data/Datinondisponibiliresidenziali1.js"></script>
+        <script src="data/Datinondisponibili2.js"></script>
+        <script src="data/Vulnerabilitsismica3.js"></script>
+        <script>
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[38.1272040153,13.3293673247],[38.1461898585,13.3632011861]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>  <a href="https://twitter.com/aborruso" title="Andrea Borruso">@aborruso</a> - <a href="https://twitter.com/cirospat" title="Ciro Spataro">@cirospat</a> - <a href="https://twitter.com/carbone_letizia" title="Letizia Carbone">@carbone_letizia</a> - <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a> <img src="http://gbvitrano.it/clip/gb/gb_01.png" width="24" height="24" Title=" Rielaborazione Opendata - Giovan Battista Vitrano" alt="Giovan Battista Vitrano"/></a> ',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function geoJson2heat(geojson, weight) {
+          return geojson.features.map(function(feature) {
+            return [
+              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[0],
+              feature.properties[weight]
+            ];
+          });
+        }
+        function pop_Datinonutilizzabili0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Categoria edificio</th>\
+                        <td>' + (feature.properties['CATEG_EDIF'] !== null ? Autolinker.link(String(feature.properties['CATEG_EDIF'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Città</th>\
+                        <td>' + (feature.properties['CITTA'] !== null ? Autolinker.link(String(feature.properties['CITTA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipo DUG</th>\
+                        <td>' + (feature.properties['EDIFICIDEN'] !== null ? Autolinker.link(String(feature.properties['EDIFICIDEN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Toponimo</th>\
+                        <td>' + (feature.properties['EDIFICICIV'] !== null ? Autolinker.link(String(feature.properties['EDIFICICIV'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Civico</th>\
+                        <td>' + (feature.properties['EDIFICITOP'] !== null ? Autolinker.link(String(feature.properties['EDIFICITOP'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sezione censuaria</th>\
+                        <td>' + (feature.properties['SEZIONE_DI'] !== null ? Autolinker.link(String(feature.properties['SEZIONE_DI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quota linea di gronda (m)</th>\
+                        <td>' + (feature.properties['QUOTA_GRON'] !== null ? Autolinker.link(String(feature.properties['QUOTA_GRON'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quota piede edificio (m)</th>\
+                        <td>' + (feature.properties['QUOTA_PIED'] !== null ? Autolinker.link(String(feature.properties['QUOTA_PIED'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Altezza (m)</th>\
+                        <td>' + (feature.properties['ALTEZZA'] !== null ? Autolinker.link(String(feature.properties['ALTEZZA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Area (mq)</th>\
+                        <td>' + (feature.properties['AREA'] !== null ? Autolinker.link(String(feature.properties['AREA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Volume (mc)</th>\
+                        <td>' + (feature.properties['VOLUME'] !== null ? Autolinker.link(String(feature.properties['VOLUME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipologia</th>\
+                        <td>' + (feature.properties['DESC_TIPO_'] !== null ? Autolinker.link(String(feature.properties['DESC_TIPO_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Materiali di costruzione</th>\
+                        <td>' + (feature.properties['DESC_TIP_1'] !== null ? Autolinker.link(String(feature.properties['DESC_TIP_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Epoca fine costruzione</th>\
+                        <td>' + (feature.properties['ANNI_EPOCA'] !== null ? Autolinker.link(String(feature.properties['ANNI_EPOCA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Stato di conservazione</th>\
+                        <td>' + (feature.properties['DENOM_TIPO'] !== null ? Autolinker.link(String(feature.properties['DENOM_TIPO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Numero piani fuori terra</th>\
+                        <td>' + (feature.properties['SCALENUM_P'] !== null ? Autolinker.link(String(feature.properties['SCALENUM_P'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Epoca fine costruzione</th>\
+                        <td>' + (feature.properties['IND_ETA'] !== null ? Autolinker.link(String(feature.properties['IND_ETA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Materiali di costruzione</th>\
+                        <td>' + (feature.properties['IND_MAT'] !== null ? Autolinker.link(String(feature.properties['IND_MAT'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Stato di conservazione</th>\
+                        <td>' + (feature.properties['IND_STATO'] !== null ? Autolinker.link(String(feature.properties['IND_STATO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Numero piani fuori terra</th>\
+                        <td>' + (feature.properties['IND_PIANI'] !== null ? Autolinker.link(String(feature.properties['IND_PIANI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Vulnerabilità sismica</th>\
+                        <td>' + (feature.properties['VULN'] !== null ? Autolinker.link(String(feature.properties['VULN'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_Datinonutilizzabili0() {
+            return {
+                pane: 'pane_Datinonutilizzabili0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(178,178,178,1.0)',
+            }
+        }
+        map.createPane('pane_Datinonutilizzabili0');
+        map.getPane('pane_Datinonutilizzabili0').style.zIndex = 600;
+        map.getPane('pane_Datinonutilizzabili0').style['mix-blend-mode'] = 'normal';
+    var layer_Datinonutilizzabili0 = new L.geoJson(json_Datinonutilizzabili0, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_Datinonutilizzabili0',
+        onEachFeature: pop_Datinonutilizzabili0,
+        style: style_Datinonutilizzabili0
+    });
+        bounds_group.addLayer(layer_Datinonutilizzabili0);
+        map.addLayer(layer_Datinonutilizzabili0);
+        function pop_Datinondisponibiliresidenziali1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Categoria edificio</th>\
+                        <td>' + (feature.properties['CATEG_EDIF'] !== null ? Autolinker.link(String(feature.properties['CATEG_EDIF'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Città</th>\
+                        <td>' + (feature.properties['CITTA'] !== null ? Autolinker.link(String(feature.properties['CITTA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipo DUG</th>\
+                        <td>' + (feature.properties['EDIFICIDEN'] !== null ? Autolinker.link(String(feature.properties['EDIFICIDEN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Toponimo</th>\
+                        <td>' + (feature.properties['EDIFICITOP'] !== null ? Autolinker.link(String(feature.properties['EDIFICITOP'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Civico</th>\
+                        <td>' + (feature.properties['EDIFICICIV'] !== null ? Autolinker.link(String(feature.properties['EDIFICICIV'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sezione censuaria</th>\
+                        <td>' + (feature.properties['SEZIONE_DI'] !== null ? Autolinker.link(String(feature.properties['SEZIONE_DI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quota linea di gronda (m)</th>\
+                        <td>' + (feature.properties['QUOTA_GRON'] !== null ? Autolinker.link(String(feature.properties['QUOTA_GRON'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quota piede edificio (m)</th>\
+                        <td>' + (feature.properties['QUOTA_PIED'] !== null ? Autolinker.link(String(feature.properties['QUOTA_PIED'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Altezza (m)</th>\
+                        <td>' + (feature.properties['ALTEZZA'] !== null ? Autolinker.link(String(feature.properties['ALTEZZA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Area (mq)</th>\
+                        <td>' + (feature.properties['AREA'] !== null ? Autolinker.link(String(feature.properties['AREA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Volume (mc)</th>\
+                        <td>' + (feature.properties['VOLUME'] !== null ? Autolinker.link(String(feature.properties['VOLUME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipologia</th>\
+                        <td>' + (feature.properties['DESC_TIPO_'] !== null ? Autolinker.link(String(feature.properties['DESC_TIPO_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Materiali di costruzione</th>\
+                        <td>' + (feature.properties['DESC_TIP_1'] !== null ? Autolinker.link(String(feature.properties['DESC_TIP_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Epoca fine costruzione</th>\
+                        <td>' + (feature.properties['ANNI_EPOCA'] !== null ? Autolinker.link(String(feature.properties['ANNI_EPOCA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Stato di conservazione</th>\
+                        <td>' + (feature.properties['DENOM_TIPO'] !== null ? Autolinker.link(String(feature.properties['DENOM_TIPO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Numero piani fuori terra</th>\
+                        <td>' + (feature.properties['SCALENUM_P'] !== null ? Autolinker.link(String(feature.properties['SCALENUM_P'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Epoca fine costruzione</th>\
+                        <td>' + (feature.properties['IND_ETA'] !== null ? Autolinker.link(String(feature.properties['IND_ETA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Materiali di costruzione</th>\
+                        <td>' + (feature.properties['IND_MAT'] !== null ? Autolinker.link(String(feature.properties['IND_MAT'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Stato di conservazione</th>\
+                        <td>' + (feature.properties['IND_STATO'] !== null ? Autolinker.link(String(feature.properties['IND_STATO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Numero piani fuori terra</th>\
+                        <td>' + (feature.properties['IND_PIANI'] !== null ? Autolinker.link(String(feature.properties['IND_PIANI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Vulnerabilità sismica</th>\
+                        <td>' + (feature.properties['VULN'] !== null ? Autolinker.link(String(feature.properties['VULN'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_Datinondisponibiliresidenziali1() {
+            return {
+                pane: 'pane_Datinondisponibiliresidenziali1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(243,243,243,1.0)',
+            }
+        }
+        map.createPane('pane_Datinondisponibiliresidenziali1');
+        map.getPane('pane_Datinondisponibiliresidenziali1').style.zIndex = 601;
+        map.getPane('pane_Datinondisponibiliresidenziali1').style['mix-blend-mode'] = 'normal';
+    var layer_Datinondisponibiliresidenziali1 = new L.geoJson(json_Datinondisponibiliresidenziali1, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_Datinondisponibiliresidenziali1',
+        onEachFeature: pop_Datinondisponibiliresidenziali1,
+        style: style_Datinondisponibiliresidenziali1
+    });
+        bounds_group.addLayer(layer_Datinondisponibiliresidenziali1);
+        map.addLayer(layer_Datinondisponibiliresidenziali1);
+        function pop_Datinondisponibili2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Categoria edificio</th>\
+                        <td>' + (feature.properties['CATEG_EDIF'] !== null ? Autolinker.link(String(feature.properties['CATEG_EDIF'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Città</th>\
+                        <td>' + (feature.properties['CITTA'] !== null ? Autolinker.link(String(feature.properties['CITTA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipo DUG</th>\
+                        <td>' + (feature.properties['EDIFICIDEN'] !== null ? Autolinker.link(String(feature.properties['EDIFICIDEN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Toponimo</th>\
+                        <td>' + (feature.properties['EDIFICITOP'] !== null ? Autolinker.link(String(feature.properties['EDIFICITOP'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Civico</th>\
+                        <td>' + (feature.properties['EDIFICICIV'] !== null ? Autolinker.link(String(feature.properties['EDIFICICIV'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sezione censuaria</th>\
+                        <td>' + (feature.properties['SEZIONE_DI'] !== null ? Autolinker.link(String(feature.properties['SEZIONE_DI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quota linea di  gronda (m)</th>\
+                        <td>' + (feature.properties['QUOTA_GRON'] !== null ? Autolinker.link(String(feature.properties['QUOTA_GRON'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quota piede edificio (m)</th>\
+                        <td>' + (feature.properties['QUOTA_PIED'] !== null ? Autolinker.link(String(feature.properties['QUOTA_PIED'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Altezza (m)</th>\
+                        <td>' + (feature.properties['ALTEZZA'] !== null ? Autolinker.link(String(feature.properties['ALTEZZA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Area (mq)</th>\
+                        <td>' + (feature.properties['AREA'] !== null ? Autolinker.link(String(feature.properties['AREA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Volume (mc)</th>\
+                        <td>' + (feature.properties['VOLUME'] !== null ? Autolinker.link(String(feature.properties['VOLUME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipologia</th>\
+                        <td>' + (feature.properties['DESC_TIPO_'] !== null ? Autolinker.link(String(feature.properties['DESC_TIPO_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Materiali di costruzione</th>\
+                        <td>' + (feature.properties['DESC_TIP_1'] !== null ? Autolinker.link(String(feature.properties['DESC_TIP_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Epoca fine costruzione</th>\
+                        <td>' + (feature.properties['ANNI_EPOCA'] !== null ? Autolinker.link(String(feature.properties['ANNI_EPOCA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Stato di conservazione</th>\
+                        <td>' + (feature.properties['DENOM_TIPO'] !== null ? Autolinker.link(String(feature.properties['DENOM_TIPO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Numero piani fuori terra</th>\
+                        <td>' + (feature.properties['SCALENUM_P'] !== null ? Autolinker.link(String(feature.properties['SCALENUM_P'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Epoca fine costruzione</th>\
+                        <td>' + (feature.properties['IND_ETA'] !== null ? Autolinker.link(String(feature.properties['IND_ETA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Materiali di costruzione</th>\
+                        <td>' + (feature.properties['IND_MAT'] !== null ? Autolinker.link(String(feature.properties['IND_MAT'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Stato di conservazione</th>\
+                        <td>' + (feature.properties['IND_STATO'] !== null ? Autolinker.link(String(feature.properties['IND_STATO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Numero piani fuori terra</th>\
+                        <td>' + (feature.properties['IND_PIANI'] !== null ? Autolinker.link(String(feature.properties['IND_PIANI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Vulnerabilità sismica</th>\
+                        <td>' + (feature.properties['VULN'] !== null ? Autolinker.link(String(feature.properties['VULN'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_Datinondisponibili2() {
+            return {
+                pane: 'pane_Datinondisponibili2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(243,243,243,1.0)',
+            }
+        }
+        map.createPane('pane_Datinondisponibili2');
+        map.getPane('pane_Datinondisponibili2').style.zIndex = 602;
+        map.getPane('pane_Datinondisponibili2').style['mix-blend-mode'] = 'normal';
+    var layer_Datinondisponibili2 = new L.geoJson(json_Datinondisponibili2, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_Datinondisponibili2',
+        onEachFeature: pop_Datinondisponibili2,
+        style: style_Datinondisponibili2
+    });
+        bounds_group.addLayer(layer_Datinondisponibili2);
+        map.addLayer(layer_Datinondisponibili2);
+        function pop_Vulnerabilitsismica3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Categoria edificio</th>\
+                        <td>' + (feature.properties['CATEG_EDIF'] !== null ? Autolinker.link(String(feature.properties['CATEG_EDIF'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Città</th>\
+                        <td>' + (feature.properties['CITTA'] !== null ? Autolinker.link(String(feature.properties['CITTA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipo DUG</th>\
+                        <td>' + (feature.properties['EDIFICIDEN'] !== null ? Autolinker.link(String(feature.properties['EDIFICIDEN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Toponimo</th>\
+                        <td>' + (feature.properties['EDIFICITOP'] !== null ? Autolinker.link(String(feature.properties['EDIFICITOP'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Civico</th>\
+                        <td>' + (feature.properties['EDIFICICIV'] !== null ? Autolinker.link(String(feature.properties['EDIFICICIV'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sezione censuaria</th>\
+                        <td>' + (feature.properties['SEZIONE_DI'] !== null ? Autolinker.link(String(feature.properties['SEZIONE_DI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quota linea di gronda (m)</th>\
+                        <td>' + (feature.properties['QUOTA_GRON'] !== null ? Autolinker.link(String(feature.properties['QUOTA_GRON'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Quota piede edificio (m)</th>\
+                        <td>' + (feature.properties['QUOTA_PIED'] !== null ? Autolinker.link(String(feature.properties['QUOTA_PIED'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Altezza (m)</th>\
+                        <td>' + (feature.properties['ALTEZZA'] !== null ? Autolinker.link(String(feature.properties['ALTEZZA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Area (mq)</th>\
+                        <td>' + (feature.properties['AREA'] !== null ? Autolinker.link(String(feature.properties['AREA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Volume (mc)</th>\
+                        <td>' + (feature.properties['VOLUME'] !== null ? Autolinker.link(String(feature.properties['VOLUME'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipologia</th>\
+                        <td>' + (feature.properties['DESC_TIPO_'] !== null ? Autolinker.link(String(feature.properties['DESC_TIPO_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Materiali di costruzione</th>\
+                        <td>' + (feature.properties['DESC_TIP_1'] !== null ? Autolinker.link(String(feature.properties['DESC_TIP_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Epoca fine costruzione</th>\
+                        <td>' + (feature.properties['ANNI_EPOCA'] !== null ? Autolinker.link(String(feature.properties['ANNI_EPOCA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Stato di conservazione</th>\
+                        <td>' + (feature.properties['DENOM_TIPO'] !== null ? Autolinker.link(String(feature.properties['DENOM_TIPO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Numero piani fuori terra</th>\
+                        <td>' + (feature.properties['SCALENUM_P'] !== null ? Autolinker.link(String(feature.properties['SCALENUM_P'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Epoca fine costruzione</th>\
+                        <td>' + (feature.properties['IND_ETA'] !== null ? Autolinker.link(String(feature.properties['IND_ETA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Materiali di costruzione</th>\
+                        <td>' + (feature.properties['IND_MAT'] !== null ? Autolinker.link(String(feature.properties['IND_MAT'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Stato di conservazione</th>\
+                        <td>' + (feature.properties['IND_STATO'] !== null ? Autolinker.link(String(feature.properties['IND_STATO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Numero piani fuori terra</th>\
+                        <td>' + (feature.properties['IND_PIANI'] !== null ? Autolinker.link(String(feature.properties['IND_PIANI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indice Vulnerabilità sismica</th>\
+                        <td>' + (feature.properties['VULN'] !== null ? Autolinker.link(String(feature.properties['VULN'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_Vulnerabilitsismica3(feature) {
+            if (feature.properties['VULN'] >= 1.124000 && feature.properties['VULN'] <= 1.440000 ) {
+                return {
+                pane: 'pane_Vulnerabilitsismica3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(5,113,176,1.0)',
+            }
+            }
+            if (feature.properties['VULN'] >= 1.440000 && feature.properties['VULN'] <= 1.593000 ) {
+                return {
+                pane: 'pane_Vulnerabilitsismica3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(146,197,222,1.0)',
+            }
+            }
+            if (feature.properties['VULN'] >= 1.593000 && feature.properties['VULN'] <= 1.700000 ) {
+                return {
+                pane: 'pane_Vulnerabilitsismica3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,240,189,1.0)',
+            }
+            }
+            if (feature.properties['VULN'] >= 1.700000 && feature.properties['VULN'] <= 1.825000 ) {
+                return {
+                pane: 'pane_Vulnerabilitsismica3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(244,165,130,1.0)',
+            }
+            }
+            if (feature.properties['VULN'] >= 1.825000 && feature.properties['VULN'] <= 1.969000 ) {
+                return {
+                pane: 'pane_Vulnerabilitsismica3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(202,0,32,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_Vulnerabilitsismica3');
+        map.getPane('pane_Vulnerabilitsismica3').style.zIndex = 603;
+        map.getPane('pane_Vulnerabilitsismica3').style['mix-blend-mode'] = 'normal';
+    var layer_Vulnerabilitsismica3 = new L.geoJson(json_Vulnerabilitsismica3, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_Vulnerabilitsismica3',
+        onEachFeature: pop_Vulnerabilitsismica3,
+        style: style_Vulnerabilitsismica3
+    });
+        bounds_group.addLayer(layer_Vulnerabilitsismica3);
+        map.addLayer(layer_Vulnerabilitsismica3);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Grado di Vulnerabilità<br /><table><tr><td style="text-align: center;"><img src="legend/Vulnerabilitsismica3_1121440.png" /></td><td> Medio </td></tr><tr><td style="text-align: center;"><img src="legend/Vulnerabilitsismica3_1441591.png" /></td><td>  </td></tr><tr><td style="text-align: center;"><img src="legend/Vulnerabilitsismica3_1591702.png" /></td><td> Medio-alto </td></tr><tr><td style="text-align: center;"><img src="legend/Vulnerabilitsismica3_1701823.png" /></td><td>  </td></tr><tr><td style="text-align: center;"><img src="legend/Vulnerabilitsismica3_1821974.png" /></td><td> Alto </td></tr></table>': layer_Vulnerabilitsismica3,'<img src="legend/Datinondisponibili2.png" /> Dati non disponibili': layer_Datinondisponibili2,'<img src="legend/Datinondisponibiliresidenziali1.png" /> Dati non disponibili residenziali': layer_Datinondisponibiliresidenziali1,'<img src="legend/Datinonutilizzabili0.png" /> Dati non utilizzabili': layer_Datinonutilizzabili0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+                            <div id="title">
+<h2>Vulnerabilità sismica degli edifici residenziali di Palermo</h2> 
+<h3>E’ una mappatura di base della vulnerabilità sismica degli edifici residenziali di due aree campione della città.<br> La vulnerabilità sismica rappresenta una misura della maggiore o minore capacità degli edifici di resistere ad azioni sismiche (terremoti di prefissata entità) <a href="data/Sintesi_mappa_vulnerabilità.pdf" title="Sintesi mappa vulnerabilità" target="_blank">Scarica allegato pdf </a>&nbsp;</h3></div>
+    <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
+<img src="legend/opendatasicilia.png" width="48px" title="opendatasicilia.it" alt="opendatasicilia"></a></div>
+    <div id="umap"><a href="http://u.osmfr.org/m/129514/" title="Switch uMap - Vulnerabilità sismica degli edifici residenziali di Palermo" target="_blank"> 
+<img src="legend/umap.png" width="68" title="Switch uMap - Vulnerabilità sismica degli edifici residenziali di Palermo" alt="uMap"></a></div>
+</body>
+</html>

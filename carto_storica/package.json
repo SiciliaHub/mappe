@@ -1,0 +1,19 @@
+{
+  "name": "leaflet-tileoverlay-mask",
+  "version": "1.0.0",
+  "description": "Tile overlay with svg mask effect (leaflet-1.0 plugin)",
+  "main": "leaflet-tileoverlay-mask.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frogcat/leaflet-tileoverlay-mask.git"
+  },
+  "author": "frogcat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frogcat/leaflet-tileoverlay-mask/issues"
+  },
+  "homepage": "https://github.com/frogcat/leaflet-tileoverlay-mask#readme"
+}
