@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html><head>
+    <meta name="language" content="IT,EN">
+<meta name="reply-to" content="gbvitrano@gmail.com">
+<meta name="author" content="Giovan Battista Vitrano">
+<link rel="shortcut icon" href="http://www.gbvitrano.eu/qgis_server/css/favicon.ico"/> 
+<link rel="icon" href="http://www.gbvitrano.eu/qgis_server/css/favicon.png" type="image/png"/> 
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE"/>
+<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+<meta name="robots" content="index,follow" />
+<meta name="creation_Date" content="30/03/2016">
+<meta name="description" content="Variante Generale al P.R.G. - Palermo - Zonizzazione: e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di approvazione - Luglio 2003 - Presa D atto Delibera 7/2004 - Rielabolazione Opendata" />
+		<title>Variante Generale al P.R.G. - Palermo - Rielaborazione Opendata - Giovan Battista Vitrano</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/leaflet.css">
+		<link rel="stylesheet" type="text/css" href="css/own_style.css">
+		<link rel="stylesheet" href="css/label.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		<script src="js/leaflet-hash.js"></script>
+		<script src="js/label.js"></script>
+		<script src="js/Autolinker.min.js"></script>
+		<script src="js/leaflet.pattern-src.js"></script>        
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	</head>
+	<body>
+		<div id="map"></div>
+        <script src="data/exp_QuadroUnione.js"></script>
+		<script src="data/exp_AreeedimmobilisogettiatutelaamvientaleNettoStorico.js"></script>
+		<script src="data/exp_ZoneAA1.js"></script>
+		<script src="data/exp_ZoneAA2.js"></script>
+		<script src="data/exp_ZoneBB0a.js"></script>
+		<script src="data/exp_ZoneBB0b.js"></script>
+		<script src="data/exp_ZoneBB1.js"></script>
+		<script src="data/exp_ZoneBB2.js"></script>
+		<script src="data/exp_ZoneBB3.js"></script>
+		<script src="data/exp_ZoneBB4a.js"></script>
+		<script src="data/exp_ZoneBB4b.js"></script>
+		<script src="data/exp_ZoneBB5.js"></script>
+		<script src="data/exp_ZoneCCa.js"></script>
+		<script src="data/exp_ZoneCCb.js"></script>
+		<script src="data/exp_ZoneDD1.js"></script>
+		<script src="data/exp_ZoneDD2.js"></script>
+		<script src="data/exp_Centrodimunicipalit.js"></script>
+		<script src="data/exp_ZoneEE1.js"></script>
+		<script src="data/exp_ZoneEE2.js"></script>
+		<script src="data/exp_ZoneFSpaziedAttrezzaturepubblichediinteressegenerale.js"></script>
+		<script src="data/exp_ZoneSIstruzioneAsiliNidoeScuoledellobbligo.js"></script>
+		<script src="data/exp_Parcheggi.js"></script>
+		<script src="data/exp_ZoneICAttrezzaturediInteressiComune.js"></script>
+		<script src="data/exp_AreeedimmobilisogettiatutelaamvientaleFasciaCostiera.js"></script>
+		<script src="data/exp_Icd.js"></script>
+		<script src="data/exp_ZoneVerdePubblico.js"></script>
+		<script src="data/exp_AreeedimmobilisogettiatutelaamvientaleVerdeStorico.js"></script>
+		<script src="data/exp_AreeedimmobilisogettiatutelaamvientaleCittaStorica.js"></script>
+		<script>
+		var map = L.map('map', {
+			zoomControl:true, maxZoom:19
+		}).fitBounds([[38.0411701275,13.1341693956],[38.2762993975,13.581516072]]);
+		var hash = new L.Hash(map);
+		var additional_attrib = 'created w. <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">qgis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors';
+		var feature_group = new L.featureGroup([]);
+		var raster_group = new L.LayerGroup([]);
+		var basemap_0 = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',{attribution: additional_attrib + ' &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA - <a href="mailto:gbvitrano@gmail.com"><img src="http://www.gbvitrano.eu/clip/bc/gb_01.png"http://www.gbvitrano.eu/clip/bc/gb_01.pnggb_01[1].png" width="24" height="24" Title=" Rielaborazione Opendata - Giovan Battista Vitrano" alt="Giovan Battista Vitrano"/></a> - <a href="http://www.comune.palermo.it/opendata_dld.php?id=320t" title="Opendata (shp) perimetrazione Zonizzazione P.R.G. vigente - Comune di Palermo" target="_blank">Dataset</a> - </a><a href="http://www.comune.palermo.it/territorio.php?sel=1&asel=4" title="Tavole Scala 1:5000 (dwf), della Variante P.R.G. di Palermo" target="_blank">Tavole Variante P.R.G.</a>' 
+		});	
+		basemap_0.addTo(map);	
+		
+		
+		var layerOrder=new Array();
+								function pop_QuadroUnione(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Tavola:</th><td>' + Autolinker.link(String(feature.properties['Tavola'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleQuadroUnione(feature) {
+			switch (feature.properties.Tavola) {
+				case 'Tav. 5001':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5002':
+					return {
+							weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5003':
+					return {
+							weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5004':
+					return {
+							weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5005':
+					return {
+							weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5006':
+					return {
+							weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5007':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5008':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5009':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5010':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5011':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5012':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5013':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5014':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5015':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5016':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5017':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+				case 'Tav. 5018':
+					return {
+						weight: '0.75',
+						fillColor: '#ffffff',
+						color: '#ffffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.75',
+						fillOpacity: '0.45',
+					};
+					break;
+			}
+		}
+		var exp_QuadroUnioneJSON = new L.geoJson(exp_QuadroUnione,{
+			onEachFeature: pop_QuadroUnione,
+			style: doStyleQuadroUnione
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		//feature_group.addLayer(exp_QuadroUnioneJSON);
+		function pop_AreeedimmobilisogettiatutelaamvientaleCittaStorica(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Comune:</th><td>' + Autolinker.link(String(feature.properties['Comune'])) + '</td></tr><tr><th scope="row">Circoscrizione:</th><td>' + Autolinker.link(String(feature.properties['Circoscriz'])) + '</td></tr><tr><th scope="row">Superficie:</th><td>' + Autolinker.link(String(feature.properties['Superficie'])) + '</td></tr><tr><th scope="row">Popolazione:</th><td>' + Autolinker.link(String(feature.properties['Popolazion'])) + '</td></tr><tr><th scope="row">Codice Cat:</th><td>' + Autolinker.link(String(feature.properties['Cod_Cat'])) + '</td></tr><tr><th scope="row">Codice Istat:</th><td>' + Autolinker.link(String(feature.properties['Cod_ISTAT'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleAreeedimmobilisogettiatutelaamvientaleCittaStorica(feature) {
+			switch (feature.properties.Circoscriz) {
+				case 'I - Centro Storico':
+					return {
+						weight: '0.75',
+						fillColor: '#ff003f',
+						color: '#E0D9D9',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_AreeedimmobilisogettiatutelaamvientaleCittaStoricaJSON = new L.geoJson(exp_AreeedimmobilisogettiatutelaamvientaleCittaStorica,{
+			onEachFeature: pop_AreeedimmobilisogettiatutelaamvientaleCittaStorica,
+			style: doStyleAreeedimmobilisogettiatutelaamvientaleCittaStorica
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_AreeedimmobilisogettiatutelaamvientaleCittaStoricaJSON);
+		function pop_ZoneAA1(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneAA1(feature) {
+			switch (feature.properties.ZTO) {
+				case 'A1':
+					return {
+						weight: '7.5',
+						fillColor: '#fef0d9',
+						color: '#4c004c',
+						weight: '3',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneAA1JSON = new L.geoJson(exp_ZoneAA1,{
+			onEachFeature: pop_ZoneAA1,
+			style: doStyleZoneAA1
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneAA1JSON);
+				function pop_ZoneAA2(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneAA2(feature) {
+			switch (feature.properties.ZTO) {
+				case 'A2':
+					return {
+						weight: '0.75',
+						fillColor: '#A50029',
+						color: '#260009',
+						weight: '3',
+						dashArray: '3',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneAA2JSON = new L.geoJson(exp_ZoneAA2,{
+			onEachFeature: pop_ZoneAA2,
+			style: doStyleZoneAA2
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneAA2JSON);
+		function pop_AreeedimmobilisogettiatutelaamvientaleNettoStorico(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td> Aree ed immobili sogetti a tutela ambientale - Netto Storico </td></tr><tr><th scope="row">Descrizione:</th><td>Manufatti con valenze storico architettoniche - Normati dalla Scheda Norma</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleAreeedimmobilisogettiatutelaamvientaleNettoStorico(feature) {
+				return {
+					color: '#E0D9D9',
+					fillColor: '#ff003f',
+					weight: '0.75',
+					dashArray: '',
+					opacity: '0.75',
+					fillOpacity: '0.75',
+				};
+		}
+		var exp_AreeedimmobilisogettiatutelaamvientaleNettoStoricoJSON = new L.geoJson(exp_AreeedimmobilisogettiatutelaamvientaleNettoStorico,{
+			onEachFeature: pop_AreeedimmobilisogettiatutelaamvientaleNettoStorico,
+			style: doStyleAreeedimmobilisogettiatutelaamvientaleNettoStorico
+		});
+		layerOrder[layerOrder.length] = exp_AreeedimmobilisogettiatutelaamvientaleNettoStoricoJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_AreeedimmobilisogettiatutelaamvientaleNettoStoricoJSON);
+				function pop_ZoneBB0a(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneBB0a(feature) {
+			switch (feature.properties.ZTO) {
+				case 'B0a':
+					return {
+						weight: '0.75',
+						fillColor: '#FF7F7F',
+						color: '#FF7F7F',
+						weight: '3',
+						dashArray: '3',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneBB0aJSON = new L.geoJson(exp_ZoneBB0a,{
+			onEachFeature: pop_ZoneBB0a,
+			style: doStyleZoneBB0a
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneBB0aJSON);
+		function pop_ZoneBB0b(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneBB0b(feature) {
+			switch (feature.properties.ZTO) {
+				case 'B0b':
+					return {
+						weight: '0.75',
+						fillColor: '#FF7F7F',
+						color: '##FF7F7F',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneBB0bJSON = new L.geoJson(exp_ZoneBB0b,{
+			onEachFeature: pop_ZoneBB0b,
+			style: doStyleZoneBB0b
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneBB0bJSON);
+		function pop_ZoneBB1(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneBB1(feature) {
+			switch (feature.properties.ZTO) {
+				case 'B1':
+					return {
+						weight: '0.75',
+						fillColor: '#FFDF7F',
+						color: '#FFDF7F',
+						weight: '1',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneBB1JSON = new L.geoJson(exp_ZoneBB1,{
+			onEachFeature: pop_ZoneBB1,
+			style: doStyleZoneBB1
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneBB1JSON);
+		function pop_ZoneBB2(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneBB2(feature) {
+			switch (feature.properties.ZTO) {
+				case 'B2':
+					return {
+						weight: '0.75',
+						fillColor: '#A55200',
+						color: '#A55200',
+						weight: '3',
+						dashArray: '3',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneBB2JSON = new L.geoJson(exp_ZoneBB2,{
+			onEachFeature: pop_ZoneBB2,
+			style: doStyleZoneBB2
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneBB2JSON);
+		function pop_ZoneBB3(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneBB3(feature) {
+			switch (feature.properties.ZTO) {
+				case 'B3':
+					return {
+						weight: '0.75',
+						fillColor: '#A55200',
+						color: '#A55200',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneBB3JSON = new L.geoJson(exp_ZoneBB3,{
+			onEachFeature: pop_ZoneBB3,
+			style: doStyleZoneBB3
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneBB3JSON);
+				function pop_ZoneBB4a(feature, layer) {					
+			var popupContent = '<table><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneBB4a(feature) {
+			switch (feature.properties.ZTO) {
+				case 'B4b':
+					return {
+						weight: '0.75',
+						fillColor: '#260000',
+						color: '#260000',
+						weight: '3',
+						dashArray: '3',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneBB4aJSON = new L.geoJson(exp_ZoneBB4a,{
+			onEachFeature: pop_ZoneBB4a,
+			style: doStyleZoneBB4a
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneBB4aJSON);
+		function pop_ZoneBB4b(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneBB4b(feature) {
+			switch (feature.properties.ZTO) {
+				case 'B4A':
+					return {
+						weight: '0.75',
+						fillColor: '#260000',
+						color: '#260000',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneBB4bJSON = new L.geoJson(exp_ZoneBB4b,{
+			onEachFeature: pop_ZoneBB4b,
+			style: doStyleZoneBB4b
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneBB4bJSON);
+
+		function pop_ZoneBB5(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+	function doStyleZoneBB5(feature) {
+			switch (feature.properties.ZTO) {
+				case 'B5':
+					return {
+						weight: '0.75',
+						fillColor: '#FFBF7F',
+						color: '#BFFF7F',
+						weight: '3',
+						dashArray: '3',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneBB5JSON = new L.geoJson(exp_ZoneBB5,{
+			onEachFeature: pop_ZoneBB5,
+			style: doStyleZoneBB5
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneBB5JSON);
+
+		function pop_ZoneCCa(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneCCa(feature) {
+			switch (feature.properties.ZTO) {
+				case 'Ca':
+					return {
+						weight: '0.75',
+						fillColor: '#FF9F7F',
+						color: '#FF9F7F',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneCCaJSON = new L.geoJson(exp_ZoneCCa,{
+			onEachFeature: pop_ZoneCCa,
+			style: doStyleZoneCCa
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneCCaJSON);
+	function pop_ZoneCCb(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleZoneCCb(feature) {
+			switch (feature.properties.ZTO) {
+				case 'Cb':
+					return {
+						weight: '0.75',
+						fillColor: '#A59152',
+						color: '#A59152',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneCCbJSON = new L.geoJson(exp_ZoneCCb,{
+			onEachFeature: pop_ZoneCCb,
+			style: doStyleZoneCCb
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneCCbJSON);
+		function pop_ZoneDD1(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleZoneDD1(feature) {
+			switch (feature.properties.ZTO) {
+				case 'D1':
+					return {
+						weight: '0.75',
+						fillColor: '#C07FFF',
+						color: '#C07FFF',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneDD1JSON = new L.geoJson(exp_ZoneDD1,{
+			onEachFeature: pop_ZoneDD1,
+			style: doStyleZoneDD1
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneDD1JSON);
+		function pop_ZoneDD2(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleZoneDD2(feature) {
+			switch (feature.properties.ZTO) {
+				case 'D2':
+					return {
+						weight: '0.75',
+						fillColor: '#C07FFF',
+						color: '#C07FFF',
+						weight: '3',
+						dashArray: '3',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneDD2JSON = new L.geoJson(exp_ZoneDD2,{
+			onEachFeature: pop_ZoneDD2,
+			style: doStyleZoneDD2
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneDD2JSON);
+		
+		
+		function pop_ZoneEE1(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneEE1(feature) {
+			switch (feature.properties.ZTO) {
+				case 'E1':
+					return {
+						weight: '0.75',
+						fillColor: '#C0FF7F',
+						color: '#C0FF7F',
+						weight: '1',
+						dashArray: '15,5,1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneEE1JSON = new L.geoJson(exp_ZoneEE1,{
+			onEachFeature: pop_ZoneEE1,
+			style: doStyleZoneEE1
+		});
+		
+		
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneEE1JSON);
+		function pop_ZoneEE2(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneEE2(feature) {
+			switch (feature.properties.ZTO) {
+				case 'E2':
+					return {
+						weight: '0.75',
+						fillColor: '#1f7f00',
+						color: '#1f7f00',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneEE2JSON = new L.geoJson(exp_ZoneEE2,{
+			onEachFeature: pop_ZoneEE2,
+			style: doStyleZoneEE2
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneEE2JSON);
+		function pop_ZoneFSpaziedAttrezzaturepubblichediinteressegenerale(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneFSpaziedAttrezzaturepubblichediinteressegenerale(feature) {
+			switch (feature.properties.ZTO) {
+				case 'F1':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F10':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F11':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F11F24':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F12':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F12F15':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F12F15F16':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F13':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F14':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F15':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F16':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F18':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F19':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F1F2':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F1F3F15':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F1S2':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F1-S2':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F2':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F23':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F2F12':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F2-F15':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F3':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F4':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F4F10F11':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F5':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F7':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F8':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F9':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'F17':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneFSpaziedAttrezzaturepubblichediinteressegeneraleJSON = new L.geoJson(exp_ZoneFSpaziedAttrezzaturepubblichediinteressegenerale,{
+			onEachFeature: pop_ZoneFSpaziedAttrezzaturepubblichediinteressegenerale,
+			style: doStyleZoneFSpaziedAttrezzaturepubblichediinteressegenerale
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneFSpaziedAttrezzaturepubblichediinteressegeneraleJSON);
+
+		function pop_ZoneSIstruzioneAsiliNidoeScuoledellobbligo(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneSIstruzioneAsiliNidoeScuoledellobbligo(feature) {
+			switch (feature.properties.ZTO) {
+				case 'S1':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'S1S2':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'S2':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#7fffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneSIstruzioneAsiliNidoeScuoledellobbligoJSON = new L.geoJson(exp_ZoneSIstruzioneAsiliNidoeScuoledellobbligo,{
+			onEachFeature: pop_ZoneSIstruzioneAsiliNidoeScuoledellobbligo,
+			style: doStyleZoneSIstruzioneAsiliNidoeScuoledellobbligo
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneSIstruzioneAsiliNidoeScuoledellobbligoJSON);
+
+		function pop_Parcheggi(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleParcheggi(feature) {
+			switch (feature.properties.ZTO) {
+				case 'Parcheggi':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '3',
+						dashArray: '1',
+						opacity: '1.0',
+						fillOpacity: '0',
+					};
+					break;
+			}
+		}
+		var exp_ParcheggiJSON = new L.geoJson(exp_Parcheggi,{
+			onEachFeature: pop_Parcheggi,
+			style: doStyleParcheggi
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ParcheggiJSON);
+
+function pop_Centrodimunicipalit(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleCentrodimunicipalit(feature) {
+			switch (feature.properties.ZTO) {
+				case 'CM':
+					return {
+						weight: '0.75',
+						fillColor: '#7fffff',
+						color: '#E0D9D9',
+						weight: '1',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_CentrodimunicipalitJSON = new L.geoJson(exp_Centrodimunicipalit,{
+			onEachFeature: pop_Centrodimunicipalit,
+			style: doStyleCentrodimunicipalit
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_CentrodimunicipalitJSON);
+
+function pop_ZoneICAttrezzaturediInteressiComune(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneICAttrezzaturediInteressiComune(feature) {
+			switch (feature.properties.ZTO) {
+				case 'IC1':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC11':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC12':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC13':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC14':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC1F14':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC1IC11F14':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC1IC4':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC1IC5':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC2':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC2IC3IC4':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC2IC4IC10':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC2IC4IC5IC6IC10':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC2IC4IC9':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC2IC5IC6':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC3':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC3IC10':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC3IC5':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC3IC7':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC4':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC4IC6IC10':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC4IC8':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC4IC9':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC5':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC5IC6':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '1',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC6':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC7':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC8':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'IC9':
+					return {
+						weight: '0.75',
+						fillColor: '#00ffff',
+						color: '#00ffff',
+						weight: '0.5',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneICAttrezzaturediInteressiComuneJSON = new L.geoJson(exp_ZoneICAttrezzaturediInteressiComune,{
+			onEachFeature: pop_ZoneICAttrezzaturediInteressiComune,
+			style: doStyleZoneICAttrezzaturediInteressiComune
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneICAttrezzaturediInteressiComuneJSON);
+		function pop_Icd(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleIcd(feature) {
+			switch (feature.properties.ZTO) {
+				case 'IDC':
+					return {
+						weight: '1.3',
+						fillColor: '#00ffff',
+						color: '#E0D9D9',
+						weight: '1',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_IcdJSON = new L.geoJson(exp_Icd,{
+			onEachFeature: pop_Icd,
+			style: doStyleIcd
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_IcdJSON);
+function pop_AreeedimmobilisogettiatutelaamvientaleFasciaCostiera(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleAreeedimmobilisogettiatutelaamvientaleFasciaCostiera(feature) {
+			switch (feature.properties.ZTO) {
+				case 'Fascia_costiera':
+					return {
+						weight: '0.75',
+						fillColor: '#91a552',
+						color: '#91A552',
+						weight: '1',
+						dashArray: '',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_AreeedimmobilisogettiatutelaamvientaleFasciaCostieraJSON = new L.geoJson(exp_AreeedimmobilisogettiatutelaamvientaleFasciaCostiera,{
+			onEachFeature: pop_AreeedimmobilisogettiatutelaamvientaleFasciaCostiera,
+			style: doStyleAreeedimmobilisogettiatutelaamvientaleFasciaCostiera
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_AreeedimmobilisogettiatutelaamvientaleFasciaCostieraJSON);
+		function pop_AreeedimmobilisogettiatutelaamvientaleVerdeStorico(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleAreeedimmobilisogettiatutelaamvientaleVerdeStorico(feature) {
+			switch (feature.properties.ZTO) {
+				case 'VS':
+					return {
+						weight: '0.75',
+						fillColor: '#9fff7f',
+						color: '#9fff7f',
+						weight: '3',
+						dashArray: '3',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_AreeedimmobilisogettiatutelaamvientaleVerdeStoricoJSON = new L.geoJson(exp_AreeedimmobilisogettiatutelaamvientaleVerdeStorico,{
+			onEachFeature: pop_AreeedimmobilisogettiatutelaamvientaleVerdeStorico,
+			style: doStyleAreeedimmobilisogettiatutelaamvientaleVerdeStorico
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_AreeedimmobilisogettiatutelaamvientaleVerdeStoricoJSON);
+		function pop_ZoneVerdePubblico(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Zonizzazione:</th><td>' + Autolinker.link(String(feature.properties['ZTO'])) + '</td></tr><tr><th scope="row">Descrizione:</th><td>' + Autolinker.link(String(feature.properties['DESCRIZION'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['NOTE'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		function doStyleZoneVerdePubblico(feature) {
+			switch (feature.properties.ZTO) {
+				case 'V':
+					return {
+						weight: '0.75',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '3',
+						dashArray: '3',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V1':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V1V2':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V1V3':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V2':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V2V3':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V2V4':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V2V5':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V3':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V3+VS':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V3IC2IC4':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V4':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V4IC2':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+				case 'V5':
+					return {
+						weight: '10.0',
+						fillColor: '#52a500',
+						color: '#52a500',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '1.0',
+						fillOpacity: '0.55',
+					};
+					break;
+			}
+		}
+		var exp_ZoneVerdePubblicoJSON = new L.geoJson(exp_ZoneVerdePubblico,{
+			onEachFeature: pop_ZoneVerdePubblico,
+			style: doStyleZoneVerdePubblico
+		});
+		
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_ZoneVerdePubblicoJSON);
+		feature_group.addTo(map);
+		var title = new L.Control();
+		title.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		title.update = function () {
+			this._div.innerHTML = '<h2>Variante Generale al P.R.G. - Palermo</h2>Zonizzazione: e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di approvazione - Luglio 2003 - Presa D atto Delibera 7/2004' 
+		};
+		title.addTo(map);
+	var baseMaps = {
+		'OSM Standard': basemap_0
+	};
+		L.control.layers(baseMaps,{"Netto Storico": exp_AreeedimmobilisogettiatutelaamvientaleNettoStoricoJSON,"Zone A - A1": exp_ZoneAA1JSON,"Zone A - A2": exp_ZoneAA2JSON,"Zone B - B0a": exp_ZoneBB0aJSON,"Zone B - B0b": exp_ZoneBB0bJSON,"Zone B - B1": exp_ZoneBB1JSON,"Zone B - B2": exp_ZoneBB2JSON,"Zone B - B3": exp_ZoneBB3JSON,"Zone B - B4a": exp_ZoneBB4aJSON,"Zone B - B4b ": exp_ZoneBB4bJSON,"Zone B - B5": exp_ZoneBB5JSON,"Zone C - Ca": exp_ZoneCCaJSON,"Zone C - Cb": exp_ZoneCCbJSON,"Zone D - D1": exp_ZoneDD1JSON,"Zone D - D2": exp_ZoneDD2JSON,"Centro di municipalità": exp_CentrodimunicipalitJSON,"Zone E - E1 ": exp_ZoneEE1JSON,"Zone E - E2": exp_ZoneEE2JSON,"Zone F": exp_ZoneFSpaziedAttrezzaturepubblichediinteressegeneraleJSON,"Zone S": exp_ZoneSIstruzioneAsiliNidoeScuoledellobbligoJSON,"Parcheggi": exp_ParcheggiJSON,"Attrezzature di Interessi Comune": exp_ZoneICAttrezzaturediInteressiComuneJSON,"Fascia Costiera": exp_AreeedimmobilisogettiatutelaamvientaleFasciaCostieraJSON,"Icd": exp_IcdJSON,"Verde Pubblico": exp_ZoneVerdePubblicoJSON,"Verde Storico": exp_AreeedimmobilisogettiatutelaamvientaleVerdeStoricoJSON, "Quadro Unione 5K": exp_QuadroUnioneJSON, "Città Storica": exp_AreeedimmobilisogettiatutelaamvientaleCittaStoricaJSON},{collapsed:false}).addTo(map);
+		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
+	</script>
+</body>
+</html>
