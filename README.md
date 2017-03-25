@@ -19,6 +19,6 @@ Alcune mappa create dagli utenti della comunità [OpenDataSicilia](https://group
 La vulnerabilità sismica rappresenta una misura della maggiore o minore capacità degli edifici di resistere ad azioni sismiche (terremoti di prefissata entità);
 - [**Mappa del pendolarismo da e per Palermo – Istat 2011**](http://siciliahub.github.io/mappe/pendolarismo/) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 - [**Palermo 2025 - Plamimetria schema di massima del PR**](http://siciliahub.github.io/mappe/prg_2025/prg_2015.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
-- [**Esplorare Palermo - Cartografica storica**](http://siciliahub.github.io/mappe/carto_storica)  e [**Cartografica storica con switch per cambio base mappa**](http://siciliahub.github.io/mappe/carto_storica/index_02.html) con switch per cambio base mappa a cura di [@aborruso](https://twitter.com/aborruso), [@piersoft](https://twitter.com/Piersoft), [@cirospat](https://twitter.com/cirospat), [@napo](https://twitter.com/napo), [@gbvitrano](https://twitter.com/gbvitrano);
+- [**Esplorare Palermo - Cartografica storica**](http://siciliahub.github.io/mappe/carto_storica)  e [**Cartografica storica con switch per cambio base mappa**](http://siciliahub.github.io/mappe/carto_storica/index_02.html) a cura di [@aborruso](https://twitter.com/aborruso), [@piersoft](https://twitter.com/Piersoft), [@cirospat](https://twitter.com/cirospat), [@napo](https://twitter.com/napo), [@gbvitrano](https://twitter.com/gbvitrano);
 
 
