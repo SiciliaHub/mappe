@@ -61,7 +61,7 @@ minZoom: 13,
               });
 
 			       var basemap2 = L.tileLayer.mask("http://mapwarper.net/maps/tile/19706/{z}/{x}/{y}.png", {
-      attribution: '<a href="https://github.com/frogcat/leaflet-tileoverlay-mask" title="Leaflet-tileoverlay-mask">Leaflet-tileoverlay-mask</a> - Cartografia storica Palermo - Rielaborazione di <a href="https://twitter.com/aborruso" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/cirospat" title="Ciro Spataro">@cirospat</a>, <a href=" https://twitter.com/Piersoft" title="@piersoft">@piersoft</a> e <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a>',
+      attribution: '<a href="https://github.com/frogcat/leaflet-tileoverlay-mask" title="Leaflet-tileoverlay-mask">Leaflet-tileoverlay-mask</a> - Cartografia storica Palermo - Rielaborazione di <a href="https://twitter.com/aborruso" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/cirospat" title="Ciro Spataro">@cirospat</a>, <a href="https://twitter.com/napo " title="Maurizio Napolitano">@napo</a> <a href=" https://twitter.com/Piersoft" title="Francesco Piero Paolicelli">@piersoft</a> e <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a>',
 	  minZoom: 13,
       maxZoom: 17,
       maxNativeZoom: 17
