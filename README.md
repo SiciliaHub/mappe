@@ -10,6 +10,6 @@ Alcune mappa create dagli utenti della comunità [OpenDataSicilia](https://group
 - **[rischio_frane](http://siciliahub.github.io/mappe/rischio_frane/)**, a cura di [@aborruso](https://twitter.com/aborruso), per i dati del rischio frane in Sicilia (vedi [blog post](http://opendatasicilia.it/2014/10/27/rischio-idrogeologico-regione-siciliana-linformazione-civica/) del 27/10/2014)
 - **[beatipaoli_levie](http://siciliahub.github.io/mappe/beatipaoli_levie)**, a cura di [@cirospat](https://twitter.com/cirospat);
 - [**atm-catania**](http://siciliahub.github.io/mappe/atm-catania/);
-- [**esplora_palermo**](http://siciliahub.github.io/mappe/eplorapalermo/);
+- [**esplora_palermo**](http://siciliahub.github.io/mappe/eplorapalermo/index_02.html);
 
 
