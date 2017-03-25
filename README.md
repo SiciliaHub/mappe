@@ -14,8 +14,8 @@ Alcune mappa create dagli utenti della comunità [OpenDataSicilia](https://group
 - [**Modello digitale del terreno e unità volumetriche**](http://siciliahub.github.io/mappe/dem_volumetrie_pa) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 - [**Unità volumetriche con Qgis Feature 2.5D Renderer**](http://siciliahub.github.io/mappe/cs_pa_3d/) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 - [**Esercizio - Vulnerabilità sismica degli edifici residenziali di Palermo**](http://siciliahub.github.io/mappe/vuln-sismica-pa) a cura di [@carbone_letizia](https://twitter.com/carbone_letizia) e [@gbvitrano](https://twitter.com/gbvitrano);
-- [**Mappa 3D – Vulnerabilità sismica degli edifici residenziali di Palermo**](http://siciliahub.github.io/mappe/vuln_sismica-pa-3d/) a cura di [@carbone_letizia](https://twitter.com/carbone_letizia) e [@gbvitrano](https://twitter.com/gbvitrano);
-È una mappatura di base della vulnerabilità sismica degli edifici residenziali di due aree campione della città.
+- [**Mappa 3D – Vulnerabilità sismica degli edifici residenziali di Palermo**](http://siciliahub.github.io/mappe/vuln_sismica-pa-3d/) a cura di [@carbone_letizia](https://twitter.com/carbone_letizia) e [@gbvitrano](https://twitter.com/gbvitrano);<br>
+È una mappatura di base della vulnerabilità sismica degli edifici residenziali di due aree campione della città.<br>
 La vulnerabilità sismica rappresenta una misura della maggiore o minore capacità degli edifici di resistere ad azioni sismiche (terremoti di prefissata entità);
 - [**Mappa del pendolarismo da e per Palermo – Istat 2011**](http://siciliahub.github.io/mappe/pendolarismo/) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 - [**Variante Generale al P.R.G. - Palermo - 2004 - Zonizzazione**](http://siciliahub.github.io/mappe/prg_pa_2004/prg_pa_2004/prg_2004.html)<br>
