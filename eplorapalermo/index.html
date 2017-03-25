@@ -37,7 +37,7 @@ z-index: 999;}
   <div id="map"></div>
   <script>
     var map = L.map("map", L.extend({
-      zoom: 15,
+      zoom: 14,
       center: [38.11127,13.3534422]
     }, L.Hash.parseHash(location.hash)));
 
@@ -45,17 +45,17 @@ z-index: 999;}
 
     L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
        attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-      minZoom: 2,
+      minZoom: 13,
       maxZoom: 17,
-      maxNativeZoom: 18
+      maxNativeZoom: 17
     }).addTo(map);
 
     var mask = L.svg.mask();
     L.tileOverlay("http://mapwarper.net/maps/tile/19706/{z}/{x}/{y}.png", {
-       attribution: '<a href="https://github.com/frogcat/leaflet-tileoverlay-mask" title="Leaflet-tileoverlay-mask">Leaflet-tileoverlay-mask</a> - Cartografia storica Palermo - Rielaborazione di <a href="https://twitter.com/aborruso" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/cirospat" title="Ciro Spataro">@cirospat</a>, <a href=" https://twitter.com/Piersoft" title="@piersoft">@piersoft</a> e <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a>',
-      minZoom: 2,
+      attribution: '<a href="https://github.com/frogcat/leaflet-tileoverlay-mask" title="Leaflet-tileoverlay-mask">Leaflet-tileoverlay-mask</a> - Cartografia storica Palermo - Rielaborazione di <a href="https://twitter.com/aborruso" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/cirospat" title="Ciro Spataro">@cirospat</a> e <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a>	 ',
+      minZoom: 13,
       maxZoom: 17,
-      maxNativeZoom: 18,
+      maxNativeZoom: 17,
       renderer: mask
     }).addTo(map);
 
