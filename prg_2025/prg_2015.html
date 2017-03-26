@@ -4,7 +4,7 @@
 <html>
 <head>
  <title>Palermo 2025 - Schema di massima del PRG</title>
-
+<link href="popup.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.css" />
 		<!--[if lte IE 8]> <link rel="stylesheet" href="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.ie.css" />  <![endif]-->
 		<script src="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.js"></script>
@@ -27,7 +27,12 @@
 #ods {
 position:fixed;
 bottom:20px;
-right:20px;
+right:25px;
+z-index: 999;}
+#legenda {
+position:fixed;
+top:120px;
+right:25px;
 z-index: 999;}
      </style>
 </head>
@@ -56,7 +61,7 @@ z-index: 999;}
         });
 
 			       var basemap4 = L.tileLayer.mask('http://mapwarper.net/maps/tile/19437/{z}/{x}/{y}.png',{
-            attribution: 'Palermo 2025 - Schema di massima del PRG - Rielaborazione di @gbvitrano e @cirospat su <a href="http://labmod.org/maps/trento1915/">tutorial</a> by @Napo - Grazie a @Piersoft'
+            attribution: '<a href="https://www.comune.palermo.it/noticext.php?id=8088" target="_blank" Title="Fonte dati Comune di Palermo">Palermo 2025 - Schema di massima del PRG</a> - Rielaborazione di <a href="https://twitter.com/cirospat" target="_blank" Title="Ciro Spataro">@cirospat</a> ,<a href="https://twitter.com/Piersoft" target="_blank" Title="Francesco Piero Paolicelli">@piersoft</a> e <a href="https://twitter.com/gbvitrano" target="_blank" Title="Giovan Battista Vitrano">@gbvitrano</a> sull <a href="https://medium.com/@napo/mappa-di-trento-1915-da-un-libro-di-cesare-battisti-84935794b1ed#.abjvo34xq" target="_blank" Title="Mappa di Trento 1915 - da un libro di Cesare Battisti">articolo</a> di <a href="https://twitter.com/napo" target="_blank" Title="Maurizio Napolitano">@napo</a>'
         });
         basemap4.addTo(map);
 
@@ -77,5 +82,15 @@ z-index: 999;}
         </script>
          <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
 <img src="legend/opendatasicilia.png" width="48px" title="opendatasicilia.it" alt="opendatasicilia"></a></div>
+<div id="legenda"><a class="legenda" href="#leg" title="Legenda dello schema di massima del PRG Palermo 2025"><img src="legend/ico_leg.png" width="64" height="64" alt=""/></a></div>
+<div id="leg" class="overlay">
+  <div class="popup">
+    <a class="close" href="#" title="Clicca qui per chiudere">&times;</a>
+    <div class="content">
+   <p><img src="legend/PRG_PA_2025_leg_01.jpg" width="100%"  alt=""/></p>
+    <p><a href="legend/PRG_PA_2025_leg_01.jpg" title="Legenda dello schema di massima del PRG Palermo 2025" target="_blank">Visualizza a schermo intero</a></p>
+    </div>
+  </div>
+</div>
     </body>
 </html>
