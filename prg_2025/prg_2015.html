@@ -50,18 +50,30 @@ z-index: 999;}
 
         var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			minZoom: 13,
+      maxZoom: 16,
+      maxNativeZoom: 16
         });
         basemap0.addTo(map);
         var basemap2 = L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', {
             attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Mapdata: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			minZoom: 13,
+      maxZoom: 16,
+      maxNativeZoom: 16
         });
 
         var basemap3 = L.tileLayer('http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			minZoom: 13,
+      maxZoom: 16,
+      maxNativeZoom: 16
         });
 
 			       var basemap4 = L.tileLayer.mask('http://mapwarper.net/maps/tile/19437/{z}/{x}/{y}.png',{
-            attribution: '<a href="https://www.comune.palermo.it/noticext.php?id=8088" target="_blank" Title="Fonte dati Comune di Palermo">Palermo 2025 - Schema di massima del PRG</a> - Rielaborazione di <a href="https://twitter.com/cirospat" target="_blank" Title="Ciro Spataro">@cirospat</a> ,<a href="https://twitter.com/Piersoft" target="_blank" Title="Francesco Piero Paolicelli">@piersoft</a> e <a href="https://twitter.com/gbvitrano" target="_blank" Title="Giovan Battista Vitrano">@gbvitrano</a> sull <a href="https://medium.com/@napo/mappa-di-trento-1915-da-un-libro-di-cesare-battisti-84935794b1ed#.abjvo34xq" target="_blank" Title="Mappa di Trento 1915 - da un libro di Cesare Battisti">articolo</a> di <a href="https://twitter.com/napo" target="_blank" Title="Maurizio Napolitano">@napo</a>'
+            attribution: '<a href="https://www.comune.palermo.it/noticext.php?id=8088" target="_blank" Title="Fonte dati Comune di Palermo">Palermo 2025 - Schema di massima del PRG</a> - Rielaborazione di <a href="https://twitter.com/cirospat" target="_blank" Title="Ciro Spataro">@cirospat</a> ,<a href="https://twitter.com/Piersoft" target="_blank" Title="Francesco Piero Paolicelli">@piersoft</a> e <a href="https://twitter.com/gbvitrano" target="_blank" Title="Giovan Battista Vitrano">@gbvitrano</a> sull <a href="https://medium.com/@napo/mappa-di-trento-1915-da-un-libro-di-cesare-battisti-84935794b1ed#.abjvo34xq" target="_blank" Title="Mappa di Trento 1915 - da un libro di Cesare Battisti">articolo</a> di <a href="https://twitter.com/napo" target="_blank" Title="Maurizio Napolitano">@napo</a>',
+			minZoom: 13,
+      maxZoom: 16,
+      maxNativeZoom: 16
         });
         basemap4.addTo(map);
 
