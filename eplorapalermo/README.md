@@ -1,3 +1,3 @@
-# Note
+# work in progress...
 
-
+<a href="http://github.gbvitrano.it/carto_storica/carto_switch.html"><img width="1000" src="http://coseerobe.gbvitrano.it/mappe/images/mappa_carto_storica.jpg" Title="Esplorare Palermo - Cartografica storica" alt="Cartografia Storica Palermo" /></a>
