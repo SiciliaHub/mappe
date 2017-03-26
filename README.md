@@ -10,7 +10,7 @@ Alcune mappa create dagli utenti della comunità [OpenDataSicilia](https://group
 - **[rischio_frane](http://siciliahub.github.io/mappe/rischio_frane/)**, a cura di [@aborruso](https://twitter.com/aborruso), per i dati del rischio frane in Sicilia (vedi [blog post](http://opendatasicilia.it/2014/10/27/rischio-idrogeologico-regione-siciliana-linformazione-civica/) del 27/10/2014)
 - **[beatipaoli_levie](http://siciliahub.github.io/mappe/beatipaoli_levie)**, a cura di [@cirospat](https://twitter.com/cirospat);
 - [**atm-catania**](http://siciliahub.github.io/mappe/atm-catania/);
-- [**Modello digitale del terreno**](http://siciliahub.github.io/mappe/dem_palermo) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
+- [**Modello digitale del terreno ed estrazione delle curve di livello**](http://siciliahub.github.io/mappe/dem_palermo) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 - [**Modello digitale del terreno e unità volumetriche**](http://siciliahub.github.io/mappe/dem_volumetrie_pa) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 - [**Unità volumetriche con Qgis Feature 2.5D Renderer**](http://siciliahub.github.io/mappe/cs_pa_3d/) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 - [**Esercizio - Vulnerabilità sismica degli edifici residenziali di Palermo**](http://siciliahub.github.io/mappe/vuln-sismica-pa) a cura di [@carbone_letizia](https://twitter.com/carbone_letizia) e [@gbvitrano](https://twitter.com/gbvitrano);
