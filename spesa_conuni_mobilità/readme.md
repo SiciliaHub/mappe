@@ -1,0 +1,1 @@
+- [**Comuni Siciliani- spesa per la mobilità**](http://siciliahub.github.io/mappe/spesa_conuni_mobilit%C3%A0/#9/37.4907/13.9632), a cura di [@gbvitrano](https://twitter.com/gbvitrano), [fonte dati](http://blog.openpolis.it/2017/03/22/quanto-spendono-comuni-la-mobilita);
