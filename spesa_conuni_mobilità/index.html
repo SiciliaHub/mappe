@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css" />
+        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css" />
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title>Quanto spendono i comuni Siciliani per la mobilità</title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet-heat.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/OSMBuildings-Leaflet.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/leaflet-tilelayer-wmts.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/SiciliaComuni0.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:10, minZoom:8
+        }).fitBounds([[36.6584191759,12.1685066566],[38.3138920025,15.7579900737]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> - <a href="http://blog.openpolis.it/2017/03/22/quanto-spendono-comuni-la-mobilita" title="Quanto spendono i comuni per la mobilità">Fonte dati - blog.openpolis.it</a></a> - <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a> <a href="http://coseerobe.gbvitrano.it/" target="_blank"><img src="http://gbvitrano.it/clip/gb/gb_01.png" width="24" height="24" Title=" Rielaborazione Opendata - Giovan Battista Vitrano" alt="Giovan Battista Vitrano"/></a></a>',
+            maxZoom: 10
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function geoJson2heat(geojson, weight) {
+          return geojson.features.map(function(feature) {
+            return [
+              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[0],
+              feature.properties[weight]
+            ];
+          });
+        }
+        function pop_SiciliaComuni0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_SiciliaComuni0(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Regione</th>\
+                        <td>' + (feature.properties['Regione'] !== null ? Autolinker.link(String(feature.properties['Regione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Prov</th>\
+                        <td>' + (feature.properties['Prov'] !== null ? Autolinker.link(String(feature.properties['Prov'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune</th>\
+                        <td>' + (feature.properties['Comune'] !== null ? Autolinker.link(String(feature.properties['Comune'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Spesa pro capite 2014 (in €)</th>\
+                        <td>' + (feature.properties['Spesa pro capite 2014 (in €)'] !== null ? Autolinker.link(String(feature.properties['Spesa pro capite 2014 (in €)'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Classifica dei comuni in Sicilia</th>\
+                        <td>' + (feature.properties['Classifica dei comuni in Sicilia'] !== null ? Autolinker.link(String(feature.properties['Classifica dei comuni in Sicilia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Classifica dei comuni in tutta Italia</th>\
+                        <td>' + (feature.properties['Classifica dei comuni in tutta Italia'] !== null ? Autolinker.link(String(feature.properties['Classifica dei comuni in tutta Italia'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_SiciliaComuni0(feature) {
+            if (feature.properties['Spesa pro capite 2014 (in €)'] >= -1.000000 && feature.properties['Spesa pro capite 2014 (in €)'] <= 0.000000 ) {
+                return {
+                pane: 'pane_SiciliaComuni0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,0.0)',
+            }
+            }
+            if (feature.properties['Spesa pro capite 2014 (in €)'] >= 0.000000 && feature.properties['Spesa pro capite 2014 (in €)'] <= 69.000000 ) {
+                return {
+                pane: 'pane_SiciliaComuni0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(94,167,177,0.7)',
+            }
+            }
+            if (feature.properties['Spesa pro capite 2014 (in €)'] >= 69.000000 && feature.properties['Spesa pro capite 2014 (in €)'] <= 137.000000 ) {
+                return {
+                pane: 'pane_SiciliaComuni0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(145,203,169,0.7)',
+            }
+            }
+            if (feature.properties['Spesa pro capite 2014 (in €)'] >= 137.000000 && feature.properties['Spesa pro capite 2014 (in €)'] <= 206.000000 ) {
+                return {
+                pane: 'pane_SiciliaComuni0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(188,228,170,0.7)',
+            }
+            }
+            if (feature.properties['Spesa pro capite 2014 (in €)'] >= 206.000000 && feature.properties['Spesa pro capite 2014 (in €)'] <= 274.000000 ) {
+                return {
+                pane: 'pane_SiciliaComuni0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(222,242,180,0.7)',
+            }
+            }
+            if (feature.properties['Spesa pro capite 2014 (in €)'] >= 274.000000 && feature.properties['Spesa pro capite 2014 (in €)'] <= 343.000000 ) {
+                return {
+                pane: 'pane_SiciliaComuni0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,0.7)',
+            }
+            }
+            if (feature.properties['Spesa pro capite 2014 (in €)'] >= 343.000000 && feature.properties['Spesa pro capite 2014 (in €)'] <= 411.000000 ) {
+                return {
+                pane: 'pane_SiciliaComuni0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,223,154,0.7)',
+            }
+            }
+            if (feature.properties['Spesa pro capite 2014 (in €)'] >= 411.000000 && feature.properties['Spesa pro capite 2014 (in €)'] <= 480.000000 ) {
+                return {
+                pane: 'pane_SiciliaComuni0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(254,190,116,0.7)',
+            }
+            }
+            if (feature.properties['Spesa pro capite 2014 (in €)'] >= 480.000000 && feature.properties['Spesa pro capite 2014 (in €)'] <= 549.000000 ) {
+                return {
+                pane: 'pane_SiciliaComuni0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(246,144,83,0.7)',
+            }
+            }
+            if (feature.properties['Spesa pro capite 2014 (in €)'] >= 549.000000 && feature.properties['Spesa pro capite 2014 (in €)'] <= 617.000000 ) {
+                return {
+                pane: 'pane_SiciliaComuni0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(231,84,55,0.7)',
+            }
+            }
+            if (feature.properties['Spesa pro capite 2014 (in €)'] >= 617.000000 && feature.properties['Spesa pro capite 2014 (in €)'] <= 686.000000 ) {
+                return {
+                pane: 'pane_SiciliaComuni0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.7)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,0.7)',
+            }
+            }
+        }
+        map.createPane('pane_SiciliaComuni0');
+        map.getPane('pane_SiciliaComuni0').style.zIndex = 600;
+        map.getPane('pane_SiciliaComuni0').style['mix-blend-mode'] = 'normal';
+    var layer_SiciliaComuni0 = new L.geoJson(json_SiciliaComuni0, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_SiciliaComuni0',
+        onEachFeature: pop_SiciliaComuni0,
+        style: style_SiciliaComuni0
+    });
+        bounds_group.addLayer(layer_SiciliaComuni0);
+        map.addLayer(layer_SiciliaComuni0);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Sicilia - Comuni<br /><table><tr><td style="text-align: center;"><img src="legend/SiciliaComuni0_Nodati0.png" /></td><td>No dati</td></tr><tr><td style="text-align: center;"><img src="legend/SiciliaComuni0_0691.png" /></td><td> 0 - 69  €</td></tr><tr><td style="text-align: center;"><img src="legend/SiciliaComuni0_691372.png" /></td><td> 69 - 137  €</td></tr><tr><td style="text-align: center;"><img src="legend/SiciliaComuni0_1372063.png" /></td><td> 137 - 206  €</td></tr><tr><td style="text-align: center;"><img src="legend/SiciliaComuni0_2062744.png" /></td><td> 206 - 274  €</td></tr><tr><td style="text-align: center;"><img src="legend/SiciliaComuni0_2743435.png" /></td><td> 274 - 343  €</td></tr><tr><td style="text-align: center;"><img src="legend/SiciliaComuni0_3434116.png" /></td><td> 343 - 411  €</td></tr><tr><td style="text-align: center;"><img src="legend/SiciliaComuni0_4114807.png" /></td><td> 411 - 480  €</td></tr><tr><td style="text-align: center;"><img src="legend/SiciliaComuni0_4805498.png" /></td><td> 480 - 549  €</td></tr><tr><td style="text-align: center;"><img src="legend/SiciliaComuni0_5496179.png" /></td><td> 549 - 617  €</td></tr><tr><td style="text-align: center;"><img src="legend/SiciliaComuni0_61768610.png" /></td><td> 617 - 686  €</td></tr></table>': layer_SiciliaComuni0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
