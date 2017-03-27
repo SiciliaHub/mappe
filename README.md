@@ -22,5 +22,5 @@ La vulnerabilità sismica rappresenta una misura della maggiore o minore capacit
 Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di approvazione - Luglio 2003 - Presa D'atto Delibera 7/2004, a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 - [**Palermo 2025 - Plamimetria schema di massima del PRG**](http://siciliahub.github.io/mappe/prg_2025/prg_2015.html) a cura di [@piersoft](https://twitter.com/Piersoft), [@cirospat](https://twitter.com/cirospat), [@napo](https://twitter.com/napo) e [@gbvitrano](https://twitter.com/gbvitrano);
 - [**Esplorare Palermo - Cartografica storica**](http://siciliahub.github.io/mappe/carto_storica)  e [**Cartografica storica con switch per cambio base mappa**](http://siciliahub.github.io/mappe/carto_storica/index_02.html) a cura di [@aborruso](https://twitter.com/aborruso), [@piersoft](https://twitter.com/Piersoft), [@cirospat](https://twitter.com/cirospat), [@napo](https://twitter.com/napo), [@gbvitrano](https://twitter.com/gbvitrano);
-
+- [**Comuni Siciliani- spesa per la mobilità**](http://siciliahub.github.io/mappe/spesa_conuni_mobilit%C3%A0/#9/37.4907/13.9632), a cura di [@gbvitrano](https://twitter.com/gbvitrano), [fonte dati](http://blog.openpolis.it/2017/03/22/quanto-spendono-comuni-la-mobilita);
 
