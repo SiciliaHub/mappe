@@ -1,0 +1,1 @@
+<a href="http://github.gbvitrano.it/vuln-sismica-pa/"><img width="1000" src="http://coseerobe.gbvitrano.it/wp/wp-content/uploads/2017/02/mappa_vuln_sism.jpg" Title="Esercizio - Vulnerabilità sismica degli edifici residenziali di Palermo" alt="Esercizio - Vulnerabilità sismica degli edifici residenziali di Palermo" /></a>
