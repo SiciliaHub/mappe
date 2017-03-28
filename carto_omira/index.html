@@ -4,78 +4,43 @@
 <head>
 <title>Carta Tecnica di Palermo - OMIRA</title>
   <meta charset="utf-8" />
-
+<meta name="author" content="Giovan Battista Vitrano per OpenDataSicilia.it">
+<meta name="description" content="Carta Tecnica di Palermo - OMIRA - scala: 1:5000 - Anno 1939">
+<meta name="keywords" content="Open Data Sicilia, cartografia stroica, palermo,">
+<meta http-equiv="content-language" content="IT">
+<meta name="robots" content="index,follow">
+<meta name="creation_Date" content="28/03/2017">
+<meta name="revisit-after" content="7 days"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta property="og:image" content="http://coseerobe.gbvitrano.it/mappe/images/carto_omira.jpg" />
 <meta property="og:title" content="Carta Tecnica di Palermo - OMIRA - Open Data Sicilia" />
 <meta property="og:url" content="http://github.gbvitrano.it/carto_omira/" />
   
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/leaflet/leaflet.css" rel="stylesheet" type="text/css">
+<link href="lib/leaflet/leaflet.css" rel="stylesheet" type="text/css">
 <!-- <link href="css/leaflet.css" rel="stylesheet" type="text/css"> -->
 <link href="css/leaflet-sidebar.css" rel="stylesheet" type="text/css">
 <link href="css/gmaps-sidebar.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="http://www.gbvitrano.it/favicon.ico"/> 
 <link rel="icon" href="http://www.gbvitrano.it/favicon.png" type="image/png"/> 
-   <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
-
+<!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
 <script src="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.js"></script> 
 <script type="text/javascript" src="lib/sidebar/leaflet-sidebar.js"></script>
 <script src="lib/hash/leaflet-hash.js"></script>
 <script src="http://frogcat.github.io/leaflet-tilelayer-mask/leaflet-tilelayer-mask.js"></script>
-
   <style>
-  body {
-    padding: 0;
-    margin: 0;
-	font: 11px "Helvetica Neue", Arial, Helvetica, sans-serif;
-    background-color: #4E4B4B; }
-  html, body{
-    height: 100%;
-    font: 11px "Helvetica Neue", Arial, Helvetica, sans-serif;
-    background-color: #4E4B4B; }
-  #map {
-    height: 100%;
-    font: 11px "Helvetica Neue", Arial, Helvetica, sans-serif;
-    background-color: #4E4B4B;  }
-#ods { position:fixed;
-bottom:40px;
-right:20px;
-z-index: 999;}
-  .lorem {
-	font-style: italic;
-	color: #4E4B4B;
-	text-align: justify;
-        }
-a:link {
-	color: #FF9900;
-	text-decoration:none;
-}
-a:visited {
-	color: #FF9900;
-	
-}
-a:hover {
-	color: #FF9900;
-	text-decoration:underline;
-}
-a:active {
-	color: #FF0000;
-	text-decoration:none;
-}
-.clip_omira {width: 60px;
-height: 69px;
-border-radius: 5px;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-border: 1px solid #ccc;
-background-color:#fff;
-padding:1px;
-box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
- .clip_omira:hover {opacity: 1;
--webkit-filter: grayscale(100%); } 
+body { padding: 0;    margin: 0; 	font: 11px "Helvetica Neue", Arial, Helvetica, sans-serif; background-color: #4E4B4B; }
+html, body{ height: 100%; font: 11px "Helvetica Neue", Arial, Helvetica, sans-serif; background-color: #4E4B4B; }
+#map { height: 100%; font: 11px "Helvetica Neue", Arial, Helvetica, sans-serif; background-color: #4E4B4B;  }
+#ods { position:fixed; bottom:40px; right:20px; z-index: 999;}
+.lorem {font-style: italic; color: #4E4B4B; text-align: justify; }
+a:link {color: #FF9900;	text-decoration:none;}
+a:visited {	color: #FF9900;}
+a:hover {color: #FF9900; text-decoration:underline; }
+a:active {color: #FF0000; text-decoration:none; }
+.clip_omira {width: 60px; height: 69px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: 1px solid #ccc; background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
+ .clip_omira:hover {opacity: 1; -webkit-filter: grayscale(100%); } 
   </style>
-
 </head>
 <body>
 
