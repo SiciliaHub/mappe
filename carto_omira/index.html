@@ -2,25 +2,27 @@
 <html>
 
 <head>
-<title>Carta Tecnica di Palermo - OMIRA - Base RealVista</title>
-<meta charset="utf-8" />
+<title>Carta Tecnica di Palermo - OMIRA</title>
+  <meta charset="utf-8" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta property="og:image" content="http://coseerobe.gbvitrano.it/mappe/images/carto_omira.jpg" />
 <meta property="og:title" content="Carta Tecnica di Palermo - OMIRA - Open Data Sicilia" />
 <meta property="og:url" content="http://github.gbvitrano.it/carto_omira/" />
+  
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="css/leaflet.css" rel="stylesheet" type="text/css">
+  <link href="lib/leaflet/leaflet.css" rel="stylesheet" type="text/css">
+<!-- <link href="css/leaflet.css" rel="stylesheet" type="text/css"> -->
 <link href="css/leaflet-sidebar.css" rel="stylesheet" type="text/css">
 <link href="css/gmaps-sidebar.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="http://www.gbvitrano.it/favicon.ico"/> 
 <link rel="icon" href="http://www.gbvitrano.it/favicon.png" type="image/png"/> 
-<!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+   <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
 
-<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+<script src="http://joker-x.github.io/Leaflet.geoCSV/lib/leaflet.js"></script> 
 <script type="text/javascript" src="lib/sidebar/leaflet-sidebar.js"></script>
-<script type="text/javascript" src="lib/leaflet-tileoverlay-mask.js"></script>
 <script src="lib/hash/leaflet-hash.js"></script>
+<script src="http://frogcat.github.io/leaflet-tilelayer-mask/leaflet-tilelayer-mask.js"></script>
 
   <style>
   body {
@@ -81,7 +83,6 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
     <!-- Nav tabs -->
     <ul class="sidebar-tabs" role="tablist">
       <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-      <li> <a href="index_orto.html" title="Base RealVista" role="tab"><i class="fa fa-globe" aria-hidden="true"></i></a></li>
       <li> <a href="mailto:coseerobe.gbvitrano@gmail.com" title="Email" role="tab"><i class="fa fa-envelope"></i></a></li>
       <li> <a href="http://www.cricd.it/pages.php?idpagina=13&idContenuto=3326" title="Book - Repertorio cartografico & aerofotografico" target="_blank" role="tab"><i class="fa fa-book" aria-hidden="true"></i></a></li>
       <li><a href="https://github.com/SiciliaHub/mappe" title="SiciliaHub/mappe" target="_blank"  role="tab"><i class="fa fa-github"></i></a></li>
@@ -163,37 +164,46 @@ Cartografie OMIRA anno 1939 - in dotazione al <a href="https://www.comune.palerm
   </div>
   <div id="map" class="sidebar-map"></div>
   <!-- carto Storica -->
-<script>
-    var map = L.map("map", L.extend({
-      zoom: 14,
-      center: [38.11127,13.3534422]
-    }, L.Hash.parseHash(location.hash)));
+<script type="text/JavaScript">
+        var southWest = L.latLng(38.098969492479725, 13.41679573059082),
+            northEast = L.latLng(38.13779704369437, 13.310022354125977),
+    	      bounds = L.latLngBounds(southWest, northEast);
 
-    L.hash(map);
 
-    L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-       attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-      minZoom: 13,
+        var map = L.map('map', {attributionControl:true}).setView([38.11127,13.3534422], 14 );
+
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+minZoom: 13,
       maxZoom: 17,
       maxNativeZoom: 17
-    }).addTo(map);
+        });
+        basemap0.addTo(map);
+        var basemap1 = L.tileLayer.wms("http://213.215.135.196/reflector/open/service?", {
+                layers: 'rv1',
+                format: 'image/jpeg',attribution: '<a href="http://www.realvista.it/website/Joomla/" target="_blank">RealVista &copy; CC-BY Tiles</a> | <a href="http://openstreetmap.org">OpenStreetMap</a>',
 
-    var mask = L.svg.mask();
-   
-    L.tileOverlay("http://mapwarper.net/maps/tile/19706/{z}/{x}/{y}.png", {
-      attribution: '<a href="https://github.com/frogcat/leaflet-tileoverlay-mask" title="Leaflet-tileoverlay-mask">Leaflet-tileoverlay-mask</a> - Cartografia storica - Carta Tecnica di Palermo - Omira 1937 - Rielaborazione di <a href="https://twitter.com/aborruso" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/cirospat" title="Ciro Spataro">@cirospat</a>, <a href="https://twitter.com/napo " title="Maurizio Napolitano">@napo</a> <a href=" https://twitter.com/Piersoft" title="Francesco Piero Paolicelli">@piersoft</a> e <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a>',
-      minZoom: 13,
+              });
+
+			       var basemap2 = L.tileLayer.mask("http://mapwarper.net/maps/tile/19706/{z}/{x}/{y}.png", {
+      attribution: '<a href="https://github.com/frogcat/leaflet-tileoverlay-mask" title="Leaflet-tileoverlay-mask">Leaflet-tileoverlay-mask</a> - Cartografia storica Palermo - Rielaborazione di <a href="https://twitter.com/aborruso" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/cirospat" title="Ciro Spataro">@cirospat</a>, <a href="https://twitter.com/napo " title="Maurizio Napolitano">@napo</a> <a href=" https://twitter.com/Piersoft" title="Francesco Piero Paolicelli">@piersoft</a> e <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a>',
+	  minZoom: 13,
       maxZoom: 17,
-      maxNativeZoom: 17,
-      renderer: mask
-    }).addTo(map);
+      maxNativeZoom: 17
+        });
+        basemap2.addTo(map);
 
-    map.on("mousemove", function(event) {
-      mask.setCenter(event.containerPoint);
-        var sidebar = L.control.sidebar('sidebar').addTo(map);
-    });
+        var overlays = {
+          };
+         var layerControl = new L.Control.Layers({'OSM': basemap0,'RealVista': basemap1},overlays,{collapsed: true},{position:'topright'});
+         layerControl.addTo(map);
+         map.on("mousemove", function(e) {
+           basemap2.setCenter(e.containerPoint.x, e.containerPoint.y);
+         }).zoomControl.setPosition("topleft");
+	        var hash = new L.Hash(map);
+			var sidebar = L.control.sidebar('sidebar').addTo(map);
   </script> 
 <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
-<img src="images/opendatasicilia.png" width="48" title="opendatasicilia.it" alt="opendatasicilia"></a></div>
+<img src="lib/images/opendatasicilia.png" width="48" title="opendatasicilia.it" alt="opendatasicilia"></a></div>
 </body>
 </html>
