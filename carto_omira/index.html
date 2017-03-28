@@ -179,10 +179,32 @@ minZoom: 13,
       maxNativeZoom: 17
         });
         basemap0.addTo(map);
-        var basemap1 = L.tileLayer.wms("http://213.215.135.196/reflector/open/service?", {
-                layers: 'rv1',
-                format: 'image/jpeg',attribution: '<a href="http://www.realvista.it/website/Joomla/" target="_blank">RealVista &copy; CC-BY Tiles</a> | <a href="http://openstreetmap.org">OpenStreetMap</a>',
-
+var basemap1 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+                attribution: 'Source: Google Road - Map data ©2015 Google',
+				minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
+              });
+		
+        var basemap3 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Source: ESRI Standard',
+				minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
+              });
+			  
+ var basemap4 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Source: ESRI Satellite',
+				minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
+              });
+			  
+var basemap5 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                attribution: 'Source: Google Satellite - Map data ©2015 Google',
+				minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
               });
 
 			       var basemap2 = L.tileLayer.mask("http://mapwarper.net/maps/tile/19706/{z}/{x}/{y}.png", {
@@ -195,7 +217,7 @@ minZoom: 13,
 
         var overlays = {
           };
-         var layerControl = new L.Control.Layers({'OSM': basemap0,'RealVista': basemap1},overlays,{collapsed: true},{position:'topright'});
+          var layerControl = new L.Control.Layers({'OSM': basemap0, 'Google Road': basemap1, 'Google Satellite': basemap5, 'ESRI Standard': basemap3, 'ESRI Satellite': basemap4},overlays,{collapsed: true},{position:'topright'});
          layerControl.addTo(map);
          map.on("mousemove", function(e) {
            basemap2.setCenter(e.containerPoint.x, e.containerPoint.y);
