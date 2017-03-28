@@ -14,7 +14,7 @@ Servizio Documentazione - Unità Operativa X - Aerofototeca<br>
 **Stampa:**<br>
 Priulla, Palermo 2010 <br>
 
-[**Carta Tecnica di Palermo - OMIRA - scala: 1:5000**](http://siciliahub.github.io/mappe/carto_omira/) con [@aborruso](https://twitter.com/aborruso), [@piersoft](https://twitter.com/Piersoft), [@cirospat](https://twitter.com/cirospat), [@napo](https://twitter.com/napo);
+[**Carta Tecnica di Palermo - OMIRA - scala: 1:5000**](http://siciliahub.github.io/mappe/carto_omira/) a cura di  [@aborruso](https://twitter.com/aborruso), [@piersoft](https://twitter.com/Piersoft), [@cirospat](https://twitter.com/cirospat), [@napo](https://twitter.com/napo) e [@gbvitrano](https://twitter.com/gbvitrano);
 
 Cartografie OMIRA anno 1939 - in dotazione al  [**Comune di Palermo**](https://www.comune.palermo.it/), - scansionate dalla società comunale in house per i servizi informatici [**SISPI - Sistema Palermo Informatica**](http://www.sispi.it/)
 
