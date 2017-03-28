@@ -16,4 +16,7 @@ Priulla, Palermo 2010 <br>
 
 [**Carta Tecnica di Palermo - OMIRA - scala: 1:5000**](http://siciliahub.github.io/mappe/carto_omira/) con [@aborruso](https://twitter.com/aborruso), [@piersoft](https://twitter.com/Piersoft), [@cirospat](https://twitter.com/cirospat), [@napo](https://twitter.com/napo);
 
+Cartografie OMIRA anno 1939 - in dotazione al  [**Comune di Palermo**](https://www.comune.palermo.it/), - scansionate dalla società comunale in house per i servizi informatici [**SISPI - Sistema Palermo Informatica**](http://www.sispi.it/)
+
+
 *Un ringraziamento particolare va a [@napo](https://twitter.com/napo) che con il lavoro: [mappa di Trento 1915 - da un libro di Cesare Battisti](https://medium.com/@napo/mappa-di-trento-1915-da-un-libro-di-cesare-battisti-84935794b1ed#.w7hqdcsuv) ci ha fatto riscoprire la bellezza e l'importanza delle mappa storiche.*
