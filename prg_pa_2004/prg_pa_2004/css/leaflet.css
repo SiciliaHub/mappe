@@ -1,6 +1,5 @@
 /* required styles */
 
-
 .leaflet-map-pane,
 .leaflet-tile,
 .leaflet-marker-icon,
@@ -279,7 +278,7 @@
 	border-radius: 5px;
 	}
 .leaflet-control-layers-toggle {
-	background-image: url(images/layers.png);
+	background-image: url(layers.png);
 	width: 36px;
 	height: 36px;
 	}
