@@ -17,4 +17,4 @@ a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 
 *Le informazioni visibili e condivise non comportano la visualizzazione di dati sensibili.<br>Data la natura esclusivamente informativa degli elaborati grafici e dei testi riportati, questi non costituiscono atti ufficiali.<br>Per accedere agli atti ufficiali si rinvia agli elaborati definitivi allegati alle specifiche deliberazioni.* 
 
-**Si declina ogni responsabilità sulla veridicità dei dati.*
+**Si declina ogni responsabilità sulla veridicità dei dati.**
