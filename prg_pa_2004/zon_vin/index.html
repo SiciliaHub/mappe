@@ -1,0 +1,2276 @@
+<!doctype html>
+<html lang="it">
+    <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+           
+ <!-- <link rel="stylesheet" href="css/leaflet.css" />-->
+<link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+<link rel="stylesheet" href="css/MarkerCluster.css" />
+<link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+<meta name="reply-to" content="gbvitrano@gmail.com">
+<meta name="author" content="Giovan Battista Vitrano per Open Data Sicilia">
+<link rel="shortcut icon" href="http://www.gbvitrano.it/favicon.ico"/> 
+<link rel="icon" href="http://www.gbvitrano.it/favicon.png" type="image/png"/>  
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE"/>
+<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+<meta name="robots" content="index,follow" />
+<meta name="creation_Date" content="30/03/2017">
+<meta name="description" content="Variante Generale al P.R.G. - Palermo - Zonizzazione: e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di approvazione - Luglio 2003 - Presa D atto Delibera 7/2004 - Rielabolazione Opendata" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+
+
+    <link href="js/sidebar/css/leaflet-sidebar.css" rel="stylesheet" type="text/css">
+    <link href="js/sidebar/css/gmaps-sidebar.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+html, body, #map {width: 100%; height: 100%; padding: 0; margin: 0; font: 11px "Helvetica Neue", Arial, Helvetica, sans-serif; background-color: #4E4B4B;}
+#ods { position:fixed; bottom:40px; right:20px; z-index: 999;}
+.lorem {font-style: italic; color: #4E4B4B; text-align: justify; }
+a:link {color: #FF9900;	text-decoration:none;}
+a:visited {	color: #FF9900;}
+a:hover {color: #FF9900; text-decoration:underline; }
+a:active {color: #FF0000; text-decoration:none; }
+.clip {width: 60px; height: 69px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: 1px solid #ccc; background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
+ .clip:hover {opacity: 1; -webkit-filter: grayscale(100%); }
+ #prg { position:fixed; bottom:40px; right:20px; z-index: 999;}
+ 
+    </style>
+ <!-- script generale -->
+<script src="js/leaflet.js"></script> 
+<script type="text/javascript" src="js/sidebar/js/leaflet-sidebar.js"></script>
+<script src="js/qgis2web_expressions.js"></script>
+<script src="js/leaflet-heat.js"></script>
+<script src="js/leaflet.rotatedMarker.js"></script>
+<script src="js/OSMBuildings-Leaflet.js"></script>
+<script src="js/leaflet-hash.js"></script>
+<script src="js/leaflet-tilelayer-wmts.js"></script>
+<script src="js/Autolinker.min.js"></script>
+<script src="js/leaflet.markercluster.js"></script>
+         <!-- script layer prg -->
+<script src="data/Limitiamministrativi0.js"></script>
+<script src="data/vincolilinari1.js"></script>
+<script src="data/vincoliareali2.js"></script>
+<script src="data/Zonizzazione3.js"></script>
+<script src="data/AreeedimmobilisogettiatutelaambientaleNettoStorico4.js"></script>
+<script src="data/AreeedimmobilisogettiatutelaambientaleCittaStorica5.js"></script> 
+<script src="data/QuadroUnione5K6.js"></script> 
+</head>
+<body>
+    <div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+                <li> <a href="mailto:coseerobe.gbvitrano@gmail.com" title="Email" role="tab"><i class="fa fa-envelope"></i></a></li>
+                <li><a href="https://github.com/SiciliaHub/mappe" title="SiciliaHub/mappe" target="_blank"  role="tab"><i class="fa fa-github"></i></a></li>
+                 <li><a href="#info"  title="Informazioni"role="tab"><i class="fa fa-info"></i></a></li>
+            </ul>
+
+            <ul role="tablist">
+                <li><a href="#settings" title="Configurazione" role="tab"><i class="fa fa-gear"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- Tab panes -->
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="home">
+                <h2 class="sidebar-header">
+                   Variante Generale al P.R.G. - Palermo
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+                <p><strong>Zonizzazione: e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di approvazione - Luglio 2003 - Presa D atto Delibera 7/2004</strong></p>
+
+                <p class="lorem">La Variante Generale al P.R.G. è stata redatta secondo le direttive generali del Consiglio Comunale di cui alla delibera 179/94. Il Progetto di Piano è elaborato dall'Ufficio del Piano che si è avvalso delle consulenze del Prof. P.L. Cervellati per gli aspetti urbanistici, dei Prof. G. Zambrini e M.R. Cittadini per gli aspetti della mobiltà, del Prof. A. Roccella per gli aspetti giuridici e del Prof. F. Mazzola per le analisi socio-economiche. Con la delibera 315/94 il Consiglio Comunale ha adottato lo Schema di Massima e con delibera 45/97 gli elaborati finali della Variante Generale. .</p>
+
+                <p class="lorem">La Variante Generale è stata successivamente adeguata alle prescrizioni e al parere reso dall'Ufficio del Genio Civile e riadottata con del Commissario ad Acta n° 470/2001 ed approvata definitivamente dall'Assessorato Regionale al Territorio con D. Dir. 124 e 558/DRU/02. Con delibera n° 7 del 21/01/04 il Consiglio Comunale prende atto delle modifiche apportate alla Variante Generale disposte dai decreti regionali di approvazione. Da quel momento diviene a tutti gli effetti vigente. .</p>
+
+                <p class="lorem">Principi esenziali della Variante Generale sono: la salvaguardia, il recupero e la valorizzazione del patrimonio edilizio storico del territorio comunale, la tutela del patrimonio ambientale, delle emergenze paesaggistiche, dei parchi naturali e del tessuto agricolo residuo, la valorizzazione del fronte a mare ed il raggiungimento della dotazione minima di servizi pubblici, la riqualificazione della periferia attraverso l'istituzioni delle Municipalità. </p>
+                
+                <p class="lorem"> Le tavole dei vari Piani sono realizzate nel formato <a href="https://acrobat.adobe.com/it/it/why-adobe/about-adobe-pdf.html" target="_blank">.pdf</a>, tutti i link delle tavole presenti in questa pagina rinviano al sito ufficiale del <a href="https://www.comune.palermo.it/" title="Comune di Palermo" target="_blank">Comune di Palermo</a> – <a href="https://www.comune.palermo.it/amministrazione_trasparente.php?apt=6" title="Amministrazione Trasparente" target="_blank">Amministrazione Trasparente</a> – <a href="https://www.comune.palermo.it/amministrazione_trasparente.php?sel=19" title="Pianificazione e Governo del Territorio" target="_blank">Pianificazione e Governo del Territorio</a></p> <br>
+  <iframe src="legend/stru_urb/prg.html" frameborder="0" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:430px;width:100%;position:absolute;top:490px;left:0px;right:0px;bottom:0px" ></iframe>
+          </div>
+
+       <div class="sidebar-pane" id="info">
+       <h1 class="sidebar-header">Informazioni<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+ <p > <strong>Realizzato da:</strong> <a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a> per <strong><a href="http://opendatasicilia.it/" Title="Open Data Sicilia" target="_blank">Open Data Sicilia</a></strong><br><br>
+  <strong>Note:</strong><br>
+   <em>Le informazioni visibili e condivise non comportano la visualizzazione di dati sensibili.</em><br>
+   <em>Data la natura esclusivamente informativa degli elaborati grafici e dei testi riportati, questi non costituiscono atti ufficiali.</em><br>
+   <em>Per accedere agli atti ufficiali si rinvia agli elaborati definitivi allegati alle specifiche deliberazioni.</em><br><br>
+<strong>Si declina ogni responsabilit&agrave; sulla veridicit&agrave; dei dati.</strong>
+</p><br>
+   <p><strong>Fonte dati:</strong> <a href="https://www.comune.palermo.it/" title="Sito ufficiale del Comune di Palermo" target="_blank">Comune di Palermo</a> , <a href="https://www.comune.palermo.it/opendata.php" title="Opendata Comune di Palermo" target="_blank">Opendata</a> , <a href="https://www.comune.palermo.it/opendata_menus.php?sel=11" title="Opendata Palermo - Urbanistica" target="_blank">Urbanistica</a>   <ul>
+                <li><a href="https://www.comune.palermo.it/opendata_dld.php?id=320t" title="Perimetrazione Zonizzazione P.R.G. vigente" target="_blank" > Perimetrazione Zonizzazione P.R.G. vigente;</a></li>
+               <li><a href="https://www.comune.palermo.it/opendata_dld.php?id=321" title="Vincoli vigenti della Variante al P.R.G." target="_blank" >Vincoli vigenti della Variante al P.R.G.</a></li>
+            </ul></p>
+<p class="lorem"><strong>Ti potrebbe interessare anche...</strong><br>
+<a href="http://coseerobe.gbvitrano.it/variante-generale-al-prg.html" title="Variente Generale al P.R.G. - Scheda norma - Interventi sugli immobili classificati &quot;Netto Storico&quot; adeguati ai D.Dir. 558 e 124\DRU\02 di approvazione" target="_blank">Scheda Norma Interventi sugli immobili classificati &quot;Netto Storico&quot;</a><br> 
+    <a href="http://coseerobe.gbvitrano.it/strumenti-urbanistici-per-il-centro-storico.html" title="Strumenti urbanitici per il centro storico di Palermo" target="_blank">Strumenti urbanitici per il centro storico di Palermo</a></p> 
+      </div>
+
+            <div class="sidebar-pane" id="messages">
+                <h1 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+
+            <div class="sidebar-pane" id="settings">
+                <h1 class="sidebar-header">Strumenti<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <p><strong>I principali strumenti usati per realizzare questa semplice mappa:</strong></p>
+                <ul>
+                <li><a href="http://www.qgis.org/it/site/" title="Qgis" target="_blank">Qgis,</a> per creare, modificare, visualizzare, analizzare e pubblicare le informazioni geospaziali su Windows, Mac, Linux, BSD ; <br><br></li>
+          <li><a href="http://leafletjs.com/" title="Leaflet" target="_blank">Leaflet,</a> per creare l'interfaccia di web mapping; <br><br></li>
+          <li><a href="https://github.com/mlevans/leaflet-hash" title="Leaflet-hash" target="_blank">Leaflet-hash</a>, per generare URL che contengono livello di zoom e posizione corrente;<br><br></li>
+           <li><a href="https://github.com/frogcat/leaflet-tileoverlay-mask" title="Leaflet-tileoverlay-mask" target="_blank">Leaflet-tileoverlay-mask</a>, per la sovrapposizione delle tile con effetto svg maschera;<br><br></li> 
+          <li><a href="https://github.com/turbo87/sidebar-v2/" title="Sidebar-v2" target="_blank">Sidebar-v2</a>, per creare questa sidebar a scomparsa.</li>
+        </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="map" class="sidebar-map"></div>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:17, minZoom:12
+        }).fitBounds([[38.0498804,13.1671319278],[38.2245866,13.5274219722]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            attribution: 'Source: Google Satellite - Map data ©2015 Google -  <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a> - <a href="http://coseerobe.gbvitrano.it/" title="cose&amp;robe" target="_blank" ><img src="http://gbvitrano.it/clip/gb/gb_01.png" width="24" height="24" Title=" Rielaborazione Opendata - Giovan Battista Vitrano" alt="Giovan Battista Vitrano"/></a> - <a href="http://www.comune.palermo.it/opendata_dld.php?id=320t" title="Opendata (shp) perimetrazione Zonizzazione P.R.G. vigente - Comune di Palermo" target="_blank">Dataset</a> - </a><a href="http://www.comune.palermo.it/territorio.php?sel=1&asel=4" title="Tavole Scala 1:5000 (dwf), della Variante P.R.G. di Palermo" target="_blank">Tavole Variante P.R.G.</a>',
+            maxZoom: 17
+        });
+       
+        var basemap1 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a> - <a href="https://twitter.com/gbvitrano" title="Giovan Battista Vitrano">@gbvitrano</a> - <a href="http://coseerobe.gbvitrano.it/" title="cose&amp;robe" target="_blank" ><img src="http://gbvitrano.it/clip/gb/gb_01.png" width="24" height="24" Title=" Rielaborazione Opendata - Giovan Battista Vitrano" alt="Giovan Battista Vitrano"/></a> - <a href="http://www.comune.palermo.it/opendata_dld.php?id=320t" title="Opendata (shp) perimetrazione Zonizzazione P.R.G. vigente - Comune di Palermo" target="_blank">Dataset</a> - </a><a href="http://www.comune.palermo.it/territorio.php?sel=1&asel=4" title="Tavole Scala 1:5000 (dwf), della Variante P.R.G. di Palermo" target="_blank">Tavole Variante P.R.G.</a>',
+            maxZoom: 17
+        });
+        basemap1.addTo(map);
+        function setBounds() {
+        }
+        function geoJson2heat(geojson, weight) {
+          return geojson.features.map(function(feature) {
+
+            return [
+              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[0],
+              feature.properties[weight]
+            ];
+          });
+        }
+        function pop_Limitiamministrativi0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_Limitiamministrativi0(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? Autolinker.link(String(feature.properties['name'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_Limitiamministrativi0() {
+            return {
+                pane: 'pane_Limitiamministrativi0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_Limitiamministrativi0');
+        map.getPane('pane_Limitiamministrativi0').style.zIndex = 600;
+        map.getPane('pane_Limitiamministrativi0').style['mix-blend-mode'] = 'normal';
+    var layer_Limitiamministrativi0 = new L.geoJson(json_Limitiamministrativi0, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_Limitiamministrativi0',
+        onEachFeature: pop_Limitiamministrativi0,
+        style: style_Limitiamministrativi0
+    });
+        bounds_group.addLayer(layer_Limitiamministrativi0);
+        //map.addLayer(layer_Limitiamministrativi0);
+        function pop_vincolilinari1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_vincolilinari1(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID1</th>\
+                        <td>' + (feature.properties['ID1'] !== null ? Autolinker.link(String(feature.properties['ID1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Vincolo</th>\
+                        <td>' + (feature.properties['TIPO'] !== null ? Autolinker.link(String(feature.properties['TIPO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Descrizione</th>\
+                        <td>' + (feature.properties['DESCRIZIONE'] !== null ? Autolinker.link(String(feature.properties['DESCRIZIONE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Note</th>\
+                        <td>' + (feature.properties['NOTE'] !== null ? Autolinker.link(String(feature.properties['NOTE'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_vincolilinari1(feature) {
+            switch(feature.properties['TIPO']) {
+                case 'Corsi d\'acqua':
+                    return {
+                pane: 'pane_vincolilinari1',
+                opacity: 1,
+                color: 'rgba(0,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Corsi d\'acqua interrati':
+                    return {
+                pane: 'pane_vincolilinari1',
+                opacity: 1,
+                color: 'rgba(0,0,255,1.0)',
+                dashArray: '10,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Faglie e Sovrascorrimenti':
+                    return {
+                pane: 'pane_vincolilinari1',
+                opacity: 1,
+                color: 'rgba(0,0,255,1.0)',
+                dashArray: '1,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Regie Trazzere':
+                    return {
+                pane: 'pane_vincolilinari1',
+                opacity: 1,
+                color: 'rgba(38,0,9,1.0)',
+                dashArray: '10,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_vincolilinari1');
+        map.getPane('pane_vincolilinari1').style.zIndex = 601;
+        map.getPane('pane_vincolilinari1').style['mix-blend-mode'] = 'normal';
+    var layer_vincolilinari1 = new L.geoJson(json_vincolilinari1, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_vincolilinari1',
+        onEachFeature: pop_vincolilinari1,
+        style: style_vincolilinari1
+    });
+        bounds_group.addLayer(layer_vincolilinari1);
+       // map.addLayer(layer_vincolilinari1);
+        function pop_vincoliareali2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_vincoliareali2(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID1</th>\
+                        <td>' + (feature.properties['ID1'] !== null ? Autolinker.link(String(feature.properties['ID1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Vincolo</th>\
+                        <td>' + (feature.properties['TIPO'] !== null ? Autolinker.link(String(feature.properties['TIPO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Descrizione</th>\
+                        <td>' + (feature.properties['DESCRIZONE'] !== null ? Autolinker.link(String(feature.properties['DESCRIZONE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Note</th>\
+                        <td>' + (feature.properties['NOTE'] !== null ? Autolinker.link(String(feature.properties['NOTE'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_vincoliareali2(feature) {
+            switch(feature.properties['TIPO']) {
+                case 'Area aeroportuale':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '10,5,1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Area Demanio Montepellegrino':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(127,255,0,1.0)',
+                dashArray: '1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 5.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Aree boscate artificiali':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,76,38,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,0.0)',
+            }
+                    break;
+                case 'Aree boscate naturali':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,76,38,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Aree cave attive di coltivazione':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(191,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Aree Cave Storiche':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,127,255,1.0)',
+                dashArray: '1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Aree di interesse archeologico':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(255,159,127,1.0)',
+                dashArray: '10,5,1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Aree falde acquifere':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,127,255,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Aree inondazioni':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,127,255,1.0)',
+                dashArray: '10,5,1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Aree interdette':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(63,95,127,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(63,95,127,1.0)',
+            }
+                    break;
+                case 'Aree Qanat':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,127,255,1.0)',
+                dashArray: '10,5,1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 5.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Aree Rischio Idraulico e frana':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(255,191,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 5.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Aree ristagni acqua':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,127,255,1.0)',
+                dashArray: '10,5,1,5,1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Attività  estrattiva':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(191,0,255,1.0)',
+                dashArray: '10,5,1,5,1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Fasce di rispetto faglie e sovrascorrimenti':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(255,161,0,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Fascia battigia':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 5.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,0.0)',
+            }
+                    break;
+                case 'Fascia di rispetto aree boscate artificiali':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,76,38,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Fascia di rispetto Aree boscate naturali':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,76,38,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Fascia di rispetto cimiteriale e depuratori':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Fascia di rispetto corsi d\'acqua':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Fascia di rispetto ferrovia':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '1,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Immobili Vincoli Legge 1089/39 - Cimiteri':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Immobili Vincoli Legge 1089/39 - Quanat':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Immobili Vincoli Legge 1089/39 - Ville':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Pozzi idrici non potabili':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 15.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,255,1.0)',
+            }
+                    break;
+                case 'Siti di Importanza Comunitaria':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(255,0,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Vincolo paesaggistico L. 1497':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Vincolo paesaggistico L. 431':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,255,255,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 5.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Zona A - Riserva':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'Zona B - Preriserva':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,1.0)',
+            }
+                    break;
+                case 'Zona B1 - Preriserva':
+                    return {
+                pane: 'pane_vincoliareali2',
+                opacity: 1,
+                color: 'rgba(0,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_vincoliareali2');
+        map.getPane('pane_vincoliareali2').style.zIndex = 602;
+        map.getPane('pane_vincoliareali2').style['mix-blend-mode'] = 'normal';
+    var layer_vincoliareali2 = new L.geoJson(json_vincoliareali2, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_vincoliareali2',
+        onEachFeature: pop_vincoliareali2,
+        style: style_vincoliareali2
+    });
+        bounds_group.addLayer(layer_vincoliareali2);
+      //  map.addLayer(layer_vincoliareali2);
+        function pop_Zonizzazione3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_Zonizzazione3(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['ID'] !== null ? Autolinker.link(String(feature.properties['ID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ZTO</th>\
+                        <td>' + (feature.properties['ZTO'] !== null ? Autolinker.link(String(feature.properties['ZTO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DESCRIZIONE</th>\
+                        <td>' + (feature.properties['DESCRIZIONE'] !== null ? Autolinker.link(String(feature.properties['DESCRIZIONE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">NOTE</th>\
+                        <td>' + (feature.properties['NOTE'] !== null ? Autolinker.link(String(feature.properties['NOTE'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_Zonizzazione3(feature) {
+            switch(feature.properties['ZTO']) {
+                case 'A1':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(76,0,76,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 5.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'A2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(38,0,9,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 5.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(165,10,41,0.75)',
+            }
+                    break;
+                case 'B':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,127,0.75)',
+            }
+                    break;
+                case 'B0a':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,127,0.75)',
+            }
+                    break;
+                case 'B0b':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,127,0.75)',
+            }
+                    break;
+                case 'B1':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,223,127,0.75)',
+            }
+                    break;
+                case 'B2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(165,82,0,0.75)',
+            }
+                    break;
+                case 'B3':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(165,82,0,0.75)',
+            }
+                    break;
+                case 'B4A':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(38,0,0,0.75)',
+            }
+                    break;
+                case 'B4b':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(38,0,0,0.75)',
+            }
+                    break;
+                case 'B5':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(191,255,127,0.75)',
+            }
+                    break;
+                case 'C':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(253,224,182,0.75)',
+            }
+                    break;
+                case 'Ca':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,159,127,0.75)',
+            }
+                    break;
+                case 'Cb':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(165,145,82,0.75)',
+            }
+                    break;
+                case 'CM':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(253,219,172,0.75)',
+            }
+                    break;
+                case 'D1':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(191,127,255,0.75)',
+            }
+                    break;
+                case 'D2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(191,127,255,0.75)',
+            }
+                    break;
+                case 'E':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(253,215,163,0.75)',
+            }
+                    break;
+                case 'E1':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(191,255,127,0.75)',
+            }
+                    break;
+                case 'E2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(31,127,0,0.75)',
+            }
+                    break;
+                case 'F1':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F10':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F11':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F11F24':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F12':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F12F15':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F12F15F16':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F13':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F14':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F15':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F16':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F18':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F19':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F1F2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F1F3F15':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F1S2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F1-S2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F23':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F2F12':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F2-F15':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F3':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F4':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F4F10F11':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F5':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F7':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F8':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'F9':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+                case 'Fascia_costiera':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(145,165,82,0.75)',
+            }
+                    break;
+                case 'IC1':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC11':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC12':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC13':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC14':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC1F14':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC1IC11F14':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC1IC4':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC1IC5':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC2IC3IC4':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC2IC4IC10':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC2IC4IC5IC6IC10':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC2IC4IC9':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC2IC5IC6':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC3':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC3IC10':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC3IC5':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC3IC7':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC4':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC4IC6IC10':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC4IC8':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC4IC9':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC5':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC5IC6':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC6':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC7':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC8':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IC9':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'IDC':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,255,0.75)',
+            }
+                    break;
+                case 'Parcheggi':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,255,255,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 0,
+            }
+                    break;
+                case 'S1':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,225,0.75)',
+            }
+                    break;
+                case 'S1S2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,225,0.75)',
+            }
+                    break;
+                case 'S2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,225,0.75)',
+            }
+                    break;
+                case 'Sede_stradale':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(209,47,32,0.75)',
+            }
+                    break;
+                case 'V':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V1':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V1V2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V1V3':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V2V3':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V2V4':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V2V5':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V3':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V3+VS':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V3IC2IC4':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V4':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V4IC2':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+                    break;
+                case 'V5':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(82,165,0,0.75)',
+            }
+
+                    break;
+                case 'VS':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,0.75)',
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(179,0,0,0.75)',
+            }
+                    break;
+                case 'F17':
+                    return {
+                pane: 'pane_Zonizzazione3',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(127,255,255,0.75)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Zonizzazione3');
+        map.getPane('pane_Zonizzazione3').style.zIndex = 603;
+        map.getPane('pane_Zonizzazione3').style['mix-blend-mode'] = 'normal';
+    var layer_Zonizzazione3 = new L.geoJson(json_Zonizzazione3, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_Zonizzazione3',
+        onEachFeature: pop_Zonizzazione3,
+        style: style_Zonizzazione3
+    });
+        bounds_group.addLayer(layer_Zonizzazione3);
+        map.addLayer(layer_Zonizzazione3);
+        function pop_AreeedimmobilisogettiatutelaambientaleNettoStorico4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_AreeedimmobilisogettiatutelaambientaleNettoStorico4(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID1</th>\
+                        <td>' + (feature.properties['ID1'] !== null ? Autolinker.link(String(feature.properties['ID1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ZTO</th>\
+                        <td>' + (feature.properties['ZTO'] !== null ? Autolinker.link(String(feature.properties['ZTO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DESCRIZIONE</th>\
+                        <td>' + (feature.properties['DESCRIZIONE'] !== null ? Autolinker.link(String(feature.properties['DESCRIZIONE'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_AreeedimmobilisogettiatutelaambientaleNettoStorico4() {
+            return {
+                pane: 'pane_AreeedimmobilisogettiatutelaambientaleNettoStorico4',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,0,63,0.75)',
+            }
+        }
+        map.createPane('pane_AreeedimmobilisogettiatutelaambientaleNettoStorico4');
+        map.getPane('pane_AreeedimmobilisogettiatutelaambientaleNettoStorico4').style.zIndex = 604;
+        map.getPane('pane_AreeedimmobilisogettiatutelaambientaleNettoStorico4').style['mix-blend-mode'] = 'normal';
+    var layer_AreeedimmobilisogettiatutelaambientaleNettoStorico4 = new L.geoJson(json_AreeedimmobilisogettiatutelaambientaleNettoStorico4, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_AreeedimmobilisogettiatutelaambientaleNettoStorico4',
+        onEachFeature: pop_AreeedimmobilisogettiatutelaambientaleNettoStorico4,
+        style: style_AreeedimmobilisogettiatutelaambientaleNettoStorico4
+    });
+        bounds_group.addLayer(layer_AreeedimmobilisogettiatutelaambientaleNettoStorico4);
+        map.addLayer(layer_AreeedimmobilisogettiatutelaambientaleNettoStorico4);
+        function pop_AreeedimmobilisogettiatutelaambientaleCittaStorica5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_AreeedimmobilisogettiatutelaambientaleCittaStorica5(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Comune</th>\
+                        <td>' + (feature.properties['Comune'] !== null ? Autolinker.link(String(feature.properties['Comune'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Circoscriz</th>\
+                        <td>' + (feature.properties['Circoscriz'] !== null ? Autolinker.link(String(feature.properties['Circoscriz'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Superficie</th>\
+                        <td>' + (feature.properties['Superficie'] !== null ? Autolinker.link(String(feature.properties['Superficie'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Popolazion</th>\
+                        <td>' + (feature.properties['Popolazion'] !== null ? Autolinker.link(String(feature.properties['Popolazion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cod_Cat</th>\
+                        <td>' + (feature.properties['Cod_Cat'] !== null ? Autolinker.link(String(feature.properties['Cod_Cat'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cod_ISTAT</th>\
+                        <td>' + (feature.properties['Cod_ISTAT'] !== null ? Autolinker.link(String(feature.properties['Cod_ISTAT'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_AreeedimmobilisogettiatutelaambientaleCittaStorica5() {
+            return {
+                pane: 'pane_AreeedimmobilisogettiatutelaambientaleCittaStorica5',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,0,63,0.5)',
+            }
+        }
+        map.createPane('pane_AreeedimmobilisogettiatutelaambientaleCittaStorica5');
+        map.getPane('pane_AreeedimmobilisogettiatutelaambientaleCittaStorica5').style.zIndex = 605;
+        map.getPane('pane_AreeedimmobilisogettiatutelaambientaleCittaStorica5').style['mix-blend-mode'] = 'normal';
+    var layer_AreeedimmobilisogettiatutelaambientaleCittaStorica5 = new L.geoJson(json_AreeedimmobilisogettiatutelaambientaleCittaStorica5, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_AreeedimmobilisogettiatutelaambientaleCittaStorica5',
+        onEachFeature: pop_AreeedimmobilisogettiatutelaambientaleCittaStorica5,
+        style: style_AreeedimmobilisogettiatutelaambientaleCittaStorica5
+    });
+        bounds_group.addLayer(layer_AreeedimmobilisogettiatutelaambientaleCittaStorica5);
+        map.addLayer(layer_AreeedimmobilisogettiatutelaambientaleCittaStorica5);
+        function pop_QuadroUnione5K6(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_QuadroUnione5K6(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Layout</th>\
+                        <td>' + (feature.properties['Layout'] !== null ? Autolinker.link(String(feature.properties['Layout'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tavola</th>\
+                        <td>' + (feature.properties['Tavola'] !== null ? Autolinker.link(String(feature.properties['Tavola'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DIST</th>\
+                        <td>' + (feature.properties['DIST'] !== null ? Autolinker.link(String(feature.properties['DIST'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_QuadroUnione5K6() {
+            return {
+                pane: 'pane_QuadroUnione5K6',
+                opacity: 1,
+                color: 'rgba(255,255,255,0.5)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,0.5)',
+            }
+        }
+        map.createPane('pane_QuadroUnione5K6');
+        map.getPane('pane_QuadroUnione5K6').style.zIndex = 606;
+        map.getPane('pane_QuadroUnione5K6').style['mix-blend-mode'] = 'normal';
+    var layer_QuadroUnione5K6 = new L.geoJson(json_QuadroUnione5K6, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_QuadroUnione5K6',
+        onEachFeature: pop_QuadroUnione5K6,
+        style: style_QuadroUnione5K6
+    });
+        bounds_group.addLayer(layer_QuadroUnione5K6);
+       // map.addLayer(layer_QuadroUnione5K6);
+
+        var baseMaps = {'Google Satellite': basemap0, 'OSM': basemap1};
+        L.control.layers(baseMaps,{'<img src="legend/QuadroUnione5K6.png" /> <strong>Quadro Unione 5K</strong>': layer_QuadroUnione5K6,'<img src="legend/AreeedimmobilisogettiatutelaambientaleCittaStorica5.png" /> <strong>Aree ed immobili sogetti a tutela ambientale - Citta Storica</strong>': layer_AreeedimmobilisogettiatutelaambientaleCittaStorica5,'<img src="legend/AreeedimmobilisogettiatutelaambientaleNettoStorico4.png" /> <strong>Aree ed immobili sogetti a tutela ambientale - Netto Storico</strong>': layer_AreeedimmobilisogettiatutelaambientaleNettoStorico4,'<strong>Zonizzazione</strong><br /><table><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_A10.png" /></td><td>A1</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_A21.png" /></td><td>A2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_B2.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_B0a3.png" /></td><td>B0a</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_B0b4.png" /></td><td>B0b</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_B15.png" /></td><td>B1</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_B26.png" /></td><td>B2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_B37.png" /></td><td>B3</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_B4A8.png" /></td><td>B4A</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_B4b9.png" /></td><td>B4b</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_B510.png" /></td><td>B5</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_C11.png" /></td><td>C</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_Ca12.png" /></td><td>Ca</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_Cb13.png" /></td><td>Cb</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_CM14.png" /></td><td>CM</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_D115.png" /></td><td>D1</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_D216.png" /></td><td>D2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_E17.png" /></td><td>E</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_E118.png" /></td><td>E1</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_E219.png" /></td><td>E2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F120.png" /></td><td>F1</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1021.png" /></td><td>F10</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1122.png" /></td><td>F11</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F11F2423.png" /></td><td>F11F24</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1224.png" /></td><td>F12</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F12F1525.png" /></td><td>F12F15</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F12F15F1626.png" /></td><td>F12F15F16</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1327.png" /></td><td>F13</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1428.png" /></td><td>F14</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1529.png" /></td><td>F15</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1630.png" /></td><td>F16</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1831.png" /></td><td>F18</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1932.png" /></td><td>F19</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1F233.png" /></td><td>F1F2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1F3F1534.png" /></td><td>F1F3F15</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1S235.png" /></td><td>F1S2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F1S236.png" /></td><td>F1-S2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F237.png" /></td><td>F2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F2338.png" /></td><td>F23</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F2F1239.png" /></td><td>F2F12</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F2F1540.png" /></td><td>F2-F15</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F341.png" /></td><td>F3</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F442.png" /></td><td>F4</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F4F10F1143.png" /></td><td>F4F10F11</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F544.png" /></td><td>F5</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F745.png" /></td><td>F7</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F846.png" /></td><td>F8</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F947.png" /></td><td>F9</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_Fasciacostiera48.png" /></td><td>Fascia_costiera</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC149.png" /></td><td>IC1</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC1150.png" /></td><td>IC11</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC1251.png" /></td><td>IC12</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC1352.png" /></td><td>IC13</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC1453.png" /></td><td>IC14</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC1F1454.png" /></td><td>IC1F14</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC1IC11F1455.png" /></td><td>IC1IC11F14</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC1IC456.png" /></td><td>IC1IC4</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC1IC557.png" /></td><td>IC1IC5</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC258.png" /></td><td>IC2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC2IC3IC459.png" /></td><td>IC2IC3IC4</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC2IC4IC1060.png" /></td><td>IC2IC4IC10</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC2IC4IC5IC6IC1061.png" /></td><td>IC2IC4IC5IC6IC10</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC2IC4IC962.png" /></td><td>IC2IC4IC9</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC2IC5IC663.png" /></td><td>IC2IC5IC6</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC364.png" /></td><td>IC3</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC3IC1065.png" /></td><td>IC3IC10</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC3IC566.png" /></td><td>IC3IC5</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC3IC767.png" /></td><td>IC3IC7</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC468.png" /></td><td>IC4</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC4IC6IC1069.png" /></td><td>IC4IC6IC10</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC4IC870.png" /></td><td>IC4IC8</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC4IC971.png" /></td><td>IC4IC9</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC572.png" /></td><td>IC5</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC5IC673.png" /></td><td>IC5IC6</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC674.png" /></td><td>IC6</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC775.png" /></td><td>IC7</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC876.png" /></td><td>IC8</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IC977.png" /></td><td>IC9</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_IDC78.png" /></td><td>IDC</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_Parcheggi79.png" /></td><td>Parcheggi</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_S180.png" /></td><td>S1</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_S1S281.png" /></td><td>S1S2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_S282.png" /></td><td>S2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_Sedestradale83.png" /></td><td>Sede_stradale</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V84.png" /></td><td>V</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V185.png" /></td><td>V1</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V1V286.png" /></td><td>V1V2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V1V387.png" /></td><td>V1V3</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V288.png" /></td><td>V2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V2V389.png" /></td><td>V2V3</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V2V490.png" /></td><td>V2V4</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V2V591.png" /></td><td>V2V5</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V392.png" /></td><td>V3</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V3VS93.png" /></td><td>V3+VS</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V3IC2IC494.png" /></td><td>V3IC2IC4</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V495.png" /></td><td>V4</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V4IC296.png" /></td><td>V4IC2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_V597.png" /></td><td>V5</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_VerdeStorico98.png" /></td><td>Verde Storico</td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_99.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/Zonizzazione3_F17100.png" /></td><td>F17</td></tr></table>': layer_Zonizzazione3,'<strong>Aree sogette a vincoli (areali)</strong><br /><table><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Areaaeroportuale0.png" /></td><td>Area aeroportuale</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_AreaDemanioMontepellegrino1.png" /></td><td>Area Demanio Montepellegrino</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Areeboscateartificiali2.png" /></td><td>Aree boscate artificiali</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Areeboscatenaturali3.png" /></td><td>Aree boscate naturali</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Areecaveattivedicoltivazione4.png" /></td><td>Aree cave attive di coltivazione</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_AreeCaveStoriche5.png" /></td><td>Aree Cave Storiche</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Areediinteressearcheologico6.png" /></td><td>Aree di interesse archeologico</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Areefaldeacquifere7.png" /></td><td>Aree falde acquifere</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Areeinondazioni8.png" /></td><td>Aree inondazioni</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Areeinterdette9.png" /></td><td>Aree interdette</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_AreeQanat10.png" /></td><td>Aree Qanat</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_AreeRischioIdraulicoefrana11.png" /></td><td>Aree Rischio Idraulico e frana</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Areeristagniacqua12.png" /></td><td>Aree ristagni acqua</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Attivitestrattiva13.png" /></td><td>Attività  estrattiva</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Fascedirispettofaglieesovrascorrimenti14.png" /></td><td>Fasce di rispetto faglie e sovrascorrimenti</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Fasciabattigia15.png" /></td><td>Fascia battigia</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Fasciadirispettoareeboscateartificiali16.png" /></td><td>Fascia di rispetto aree boscate artificiali</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_FasciadirispettoAreeboscatenaturali17.png" /></td><td>Fascia di rispetto Aree boscate naturali</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Fasciadirispettocimiterialeedepuratori18.png" /></td><td>Fascia di rispetto cimiteriale e depuratori</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Fasciadirispettocorsidacqua19.png" /></td><td>Fascia di rispetto corsi d\'acqua</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Fasciadirispettoferrovia20.png" /></td><td>Fascia di rispetto ferrovia</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_ImmobiliVincoliLegge108939Cimiteri21.png" /></td><td>Immobili Vincoli Legge 1089/39 - Cimiteri</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_ImmobiliVincoliLegge108939Quanat22.png" /></td><td>Immobili Vincoli Legge 1089/39 - Quanat</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_ImmobiliVincoliLegge108939Ville23.png" /></td><td>Immobili Vincoli Legge 1089/39 - Ville</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_Pozziidricinonpotabili24.png" /></td><td>Pozzi idrici non potabili</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_SitidiImportanzaComunitaria25.png" /></td><td>Siti di Importanza Comunitaria</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_VincolopaesaggisticoL149726.png" /></td><td>Vincolo paesaggistico L. 1497</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_VincolopaesaggisticoL43127.png" /></td><td>Vincolo paesaggistico L. 431</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_ZonaARiserva28.png" /></td><td>Zona A - Riserva</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_ZonaBPreriserva29.png" /></td><td>Zona B - Preriserva</td></tr><tr><td style="text-align: center;"><img src="legend/vincoliareali2_ZonaB1Preriserva30.png" /></td><td>Zona B1 - Preriserva</td></tr></table>': layer_vincoliareali2,'<strong>Aree sogette a vincoli (linari)</strong><br /><table><tr><td style="text-align: center;"><img src="legend/vincolilinari1_Corsidacqua0.png" /></td><td>Corsi d\'acqua</td></tr><tr><td style="text-align: center;"><img src="legend/vincolilinari1_Corsidacquainterrati1.png" /></td><td>Corsi d\'acqua interrati</td></tr><tr><td style="text-align: center;"><img src="legend/vincolilinari1_FaglieeSovrascorrimenti2.png" /></td><td>Faglie e Sovrascorrimenti</td></tr><tr><td style="text-align: center;"><img src="legend/vincolilinari1_RegieTrazzere3.png" /></td><td>Regie Trazzere</td></tr></table>': layer_vincolilinari1,'<img src="legend/Limitiamministrativi0.png" /> <strong>Limiti amministrativi</strong>': layer_Limitiamministrativi0,}).addTo(map);
+        setBounds();
+			    var sidebar = L.control.sidebar('sidebar').addTo(map);
+		
+        </script>
+
+    		<div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
+<img src="legend/opendatasicilia.png" width="48" title="opendatasicilia.it" alt="opendatasicilia"></a></div>
+</body>
+</html>
