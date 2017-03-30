@@ -44,21 +44,26 @@ a:active {color: #FF0000; text-decoration:none; }
 </head>
 <body>
 
-  <div id="sidebar" class="sidebar collapsed">
-    <!-- Nav tabs -->
-    <ul class="sidebar-tabs" role="tablist">
+    <div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <ul role="tablist">
       <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
       <li> <a href="mailto:coseerobe.gbvitrano@gmail.com" title="Email" role="tab"><i class="fa fa-envelope"></i></a></li>
       <li> <a href="http://www.cricd.it/pages.php?idpagina=13&idContenuto=3326" title="Book - Repertorio cartografico & aerofotografico" target="_blank" role="tab"><i class="fa fa-book" aria-hidden="true"></i></a></li>
       <li><a href="https://github.com/SiciliaHub/mappe" title="SiciliaHub/mappe" target="_blank"  role="tab"><i class="fa fa-github"></i></a></li>
        <li><a href="#info"  title="Informazioni"role="tab"><i class="fa fa-info"></i></a></li>
-       <li><a href="#tools" title="Configurazione" role="tab"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
          </ul>
+         
+          <ul role="tablist">
+         <li><a href="#tools" title="Configurazione" role="tab"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+         </ul></div>
 
+         
     <!-- Tab panes -->
     <div class="sidebar-content active">
       <div class="sidebar-pane" id="home">
-        <h2>Cartografia storica Palermo</h2>
+        <h2 class="sidebar-header">Cartografia storica Palermo <span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
             <p class="lorem">CARTA TECNICA DI PALERMO (OMIRA ) <br>
             <strong>Data:</strong>1935-1937 <strong>scala:</strong> 1:5000</p>      
 <p class="lorem"> Supporto e tecnica di riproduzione: digitale numero fogli: 17<br>
@@ -110,13 +115,13 @@ a:active {color: #FF0000; text-decoration:none; }
 </table> </p>
       </div>
       <div class="sidebar-pane" id="info">
-        <h2>Informazioni</h2>
+      <h2 class="sidebar-header">Informazioni<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
  <p > <strong>Realizzato da:</strong><br><a href="https://twitter.com/aborruso" target="_blank" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/cirospat" target="_blank" title="Ciro Spataro">@cirospat</a>, <a href=" https://twitter.com/Piersoft" target="_blank" title="Francesco Piero Paolicelli">@piersoft</a> e <a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a><br><br>per <strong><a href="http://opendatasicilia.it/" Title="Open Data Sicilia" target="_blank">Open Data Sicilia</a></strong><br><br>
 Cartografie OMIRA anno 1939 - in dotazione al <a href="https://www.comune.palermo.it/" title="Portale ufficiale del Comune di Palermo" target="_blank">Comune di Palermo</a> - scansionate dalla società comunale in house per i servizi informatici <a href="http://www.sispi.it/" title="SISPI - Sistema Palermo Informatica" target="_blank">SISPI SPA</a><br><br><a href="http://geosrv.comune.palermo.it/carto/" title="Portale Cartografico curato da Sispi.spa" target="_blank">Portale Cartografico</a> a cura di: <a href="http://www.sispi.it/" title="SISPI - Sistema Palermo Informatica" target="_blank">SISPI SPA</a> <br><br>Un ringraziamento particolare va a <a href="https://twitter.com/napo" target="_blank" title="Maurizio Napolitano">@napo</a> che con il lavoro: <a href="https://medium.com/@napo/mappa-di-trento-1915-da-un-libro-di-cesare-battisti-84935794b1ed#.w7hqdcsuv" target="_blank" title="mappa di Trento 1915 - da un libro di Cesare Battisti">mappa di Trento 1915 - da un libro di Cesare Battisti</a> ci ha fatto riscoprire la bellezza e l'importanza delle mappa storiche.</p>
 
       </div>
       <div class="sidebar-pane" id="tools">
-        <h2>Strumenti</h2>
+      <h2 class="sidebar-header">Strumenti<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
         <p><strong>I principali strumenti usati per realizzare questa semplice mappa:</strong></p>
         <ul>
           <li><a href="http://leafletjs.com/" title="Leaflet" target="_blank">Leaflet,</a> per creare l'interfaccia di web mapping; <br><br></li>
