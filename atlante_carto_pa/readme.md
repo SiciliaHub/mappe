@@ -3,6 +3,9 @@
 
 <a href="http://siciliahub.github.io/mappe/atlante_carto_pa/index.html"><img width="1000" src="http://siciliahub.github.io/mappe/atlante_carto_pa/images/atlante.jpg" Title=" Atlante - Cartografie storiche di Palermo - scala 1:5000" alt="Atlante delle cartografie tecniche storiche di Palermo" /></a>
 
+**Osservare il cambiamento di una città grazie alla cartografia:
+il caso di Palermo**
+
 [**Atlante delle cartografie tecniche storiche di Palermo**](http://siciliahub.github.io/mappe/atlante_carto_pa/index.html) con [@aborruso](https://twitter.com/aborruso), [@piersoft](https://twitter.com/Piersoft), [@cirospat](https://twitter.com/cirospat), [@napo](https://twitter.com/napo);
 
 **Al momento sono state rielaborate le seguenti carte tecniche:**
