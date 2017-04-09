@@ -287,9 +287,9 @@ var sas = L.tileLayer.mask("http://mapwarper.net/maps/tile/19785/{z}/{x}/{y}.png
       maxZoom: 17,
       maxNativeZoom: 17
         });
-var overlays =  {'OMIRA 1935': omira, 'IRTA 1956': irta, 'SAS 1987': sas,};
+var overlaysmap =  {'OMIRA 1935': omira, 'IRTA 1956': irta, 'SAS 1987': sas,};
 
-var layerControl = new L.Control.Layers({},overlays,{collapsed: true},{position:'topright'});
+var layerControl = new L.Control.Layers(overlaysmap);
          layerControl.addTo(map);
          map.on("mousemove", function(e) {
            omira.setCenter(e.containerPoint.x, e.containerPoint.y); irta.setCenter(e.containerPoint.x, e.containerPoint.y); sas.setCenter(e.containerPoint.x, e.containerPoint.y);
