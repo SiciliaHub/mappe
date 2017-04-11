@@ -1,3 +1,12 @@
+@font-face {font-family:fontawesome;
+src:url("fonts/fontawesome-webfont.eot?") format("eot"),
+url("fonts/fontawesome-webfont.woff") format("woff"),
+url("fonts/fontawesome-webfont.woff2") format("woff2"),
+url("fonts/fontawesome-webfont.ttf") format("truetype"),
+url("fontst/fontawesome-webfont.svg#fontawesome") format("svg");
+font-weight:normal;
+font-style:normal;
+}
 
 html, body{
 padding: 0;    
@@ -13,7 +22,7 @@ background-attachment: fixed;
 }
 
 #map { height: 100%; 
-font: 11px "Helvetica Neue", Arial, Helvetica, sans-serif; 
+font: 11px "Helvetica Neue", fontawesome, Arial, Helvetica, sans-serif; 
 background-color: #fff;  }
 
 #ods { position:fixed; 
@@ -24,6 +33,10 @@ z-index: 999;}
 .lorem {font-style: italic; 
 color: #4E4B4B; 
 text-align: justify; }
+
+.awesome {font-style:fontawesome;  
+color: #4E4B4B;  }
+
 
 a:link {color: #FF9900;	
 text-decoration:none;}
@@ -48,7 +61,8 @@ padding:1px;
 
 .clip_omira:hover {opacity: 1;
   -webkit-filter: grayscale(100%); } 
-  
+/* foglio di stile atlante cartografico palermo - 
+giovan battista vitrano per opendatasicilia.it */   
   
     .clip_irta {width: 340px; height:
  340px; border-radius: 5px; 
@@ -72,3 +86,4 @@ z-index: 1000;
 	border-width: 1px;}
 hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900;
 }
+.clip_tab {width:98%;height:98%;border-radius: 5px; -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
