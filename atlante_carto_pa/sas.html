@@ -42,12 +42,13 @@
 <link href="css/leaflet.css" rel="stylesheet" type="text/css"> 
 <link href="css/leaflet-sidebar.css" rel="stylesheet" type="text/css">
 <link href="css/gmaps-sidebar.css" rel="stylesheet" type="text/css">
-<link href="css/atlante.css" rel="stylesheet" type="text/css">
+<link href="css/atlante_01.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="css/btns.min.css" type="text/css">
 <link href="css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link href="css/LControlMousePosition.css" rel="stylesheet" type="text/css">
 <link href="css/scalebar.css" rel="stylesheet" type="text/css">
 <link href="css/Leaflet_GraphicScale_min.css" rel="stylesheet" type="text/css">
+<link href="css/L.Control.Basemaps.css" rel="stylesheet" type="text/css">
 
 <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
 
@@ -61,7 +62,7 @@
 <script src="js/social/jquery_csbuttons.js"></script>
 <script src="js/mouseposition/LControlMousePosition.js"></script>
 <script type="text/javascript" src="js/graphicscale/Leaflet_GraphicScale_min.js"></script>
-
+<script src="js/basemap/L.Control.Basemaps.js"></script>
 </head>
 <body>
 <div id="sidebar" class="sidebar collapsed">
@@ -228,7 +229,8 @@ Cartografia OMIRA anno 1935 - in dotazione al <a href="https://www.comune.palerm
           <li><p class="lorem"><a href="https://github.com/ardhi/Leaflet.MousePosition" title="Leaflet.MousePosition" target="_blank">Leaflet.MousePosition</a>, è un semplice controllo della posizione del mouse. Esso mostra le coordinate geografiche del puntatore del mouse, mentre viene spostato sulla mappa;<br><br></li></p>
           <li><p class="lorem"><a href="https://github.com/nerik/leaflet-graphicscale" title="leaflet-graphicscale" target="_blank">Leaflet-graphicscale</a>, è un semplice barra di scala con effetto animato al cambio dello zoom;<br><br></li></p>
                    <li><p class="lorem"><a href="http://mapwarper.net/" title="Map Warper" target="_blank">Map Warper</a>, è uno strumento open source per georeferenziare immagini, nato grazie al <a href="https://github.com/timwaters/mapwarper" title="timwaters/mapwarper" target="_blank">contributo</a> del progetto <a href="https://github.com/nypl-spacetime/" title="progetto spacetime" target="_blank">spacetime</a> della <a href="https://github.com/NYPL" title="Biblioteca Comunale di New York" target="_blank">Biblioteca Comunale di New York</a>,  sviluppato, ospitato e mantenuto da <a href="https://twitter.com/tim_waters" title="Tim Waters" target="_blank">Tim Waters</a>;<br><br></li></p>
-          <li><p class="lorem"><a href="https://github.com/mrmrs/btns" title="btns" target="_blank">Btns</a>, è un piccolo modulo CSS che permette di inserire pulsanti reattivi.<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/mrmrs/btns" title="btns" target="_blank">Btns</a>, è un piccolo modulo CSS che permette di inserire pulsanti reattivi.<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/consbio/Leaflet.Basemaps" title="Leaflet.Basemaps" target="_blank">Leaflet.Basemaps</a>, consente di creare un controllo dell'interfaccia utente per la scelta della mappa di base utilizzato sulla mappa.<br><br></li></p>
         </ul>
       </div>
     </div>
@@ -242,56 +244,48 @@ Cartografia OMIRA anno 1935 - in dotazione al <a href="https://www.comune.palerm
 
 
         var map = L.map('map', {attributionControl:true}).setView([38.11127,13.3534422], 14 );
-
-        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-minZoom: 13,
-      maxZoom: 17,
-      maxNativeZoom: 17
-        });
-        basemap0.addTo(map);
-var basemap1 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-                attribution: 'Source: Google Road - Map data ©2015 Google',
-				minZoom: 13,
-      maxZoom: 17,
-      maxNativeZoom: 17
-              });
+var basemaps = [
+		  		L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution:'&copy;<a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+      minZoom: 13,   maxZoom: 17, maxNativeZoom: 17,
+	  label: 'OpenStreetMap'
+        }),
 		
-        var basemap3 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-                attribution: 'Source: ESRI Standard',
-				minZoom: 13,
-      maxZoom: 17,
-      maxNativeZoom: 17
-              });
-			  
- var basemap4 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                attribution: 'Source: ESRI Satellite',
-				minZoom: 13,
-      maxZoom: 17,
-      maxNativeZoom: 17
-              });
-			  
-var basemap5 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+		L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+                attribution: 'Source: Google Road - Map data ©2015 Google',
+  minZoom: 13,   maxZoom: 17, maxNativeZoom: 17,
+	 	  label: 'Google Road'
+              }),
+	
+				  L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
                 attribution: 'Source: Google Satellite - Map data ©2015 Google',
-				minZoom: 13,
-      maxZoom: 17,
-      maxNativeZoom: 17
-              });
+minZoom: 13,   maxZoom: 17, maxNativeZoom: 17,
+	 	  label: 'Google Satellite'
+              }),		  
+			  
+	L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Source: ESRI Standard',
+  minZoom: 13,   maxZoom: 17, maxNativeZoom: 17,
+		  label: 'ESRI Standard'
+              }),	  
+			
+			L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Source: ESRI Satellite',
+  minZoom: 13,   maxZoom: 17, maxNativeZoom: 17,
+		  label: 'ESRI Satellite'
+              }),
+		        ];
 
-			       var basemap2 = L.tileLayer.mask("http://mapwarper.net/maps/tile/19785/{z}/{x}/{y}.png", {
-      attribution: '<a href="https://github.com/frogcat/leaflet-tileoverlay-mask" target="_blank" title="Leaflet-tileoverlay-mask">Leaflet-tileoverlay-mask</a> - Cartografia storica - Carta Tecnica di Palermo - Sas 1987 - Rielaborazione di: <a href="https://twitter.com/aborruso" target="_blank" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/napo"target="_blank" title="Maurizio Napolitano">@napo</a>, <a href=" https://twitter.com/Piersoft" target="_blank" title="Francesco Piero Paolicelli">@piersoft</a>, <a href="https://twitter.com/cirospat" target="_blank" title="Ciro Spataro">@cirospat</a> e <a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a>',
-	  minZoom: 13,
-      maxZoom: 17,
-      maxNativeZoom: 17
-        });
-        basemap2.addTo(map);
+			       var sas = L.tileLayer.mask("http://mapwarper.net/maps/tile/19785/{z}/{x}/{y}.png", {
+      attribution: '<a href="https://github.com/frogcat/leaflet-tileoverlay-mask" target="_blank" title="Leaflet-tileoverlay-mask">Leaflet-tileoverlay-mask</a> - Cartografia storica - Carta Tecnica di Palermo - Sas 1987 - Rielaborazione di: <a href="https://twitter.com/aborruso" target="_blank" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/napo"target="_blank" title="Maurizio Napolitano">@napo</a>, <a href=" https://twitter.com/Piersoft" target="_blank" title="Francesco Piero Paolicelli">@piersoft</a>, <a href="https://twitter.com/cirospat" target="_blank" title="Ciro Spataro">@cirospat</a> e <a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a> per <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>',
+  minZoom: 13,   maxZoom: 17, maxNativeZoom: 17,
+        }); sas.addTo(map);
 
         var overlays = {
           };
-          var layerControl = new L.Control.Layers({'OSM': basemap0, 'Google Road': basemap1, 'Google Satellite': basemap5, 'ESRI Standard': basemap3, 'ESRI Satellite': basemap4},overlays,{collapsed: true},{position:'topright'});
-         layerControl.addTo(map);
+
          map.on("mousemove", function(e) {
-           basemap2.setCenter(e.containerPoint.x, e.containerPoint.y);	   
+           sas.setCenter(e.containerPoint.x, e.containerPoint.y);	   
          }).zoomControl.setPosition("topleft");
 		   <!-- hash -->
 	        var hash = new L.Hash(map);
@@ -305,15 +299,20 @@ var basemap5 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
 		fill: 'hollow',
         showSubunits: true
 	}).addTo(map);
-
+	   map.addControl(L.control.basemaps({
+            basemaps: basemaps,
+            tileX: 0,
+            tileY: 0,
+            tileZ: 1
+        }));
   </script>
    
-<div id="bot">
+<div id="bot" class="leaflet-control"><div id="titolo"> 
       <a href="index.html" title="Carta Tecnica Palermo - OMIRA 1935" target="_parent" class="btn btn--s btn--gray-border"><b>OMIRA 1935</b></a>
-      <a href="irta.html" title="Carta Tecnica Palermo - IRTA 1956" target="_parent" class="btn btn--s btn--gray-border"><b>IRTA 1956</b></a>
+      <a href="irta.html" title="Carta Tecnica Palermo - IRTA 1956"  target="_parent" class="btn btn--s btn--gray-border"><b>IRTA 1956</b></a>
       <a href="#" title="Carta Tecnica Palermo - SAS 1987"  target="_parent" class="btn btn--s btn--orange"><b>SAS 1987</b></a>
-    </div>
-    
+    </div></div>
+ <div id="logo"><a href="http://opendatasicilia.it/" target="_blank"><img src="images/ods_logo.png" alt="" width="42" height="42" title="opendatasicilia.it"/></a>  </div>     
 <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
 <img src="images/ods_1.png" width="100" title="opendatasicilia.it" alt="opendatasicilia"></a></div>
 </body>

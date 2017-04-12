@@ -6,7 +6,7 @@
   overflow: hidden;
   z-index: 2000; }
   .sidebar.collapsed {
-    width: 40px; }
+    width: 60px; }
   @media (min-width: 768px) {
     .sidebar {
       top: 10px;
@@ -77,7 +77,8 @@
         text-align: center; }
   .sidebar-tabs > ul + ul {
     bottom: 0; }
-
+/* foglio di stile atlante cartografico palermo -
+ giovan battista vitrano per opendatasicilia.it */
 .sidebar-content {
   position: absolute;
   top: 0;

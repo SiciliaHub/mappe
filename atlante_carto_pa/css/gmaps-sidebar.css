@@ -1,13 +1,13 @@
 .sidebar {
   position: absolute;
-  top: 40px;
+  top: 60px;
   bottom: 0;
   width: 100%;
   overflow: hidden;
   z-index: 2000; }
   .sidebar.collapsed {
     width: 40px;
-	top:40px; }
+	top:60px; }
   @media (min-width: 768px) {
     .sidebar {
       top: 10px;
@@ -16,21 +16,21 @@
   @media (min-width: 768px) and (max-width: 991px) {
     .sidebar {
       width: 305px;
-	  top: 40px; } }
+	  top: 60px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .sidebar {
       width: 390px; } }
   @media (min-width: 1200px) {
     .sidebar {
       width: 460px; 
-	  top: 40px;} }
+	  top: 60px;} }
 
 .sidebar-left {
   left: 0; }
   @media (min-width: 768px) {
     .sidebar-left {
       left: 10px; 
-	  top: 40px;} }
+	  top: 60px;} }
 
 .sidebar-right {
   right: 0; }
@@ -60,8 +60,10 @@
       overflow: hidden;
       transition: all 80ms; }
       .sidebar-tabs > li:hover, .sidebar-tabs > ul > li:hover {
-        color: #000;
-        background-color: #fff9e6; }
+	color: #000;
+	background-color: #fff9e6;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
       .sidebar-tabs > li.active, .sidebar-tabs > ul > li.active {
         color: #000;
         background-color: #febf00; }
