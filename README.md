@@ -27,5 +27,5 @@ Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di app
 - [**Variante Generale PRG Palermo 2004**](http://siciliahub.github.io/mappe/prg_pa_2004/zon_vin/) elaborata con Qgis e le plugin  qgis2leaf e qgis2web con gli [Opendata del Comune di Palermo](http://www.comune.palermo.it/opendata_dld.php?id=320) nuovo layout, a cura di [@gbvitrano](https://twitter.com/gbvitrano);<br>
 - **Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo**<br>
 [**Atlante delle cartografie tecniche storiche di Palermo**](http://siciliahub.github.io/mappe/atlante_carto_pa/index.html) a cura di [@aborruso](https://twitter.com/aborruso), [@piersoft](https://twitter.com/Piersoft), [@cirospat](https://twitter.com/cirospat), [@napo](https://twitter.com/napo) e [@gbvitrano](https://twitter.com/gbvitrano)
-- [**Piano di emergenza Protezione Civile - Palermo su base opendata**](http://siciliahub.github.io/mappe/ppc/index.html)a cura di [@cirospat](https://twitter.com/cirospat) e [@gbvitrano](https://twitter.com/gbvitrano)
+- [**Piano di emergenza Protezione Civile - Palermo, su base opendata**](http://siciliahub.github.io/mappe/ppc/index.html)a cura di [@cirospat](https://twitter.com/cirospat) e [@gbvitrano](https://twitter.com/gbvitrano)
 
