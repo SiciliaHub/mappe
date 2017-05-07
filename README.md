@@ -28,4 +28,4 @@ Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di app
 - **Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo**<br>
 [**Atlante delle cartografie tecniche storiche di Palermo**](http://siciliahub.github.io/mappe/atlante_carto_pa/index.html) a cura di [@aborruso](https://twitter.com/aborruso), [@piersoft](https://twitter.com/Piersoft), [@cirospat](https://twitter.com/cirospat), [@napo](https://twitter.com/napo) e [@gbvitrano](https://twitter.com/gbvitrano)
 - [**Piano di emergenza Protezione Civile - Palermo, su base opendata**](http://siciliahub.github.io/mappe/ppc/index.html)a cura di [@cirospat](https://twitter.com/cirospat) e [@gbvitrano](https://twitter.com/gbvitrano)
-
+- [**Palermo - Rimozione di cemento amianto negli spazi pubblici comunali**](http://siciliahub.github.io/mappe/rimozione_amianto/index.html), con [Opendata del Comune di Palermo](https://www.comune.palermo.it/opendata_menus.php?sel=1) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
