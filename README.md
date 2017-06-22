@@ -31,3 +31,5 @@ Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di app
 - [**Palermo - Rimozione di cemento amianto negli spazi pubblici comunali**](http://siciliahub.github.io/mappe/rimozione_amianto/index.html), con [Opendata del Comune di Palermo](https://www.comune.palermo.it/opendata_menus.php?sel=1) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 
 - [**Sinistri stradali rilevati nel territorio comunale di Palermo nell'anno 2016 dalla polizia municipale di Palermo**](http://siciliahub.github.io/mappe/sinistri_2016/index.html), elaborata con #Qgis e il plugin #qgis2web con gli [Opendata del Comune di Palermo](https://www.comune.palermo.it/opendata_dld.php?id=523) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
+
+[**Elenco degli immobili comunali del Comune di Palermo aggiornato al 31 dicembre 2016**](http://siciliahub.github.io/mappe/elenco_beni_immobili/index.html), elaborata con #Qgis e il plugin #qgis2web con gli [Opendata del Comune di Palermo](https://www.comune.palermo.it/opendata_dld.php?id=849) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
