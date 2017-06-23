@@ -80,7 +80,7 @@
 <script src="lib/js/print/leaflet.easyPrint.js"></script>
 
         <!-- script dati mappa -->
-<script src="data/elencocompletoripulito0.js"></script>
+<script src="data/elencosolook0.js"></script>
 
     </head>
     <body>
@@ -117,8 +117,9 @@
 <p class="lorem">L’elenco degli immobili comunali del Comune di Palermo, estratto dalla sezione “Amministazione trasparente”, il geocoding è stato eseguito con OpenRefine con le api Google, seguendo il tutorial di <a href="https://github.com/aborruso/geocode_openrefine/tree/master/Google" title="Geocoding con OpenRefine da Google di @aborruso" target="_blank">Andrea Borruso</a>.<br>Per eseguire la procedura con con OpenRefine è necessario che nel file da analizzare sia presente un campo denominato “2geocode” e che questo campo contenga l’indirizzo su cui fare il geocoding, nel modo più “pulito” possibile.
 Esempio: Via Roma, 50, 90143 Palermo, Italia.<br><br>
 <img src="legend/openrefine.jpg" width="360" height="189" alt="OpenRefine" title="Geocoding con OpenRefine da Google"/><br><br> 
-Nel <a href="https://www.comune.palermo.it/js/server/uploads/opendata/_19062017144522.csv" target="_blank">file</a> scaricato dal <a href="https://www.comune.palermo.it/opendata_dld.php?id=849" target="_blank">portale opendata del Comune di Palermo</a> si può notare che su 8941 beni immobili, in 107 beni non è riportato l’indirizzo,  685 beni sono privi di numero civico o il campo contine altri dati (esempio: N.C., NC, S.N.C., SNC). E per  81 beni mancano entrambi i dati, quindi già siamo sicuri che una piccola percentuale il geocoding non andrà a buon fine.<br><br>
-<a href="https://data.world/opendatasicilia/comune-di-palermo-elenco-immobili-comunali/workspace/file?filename=localizzazione_immobili_comunali_palermo.csv" target="_blank">Qui</a> il risultato finale del geocoding (non verificato) e non privo di errori.<br>Il Geocoding è anadato a buon fine solo per 6.797 beni su 8.941, per i restanti 2.144 beni non ci sono stati risultati. Ad un primo controllo visivo si nota che 193 beni sono stati localizzati al di fuori del territorio del Comune di Palermo! Non è una geolocalizzazione perfetta, ma visto che nel <a href="https://www.comune.palermo.it/opendata_dld.php?id=849" target="_blank">dataset</a> sono riportati anche il foglio catastale e il numero di particella, si potrebbe affinare di più la localizzazione se fossero disponibili in opendata anche i dataset con le informazioni catastali.</p>
+Nel <a href="https://www.comune.palermo.it/js/server/uploads/opendata/_19062017144522.csv" target="_blank">file</a> scaricato dal <a href="https://www.comune.palermo.it/opendata_dld.php?id=849" target="_blank">portale opendata del Comune di Palermo</a> si può notare che su 8941 beni immobili, in 107 beni non è riportato l’indirizzo,  685 beni sono privi di numero civico o il campo contine altri dati (esempio: N.C., NC, S.N.C., SNC) e 118 beni hanno come numero civico 0. Per 81 beni non è riportato ne indirizzo ne civico, quindi già siamo sicuri che una piccola percentuale il geocoding non andrà a buon fine.<br><br>
+<a href="data/geocoding_elenco_beni.zip" title="Scarica il file zip del geocoding dell elenco degli immobili comunali del Comune di Palermo aggiornato al 31 dicembre 2016" target="_parent">Qui</a> il risultato finale del geocoding (non verificato) e non privo di errori.<br>
+Il Geocoding è anadato a buon fine solo per 8.227 beni su 8.941, per i restanti 714 beni non ci sono stati risultati. Ad un primo controllo visivo si nota che 233 beni sono stati localizzati al di fuori del territorio del Comune di Palermo! Non è una geolocalizzazione perfetta, ma visto che nel <a href="https://www.comune.palermo.it/opendata_dld.php?id=849" target="_blank">dataset</a> sono riportati anche il foglio catastale e il numero di particella, si potrebbe affinare di più la localizzazione se fossero disponibili in opendata anche i dataset con le informazioni catastali.</p>
 <hr>
     <p class="lorem"> <strong>Note:</strong><br>
    <em><strong>Le informazioni visibili e condivise in queste pagine non comportano la visualizzazione di dati sensibili.</strong></em><br>
@@ -208,7 +209,7 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 return this._bounds;
             }
         });
-        var map = L.map('map', { zoomControl:false,  maxZoom:17, minZoom:12  }).fitBounds([[38.0456249463,13.1585982262],[38.2289798058,13.5367244669]]);
+        var map = L.map('map', { zoomControl:false,  maxZoom:17, minZoom:10  }).fitBounds([[38.0456249463,13.1585982262],[38.2289798058,13.5367244669]]);
         var hash = new L.Hash(map);
         map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> - Rielaborazione dataset <a href="https://www.comune.palermo.it/opendata_dld.php?id=849" target="_blank" title="Elenco degli immobili comunali del Comune di Palermo aggiornato al 31 dicembre 2016">Elenco degli immobili comunali del Comune di Palermo</a> di: <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>');
         var bounds_group = new L.featureGroup([]);
@@ -228,7 +229,7 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
             ];
           });
         }
-        function pop_elencocompletoripulito0(feature, layer) {
+        function pop_elencosolook0(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Tipologia:</th>\
@@ -262,19 +263,9 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                         <th scope="row">Sub:</th>\
                         <td>' + (feature.properties['SUB'] !== null ? Autolinker.link(String(feature.properties['SUB'])) : '') + '</td>\
                     </tr>\
-					                    </tr>\
-					            <tr>\
-                        <th scope="row">Info Geocoding </th>\
-                        <td><hr></td>\
-                    </tr>\
-					                    <tr>\
                     <tr>\
                         <th scope="row">2geocode:</th>\
                         <td>' + (feature.properties['2geocode'] !== null ? Autolinker.link(String(feature.properties['2geocode'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Geocode result:</th>\
-                        <td>' + (feature.properties['geocode_re'] !== null ? Autolinker.link(String(feature.properties['geocode_re'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Postal code:</th>\
@@ -297,7 +288,7 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                         <td>' + (feature.properties['aa_2'] !== null ? Autolinker.link(String(feature.properties['aa_2'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Locality:</th>\
+                        <th scope="row">Locality</th>\
                         <td>' + (feature.properties['locality'] !== null ? Autolinker.link(String(feature.properties['locality'])) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -328,11 +319,11 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
             layer.bindPopup(popupContent);
         }
 
-        function style_elencocompletoripulito0_0(feature) {
+        function style_elencosolook0_0(feature) {
             switch(feature.properties['locality']) {
                 case 'Alia':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -341,12 +332,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(54,126,219,1.0)',
+                fillColor: 'rgba(192,228,113,1.0)',
             }
                     break;
                 case 'Aliminusa':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -355,12 +346,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(235,105,229,1.0)',
+                fillColor: 'rgba(221,92,178,1.0)',
             }
                     break;
                 case 'Aprilia':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -369,12 +360,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(221,202,91,1.0)',
+                fillColor: 'rgba(238,34,102,1.0)',
             }
                     break;
                 case 'Balestrate':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -383,26 +374,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(86,207,49,1.0)',
-            }
-                    break;
-                case 'Bellolampo':
-                    return {
-                pane: 'pane_elencocompletoripulito0',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fillOpacity: 1,
-                fillColor: 'rgba(19,222,32,1.0)',
+                fillColor: 'rgba(171,54,229,1.0)',
             }
                     break;
                 case 'Belmonte Mezzagno':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -411,12 +388,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(61,181,224,1.0)',
+                fillColor: 'rgba(111,111,205,1.0)',
             }
                     break;
                 case 'Carini':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -425,12 +402,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(23,51,235,1.0)',
+                fillColor: 'rgba(90,216,172,1.0)',
             }
                     break;
                 case 'Collesano':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -439,12 +416,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(138,118,234,1.0)',
+                fillColor: 'rgba(208,178,121,1.0)',
             }
                     break;
                 case 'Monreale':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -453,12 +430,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(210,231,91,1.0)',
+                fillColor: 'rgba(174,141,239,1.0)',
             }
                     break;
                 case 'Montemaggiore Belsito':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -467,12 +444,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(148,225,53,1.0)',
+                fillColor: 'rgba(209,89,209,1.0)',
             }
                     break;
                 case 'Palermo':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -481,12 +458,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(215,173,122,1.0)',
+                fillColor: 'rgba(53,114,235,1.0)',
             }
                     break;
                 case 'Partinico':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -495,12 +472,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(213,86,169,1.0)',
+                fillColor: 'rgba(115,226,55,1.0)',
             }
                     break;
                 case 'Portella di Mare':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -509,12 +486,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(90,202,131,1.0)',
+                fillColor: 'rgba(14,220,217,1.0)',
             }
                     break;
                 case 'Prizzi':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -523,26 +500,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(30,201,144,1.0)',
-            }
-                    break;
-                case 'Regia Corte':
-                    return {
-                pane: 'pane_elencocompletoripulito0',
-                radius: 4.0,
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fillOpacity: 1,
-                fillColor: 'rgba(147,68,236,1.0)',
+                fillColor: 'rgba(208,93,40,1.0)',
             }
                     break;
                 case 'Santo Stefano Quisquina':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -551,12 +514,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(123,209,206,1.0)',
+                fillColor: 'rgba(220,217,25,1.0)',
             }
                     break;
                 case 'Termini Imerese':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -565,12 +528,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(217,75,125,1.0)',
+                fillColor: 'rgba(119,227,117,1.0)',
             }
                     break;
                 case 'Trabia':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -579,12 +542,12 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(202,105,73,1.0)',
+                fillColor: 'rgba(94,192,237,1.0)',
             }
                     break;
                 case 'Villafrati':
                     return {
-                pane: 'pane_elencocompletoripulito0',
+                pane: 'pane_elencosolook0',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -593,30 +556,30 @@ Elenco degli immobili di proprieta' comunale aggiornato al 31/12/2016</p>
                 lineJoin: 'miter',
                 weight: 1,
                 fillOpacity: 1,
-                fillColor: 'rgba(216,100,106,1.0)',
+                fillColor: 'rgba(220,110,110,1.0)',
             }
                     break;
             }
         }
-        map.createPane('pane_elencocompletoripulito0');
-        map.getPane('pane_elencocompletoripulito0').style.zIndex = 400;
-        map.getPane('pane_elencocompletoripulito0').style['mix-blend-mode'] = 'normal';
-        var layer_elencocompletoripulito0 = new L.geoJson(json_elencocompletoripulito0, {
+        map.createPane('pane_elencosolook0');
+        map.getPane('pane_elencosolook0').style.zIndex = 400;
+        map.getPane('pane_elencosolook0').style['mix-blend-mode'] = 'normal';
+        var layer_elencosolook0 = new L.geoJson(json_elencosolook0, {
             attribution: '<a href=""></a>',
-            pane: 'pane_elencocompletoripulito0',
-            onEachFeature: pop_elencocompletoripulito0,
+            pane: 'pane_elencosolook0',
+            onEachFeature: pop_elencosolook0,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_elencocompletoripulito0_0(feature))
+                return L.circleMarker(latlng, style_elencosolook0_0(feature))
             },
         });
-        bounds_group.addLayer(layer_elencocompletoripulito0);
-        map.addLayer(layer_elencocompletoripulito0);
+        bounds_group.addLayer(layer_elencosolook0);
+        map.addLayer(layer_elencosolook0);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Elenco degli immobili comunali del Comune di Palermo<br /><br />PS. Risultato finale del geocoding (non verificato) e non privo<br />di errori. Il Geocoding è anadato a buon fine solo per 6.797 beni<br />su 8.941. Per i restanti 2.144 beni non ci sono stati risultati.<br /> Ad un primo controllo visivo si nota che 193 beni sono<br />stati localizzati al di fuori del territorio del Comune di Palermo!<br /><br /><table><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Alia0.png" /></td><td>Alia</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Aliminusa1.png" /></td><td>Aliminusa</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Aprilia2.png" /></td><td>Aprilia</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Balestrate3.png" /></td><td>Balestrate</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Bellolampo4.png" /></td><td>Bellolampo</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_BelmonteMezzagno5.png" /></td><td>Belmonte Mezzagno</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Carini6.png" /></td><td>Carini</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Collesano7.png" /></td><td>Collesano</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Monreale8.png" /></td><td>Monreale</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_MontemaggioreBelsito9.png" /></td><td>Montemaggiore Belsito</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Palermo10.png" /></td><td>Palermo</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Partinico11.png" /></td><td>Partinico</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_PortelladiMare12.png" /></td><td>Portella di Mare</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Prizzi13.png" /></td><td>Prizzi</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_RegiaCorte14.png" /></td><td>Regia Corte</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_SantoStefanoQuisquina15.png" /></td><td>Santo Stefano Quisquina</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_TerminiImerese16.png" /></td><td>Termini Imerese</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Trabia17.png" /></td><td>Trabia</td></tr><tr><td style="text-align: center;"><img src="legend/elencocompletoripulito0_Villafrati18.png" /></td><td>Villafrati</td></tr></table>': layer_elencocompletoripulito0,}).addTo(map);
+        L.control.layers(baseMaps,{'Elenco degli immobili comunali del Comune di Palermo<br /><br />PS. Risultato finale del geocoding (non verificato) e non privo<br />di errori. Il Geocoding è anadato a buon fine solo per 8.227 beni<br />su 8.941. Per i restanti 714 beni non ci sono stati risultati.<br /> Ad un primo controllo visivo si nota che 233 beni sono<br />stati localizzati al di fuori del territorio del Comune di Palermo!<br /><br /><table><tr><td style="text-align: center;"><img src="legend/elencosolook0_Alia0.png" /></td><td>Alia</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_Aliminusa1.png" /></td><td>Aliminusa</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_Aprilia2.png" /></td><td>Aprilia</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_Balestrate3.png" /></td><td>Balestrate</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_BelmonteMezzagno4.png" /></td><td>Belmonte Mezzagno</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_Carini5.png" /></td><td>Carini</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_Collesano6.png" /></td><td>Collesano</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_Monreale7.png" /></td><td>Monreale</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_MontemaggioreBelsito8.png" /></td><td>Montemaggiore Belsito</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_Palermo9.png" /></td><td>Palermo</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_Partinico10.png" /></td><td>Partinico</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_PortelladiMare11.png" /></td><td>Portella di Mare</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_Prizzi12.png" /></td><td>Prizzi</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_SantoStefanoQuisquina13.png" /></td><td>Santo Stefano Quisquina</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_TerminiImerese14.png" /></td><td>Termini Imerese</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_Trabia15.png" /></td><td>Trabia</td></tr><tr><td style="text-align: center;"><img src="legend/elencosolook0_Villafrati16.png" /></td><td>Villafrati</td></tr></table>': layer_elencosolook0,}).addTo(map);
         setBounds();
 				<!-- strumenti di leaflet -->
 		
