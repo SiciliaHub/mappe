@@ -1,0 +1,1312 @@
+<!doctype html>
+<html lang="it">
+    <head>
+            <title>Palermo - Beni Confiscati dall'elenco degli immobili comunali del Comune di Palermo</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Palermo - Beni Confiscati dall elenco degli immobili comunali del Comune di Palermo aggiornato al 31 dicembre 2016 su base opendata">
+        <meta name="keywords" content="Open Data Sicilia, immobili, beni, comune, palermo, beni confiscati">
+        <meta name="author" content="Giovan Battista Vitrano per OpenDataSicilia.it">
+        <meta http-equiv="content-language" content="IT">
+        <meta name="robots" content="index,follow">
+        <meta name="creation_Date" content="07/05/2017">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="shortcut icon" href="favicon.ico"/> 
+        <link rel="icon" href="favicon.png" type="image/png"/> 
+        <link rel="stylesheet" href="css/leaflet.css" />
+        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css" />
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet-heat.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/OSMBuildings-Leaflet.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/leaflet-tilelayer-wmts.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/benilocalizzatitot0.js"></script>
+        <script>
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:17, minZoom:12
+        }).fitBounds([[38.07390725,13.1733374877],[38.20573475,13.5353455123]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 17
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function geoJson2heat(geojson, weight) {
+          return geojson.features.map(function(feature) {
+            return [
+              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[0],
+              feature.properties[weight]
+            ];
+          });
+        }
+        function pop_benilocalizzatitot0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Tipologia</th>\
+                        <td>' + (feature.properties['Tipologia'] !== null ? Autolinker.link(String(feature.properties['Tipologia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Descrizione</th>\
+                        <td>' + (feature.properties['Descrizion'] !== null ? Autolinker.link(String(feature.properties['Descrizion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Natura</th>\
+                        <td>' + (feature.properties['Natura'] !== null ? Autolinker.link(String(feature.properties['Natura'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indirizzo</th>\
+                        <td>' + (feature.properties['Indirizzo'] !== null ? Autolinker.link(String(feature.properties['Indirizzo'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Numero civico</th>\
+                        <td>' + (feature.properties['Numero civ'] !== null ? Autolinker.link(String(feature.properties['Numero civ'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Foglio</th>\
+                        <td>' + (feature.properties['Foglio'] !== null ? Autolinker.link(String(feature.properties['Foglio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Partcella</th>\
+                        <td>' + (feature.properties['Particella'] !== null ? Autolinker.link(String(feature.properties['Particella'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sub</th>\
+                        <td>' + (feature.properties['Sub'] !== null ? Autolinker.link(String(feature.properties['Sub'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">gocode</th>\
+                        <td>' + (feature.properties['geocode'] !== null ? Autolinker.link(String(feature.properties['geocode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nome</th>\
+                        <td>' + (feature.properties['nome'] !== null ? Autolinker.link(String(feature.properties['nome'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Civico</th>\
+                        <td>' + (feature.properties['civico'] !== null ? Autolinker.link(String(feature.properties['civico'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Istat</th>\
+                        <td>' + (feature.properties['istat'] !== null ? Autolinker.link(String(feature.properties['istat'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Cap</th>\
+                        <td>' + (feature.properties['cap'] !== null ? Autolinker.link(String(feature.properties['cap'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune</th>\
+                        <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nome ted</th>\
+                        <td>' + (feature.properties['nome_ted'] !== null ? Autolinker.link(String(feature.properties['nome_ted'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia</th>\
+                        <td>' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Regione</th>\
+                        <td>' + (feature.properties['regione'] !== null ? Autolinker.link(String(feature.properties['regione'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_benilocalizzatitot0_0(feature) {
+            switch(feature.properties['Descrizion']) {
+                case 'APPARTAMENTO CONFISCATO L.575/65':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(163,206,81,1.0)',
+            }
+                    break;
+                case 'BOX  CONFISCATI L. 575/65':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(129,226,215,1.0)',
+            }
+                    break;
+                case 'BOX CONFISCATO L. 575/65':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(80,206,30,1.0)',
+            }
+                    break;
+                case 'IMM. CONF. L. 575/65':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,116,219,1.0)',
+            }
+                    break;
+                case 'IMMOBILE CONFISCATO L. 575/65':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(237,191,117,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - ALLOGGIO CONFISC.':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(98,210,13,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - ALLOGGIO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(106,90,231,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - APP.TO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(66,204,219,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - APPARTAMENTO CONFISCAT':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(72,207,72,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - AUTORIMESSA':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(84,190,222,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - BOX CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(218,178,90,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - IMM. CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(39,46,240,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - MAGAZZINO CONFISC.':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(235,122,84,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - MAGAZZINO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(205,41,35,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - NEGOZIO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(126,170,235,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - S.E. LOMBARDO RADICE - CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(154,125,211,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - S.M.S. - S.E." V.E. 3 " -  CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,46,167,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - S.M.S. GRAMSCI PLESSO 3 - CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(120,173,234,1.0)',
+            }
+                    break;
+                case 'L. 575/65 - UFFICIO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,213,121,1.0)',
+            }
+                    break;
+                case 'L. 575/65 IMMOBILE CONFISCATO MAGAZZINO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(233,170,141,1.0)',
+            }
+                    break;
+                case 'L.575/65  - TERRENO + FABBRICATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,35,97,1.0)',
+            }
+                    break;
+                case 'L.575/65 - A.R.N.A.S. X A.S.P.I.R.':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(176,31,238,1.0)',
+            }
+                    break;
+                case 'L.575/65 - ABITAZIONE IN VILLA':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(86,160,225,1.0)',
+            }
+                    break;
+                case 'L.575/65 - ALLOGGIO  CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,217,120,1.0)',
+            }
+                    break;
+                case 'L.575/65 - ALLOGGIO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(91,239,187,1.0)',
+            }
+                    break;
+                case 'L.575/65 - ALLOGGIO IN VILLA CONFISCATA':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(205,48,150,1.0)',
+            }
+                    break;
+                case 'L.575/65 - ALLOGGIO IN VILLINO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(133,128,234,1.0)',
+            }
+                    break;
+                case 'L.575/65 - APP.MENTI.  CONF. EDIF. A-B':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(109,239,157,1.0)',
+            }
+                    break;
+                case 'L.575/65 - APP.TO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(220,101,22,1.0)',
+            }
+                    break;
+                case 'L.575/65 - APPART. POSTO AUTO CANTINA':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(68,19,201,1.0)',
+            }
+                    break;
+                case 'L.575/65 - APPARTAMENTO CONFISCA':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,63,128,1.0)',
+            }
+                    break;
+                case 'L.575/65  APPARTAMENTO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(89,130,218,1.0)',
+            }
+                    break;
+                case 'L.575/65 - APPARTAMENTO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(59,201,203,1.0)',
+            }
+                    break;
+                case 'L.575/65 - BENE CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(197,88,216,1.0)',
+            }
+                    break;
+                case 'L.575/65 - BENI CONFISCATI':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(205,32,13,1.0)',
+            }
+                    break;
+                case 'L.575/65 - BOX  CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,47,1.0)',
+            }
+                    break;
+                case 'L.575/65 - BOX - CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,133,138,1.0)',
+            }
+                    break;
+                case 'L.575/65 - BOX CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(106,204,223,1.0)',
+            }
+                    break;
+                case 'L.575/65 - BOX E POSTI AUTO CONFISCATI':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(233,141,227,1.0)',
+            }
+                    break;
+                case 'L.575/65 - CANTINA':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(34,232,77,1.0)',
+            }
+                    break;
+                case 'L.575/65 - CANTINA CONFISCATA':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(109,120,220,1.0)',
+            }
+                    break;
+                case 'L.575/65 - FABBRICATO CONFISC.':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(164,226,77,1.0)',
+            }
+                    break;
+                case 'L.575/65 - GARAGE CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(207,137,56,1.0)',
+            }
+                    break;
+                case 'L.575/65 - IMMOBILE CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(238,216,144,1.0)',
+            }
+                    break;
+                case 'L.575/65 - IMMOBILE CONFISCATO - BOX':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(240,72,103,1.0)',
+            }
+                    break;
+                case 'L.575/65 - IMMOBILE CONFISCATO P. AUTO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(217,117,196,1.0)',
+            }
+                    break;
+                case 'L.575/65 - IMMOBILI CONFISCATI':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,103,176,1.0)',
+            }
+                    break;
+                case 'L.575/65 - LASTRICO SOLARE CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(57,204,133,1.0)',
+            }
+                    break;
+                case 'L.575/65 - LOCALE CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(109,220,191,1.0)',
+            }
+                    break;
+                case 'L.575/65 - LOCALE SEMINTERRATO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,208,49,1.0)',
+            }
+                    break;
+                case 'L.575/65 - LOCALE TERRANEO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,63,210,1.0)',
+            }
+                    break;
+                case 'L.575/65 - LOCALI CONFISCATI':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(74,101,234,1.0)',
+            }
+                    break;
+                case 'L.575/65 - MAGAZINO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(67,216,77,1.0)',
+            }
+                    break;
+                case 'L.575/65  MAGAZZINO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(208,131,63,1.0)',
+            }
+                    break;
+                case 'L.575/65 - MAGAZZINO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(42,227,150,1.0)',
+            }
+                    break;
+                case 'L.575/65 - NEGOZIO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,212,101,1.0)',
+            }
+                    break;
+                case 'L.575/65 - PALAZZINA CONFISCATA':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(214,203,102,1.0)',
+            }
+                    break;
+                case 'L.575/65 - POSTAZ. ANAGRAFICA':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(200,102,230,1.0)',
+            }
+                    break;
+                case 'L.575/65 - POSTI AUTO SCOP.TI CONFISCATI':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(218,25,193,1.0)',
+            }
+                    break;
+                case 'L.575/65 - POSTO AUTO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(208,122,165,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S. ELEMENTARE UDITORE - CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(123,222,96,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S. MATERNA - PESTALOZZI - BENE CONFISCA':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(47,233,14,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S.E. PEPPINO IMPASTATO - BENE CONFISCAT':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(113,227,222,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S.M. BOCCADIFALCO - BENE CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(230,240,27,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S.M.S - GRAMSCI - CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(183,204,43,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S.M.S GRAMSCI PLESSO 2 - CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(48,96,238,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S.M.S. - IMMOBILE CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(138,240,220,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S.M.S. BORGESE - CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(202,111,90,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S.M.S. CAVOUR - BENE CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(154,98,232,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S.M.S. GRAMSCI - CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(99,227,118,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S.M.S. GRAMSCI PLESSO 2 - CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(155,92,207,1.0)',
+            }
+                    break;
+                case 'L.575/65 - S.MT. MONTI IBLEI - CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(52,13,224,1.0)',
+            }
+                    break;
+                case 'L.575/65 - TERR VILLA PANTELLERIA CONF.':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(54,171,225,1.0)',
+            }
+                    break;
+                case 'L.575/65 - TERRENI CON FABBR. CONFISCATI':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(96,171,217,1.0)',
+            }
+                    break;
+                case 'L.575/65 - TERRENO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(52,206,41,1.0)',
+            }
+                    break;
+                case 'L.575/65 - UFFICI CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(159,212,102,1.0)',
+            }
+                    break;
+                case 'L.575/65 - UFFICIO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(76,233,123,1.0)',
+            }
+                    break;
+                case 'L.575/65 - VILLA CON TERRENO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(201,181,77,1.0)',
+            }
+                    break;
+                case 'L.575/65 - VILLINO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,94,207,1.0)',
+            }
+                    break;
+                case 'L.575/65 APPARTAMENTO CONFISCATO':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(170,105,239,1.0)',
+            }
+                    break;
+                case 'MAGAZZINO - CONFISCATO - L.575/65':
+                    return {
+                pane: 'pane_benilocalizzatitot0',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(112,212,54,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_benilocalizzatitot0');
+        map.getPane('pane_benilocalizzatitot0').style.zIndex = 400;
+        map.getPane('pane_benilocalizzatitot0').style['mix-blend-mode'] = 'normal';
+        var layer_benilocalizzatitot0 = new L.geoJson(json_benilocalizzatitot0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_benilocalizzatitot0',
+            onEachFeature: pop_benilocalizzatitot0,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_benilocalizzatitot0_0(feature))
+            },
+        });
+        bounds_group.addLayer(layer_benilocalizzatitot0);
+        map.addLayer(layer_benilocalizzatitot0);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'beni_localizzati_tot<br /><table><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_APPARTAMENTOCONFISCATOL575650.png" /></td><td>APPARTAMENTO CONFISCATO L.575/65</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_BOXCONFISCATIL575651.png" /></td><td>BOX  CONFISCATI L. 575/65</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_BOXCONFISCATOL575652.png" /></td><td>BOX CONFISCATO L. 575/65</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_IMMCONFL575653.png" /></td><td>IMM. CONF. L. 575/65</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_IMMOBILECONFISCATOL575654.png" /></td><td>IMMOBILE CONFISCATO L. 575/65</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565ALLOGGIOCONFISC5.png" /></td><td>L. 575/65 - ALLOGGIO CONFISC.</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565ALLOGGIOCONFISCATO6.png" /></td><td>L. 575/65 - ALLOGGIO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565APPTOCONFISCATO7.png" /></td><td>L. 575/65 - APP.TO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565APPARTAMENTOCONFISCAT8.png" /></td><td>L. 575/65 - APPARTAMENTO CONFISCAT</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565AUTORIMESSA9.png" /></td><td>L. 575/65 - AUTORIMESSA</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565BOXCONFISCATO10.png" /></td><td>L. 575/65 - BOX CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565IMMCONFISCATO11.png" /></td><td>L. 575/65 - IMM. CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565MAGAZZINOCONFISC12.png" /></td><td>L. 575/65 - MAGAZZINO CONFISC.</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565MAGAZZINOCONFISCATO13.png" /></td><td>L. 575/65 - MAGAZZINO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565NEGOZIOCONFISCATO14.png" /></td><td>L. 575/65 - NEGOZIO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SELOMBARDORADICECONFISCATO15.png" /></td><td>L. 575/65 - S.E. LOMBARDO RADICE - CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMSSEVE3CONFISCATO16.png" /></td><td>L. 575/65 - S.M.S. - S.E." V.E. 3 " -  CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMSGRAMSCIPLESSO3CONFISCATO17.png" /></td><td>L. 575/65 - S.M.S. GRAMSCI PLESSO 3 - CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565UFFICIOCONFISCATO18.png" /></td><td>L. 575/65 - UFFICIO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565IMMOBILECONFISCATOMAGAZZINO19.png" /></td><td>L. 575/65 IMMOBILE CONFISCATO MAGAZZINO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565TERRENOFABBRICATO20.png" /></td><td>L.575/65  - TERRENO + FABBRICATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565ARNASXASPIR21.png" /></td><td>L.575/65 - A.R.N.A.S. X A.S.P.I.R.</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565ABITAZIONEINVILLA22.png" /></td><td>L.575/65 - ABITAZIONE IN VILLA</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565ALLOGGIOCONFISCATO23.png" /></td><td>L.575/65 - ALLOGGIO  CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565ALLOGGIOCONFISCATO24.png" /></td><td>L.575/65 - ALLOGGIO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565ALLOGGIOINVILLACONFISCATA25.png" /></td><td>L.575/65 - ALLOGGIO IN VILLA CONFISCATA</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565ALLOGGIOINVILLINO26.png" /></td><td>L.575/65 - ALLOGGIO IN VILLINO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565APPMENTICONFEDIFAB27.png" /></td><td>L.575/65 - APP.MENTI.  CONF. EDIF. A-B</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565APPTOCONFISCATO28.png" /></td><td>L.575/65 - APP.TO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565APPARTPOSTOAUTOCANTINA29.png" /></td><td>L.575/65 - APPART. POSTO AUTO CANTINA</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565APPARTAMENTOCONFISCA30.png" /></td><td>L.575/65 - APPARTAMENTO CONFISCA</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565APPARTAMENTOCONFISCATO31.png" /></td><td>L.575/65  APPARTAMENTO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565APPARTAMENTOCONFISCATO32.png" /></td><td>L.575/65 - APPARTAMENTO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565BENECONFISCATO33.png" /></td><td>L.575/65 - BENE CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565BENICONFISCATI34.png" /></td><td>L.575/65 - BENI CONFISCATI</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565BOXCONFISCATO35.png" /></td><td>L.575/65 - BOX  CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565BOXCONFISCATO36.png" /></td><td>L.575/65 - BOX - CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565BOXCONFISCATO37.png" /></td><td>L.575/65 - BOX CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565BOXEPOSTIAUTOCONFISCATI38.png" /></td><td>L.575/65 - BOX E POSTI AUTO CONFISCATI</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565CANTINA39.png" /></td><td>L.575/65 - CANTINA</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565CANTINACONFISCATA40.png" /></td><td>L.575/65 - CANTINA CONFISCATA</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565FABBRICATOCONFISC41.png" /></td><td>L.575/65 - FABBRICATO CONFISC.</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565GARAGECONFISCATO42.png" /></td><td>L.575/65 - GARAGE CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565IMMOBILECONFISCATO43.png" /></td><td>L.575/65 - IMMOBILE CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565IMMOBILECONFISCATOBOX44.png" /></td><td>L.575/65 - IMMOBILE CONFISCATO - BOX</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565IMMOBILECONFISCATOPAUTO45.png" /></td><td>L.575/65 - IMMOBILE CONFISCATO P. AUTO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565IMMOBILICONFISCATI46.png" /></td><td>L.575/65 - IMMOBILI CONFISCATI</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565LASTRICOSOLARECONFISCATO47.png" /></td><td>L.575/65 - LASTRICO SOLARE CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565LOCALECONFISCATO48.png" /></td><td>L.575/65 - LOCALE CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565LOCALESEMINTERRATOCONFISCATO49.png" /></td><td>L.575/65 - LOCALE SEMINTERRATO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565LOCALETERRANEO50.png" /></td><td>L.575/65 - LOCALE TERRANEO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565LOCALICONFISCATI51.png" /></td><td>L.575/65 - LOCALI CONFISCATI</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565MAGAZINOCONFISCATO52.png" /></td><td>L.575/65 - MAGAZINO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565MAGAZZINOCONFISCATO53.png" /></td><td>L.575/65  MAGAZZINO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565MAGAZZINOCONFISCATO54.png" /></td><td>L.575/65 - MAGAZZINO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565NEGOZIOCONFISCATO55.png" /></td><td>L.575/65 - NEGOZIO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565PALAZZINACONFISCATA56.png" /></td><td>L.575/65 - PALAZZINA CONFISCATA</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565POSTAZANAGRAFICA57.png" /></td><td>L.575/65 - POSTAZ. ANAGRAFICA</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565POSTIAUTOSCOPTICONFISCATI58.png" /></td><td>L.575/65 - POSTI AUTO SCOP.TI CONFISCATI</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565POSTOAUTOCONFISCATO59.png" /></td><td>L.575/65 - POSTO AUTO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SELEMENTAREUDITORECONFISCATO60.png" /></td><td>L.575/65 - S. ELEMENTARE UDITORE - CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMATERNAPESTALOZZIBENECONFISCA61.png" /></td><td>L.575/65 - S. MATERNA - PESTALOZZI - BENE CONFISCA</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SEPEPPINOIMPASTATOBENECONFISCAT62.png" /></td><td>L.575/65 - S.E. PEPPINO IMPASTATO - BENE CONFISCAT</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMBOCCADIFALCOBENECONFISCATO63.png" /></td><td>L.575/65 - S.M. BOCCADIFALCO - BENE CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMSGRAMSCICONFISCATO64.png" /></td><td>L.575/65 - S.M.S - GRAMSCI - CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMSGRAMSCIPLESSO2CONFISCATO65.png" /></td><td>L.575/65 - S.M.S GRAMSCI PLESSO 2 - CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMSIMMOBILECONFISCATO66.png" /></td><td>L.575/65 - S.M.S. - IMMOBILE CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMSBORGESECONFISCATO67.png" /></td><td>L.575/65 - S.M.S. BORGESE - CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMSCAVOURBENECONFISCATO68.png" /></td><td>L.575/65 - S.M.S. CAVOUR - BENE CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMSGRAMSCICONFISCATO69.png" /></td><td>L.575/65 - S.M.S. GRAMSCI - CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMSGRAMSCIPLESSO2CONFISCATO70.png" /></td><td>L.575/65 - S.M.S. GRAMSCI PLESSO 2 - CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565SMTMONTIIBLEICONFISCATO71.png" /></td><td>L.575/65 - S.MT. MONTI IBLEI - CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565TERRVILLAPANTELLERIACONF72.png" /></td><td>L.575/65 - TERR VILLA PANTELLERIA CONF.</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565TERRENICONFABBRCONFISCATI73.png" /></td><td>L.575/65 - TERRENI CON FABBR. CONFISCATI</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565TERRENOCONFISCATO74.png" /></td><td>L.575/65 - TERRENO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565UFFICICONFISCATO75.png" /></td><td>L.575/65 - UFFICI CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565UFFICIOCONFISCATO76.png" /></td><td>L.575/65 - UFFICIO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565VILLACONTERRENOCONFISCATO77.png" /></td><td>L.575/65 - VILLA CON TERRENO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565VILLINOCONFISCATO78.png" /></td><td>L.575/65 - VILLINO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_L57565APPARTAMENTOCONFISCATO79.png" /></td><td>L.575/65 APPARTAMENTO CONFISCATO</td></tr><tr><td style="text-align: center;"><img src="legend/benilocalizzatitot0_MAGAZZINOCONFISCATOL5756580.png" /></td><td>MAGAZZINO - CONFISCATO - L.575/65</td></tr></table>': layer_benilocalizzatitot0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
