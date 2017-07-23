@@ -21,10 +21,16 @@ a:visited {	color: #FF9900;}/* foglio di stile atlante cartografico palermo - gi
 a:hover {color: #FF9900; text-decoration:underline; } 
 a:active {color: #FF0000; text-decoration:none; } 
 .clip_omira {width: 60px; height: 69px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
+.clip_omira:hover {opacity: 1;  -webkit-filter: grayscale(100%); } 
+.clip_irta {width: 370px; height: 524px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) } 
+.clip_irta:hover {opacity: 1;  -webkit-filter: grayscale(100%); }
 
-.clip_omira:hover {opacity: 1;  -webkit-filter: grayscale(100%); } .clip_irta {width: 370px; height: 524px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) } .clip_irta:hover {opacity: 1;  -webkit-filter: grayscale(100%); }
+.clip_tav { width: 177px; height: 32px; /*border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) */}
+.clip_tav:hover {opacity: 1;  -webkit-filter: grayscale(100%); } 
+
   .clip_370 {width: 370px; height: 277px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
     .clip_370_1 {width: 370px; height: 262px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
+	    .clip_370_2 {width: 370px; height: 524px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
   
 #bot {	position: fixed; width: 100%;	height: 65px;	background: #fff;	background-color: /*rgba(255,255,255,1);*/ rgba(78,75,75,1.00);	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	padding: 0;	margin: 0;top: 0px;	right: 0px;	z-index: 1000;	text-align: left;}
 
