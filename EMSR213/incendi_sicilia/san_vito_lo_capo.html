@@ -223,14 +223,13 @@ During recent weeks almost the whole Italian National Territory has suffered a p
         var map = L.map('map', {zoomControl:true, maxZoom:17, minZoom:10 }).fitBounds([[37.961860106,12.5230006141],[38.1889684086,13.0360828267]]);
 map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> - Rielaborazione di: <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>');
 var bounds_group = new L.featureGroup([]);
-
 <!-- mappe di base -->	  
 var basemaps = [
-L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Dati cartografici &#9400; 2017 Google - <a href="https://www.google.com/intl/it_it/help/terms_maps.html">Termini</a>', minZoom: 10,  maxZoom: 17, maxNativeZoom: 12, label: 'Google Terrain'}),
+L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Dati cartografici &#9400; 2017 Google - <a href="https://www.google.com/intl/it_it/help/terms_maps.html">Termini</a>', minZoom: 12,  maxZoom: 18, maxNativeZoom: 18, label: 'Google Terrain'}),
 	  
-	   L.tileLayer('http://a.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {attribution: '&#9400; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',minZoom: 10,  maxZoom: 17, maxNativeZoom: 12,label: 'OpenStreetMap monochrome'}),
+	   L.tileLayer('http://a.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {attribution: '&#9400; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',minZoom: 12,  maxZoom: 18, maxNativeZoom: 18,label: 'OpenStreetMap monochrome'}),
 	  
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Source: &#9400; ESRI Satellite', minZoom: 10,  maxZoom: 17, maxNativeZoom: 12, label: 'ESRI Satellite'}), ];
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Source: &#9400; ESRI Satellite', minZoom: 12,  maxZoom: 18, maxNativeZoom: 18, label: 'ESRI Satellite'}), ];
 
 <!-- funzioni mappa -->
         function setBounds() {

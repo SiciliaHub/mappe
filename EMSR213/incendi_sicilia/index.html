@@ -234,7 +234,6 @@ During recent weeks almost the whole Italian National Territory has suffered a p
 var map = L.map('map', { zoomControl:false, maxZoom:10, minZoom:7  }).fitBounds([[37.6011061912,12.4036335813],[37.4614395741,15.667056554]]);
 map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> - Rielaborazione di: <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>');
 var bounds_group = new L.featureGroup([]);
-
 <!-- mappe di base -->	  
 var basemaps = [
 L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Dati cartografici &#9400; 2017 Google - <a href="https://www.google.com/intl/it_it/help/terms_maps.html">Termini</a>', minZoom: 7,  maxZoom: 10, maxNativeZoom: 9, label: 'Google Terrain'}),
