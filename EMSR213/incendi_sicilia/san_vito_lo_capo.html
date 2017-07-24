@@ -118,7 +118,7 @@
      <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213/ALL/EMSR213_07SANVITOLOCAPO" title="EMSR213: Forest Fire in Southern Italy - San Vito Lo Capo" target="_blank">EMSR213: Forest Fire in Southern Italy - San Vito Lo Capo</a></strong> <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy - San Vito Lo Capo" target="_blank"><br>da opendata COPERNICUS</a></p>
 <strong>Authorized User:</strong><br>
 Italy|Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile - Centro Situazioni<br><br>
-<strong>Activation Reason: </strong><br>
+ <p class="lorem"><strong>Activation Reason: </strong><br>
 During recent weeks almost the whole Italian National Territory has suffered a period characterized by very high temperatures and an absence of significant rain. Exacerbated by these conditions numerous fires are affecting Italy, most specifically in southern areas. Several fires are affecting large forested areas and, in certain cases, fires are threatening inhabited areas. Damages to infrastructures, public and private structures have occurred as have temporary evacuations due to risk to life.</p>
 <img src="legend/07.png" width="177" height="32"  /><br>
  <a href="http://emergency.copernicus.eu/mapping/system/files/components/EMSR213_07SANVITOLOCAPO_02GRADING_MAP_v2_100dpi.jpg" target="_blank" title="EMSR213: Forest Fire in Southern Italy - San Vito Lo Capo"><img src="lib/images/san_vito_lo_capo.jpg"alt="EMSR213: Forest Fire in Southern Italy - San Vito Lo Capo" width="370" height="262" class="clip_370_2" title="EMSR213: Forest Fire in Southern Italy - San Vito Lo Capo "/></a> <br>
@@ -225,11 +225,11 @@ map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qg
 var bounds_group = new L.featureGroup([]);
 <!-- mappe di base -->	  
 var basemaps = [
-L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Dati cartografici &#9400; 2017 Google - <a href="https://www.google.com/intl/it_it/help/terms_maps.html">Termini</a>', minZoom: 12,  maxZoom: 18, maxNativeZoom: 18, label: 'Google Terrain'}),
+L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Dati cartografici &#9400; 2017 Google - <a href="https://www.google.com/intl/it_it/help/terms_maps.html">Termini</a>', minZoom: 10,  maxZoom: 18, maxNativeZoom: 18, label: 'Google Terrain'}),
 	  
-	   L.tileLayer('http://a.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {attribution: '&#9400; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',minZoom: 12,  maxZoom: 18, maxNativeZoom: 18,label: 'OpenStreetMap monochrome'}),
+	   L.tileLayer('http://a.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {attribution: '&#9400; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',minZoom: 10,  maxZoom: 18, maxNativeZoom: 18, label: 'OpenStreetMap monochrome'}),
 	  
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Source: &#9400; ESRI Satellite', minZoom: 12,  maxZoom: 18, maxNativeZoom: 18, label: 'ESRI Satellite'}), ];
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Source: &#9400; ESRI Satellite', minZoom: 10,  maxZoom: 18, maxNativeZoom: 18, label: 'ESRI Satellite'}), ];
 
 <!-- funzioni mappa -->
         function setBounds() {
