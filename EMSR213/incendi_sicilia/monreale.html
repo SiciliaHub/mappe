@@ -63,6 +63,9 @@
 <link href="lib/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link href="lib/css/leaflet.zoomhome.css" rel="stylesheet" type="text/css">
 
+ <!-- css menu -->
+ <link href="lib/css/global.css" rel="stylesheet" type="text/css">
+
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/> 
@@ -384,16 +387,86 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         </script>
  <!-- header -->       
 <div id="bot" class="leaflet-control">
-<div id="logo"><a href="http://opendatasicilia.it/" target="_blank"><img src="lib/images/logo_ods_b.png" alt="" height="60" title="opendatasicilia.it"/></a>  </div>  
-<div id="titolo"> 
-  <h1>Monreale Grading Map<br>COPERNICUS - EMS Mapping<br>
-    <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="COPERNICUS - Emergency Management Service - EMSR213: Forest Fire in Southern Italy" target="_blank">da opendata COPERNICUS </a></h1>
-   </div> 
-</div>
+<div id="left-flyout-nav" class="layout-left-flyout visible-sm"></div>
+		<div class="layout-right-content">
+		  <header class="the-header">
+		    <div class="navbar container">
+		      
+		      <!-- Trigger -->
+		      <a class="btn-navbar btn-navbar-navtoggle btn-flyout-trigger" href="#" title="Apri il menù">
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		      </a>
+		      
+		      <!-- Structure -->
+		      <nav class="the-nav nav-collapse clearfix">
+              &nbsp;&nbsp;
+              <a href="http://opendatasicilia.it/" title="opendatasicilia.it - Iniziativa civica per la promozione degli OpenData nell&#039;isola (e non solo)" target="_blank"> 
+<img src="lib/images/ods.svg" width="118" title="opendatasicilia.it - Iniziativa civica per la promozione degli OpenData nell&#039;isola (e non solo)" alt="opendatasicilia"></a>
+		        <ul class="nav nav-pill pull-left">
+		         <!-- inseriri qui menu di sx --> 
+		        </ul>
+                <!-- menu dx -->
+		        <ul class="nav nav-pill pull-right">
+                <li class="dropdown">
+		            <a href="#" title="Blogs">Blogs<b class="caret"></b></a>
+		            <ul class="subnav">
+		        <li><a href="http://opendatasicilia.it/" title="Iniziativa civica per la promozione degli OpenData nell&#039;isola (e non solo)" target="_blank">OpenDataSicilia.it</a></li>
+                <li><a href="http://italiaafuoco.info/" title="Progetto civico per raccogliere segnalazioni sugli incendi in Italia." target="_blank">ItaliaaFuoco.info</a></li>
+		             </ul>
+		          </li>
+                
+				<li class="dropdown">
+		            <a href="#" title="Grading Map - Forest Fire in Southern Italy">Grading Map EMSR213<b class="caret"></b></a>
+		            <ul class="subnav">
+                    <li><a href="index.html" title="Grading Map Sicilia" target="_parent">Quadro Unione</a></li>
+		              <li><a href="caltagirone.html" title="Grading Map Caltagirone" target="_parent">02 Caltagirone</a></li>
+		              <li><a href="francofonte.html" title="Grading Map Francofonte" target="_parent">03 Francofonte</a></li>
+		              <li><a href="avola.html" title="Grading Map Avola" target="_parent">04 Avola</a></li>
+		              <li><a href="sciacca.html" title="Grading Map Sciacca" target="_parent">05 Sciacca</a></li>
+		              <li><a href="monreale.html" title="Grading Map Monreale" target="_parent">06 Monreale</a></li>
+                      <li><a href="san_vito_lo_capo.html" title="Grading Map San Vito Lo Capo" target="_parent">07 San Vito Lo Capo</a></li>
+                      <li><a href="blufi.html" title="Grading Map Blufi" target="_parent">08 Blufi</a></li>
+                      <li><a href="mistretta.html" title="Grading Map Mistretta" target="_parent">09 Mistretta</a></li>
+                      <li><a href="messina.html" title="Grading Map Messina" target="_parent">10 Messina</a></li>
+                      <li><a href="naso.html" title="Grading Map Naso" target="_parent">11 Naso</a></li>
+                      <li><a href="etna_nord.html" title="Grading Map Etna Nord" target="_parent">12 Etna Nord</a></li>
+                      <li><a href="biancavilla.html" title="Grading Map Biancavilla" target="_parent">13 Biancavilla</a></li>
+		            </ul>
+		          </li>
+					<li class="dropdown">
+		            <a href="#" title="Grading Map 3D - Forest Fire in Southern Italy">3D - Grading Map EMSR213<b class="caret"></b></a>
+		            <ul class="subnav">
+		                <li><a href="qgis2threejs/3d_caltagirone.html" title="Grading Map Caltagirone" target="_parent">02 Caltagirone</a></li>
+		              <li><a href="qgis2threejs/3d_francofonte.html" title="Grading Map Francofonte" target="_parent">03 Francofonte</a></li>
+		              <li><a href="qgis2threejs/3d_avola.html" title="Grading Map Avola" target="_parent">04 Avola</a></li>
+		              <li><a href="qgis2threejs/3d_sciacca.html" title="Grading Map Sciacca" target="_parent">05 Sciacca</a></li>
+		              <li><a href="qgis2threejs/3d_monreale.html" title="Grading Map Monreale" target="_parent">06 Monreale</a></li>
+                      <li><a href="qgis2threejs/3d_san_vito_lo_capo.html" title="Grading Map San Vito Lo Capo" target="_parent">07 San Vito Lo Capo</a></li>
+                      <li><a href="qgis2threejs/3d_blufi.html" title="Grading Map Blufi" target="_parent">08 Blufi</a></li>
+                      <li><a href="qgis2threejs/3d_mistretta.html" title="Grading Map Mistretta" target="_parent">09 Mistretta</a></li>
+                      <li><a href="qgis2threejs/3d_messina.html" title="Grading Map Messina" target="_parent">10 Messina</a></li>
+                      <li><a href="qgis2threejs/3d_naso.html" title="Grading Map Naso" target="_parent">11 Naso</a></li>
+                      <li><a href="qgis2threejs/3d_etna_nord.html" title="Grading Map Etna Nord" target="_parent">12 Etna Nord</a></li>
+                      <li><a href="qgis2threejs/3d_biancavilla.html" title="Grading Map Biancavilla" target="_parent">13 Biancavilla</a></li>
+		            </ul>
+		          </li>
+		        </ul>
+		      </nav>
+		    </div>
+		  </header>
+		</div><!-- END .layout-left-flyout -->
+        
+<script src="lib/js/menu/jquery.js"></script>
+<script src="lib/js/menu/jquery.cbFlyout.js"></script>
+<script src="lib/js/menu/main.js"></script>
 
+</div>      
+   <!-- loghi -->             
 <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
 <img src="legend/ods.png" width="100" title="opendatasicilia.it" alt="opendatasicilia"></a></div>   
 <div id="itaf"><a href="http://italiaafuoco.info/" title="italiaafuoco.info" target="_blank"> 
-<img src="legend/italiaafuoco_clip.png" width="50" title="italiaafuoco.info" alt="italiaafuoco.info"></a></div>      
+<img src="legend/italiaafuoco_clip.png" width="50" title="italiaafuoco.info" alt="italiaafuoco.info"></a></div>       
 </body>
 </html>
