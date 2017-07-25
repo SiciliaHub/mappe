@@ -440,7 +440,6 @@ body {
 }
 
 .layout-left-flyout {
-	background-color:#fff;
   height: 100%;
   position: fixed;
   visibility: hidden;
@@ -463,11 +462,6 @@ body {
 }
 
 .layout-left-flyout.isCbFlyNavActive {
-	background-image:url(../images/logoods.svg);
-	background-repeat:no-repeat;
-	background-position:50% 7px;
-	background-size: 40px 38px;
-		background-color:#fff;
   visibility: visible;
   z-index: 1006;
   -moz-transition: z-index 0 linear 0.2s;
@@ -483,7 +477,7 @@ body {
   position: relative;
   height: 100%;
   overflow: hidden;
-  width: 180px;
+  width: 270px;
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -493,7 +487,6 @@ body {
   -moz-transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  margin-top:50px;
 }
 .cbFlyNav-wrap > nav {
   -moz-transform: translateY(0);
@@ -547,9 +540,9 @@ body {
 }
 
 .layout-right-content.isCbFlyNavActive {
-  -moz-transform: translate3d(180px, 0, 0);
-  -webkit-transform: translate3d(180px, 0, 0);
-  transform: translate3d(180x, 0, 0);
+  -moz-transform: translate3d(270px, 0, 0);
+  -webkit-transform: translate3d(270px, 0, 0);
+  transform: translate3d(270px, 0, 0);
   min-width: 320px;
 }
 
@@ -579,7 +572,7 @@ body {
 }
 
 .nav-flyout-navmask {
-  right: 130px;
+  right: 180px;
   z-index: 1006;
 }
 
@@ -590,7 +583,7 @@ body {
 	background-position:5%;
 	background-size: 32px 32px;*/
   position: absolute;
-  width: 0px;
+  width: 50px;
   height: 40px;
   padding: 4px 0;
   display: block;
@@ -627,14 +620,14 @@ body {
   background: #fff;
   margin-bottom: 10px;
   width: 100%;
-  padding: 2px 2px;
+  padding: 10px 10px;
   font-family: "Open Sans", sans-serif;
   font-size:14px;
   /*box-shadow: 0 1px 1px 0px #dddddd;*/
-  /*background-image: url(../images/opendatasicilia1.svg);
-  background-size: 200px 19px;
-  background-position:90% 1px;
-  background-repeat:no-repeat;*/
+  background-image: url(../images/ods.svg);
+  background-size: 118px 65px;
+  background-position:95%;
+  background-repeat:no-repeat;
 }
 
 @media screen and (max-width: 767px) {
@@ -662,18 +655,16 @@ body {
 .the-nav ul.nav-flyout > li {
   float: none;
   display: block;
-  width: 160px;
+  width: 270px;
  }
 .the-nav ul.nav-flyout li a {
-	width:180px;
   color: rgba(78,75,75,1.00);
   display: block;
   text-decoration: none;
-  padding: 8px 12px;
+  padding: 8px 10px;
   margin-right: 0;
 }
 .the-nav ul.nav-flyout li a:hover {
-	width:180px;
   background: #ff9900;
   color:#FFF;
 }
@@ -696,10 +687,10 @@ body {
   transition: width .2s ease-in-out;
 }
 .the-nav ul.nav-flyout .dropdown .subnav > li {
-  width: 130px;
+  width: 180px;
 }
 .the-nav ul.nav-flyout .dropdown .subnav.is-subnav-visible {
-  width: 130px;
+  width: 180px;
 }
 .the-nav.is-inactive ul.nav-flyout > li > a {
   opacity: .2;
@@ -767,7 +758,6 @@ body {
 
   /* Active State */
   .the-nav > .nav > li:hover > a {
-	  
     color: #ff9900;
   }
 
@@ -807,7 +797,6 @@ body {
   }
 
   .nav > li > .subnav > li:hover a {
-	  
     background: #ff9900;
     color: white;
   }
@@ -875,16 +864,10 @@ ul li {
   font-family: 'Open Sans', Sans-serif;
   width: 95%;
   margin: 0 auto;
-  	background-image:url(../images/opendatasicilia1.svg);
-	background-repeat:no-repeat;
-	background-size: 149px 14px;
-	background-position: 45px 16px;
 }
 .container.navbar {
-
-	
   width: 100%;
-  height:40px;
+  height:65px;
 }
 .container:before, .container:after {
   content: "";
