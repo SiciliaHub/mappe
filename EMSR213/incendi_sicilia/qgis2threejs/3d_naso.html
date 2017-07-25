@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>EMSR213: Forest Fire in Southern Italy - Sicilia 3D TEST</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="EMSR213: Forest Fire in Southern Italy - Sicilia su base opendata">
+        <meta name="keywords" content="Open Data,Sicilia, protezione civile, piano emergenza, incendi,">
+        <meta name="author" content="Giovan Battista Vitrano per OpenDataSicilia.it">
+        <meta http-equiv="content-language" content="IT">
+        <meta name="robots" content="index,follow">
+        <meta name="creation_Date" content="27/04/2017">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="shortcut icon" href="favicon.ico"/> 
+        <link rel="icon" href="favicon.png" type="image/png"/> 
+<link rel="stylesheet" type="text/css" href="./Qgis2threejs.css">
+
+ <!-- css -->
+<link href="../lib/css/atlante_01.css" rel="stylesheet" type="text/css">
+<link href="../lib/css/leaflet.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<link href="../lib/css/leaflet-sidebar.css" rel="stylesheet" type="text/css">
+<link href="../lib/css/gmaps-sidebar.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../lib/css/L.Control.Locate.min.css" />
+<link rel="stylesheet" type="text/css" href="../lib/css/qgis2web.css">
+<link rel="stylesheet" href="../lib/css/MarkerCluster.css" />
+<link rel="stylesheet" href="../lib/css/MarkerCluster.Default.css" />
+<link rel="stylesheet" href="../lib/css/leaflet-measure.css" />
+<link href="../lib/css/L.Control.Basemaps.css" rel="stylesheet" type="text/css">
+<link href="../lib/css/leaflet-sidebar.css" rel="stylesheet" type="text/css">
+<link href="../lib/css/gmaps-sidebar.css" rel="stylesheet" type="text/css">
+<link href="../lib/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+
+ <!-- css menu -->
+ <link href="../lib/css/global.css" rel="stylesheet" type="text/css">
+ 
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/> 
+ 
+<style type="text/css">
+#ods { position:fixed; bottom:51px; right:17px; z-index: 999;}
+</style>
+<link href="../lib/css/atlante_01.css" rel="stylesheet" type="text/css">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-87653723-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+
+<!-- script mappa -->
+
+<script src="../lib/js/qgi2web/leaflet.js"></script>
+<script src="../lib/js/qgi2web/leaflet.rotatedMarker.js"></script>
+<script src="../lib/js/qgi2web/OSMBuildings-Leaflet.js"></script>
+<script src="../lib/js/qgi2web/leaflet-hash.js"></script>
+<script src="../lib/js/qgi2web/leaflet-tilelayer-wmts.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>        
+<script src="../lib/js/sidebar/leaflet-sidebar.js"></script>
+<script src="../lib/js/social/jquery_csbuttons.js"></script>
+<script src="../lib/js/basemap/L.Control.Basemaps.js"></script>
+<body>
+
+
+<div id="webgl"></div>
+
+<!-- popup -->
+<div id="popup" style="display:none;">
+<div id="closebtn">&times;</div>
+<div id="popupbar"></div>
+<div id="popupbody">
+ <div id="popupcontent"></div>
+ <div id="pageinfo">
+  <h1>Current View URL</h1>
+  <div><input id="urlbox" type="text"></div>
+
+  <h1>Usage</h1>
+  <div id="usage"></div>
+
+  <h1>About</h1>
+  <div id="about">
+  EMSR213: Forest Fire in Southern Italy - Sicilia 3d TEST, <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213"  title="EMSR213: Forest Fire in Southern Italy - "target="_blank">Vector package Vesuvio</a><br>Rielaborazione dati <a href="https://twitter.com/gbvitrano" title="@gbvitrano" target="_blank">@gbvitrano</a> per <a href="http://opendatasicilia.it/" title="Open Data Sicilia" target="_blank">Open Data Sicilia</a><br>I contenuti della mappa sono rilasciati con la licenza: <a href="http://effis.jrc.ec.europa.eu/about-effis/data-license/"  title="Data License - EFFIS"target="_blank">Data License - EFFIS</a><br><br>
+
+This page was made with <a href="http://www.qgis.org/" target="_blank">QGIS</a> and <a href="https://github.com/minorua/Qgis2threejs" target="_blank">Qgis2threejs</a> plugin, 
+and uses the following library:
+  <ul>
+  <li>three.js <a href="http://threejs.org/" target="_blank">http://threejs.org/</a> <a href="./threejs/LICENSE" target="_blank" class="license">(LICENSE)</a></li>
+  <li id="lib_proj4js" style="display: none;">Proj4js <a href="http://trac.osgeo.org/proj4js/" target="_blank">http://trac.osgeo.org/proj4js/</a> <a href="./proj4js/LICENSE.md" target="_blank" class="license">(LICENSE)</a></li> 
+  </ul>
+  </div>
+ </div>
+</div></div>
+
+<!-- footer -->
+<div id="footer"><div id="infobtn">i</div></div>
+
+<script src="./threejs/three.min.js"></script>
+<script src="./Qgis2threejs.js"></script>
+<script src="./threejs/OrbitControls.js"></script>
+<script>
+var option = Q3D.Options;
+
+</script>
+<script src="./20170722211105_0.js"></script>
+<script src="./20170722211105_1.js"></script>
+<script src="./20170722211105_2.js"></script>
+<script>
+if (typeof proj4 !== "undefined") document.getElementById("lib_proj4js").style.display = "list-item";
+
+var container = document.getElementById("webgl");
+var app = Q3D.application;
+app.init(container);
+
+// load the project
+app.loadProject(project);
+
+document.getElementById("infobtn").onclick = app.showInfo.bind(app);
+if ("hidebutton" in app.urlParams) document.getElementById("infobtn").style.display = "none";
+
+app.addEventListeners();
+app.start();
+
+</script>
+
+ <div id="sidebar" class="sidebar collapsed">
+<!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+                <li> <a href="mailto:coseerobe.gbvitrano@gmail.com" title="Email" role="tab"><i class="fa fa-envelope"></i></a></li>
+                 <li><a href="#wiki"  title="Glossario"role="tab"><i class="fa fa-wikipedia-w" aria-hidden="true"></i></a></li>
+                  <li><a href="#info"  title="Informazioni"role="tab"><i class="fa fa-info"></i></a></li>
+                 <li><a href="#share"  title="Condividi questa mappa"role="tab"><i class="fa fa-share-alt"></i></a></li>
+            </ul>
+            <ul role="tablist">
+                <li><a href="#settings" title="Configurazione" role="tab"><i class="fa fa-gear"></i></a></li>
+            </ul>
+        </div>
+        
+ <!-- Tab intro -->
+<div class="sidebar-content">
+<div class="sidebar-pane" id="home">
+<h2 class="sidebar-header">Sicilia a fuoco<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+ <p class="lorem"><strong>Gli incendi in Sicilia, una situazione drammatica vista da COPERNICUS - Emergency Management Service<br>
+     <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_blank">EMSR213: Forest Fire in Southern Italy</a></strong> <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_blank"><br>da opendata COPERNICUS</a></p>
+ <p class="lorem"><strong>Authorized User:</strong><br>
+Italy|Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile - Centro Situazioni<br><br>
+<strong>Activation Reason: </strong><br>
+During recent weeks almost the whole Italian National Territory has suffered a period characterized by very high temperatures and an absence of significant rain. Exacerbated by these conditions numerous fires are affecting Italy, most specifically in southern areas. Several fires are affecting large forested areas and, in certain cases, fires are threatening inhabited areas. Damages to infrastructures, public and private structures have occurred as have temporary evacuations due to risk to life.</p>
+ <a href="http://cdn-j.copernicus-ems.eu/mapping/sites/default/files/thumbnails/EMSR213-AEM-1500546681-r08-v1.jpg" target="_blank" title="EMSR213 - Activation Extent Map - Release: r08 - Version: v1 - Delivered: 2017-07-20 12:31"><img src="../lib/images/EMSR213-AEM-1500546681-r08-v1.jpg"alt="EMSR213 - Activation Extent Map - Release: r08 - Version: v1 - Delivered: 2017-07-20 12:31" width="370" height="262" class="clip_370_1" title="EMSR213 - Activation Extent Map - Release: r08 - Version: v1 - Delivered: 2017-07-20 12:31 "/></a> <br>
+
+<p class="lorem"> <em><strong>Copernicus EMS - Mapping mira a fornire prodotti quanto più accurati possibile. Tuttavia, le informazioni prodotte hanno limitazioni dovute alla scala, alla risoluzione, alla data e ai metodi di interpretazione dei dati originali dei materiali originali / satellitari.</strong></em><br>
+  <em><strong>I prodotti Copernicus EMS - Mapping sono forniti "come è" senza alcuna garanzia, espressa o implicita, inclusa la qualità o l'idoneità per qualsiasi scopo. L'intero rischio relativo all'utilizzo di questi prodotti è assunto dall'Utente e l'UE non si assume alcuna responsabilità per eventuali perdite, danni o inconvenienti causati dalla dipendenza dai prodotti Copernicus EMS-Mapping.</strong></em></p>
+</div>    
+          
+<!-- Tab info -->
+       <div class="sidebar-pane" id="info">
+       <h2 class="sidebar-header">Informazioni<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+ <p class="lorem"> <strong>Rielaborazione di: </strong><a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a><br>per <strong><a href="http://opendatasicilia.it/" Title="Open Data Sicilia" target="_blank">Open Data Sicilia</a></strong><br>
+   <p class="lorem"><strong>Fonte dati:</strong> <br>  <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_blank">EMSR213: Forest Fire in Southern Italy</a> <br> 
+   
+   
+<p class="lorem">Vector package 04 - Avola: <a href="http://emergency.copernicus.eu/mapping/download/143841/EMSR213_04AVOLA_02GRADING_MAP_v1_vector.zip" title="EMSR213: Forest Fire in Southern Italy - Avola - File Vector SHP KMZ" target="_blank">file Zip</a></p>
+<p class="lorem">Vector package 13 - Biancavilla: <a href="http://emergency.copernicus.eu/mapping/download/143786/EMSR213_13BIANCAVILLA_02GRADING_MAP_v1_vector.zip" title="EMSR213: Forest Fire in Southern Italy - Biancavilla - File Vector SHP KMZ" target="_blank">file Zip</a></p>
+<p class="lorem">Vector package 08 - Blufi: <a href="http://emergency.copernicus.eu/mapping/download/143887/EMSR213_08BLUFI_02GRADING_MAP_v2_vector.zip" title="EMSR213: Forest Fire in Southern Italy -  Blufi - File Vector SHP KMZ" target="_blank">file Zip</a></p> 
+<p class="lorem">Vector package 02 - Caltagirone: <a href="http://emergency.copernicus.eu/mapping/download/143819/EMSR213_02CALTAGIRONE_02GRADING_MAP_v1_vector.zip" title="EMSR213: Forest Fire in Southern Italy - Caltagirone - File Vector SHP KMZ" target="_blank">file Zip</a></p>
+<p class="lorem">Vector package 12 - Etna Nord: <a href="http://emergency.copernicus.eu/mapping/download/143797/EMSR213_12ETNANORD_02GRADING_MAP_v1_vector.zip" title="EMSR213: Forest Fire in Southern Italy - Etna Nord - File Vector SHP KMZ" target="_blank">file Zip</a></p>
+<p class="lorem">Vector package 03 - Francofonte: <a href="http://emergency.copernicus.eu/mapping/download/143830/EMSR213_03FRANCOFONTE_02GRADING_MAP_v1_vector.zip" title="EMSR213: Forest Fire in Southern Italy - Francofonte - File Vector SHP KMZ" target="_blank">file Zip</a></p> 
+<p class="lorem">Vector package 10 - Messina: <a href="#" title="EMSR213: Forest Fire in Southern Italy - Messina - File Vector SHP KMZ" target="_blank">file Zip</a></p>
+<p class="lorem">Vector package 09 - Mistretta: <a href="http://emergency.copernicus.eu/mapping/download/143865/EMSR213_09MISTRETTA_02GRADING_MAP_v2_vector.zip" title="EMSR213: Forest Fire in Southern Italy - Mistretta - File Vector SHP KMZ" target="_blank">file Zip</a></p>
+<p class="lorem">Vector package 06 - Monreale: <a href="http://emergency.copernicus.eu/mapping/download/143877/EMSR213_06MONREALE_02GRADING_MAP_v2_vector.zip" title="EMSR213: Forest Fire in Southern Italy - Monreale - File Vector SHP KMZ" target="_blank">file Zip</a></p>
+<p class="lorem">Vector package 11 - Naso: <a href="http://emergency.copernicus.eu/mapping/download/143808/EMSR213_11NASO_02GRADING_MAP_v1_vector.zip" title="EMSR213: Forest Fire in Southern Italy - Naso - File Vector SHP KMZ" target="_blank">file Zip</a></p>
+<p class="lorem">Vector package 07 - San Vito Lo Capo: <a href="http://emergency.copernicus.eu/mapping/download/143855/EMSR213_07SANVITOLOCAPO_02GRADING_MAP_v2_vector.zip" title="EMSR213: Forest Fire in Southern Italy - San Vito Lo Capo - File Vector SHP KMZ" target="_blank">file Zip</a></p>
+<p class="lorem">Vector package 05 - Sciacca: <a href="#" title="EMSR213: Forest Fire in Southern Italy - Sciacca - File Vector SHP KMZ" target="_blank">file Zip</a></p>
+<p class="lorem">Vector package 01 - Vesuvio: <a href="http://emergency.copernicus.eu/mapping/download/143756/EMSR213_01VESUVIO_02GRADING_MAP_v2_vector.zip" title="EMSR213: Forest Fire in Southern Italy - Vesuvio - File Vector SHP KMZ" target="_blank">file Zip</a></p>
+<p class="lorem"><strong>Mappa delle news sugli incendi in Italia:</strong> <a href="http://u.osmfr.org/m/158685/" title="Mappa delle news sugli incendi in Italia" target="_blank"><strong>Apri Umap</strong></a></p>
+
+<hr>
+<p class="lorem">I contenuti della mappa sono rilasciati con la licenza: <a href="http://effis.jrc.ec.europa.eu/about-effis/data-license/" title="Data License - EFFIS" target="_blank"><br><strong>Data License - EFFIS</strong></a> </p> 
+<p class="lorem">  <em><strong>Disclaimer of liability</strong></em><br>
+  <em>Copernicus EMS - Mapping mira a fornire prodotti quanto più accurati possibile. Tuttavia, le informazioni prodotte hanno limitazioni dovute alla scala, alla risoluzione, alla data e ai metodi di interpretazione dei dati originali dei materiali originali / satellitari.</em><br>
+  <em>I prodotti Copernicus EMS - Mapping sono forniti "come è" senza alcuna garanzia, espressa o implicita, inclusa la qualità o l'idoneità per qualsiasi scopo. L'intero rischio relativo all'utilizzo di questi prodotti è assunto dall'Utente e l'UE non si assume alcuna responsabilità per eventuali perdite, danni o inconvenienti causati dalla dipendenza dai prodotti Copernicus EMS-Mapping.</em></p>
+</div>
+
+<!-- Tab Glossario -->
+       <div class="sidebar-pane" id="wiki">
+       <h2 class="sidebar-header">Che cosa è Copernico<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2><br>
+<p class="lorem">Copernicus (in precedenza il monitoraggio globale per l'ambiente e la sicurezza - GMES) è un programma comunitario finalizzato allo sviluppo di servizi informativi europei basati su dati satellitari di osservazione terrestre e dati in situ (non nello spazio).</p>  
+<p class="lorem">Copernicus è attuato dalla Commissione europea (CE) con il sostegno dell'Agenzia spaziale europea (ESA) per la componente spaziale e dell'Agenzia europea dell'ambiente (SEE) per la componente in situ.</p>  
+<p class="lorem">L'obiettivo di Copernicus è quello di monitorare e prevedere lo stato dell'ambiente in terra, in mare e nell'atmosfera, al fine di sostenere strategie di attenuazione del cambiamento climatico e di adattamento, gestione efficiente delle situazioni di emergenza e miglioramento della sicurezza di ogni cittadino.</p>  
+<p class="lorem">Le informazioni fornite da Copernicus miglioreranno la sicurezza degli utenti, ad esempio Fornendo informazioni sulle catastrofi naturali, come gli incendi boschivi o le inondazioni, aiutando così a prevenire la perdita di vite e di proprietà e danni all'ambiente.</p> 
+<p class="lorem">Copernicus è un programma guidato dagli utenti e i servizi di informazione forniti saranno liberamente e apertamente accessibili ai propri Utenti, soprattutto autorità pubbliche.</p> <br>
+<p class="lorem"><strong><a href="http://emergency.copernicus.eu/mapping/ems/what-copernicus" title="What is Copernicus" target="_blank">What is Copernicus</a></strong></p> 
+         
+</div>
+
+<!-- Tab email -->
+<div class="sidebar-pane" id="messages">
+<h2 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+</div>
+<!-- Tab condividi -->
+<div class="sidebar-pane" id="share">
+<h2 class="sidebar-header">Condividi questa mappa<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+<p class="lorem"><strong>Puoi condividere online la mappe con altre persone</strong></p>
+<p class="lorem"><strong>Condividi:</strong></p >
+<div id="social">  <p >
+		<a href="#" title="Condividi su Facebook" class="csbuttons soc" data-type="facebook"><img src="../lib/images/fb.png" alt="facebook" width="32" height="20"></a>&nbsp;&nbsp;
+	    <a href="#" title="Condividi su Twitter" class="csbuttons soc" data-type="twitter"><img src="../lib/images/tw.png" alt="twitter" width="32" height="20"></a>&nbsp;&nbsp;
+		<a href="#" title="Condividi su GooglePlus" class="csbuttons soc" data-type="google" ><img src="../lib/images/gp.png"width="32" height="20" alt="google"></a>&nbsp;&nbsp;
+		<a href="#" title="Condividi su Linkedin" class="csbuttons soc" data-type="linkedin"><img src="../lib/images/in.png"width="32" height="20" alt="linkedin"></a>&nbsp;&nbsp;
+    <a href="#" title="Condividi su Pinterest" class="csbuttons soc" data-type="pinterest"><img src="../lib/images/pin.png" width="32" height="20"alt="pinterest"></a></p>
+</div>
+<script>
+			$(document).ready(function(){
+				$('.csbuttons').cSButtons({total : "#total","url" 	: "http://siciliahub.github.io/mappe/EMSR213/incendi_sicilia/index.html",});
+			});
+		</script><br>
+ <label for="url breve"><strong><p class="lorem">URL breve</strong></label><br><br>
+<input name="url breve" type="text" autofocus id="url_breve" title="url breve" Value="https://goo.gl/nXFp2U" readonly></p><br>
+<hr>
+<br>
+<p class="lorem"><strong>Includi la mappa</strong></p>   
+       <textarea name="iframe" maxlength="2000" autofocus readonly id="iframe" title="iframe"><iframe width="100%" height="600px" frameBorder="0" src="http://siciliahub.github.io/mappe/EMSR213/incendi_sicilia/index.html"></iframe><p><a href="http://siciliahub.github.io/mappe/EMSR213/incendi_sicilia/index.html" title="Incendi Sicilia, COPERNICUS - Emergency Management - EMSR213: Forest Fire in Southern Italy - Sicilia, su base opendata">Visualizza a schermo intero</a></p>
+      </textarea>
+           <p class="lorem">Copia e incolla questo codice in documenti HTML per incorporare questa mappa nelle tue pagine web.<br> Copy and paste this code into HTML documents to embed this map on web pages.</p>
+    </div>
+ <!-- Tab strumenti -->
+ <div class="sidebar-pane" id="settings">
+<h2 class="sidebar-header">Strumenti<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+<p class="lorem"><strong>I principali strumenti usati per realizzare questa semplice mappa:</strong></p>
+<ul>
+<li><p class="lorem"><a href="http://u.osmfr.org/m/89239/" title="Piano Protezione Civile Palermo da open data comunale" target="_blank">Piano Protezione Civile Palermo da open data comunale</a>, rielaborazione opendata di: <a href="https://twitter.com/cirospat" target="_blank" title="Ciro Spataro">@cirospat</a> (rielaborazione di riferimento) <br><br></li></p>
+<li><p class="lorem"><a href="http://www.qgis.org/it/site/" title="Qgis" target="_blank">Qgis,</a> per creare, modificare, visualizzare, analizzare e pubblicare le informazioni geospaziali su Windows, Mac, Linux, BSD;<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/tomchadwin/qgis2web" title="Qtiles" target="_blank">Qgis2web ,</a>plugin per Qgis per esportare il progetto in un webmap OpenLayers o foglio elettronico. Non è richiesto alcun software lato server;<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/minorua/Qgis2threejs" title="Qgis2threejs " target="_blank">Qgis2threejs  ,</a>il plugin esporta i dati del terreno, l'immagine delle telecamere e i dati vettoriali sul tuo browser web. È possibile visualizzare gli oggetti 3D nel browser web che supporta WebGL;<br><br></li></p>
+<li><p class="lorem"><a href="http://leafletjs.com/" title="Leaflet" target="_blank">Leaflet,</a> per creare l'interfaccia di web mapping;<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/mlevans/leaflet-hash" title="Leaflet-hash" target="_blank">Leaflet-hash</a>, per generare URL che contengono livello di zoom e posizione corrente;<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/turbo87/sidebar-v2/" title="Sidebar-v2" target="_blank">Sidebar-v2</a>, per creare questa sidebar a scomparsa;<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/ardhi/Leaflet.MousePosition" title="Leaflet.MousePosition" target="_blank">Leaflet.MousePosition</a>, &egrave;  un semplice controllo della posizione del mouse. Esso mostra le coordinate geografiche del puntatore del mouse, mentre viene spostato sulla mappa;<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/nerik/leaflet-graphicscale" title="leaflet-graphicscale" target="_blank">Leaflet-graphicscale</a>, &egrave;  un semplice barra di scala con effetto animato al cambio dello zoom;<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/consbio/Leaflet.Basemaps" title="Leaflet.Basemaps" target="_blank">Leaflet.Basemaps</a>, consente di creare un controllo dell'interfaccia utente per la scelta della mappa di base utilizzato sulla mappa.<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/ppete2/Leaflet.PolylineMeasure" title="Leaflet.PolylineMeasure" target="_blank">Leaflet.PolylineMeasure</a>, consente di misurare distanze con linee semplici, sistema metrico (metri, chilometri).<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/torfsen/leaflet.zoomhome" title="Leaflet.zoomhome" target="_blank">Leaflet.zoomhome</a>, aggiunge un pulsante Home al controllo zoom per ripristinare la visualizzazione.<br><br></li></p>
+<li><p class="lorem"><a href="https://github.com/rowanwins/leaflet-easyPrint" title="Leaflet-easyPrint" target="_blank">Leaflet-easyPrint</a>, un semplice plugin che aggiunge un'icona per stampare la mappa.<br><br></li></p>
+<li><p class="lorem"><a href="../earthexplorer.usgs.gov" title="Modelli digitale del terreno - DEM" target="_blank">USGS - EarthExplorer</a>, Modello digitale del terreno<br><br></li></p>
+<li><p class="lorem"><a href="http://www.jqueryscript.net/menu/Responsive-Multi-level-Off-Screen-Navigation-Plugin-For-jQuery-cbFlyout.html" title="Responsive Multi-level Off Screen Navigation Plugin For jQuery - cbFlyout" target="_blank">Menu jQuery</a>, Responsive Multi-level Off Screen Navigation Plugin For jQuery - cbFlyout.<br><br></li></p>
+      </ul>
+</div>
+</div>
+</div> 
+<div id="map" class="sidebar-map"></div>
+<script>
+var map = L.map('map', { zoomControl:false, maxZoom:28, minZoom:28  }).fitBounds([[37.6011061912,12.4036335813],[37.4614395741,15.667056554]]);
+map.attributionControl.addAttribution('');
+  // L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {       attribution: '',      minZoom: 2,      maxZoom: 2,      maxNativeZoom: 2    }).addTo(map);
+var sidebar = L.control.sidebar('sidebar').addTo(map);
+  </script>
+
+ <!-- header -->       
+<div id="bot" class="leaflet-control">
+<div id="left-flyout-nav" class="layout-left-flyout visible-sm"></div>
+		<div class="layout-right-content">
+		  <header class="the-header">
+		    <div class="navbar container">
+		      
+		      <!-- Trigger -->
+		      <a class="btn-navbar btn-navbar-navtoggle btn-flyout-trigger" href="#" title="Apri il menù">
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		      </a>
+		      
+		      <!-- Structure -->
+		      <nav class="the-nav nav-collapse clearfix">
+
+		        <ul class="nav nav-pill pull-left">
+		         <!-- inseriri qui menu di sx --> 
+		        </ul>
+                <!-- menu dx -->
+		        <ul class="nav nav-pill pull-right">
+                <li class="dropdown">
+		            <a href="#" title="Blogs">Blogs<b class="caret"></b></a>
+		            <ul class="subnav">
+		        <li><a href="http://opendatasicilia.it/" title="Iniziativa civica per la promozione degli OpenData nell&#039;isola (e non solo)" target="_blank">OpenDataSicilia.it</a></li>
+                <li><a href="http://italiaafuoco.info/" title="Progetto civico per raccogliere segnalazioni sugli incendi in Italia." target="_blank">ItaliaaFuoco.info</a></li>
+	              </ul>
+		          </li>
+                
+				<li class="dropdown">
+		            <a href="#" title="Grading Map - Forest Fire in Southern Italy">Grading Map EMSR213<b class="caret"></b></a>
+		            <ul class="subnav">
+                    <li><a href="../index.html" title="Grading Map Sicilia" target="_parent">Quadro Unione</a></li>
+		              <li><a href="../caltagirone.html" title="Grading Map Caltagirone" target="_parent">02 Caltagirone</a></li>
+		              <li><a href="../francofonte.html" title="Grading Map Francofonte" target="_parent">03 Francofonte</a></li>
+		              <li><a href="../avola.html" title="Grading Map Avola" target="_parent">04 Avola</a></li>
+		              <li><a href="../sciacca.html" title="Grading Map Sciacca" target="_parent">05 Sciacca</a></li>
+		              <li><a href="../monreale.html" title="Grading Map Monreale" target="_parent">06 Monreale</a></li>
+                      <li><a href="../san_vito_lo_capo.html" title="Grading Map San Vito Lo Capo" target="_parent">07 San Vito Lo Capo</a></li>
+                      <li><a href="../blufi.html" title="Grading Map Blufi" target="_parent">08 Blufi</a></li>
+                      <li><a href="../mistretta.html" title="Grading Map Mistretta" target="_parent">09 Mistretta</a></li>
+                      <li><a href="../messina.html" title="Grading Map Messina" target="_parent">10 Messina</a></li>
+                      <li><a href="../naso.html" title="Grading Map Naso" target="_parent">11 Naso</a></li>
+                      <li><a href="../etna_nord.html" title="Grading Map Etna Nord" target="_parent">12 Etna Nord</a></li>
+                      <li><a href="../biancavilla.html" title="Grading Map Biancavilla" target="_parent">13 Biancavilla</a></li>
+		            </ul>
+		          </li>
+					<li class="dropdown">
+		            <a href="#" title="Grading Map 3D - Forest Fire in Southern Italy">3D - Grading Map EMSR213<b class="caret"></b></a>
+		            <ul class="subnav">
+		                <li><a href="3d_caltagirone.html" title="Grading Map Caltagirone" target="_parent">02 Caltagirone</a></li>
+		              <li><a href="3d_francofonte.html" title="Grading Map Francofonte" target="_parent">03 Francofonte</a></li>
+		              <li><a href="3d_avola.html" title="Grading Map Avola" target="_parent">04 Avola</a></li>
+		              <li><a href="3d_sciacca.html" title="Grading Map Sciacca" target="_parent">05 Sciacca</a></li>
+		              <li><a href="3d_monreale.html" title="Grading Map Monreale" target="_parent">06 Monreale</a></li>
+                      <li><a href="3d_san_vito_lo_capo.html" title="Grading Map San Vito Lo Capo" target="_parent">07 San Vito Lo Capo</a></li>
+                      <li><a href="3d_blufi.html" title="Grading Map Blufi" target="_parent">08 Blufi</a></li>
+                      <li><a href="3d_mistretta.html" title="Grading Map Mistretta" target="_parent">09 Mistretta</a></li>
+                      <li><a href="3d_messina.html" title="Grading Map Messina" target="_parent">10 Messina</a></li>
+                      <li><a href="3d_naso.html" title="Grading Map Naso" target="_parent">11 Naso</a></li>
+                      <li><a href="3d_etna_nord.html" title="Grading Map Etna Nord" target="_parent">12 Etna Nord</a></li>
+                      <li><a href="3d_biancavilla.html" title="Grading Map Biancavilla" target="_parent">13 Biancavilla</a></li>
+		            </ul>
+		          </li>
+		        </ul>
+		      </nav>
+		    </div>
+		  </header>
+		</div><!-- END .layout-left-flyout -->
+        
+<script src="../lib/js/menu/jquery.js"></script>
+<script src="../lib/js/menu/jquery.cbFlyout.js"></script>
+<script src="../lib/js/menu/main.js"></script>
+
+</div> 
+
+
+<!-- clip mappa 2d --> 
+  <div id="tavola"><img src="../legend/11_1.png" width="165"></div>  
+<div id="threejs" class="leaflet-control">
+<iframe src="../basemappa_per_3d.html" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
+</div> 
+<div id="threejs_testo" class="leaflet-control legenda1">
+  <a href="../index.html" title="Grading Map - Forest Fire in Southern Italy schermo intero" target="_parent">Apri Grading Map EMSR213</a> </div>   
+  
+  <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
+<img src="../lib/images/ods.svg" width="80" title="opendatasicilia.it" alt="opendatasicilia"></a></div>   
+<div id="itaf"><a href="http://italiaafuoco.info/" title="italiaafuoco.info" target="_blank"> 
+<img src="../legend/italiaafuoco_clip.png" width="40" title="italiaafuoco.info" alt="italiaafuoco.info"></a></div>  
+</body>
+</html>
