@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>EMSR213: Forest Fire in Southern Italy - Sicilia 3D TEST</title>
+<title>EMSR213: Forest Fire in Southern Italy - Sicilia 3D</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="EMSR213: Forest Fire in Southern Italy - Sicilia su base opendata">
@@ -42,9 +42,6 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/> 
  
-<style type="text/css">
-#ods { position:fixed; bottom:51px; right:17px; z-index: 999;}
-</style>
 <link href="../lib/css/atlante_01.css" rel="stylesheet" type="text/css">
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -89,7 +86,7 @@
 
   <h1>About</h1>
   <div id="about">
-  EMSR213: Forest Fire in Southern Italy - Sicilia 3d TEST, <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213"  title="EMSR213: Forest Fire in Southern Italy - "target="_blank">Vector package Vesuvio</a><br>Rielaborazione dati <a href="https://twitter.com/gbvitrano" title="@gbvitrano" target="_blank">@gbvitrano</a> per <a href="http://opendatasicilia.it/" title="Open Data Sicilia" target="_blank">Open Data Sicilia</a><br>I contenuti della mappa sono rilasciati con la licenza: <a href="http://effis.jrc.ec.europa.eu/about-effis/data-license/"  title="Data License - EFFIS"target="_blank">Data License - EFFIS</a><br><br>
+  EMSR213: Forest Fire in Southern Italy - Sicilia, <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213"  title="EMSR213: Forest Fire in Southern Italy" target="_blank">Vector package </a><br>Rielaborazione dati <a href="https://twitter.com/gbvitrano" title="@gbvitrano" target="_blank">@gbvitrano</a> per <a href="http://opendatasicilia.it/" title="Open Data Sicilia" target="_blank">Open Data Sicilia</a><br>I contenuti della mappa sono rilasciati con la licenza: <a href="http://effis.jrc.ec.europa.eu/about-effis/data-license/"  title="Data License - EFFIS"target="_blank">Data License - EFFIS</a><br><br>
 
 This page was made with <a href="http://www.qgis.org/" target="_blank">QGIS</a> and <a href="https://github.com/minorua/Qgis2threejs" target="_blank">Qgis2threejs</a> plugin, 
 and uses the following library:
@@ -105,15 +102,13 @@ and uses the following library:
 <div id="footer"><div id="infobtn">i</div></div>
 
 <script src="./threejs/three.min.js"></script>
-<script src="./Qgis2threejs.js"></script>
+<script src="./Qgis2threejs_monreale.js"></script>
 <script src="./threejs/OrbitControls.js"></script>
 <script>
 var option = Q3D.Options;
-
+option.bgcolor = 0xffffff;
 </script>
-<script src="./20170722211105_0.js"></script>
-<script src="./20170722211105_1.js"></script>
-<script src="./20170722211105_2.js"></script>
+<script src="./monreale.js"></script>
 <script>
 if (typeof proj4 !== "undefined") document.getElementById("lib_proj4js").style.display = "list-item";
 
@@ -349,8 +344,8 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 <div id="threejs" class="leaflet-control">
 <iframe src="../basemappa_per_3d.html" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
 </div> 
-<div id="threejs_testo" class="leaflet-control legenda1">
-  <a href="../index.html" title="Grading Map - Forest Fire in Southern Italy schermo intero" target="_parent">Apri Grading Map EMSR213</a> </div>   
+<div id="threejs_testo" class="leaflet-control legenda2">
+  <a href="../monreale.html" title="Grading Map - Forest Fire in Southern Italy schermo intero" target="_parent">Apri Grading Map EMSR213</a> </div>   
   
   <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
 <img src="../lib/images/ods.svg" width="80" title="opendatasicilia.it" alt="opendatasicilia"></a></div>   
