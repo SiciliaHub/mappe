@@ -36,3 +36,5 @@ Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di app
 
 - [**Progetto - Italia a Fuoco**](http://italiaafuoco.info/)<br>
 [**L'incendio Vesuvio, una situazione drammatica vista da COPERNICUS - Emergency Management Service**](http://siciliahub.github.io/mappe/EMSR213/Vesuvio/index.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
+
+- [**Mappa incendi Sicilia con i dati EFFIS -  COPERNICUS - Emergency Management Service**](http://siciliahub.github.io/mappe/EMSR213/incendi_sicilia/index.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
