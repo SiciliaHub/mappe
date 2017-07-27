@@ -153,8 +153,8 @@ app.start();
 Italy|Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile - Centro Situazioni<br><br>
 <strong>Activation Reason: </strong><br>
 During recent weeks almost the whole Italian National Territory has suffered a period characterized by very high temperatures and an absence of significant rain. Exacerbated by these conditions numerous fires are affecting Italy, most specifically in southern areas. Several fires are affecting large forested areas and, in certain cases, fires are threatening inhabited areas. Damages to infrastructures, public and private structures have occurred as have temporary evacuations due to risk to life.</p>
-<img src="legend/03.png" width="177" height="20"  /><br>
- <a href="http://emergency.copernicus.eu/mapping/system/files/components/EMSR213_03FRANCOFONTE_02GRADING_MAP_v1_100dpi.jpg" target="_blank" title="[EMSR213] Francofonte: Grading Map"><img src="lib/images/francofonte.jpg"alt="[EMSR213] Francofonte: Grading Map" width="370" height="262" class="clip_370_1" title="[EMSR213] Francofonte: Grading Map"/></a> <br>
+<img src="../legend/03.png" width="177" height="20"  /><br>
+ <a href="http://emergency.copernicus.eu/mapping/system/files/components/EMSR213_03FRANCOFONTE_02GRADING_MAP_v1_100dpi.jpg" target="_blank" title="[EMSR213] Francofonte: Grading Map"><img src="../lib/images/francofonte.jpg"alt="[EMSR213] Francofonte: Grading Map" width="370" height="262" class="clip_370_1" title="[EMSR213] Francofonte: Grading Map"/></a> <br>
 
 <p class="lorem"> <em><strong>Copernicus EMS - Mapping mira a fornire prodotti quanto più accurati possibile. Tuttavia, le informazioni prodotte hanno limitazioni dovute alla scala, alla risoluzione, alla data e ai metodi di interpretazione dei dati originali dei materiali originali / satellitari.</strong></em><br>
   <em><strong>I prodotti Copernicus EMS - Mapping sono forniti "come è" senza alcuna garanzia, espressa o implicita, inclusa la qualità o l'idoneità per qualsiasi scopo. L'intero rischio relativo all'utilizzo di questi prodotti è assunto dall'Utente e l'UE non si assume alcuna responsabilità per eventuali perdite, danni o inconvenienti causati dalla dipendenza dai prodotti Copernicus EMS-Mapping.</strong></em></p>
@@ -200,11 +200,11 @@ During recent weeks almost the whole Italian National Territory has suffered a p
 <p class="lorem"><strong>Puoi condividere online la mappe con altre persone</strong></p>
 <p class="lorem"><strong>Condividi:</strong></p >
 <div id="social">  <p >
-		<a href="#" title="Condividi su Facebook" class="csbuttons soc" data-type="facebook"><img src="lib/images/fb.png" alt="facebook" width="32" height="20"></a>&nbsp;&nbsp;
-	    <a href="#" title="Condividi su Twitter" class="csbuttons soc" data-type="twitter"><img src="lib/images/tw.png" alt="twitter" width="32" height="20"></a>&nbsp;&nbsp;
-		<a href="#" title="Condividi su GooglePlus" class="csbuttons soc" data-type="google" ><img src="lib/images/gp.png"width="32" height="20" alt="google"></a>&nbsp;&nbsp;
-		<a href="#" title="Condividi su Linkedin" class="csbuttons soc" data-type="linkedin"><img src="lib/images/in.png"width="32" height="20" alt="linkedin"></a>&nbsp;&nbsp;
-    <a href="#" title="Condividi su Pinterest" class="csbuttons soc" data-type="pinterest"><img src="lib/images/pin.png" width="32" height="20"alt="pinterest"></a></p>
+		<a href="#" title="Condividi su Facebook" class="csbuttons soc" data-type="facebook"><img src="../lib/images/fb.png" alt="facebook" width="32" height="20"></a>&nbsp;&nbsp;
+	    <a href="#" title="Condividi su Twitter" class="csbuttons soc" data-type="twitter"><img src="../lib/images/tw.png" alt="twitter" width="32" height="20"></a>&nbsp;&nbsp;
+		<a href="#" title="Condividi su GooglePlus" class="csbuttons soc" data-type="google" ><img src="../lib/images/gp.png"width="32" height="20" alt="google"></a>&nbsp;&nbsp;
+		<a href="#" title="Condividi su Linkedin" class="csbuttons soc" data-type="linkedin"><img src="../lib/images/in.png"width="32" height="20" alt="linkedin"></a>&nbsp;&nbsp;
+    <a href="#" title="Condividi su Pinterest" class="csbuttons soc" data-type="pinterest"><img src="../lib/images/pin.png" width="32" height="20"alt="pinterest"></a></p>
 </div>
 <script>
 			$(document).ready(function(){
@@ -247,26 +247,6 @@ During recent weeks almost the whole Italian National Territory has suffered a p
 </div>  
   
 <!-- Mappa  -->
-<div id="map" class="sidebar-map"></div>
-        <script>
-        L.ImageOverlay.include({
-            getBounds: function () {
-                return this._bounds;
-            }
-        });
-var map = L.map('map', { zoomControl:false, maxZoom:17, minZoom:10 }).fitBounds([[37.0216236513,14.7245822944],[37.2857285124,15.3138967251]]);
-map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> - Rielaborazione di: <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>');
-var bounds_group = new L.featureGroup([]);
-<!-- mappe di base -->	  
-  
-var basemaps = [
-L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Dati cartografici &#9400; 2017 Google - <a href="https://www.google.com/intl/it_it/help/terms_maps.html">Termini</a>', minZoom: 10,  maxZoom: 18, maxNativeZoom: 18, label: 'Google Terrain'}),
-	  
-	   L.tileLayer('http://a.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {attribution: '&#9400; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',minZoom: 10,  maxZoom: 18, maxNativeZoom: 18, label: 'OpenStreetMap monochrome'}),
-	  
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Source: &#9400; ESRI Satellite', minZoom: 10,  maxZoom: 18, maxNativeZoom: 18, label: 'ESRI Satellite'}), ];
-
-<!-- funzioni mappa -->
 <div id="map" class="sidebar-map"></div>
 <script>
 var map = L.map('map', { zoomControl:false, maxZoom:28, minZoom:28  }).fitBounds([[37.6011061912,12.4036335813],[37.4614395741,15.667056554]]);
