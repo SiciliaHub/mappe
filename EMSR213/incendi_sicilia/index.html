@@ -83,6 +83,7 @@
 <script src="lib/js/qgi2web/Autolinker.min.js"></script>
 <script src="lib/js/qgi2web/leaflet-measure.js"></script>
 <script src="lib/js/qgi2web/leaflet.markercluster.js"></script>
+<script src="lib/js/qgi2web/multi-style-layer.js"></script>
         
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>        
@@ -244,6 +245,21 @@ During recent weeks almost the whole Italian National Territory has suffered a p
 <!-- Mappa  -->
 <div id="map" class="sidebar-map"></div>
         <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
         L.ImageOverlay.include({
             getBounds: function () {
                 return this._bounds;
@@ -281,8 +297,17 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
             ];
           });
         }
-        function pop_Centroidi0(feature, layer) {
-            var popupContent = '<table>\
+
+  // function pop_Centroidi0(feature, layer) {
+function pop_Centroidi0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_Centroidi0_0(feature));
+
+                },
+                mouseover: highlightFeature,
+            });	  
+	    var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Activation Extent Map:</th>\
                         <td>' + (feature.properties['act_id'] !== null ? Autolinker.link(String(feature.properties['act_id'])) : '') + '</td>\
@@ -296,7 +321,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                         <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
                     </tr>\
 					      <tr>\
-                        <th scope="row"> Published:</th>\
+                        <th scope="row"> Data plubblicazione:</th>\
                         <td>' + (feature.properties[' Published'] !== null ? Autolinker.link(String(feature.properties[' Published'])) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -455,7 +480,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
             }
         }
         map.createPane('pane_Centroidi0');
-        map.getPane('pane_Centroidi0').style.zIndex = 400;
+        map.getPane('pane_Centroidi0').style.zIndex = 600;
         map.getPane('pane_Centroidi0').style['mix-blend-mode'] = 'normal';
         var layer_Centroidi0 = new L.geoJson(json_Centroidi0, {
             attribution: '<a href=""></a>',
@@ -471,10 +496,18 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         });
         bounds_group.addLayer(layer_Centroidi0);
         map.addLayer(layer_Centroidi0);
-		
+	
+       // function pop_areeincendisiciliawgs841(feature, layer) {
+		   
+		           function pop_areeincendisiciliawgs841(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_areeincendisiciliawgs841_0(feature));
 
-		
-        function pop_areeincendisiciliawgs841(feature, layer) {
+                },
+                mouseover: highlightFeature,
+            });
+		   
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Activation Extent Map:</th>\
@@ -490,7 +523,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     </tr>\
 					                    </tr>\
 					      <tr>\
-                        <th scope="row"> Published:</th>\
+                        <th scope="row"> Data plubblicazione:</th>\
                         <td>' + (feature.properties[' Published'] !== null ? Autolinker.link(String(feature.properties[' Published'])) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -524,8 +557,9 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         style: style_areeincendisiciliawgs841_0,
     });
         bounds_group.addLayer(layer_areeincendisiciliawgs841);
-      map.addLayer(layer_areeincendisiciliawgs841);
-        var baseMaps = {};
+     map.addLayer(layer_areeincendisiciliawgs841);
+	 
+       var baseMaps = {};
      L.control.layers(baseMaps,{'<img src="legend/quadro_01.png" width="138" height="20" /><br><br><span class="legenda">Elenco tavole</span> <br><br>  <a href="caltagirone.html" title="Grading Map Caltagirone" target="_parent"><img src="legend/02.png" width="177" height="20" class="clip_tav" /></a><br>   <a href="francofonte.html" title="Grading Map Francofonte" target="_parent"><img src="legend/03.png" width="177" height="20" class="clip_tav" /></a><br>   <a href="avola.html" title="Grading Map Avola" target="_parent"><img src="legend/04.png" width="177" height="20" class="clip_tav" /></a> <br>    <a href="sciacca.html" title="Grading Map Sciacca" target="_parent"><img src="legend/05.png" width="177" height="20" class="clip_tav" /></a> <br>   <a href="monreale.html" title="Grading Map Monreale" target="_parent"><img src="legend/06.png" width="177" height="20" class="clip_tav" /></a>  <br>   <a href="san_vito_lo_capo.html" title="Grading Map San Vito Lo Capo" target="_parent"><img src="legend/07.png" width="177" height="20" class="clip_tav" /></a>  <br>   <a href="blufi.html" title="Grading Map Blufi" target="_parent"><img src="legend/08.png" class="clip_tav" /></a> <br>   <a href="mistretta.html" title="Grading Map Mistretta" target="_parent"><img src="legend/09.png" class="clip_tav" /></a> <br>   <a href="messina.html" title="Grading Map Messina" target="_parent"><img src="legend/10.png" class="clip_tav" /></a>  <br>   <a href="naso.html" title="Grading Map Naso" target="_parent"><img src="legend/11.png" class="clip_tav" /></a>  <br>   <a href="etna_nord.html" title="Grading Map Etna Nord" target="_parent"><img src="legend/12.png" class="clip_tav" /></a><br>   <a href="biancavilla.html" title="Grading Map Biancavilla" target="_parent"><img src="legend/13.png" class="clip_tav" /></a>  '
 	 : layer_areeincendisiciliawgs841,}). addTo(map);
         setBounds();
