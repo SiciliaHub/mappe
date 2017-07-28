@@ -152,9 +152,9 @@ During recent weeks almost the whole Italian National Territory has suffered a p
  
 <p class="lorem">[EMSR213] Messina: Grading Map, Monitoring 1 <a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_10MESSINA_02GRADING_MONIT01/1" title="[EMSR213] Messina: Grading Map, Monitoring 1" target="_blank"> Published: 2017-07-18 23:12 (UTC)</a></p>
 
-<p class="lorem">[EMSR213] Mistretta: Grading Map <a href="http://emergency.copernicus.eu/mapping/download/143865/EMSR213_09MISTRETTA_02GRADING_MAP_v2_vector.zip" title="[EMSR213] Mistretta: Grading Map" target="_blank"> Published: 2017-07-20 18:56 (UTC)</a></p>
+<p class="lorem">[EMSR213] Mistretta: Grading Map <a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_09MISTRETTA_02GRADING_MAP/2" title="[EMSR213] Mistretta: Grading Map" target="_blank"> Published: 2017-07-20 18:56 (UTC)</a></p>
 
-<p class="lorem">[EMSR213] Monreale: Grading Map <a href="http://emergency.copernicus.eu/mapping/download/143877/EMSR213_06MONREALE_02GRADING_MAP_v2_vector.zip" title="[EMSR213] Monreale: Grading Map" target="_blank"> Published: 2017-07-20 19:13 (UTC)</a></p>
+<p class="lorem">[EMSR213] Monreale: Grading Map <a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_06MONREALE_02GRADING_MAP/2" title="[EMSR213] Monreale: Grading Map" target="_blank"> Published: 2017-07-20 19:13 (UTC)</a></p>
 
 <p class="lorem">[EMSR213] Naso: Grading Map <a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_11NASO_02GRADING_MAP/1" title="[EMSR213] Naso: Grading Map" target="_blank"> Published: 2017-07-20 02:43 (UTC)</a></p>
 
@@ -294,6 +294,10 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     <tr>\
 					 <th scope="row">Area mappata:</th>\
                         <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
+                    </tr>\
+					      <tr>\
+                        <th scope="row"> Published:</th>\
+                        <td>' + (feature.properties[' Published'] !== null ? Autolinker.link(String(feature.properties[' Published'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Apri la mappa:</th>\
@@ -467,6 +471,9 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         });
         bounds_group.addLayer(layer_Centroidi0);
         map.addLayer(layer_Centroidi0);
+		
+
+		
         function pop_areeincendisiciliawgs841(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -481,26 +488,10 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 					 <th scope="row">Area mappata:</th>\
                         <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <th scope="row">Apri la mappa:</th>\
-                        <td>' + (feature.properties['link'] !== null ? Autolinker.link(String(feature.properties['link'])) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent);
-        }
-        function pop_areeincendisiciliawgs841(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Activation Extent Map:</th>\
-                        <td>' + (feature.properties['act_id'] !== null ? Autolinker.link(String(feature.properties['act_id'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Province interessate:</th>\
-                        <td>' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-					 <th scope="row">Area mappata:</th>\
-                        <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
+					                    </tr>\
+					      <tr>\
+                        <th scope="row"> Published:</th>\
+                        <td>' + (feature.properties[' Published'] !== null ? Autolinker.link(String(feature.properties[' Published'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Apri la mappa:</th>\
