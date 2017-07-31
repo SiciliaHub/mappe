@@ -252,7 +252,7 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Source: &#9400; ESRI Satellite', minZoom: 6,  maxZoom: 7, maxNativeZoom: 7, label: 'ESRI Satellite'}), ];
 
 <!-- box resaize -->
-var html = "<div><b>Grafici indendi in italia</h5></b><p><iframe  src=\"regioni\/grafico_ita.html\" scrolling=\"no\" frameborder=\"0\" width=\"750\" height=\"570\"><\/iframe>";
+var html = "<div><b>Grafico e dati sul numero degli incendi boschivi in Italia dal 2009 a maggio 2016</h5></b><iframe  src=\"regioni\/grafico_ita.html\" scrolling=\"no\" scrolling=\"no\" frameborder=\"0\" style=\"overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:600px;width:800px;position:absolute;top:12px;left:0px;right:0px;bottom:0\" height=\"800\" width=\"600\"><\/iframe></div></p>" ;
 
 <!-- funzioni mappa -->
         function setBounds() {
@@ -647,10 +647,19 @@ function pop_regionesemplificate500(feature, layer) {
                 <li><a href="http://italiaafuoco.info/" title="Progetto civico per raccogliere segnalazioni sugli incendi in Italia." target="_blank">ItaliaaFuoco.info</a></li>
                 <li><a href="http://datiallefiamme.it/" title="datiallefiamme.it - Progetto per l'apertura dei dati sugli incendi boschivi in Italia attraverso le rilevazioni del Corpo Forestale e delle istituzioni pubbliche" target="_blank">datiallefiamme.it</a></li>
 		             </ul>
+		          <li class="dropdown">
+		            <a href="index.html" title="Mappa sul sumero degli incendi boschivi in Italia dal 2009 a maggio 2016">Numero Indenci<b class="caret"></b></a>
+		            <ul class="subnav">
+                     <li><a href="regioni/incendi_full.html" title="Grafico e dati sul numero degli incendi boschivi in Italia dal 2009 a maggio 2016">Grafici e dati</a></li>
+		            </ul>
 		          </li>
-                   <li><a href="#" title="Numero degli incendi boschivi in Italia dal 2009 a maggio 2016">Numero Indenci</a></li>
-		          <li><a href="#" title="Superficie percorsa dal fuoco in Italia dal 2009 a maggio 2016 ">Superficie percorsa dal fuoco </a></li>
-		          <li><a href="#" title="Il caso Sicilia">Il caso Sicilia </a></li>
+					<li class="dropdown">
+		            <a href="incendi_sup.html" title="Mappa delle superficie percorsa dal fuoco in Italia dal 2009 a maggio 2016 ">Superficie percorsa dal fuoco<b class="caret"></b></a>
+		            <ul class="subnav">
+	                  <li><a href="regioni/incendi_sup_full.html" title="Grafico e dati sulla superficie percorsa dal fuoco in Italia dal 2009 a maggio 2016 ">Grafici e dati</a></li>
+		            </ul>
+                  <li><a href="incendi_sicilia.html" title="Il caso Sicilia">Il caso Sicilia </a></li>
+		          </li>
 		        </ul>
 		      </nav>
 		    </div>
