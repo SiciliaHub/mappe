@@ -25,7 +25,7 @@
   ga('send', 'pageview');
 
 </script> 
-  <!-- grafico jq -->    
+   
        
  <!-- Open Graph Protocol -->
 <meta property="og:title" content="Incendi boschivi dal 2009 a maggio 2016 in Italia" />
@@ -71,6 +71,13 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/> 
 
+ <!-- css box resaize -->
+ <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" />-->
+<link href="lib/css/jquery.jscrollpane.css" rel="stylesheet" type="text/css">
+<link href="lib/css/Leaflet.ResizableControl.css" rel="stylesheet" type="text/css">
+
 <style type="text/css">a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hover {color: #FF9900; text-decoration:underline; }a:active {color: #FF0000; text-decoration:none; }
 
 </style>       
@@ -85,8 +92,16 @@
 <script src="lib/js/qgi2web/Autolinker.min.js"></script>
 <script src="lib/js/qgi2web/leaflet.markercluster.js"></script>
 <script src="lib/js/qgi2web/multi-style-layer.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>   
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script> 
+ 
+ <!-- script box resaize -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>--> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.js"></script>
+<script src="lib/js/resizable/jquery.jscrollpane.min.js"></script>
+<script src="lib/js/resizable/Leaflet.ResizableControl.js"></script>
   
 <script src="lib/js/sidebar/leaflet-sidebar.js"></script>
 <script src="lib/js/social/jquery_csbuttons.js"></script>
@@ -94,6 +109,7 @@
 <script src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"></script>  
 <script src="lib/js/zoomhome/leaflet.zoomhome.js"></script>     
 <script src="lib/js/basemap/L.Control.Basemaps.js"></script>
+
         <!-- script dati mappa -->
  <script src="data/regionesemplificate500.js"></script>
 
@@ -222,6 +238,7 @@
                 return this._bounds;
             }
         });
+		
 var map = L.map('map', { zoomControl:false, maxZoom:7, minZoom:6 }).fitBounds([[34.6588161487,1.45555409516],[47.9635427485,23.0397191165]]);
 map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> - Rielaborazione di: <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>');
 var bounds_group = new L.featureGroup([]);
@@ -232,6 +249,9 @@ var basemaps = [
 L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Dati cartografici &#9400; 2017 Google - <a href="https://www.google.com/intl/it_it/help/terms_maps.html">Termini</a>', minZoom: 6,  maxZoom: 7, maxNativeZoom: 7, label: 'Google Terrain'}),
 	  
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Source: &#9400; ESRI Satellite', minZoom: 6,  maxZoom: 7, maxNativeZoom: 7, label: 'ESRI Satellite'}), ];
+
+<!-- box resaize -->
+var html = "<div><b>Grafici indendi in italia</h5></b><p><iframe  src=\"regioni\/grafico_ita.html\" scrolling=\"no\" frameborder=\"0\" width=\"750\" height=\"570\"><\/iframe>";
 
 <!-- funzioni mappa -->
         function setBounds() {
@@ -572,13 +592,30 @@ function pop_regionesemplificate500(feature, layer) {
         showSubunits: true
 	}).addTo(map);
         
-		
+
 		 map.addControl(L.control.basemaps({
             basemaps: basemaps,
             tileX: 0,
             tileY: 0,
             tileZ: 1
         }));
+
+		var resizablebottomleft = new L.ResizableControl({
+            position: 'bottomleft',
+            minimizedHeight: 60,
+            minimizedWidth: 0.2,
+            enlargedHeight: 0.70,
+            enlargedWidth: 0.65,
+            enlargeCallback: function(e) {},
+            minimizeCallback: function(e) {},
+            contentClassName: "resizable-control-content",
+            scrollPaneClassName: "resizable-control-scrollpane",
+            className: "resizable-control-container",
+            jscrollpane: true,
+            appendOnAdd: function(divElement) {}
+        });
+		map.addControl(resizablebottomleft);
+		resizablebottomleft.setContent(html);
  
         </script>
  <!-- header -->       
