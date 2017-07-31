@@ -272,9 +272,13 @@ function pop_regionesemplificate500(feature, layer) {
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-                                        <tr>\
+                     <tr>\
                         <th scope="row"></th>\
                         <td>' + (feature.properties['grafico'] !== null ? Autolinker.link(String(feature.properties['grafico'])) : '') + '</td>\
+                    </tr>\
+			 <tr>\
+                        <th scope="row"></th>\
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per maggiori dettagli <a href="http://datiallefiamme.it/" title="Per maggiori dettagli consigliamo datiallefiamme.it di Giuseppe Ragusa" target="_parent">datiallefiamme.it </a> </td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
