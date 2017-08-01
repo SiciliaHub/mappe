@@ -1,12 +1,16 @@
 .resizable-control-container {
-  background: rgba(255, 255, 255, 0.95);
+	background-image:url(../images/chart.png);
+	background-repeat:no-repeat;
+	background-position:top 10px;
+	background-color:rgba(255, 255, 255, 0.95);
+  /*background: rgba(255, 255, 255, 0.95);*/
 box-shadow: 0 1px 5px rgba(0,0,0,0.65);
 border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px; border: 0.5px solid #ccc; background-color:#fff;
   transition: height 500ms, width 500ms;
   position: relative;
-  padding: 20px;
+  padding: 35px;
   display: none;
-  min-height: 45px;
+  min-height: 40px;
   bottom:28px;
 }
 .resizable-control-container .btn {
@@ -14,14 +18,14 @@ border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px; borde
   position: absolute;
 }
 .resizable-control-container .resizable-control-button-resize-full {
-  top: 0;
-  right: 20px;
-  padding: 0 5px;
+  bottom: 0;
+ right: 5px;
+  padding: 0 2px;
 }
 .resizable-control-container .resizable-control-button-resize-small {
   top: 0px;
-  right: 40px;
-  padding: 0 5px;
+    right: 5px;
+   padding: 0 2px;
 }
 .resizable-control-container .resizable-control-button-stats {
   top: 20px;

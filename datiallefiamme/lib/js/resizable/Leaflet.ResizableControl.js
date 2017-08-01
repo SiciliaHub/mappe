@@ -23,18 +23,18 @@
     L.ResizableControl = L.Control.extend({
         options: {
             position: 'bottomleft',
-            minimizedHeight: 55,
-            minimizedWidth: 0.25,
-            enlargedHeight: 0.6,
-            enlargedWidth: 0.4,
+            minimizedHeight: 60,
+            minimizedWidth: 0.2,
+            enlargedHeight: 0.62,
+            enlargedWidth: 0.65,
             enlargeCallback: function(e) {},
             minimizeCallback: function(e) {},
             contentClassName: "resizable-control-content",
             scrollPaneClassName: "resizable-control-scrollpane",
             className: "resizable-control-container",
-            jscrollpane: true,
+            jscrollpane: false,
             appendOnAdd: function(divElement) {},
-            resizable: true
+            resizable: false
         },
         initialize: function (options) {
             L.Util.setOptions(this, options);
@@ -59,7 +59,7 @@
             this._contentDiv = L.DomUtil.create('div', this.options.contentClassName, this._scrollPaneDiv);
 
             this._buttonResizeFull = L.DomUtil.create('button', 'btn btn-sm resizable-control-button-resize-full', this._div);
-            L.DomUtil.create('span', 'glyphicon glyphicon-resize-full', this._buttonResizeFull);
+            L.DomUtil.create('span', 'glyphicon glyphicon-fullscreen', this._buttonResizeFull);
 
             var thisObj = this;
             L.DomEvent.addListener(this._buttonResizeFull, 'click', function (e) {
@@ -69,7 +69,7 @@
             });
 
             this._buttonResizeSmall = L.DomUtil.create('button', 'btn btn-sm resizable-control-button-resize-small', this._div);
-            L.DomUtil.create('span', 'glyphicon glyphicon-resize-small', this._buttonResizeSmall);
+            L.DomUtil.create('span', 'glyphicon glyphicon-remove', this._buttonResizeSmall);
 
             L.DomEvent.addListener(this._buttonResizeSmall, 'click', function (e) {
                 L.DomEvent.stopPropagation(e);
@@ -148,7 +148,7 @@
              if (this.options.jscrollpane) {
                  scrollPane.jScrollPane();
              } else {
-                 scrollPane.css('overflow-y', 'scroll');
+                 scrollPane.css('overflow', 'hidden');
              }
         },
         reinitializeScroll: function() {
