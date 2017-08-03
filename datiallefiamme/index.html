@@ -71,12 +71,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/> 
 
- <!-- css box resaize -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
-<link href="lib/css/jquery.jscrollpane.css" rel="stylesheet" type="text/css">
-<link href="lib/css/Leaflet.ResizableControl.css" rel="stylesheet" type="text/css">
-<link href="lib/css/iframe.css" rel="stylesheet" type="text/css">
-
+<link href="lib/css/iframe.css" rel="stylesheet" type="text/css"> 
 <style type="text/css">a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hover {color: #FF9900; text-decoration:underline; }a:active {color: #FF0000; text-decoration:none; }
 
 </style>       
@@ -93,14 +88,6 @@
 <script src="lib/js/qgi2web/multi-style-layer.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script> 
- 
- <!-- script box resaize -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>--> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.js"></script>
-<script src="lib/js/resizable/jquery.jscrollpane.min.js"></script>
-<script src="lib/js/resizable/Leaflet.ResizableControl.js"></script>
   
 <script src="lib/js/sidebar/leaflet-sidebar.js"></script>
 <script src="lib/js/social/jquery_csbuttons.js"></script>
@@ -114,8 +101,19 @@
 
     </head>
     <body>
-     
- <div id="sidebar" class="sidebar collapsed">
+<div id="clip_gra"><a class="legenda" href="#chart" title="Grafici Incendi boschivi dal 2009 a maggio 2016 in Italia"><img src="legend/chart.png" width="38" height="38" alt=""/></a></div> 
+<div id="sidebar" class="sidebar collapsed">
+<!-- popup grafico -->
+<div id="chart" class="overlay">
+  <div class="popup">
+    <h2></h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+<div class='tableauPlaceholder' id='viz1501585591966' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;It&#47;Italia-Datiallefiamme2009-2016&#47;Totaledegliincendiboschividal2009amaggio2016perRegione&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='Italia-Datiallefiamme2009-2016&#47;Totaledegliincendiboschividal2009amaggio2016perRegione' /><param name='tabs' value='yes' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;It&#47;Italia-Datiallefiamme2009-2016&#47;Totaledegliincendiboschividal2009amaggio2016perRegione&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='no' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1501585591966');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.65)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div>
+  </div>
+</div>
+
 <!-- Nav tabs -->
         <div class="sidebar-tabs">
             <ul role="tablist">
@@ -259,11 +257,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 
 L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Dati cartografici &#9400; 2017 Google - <a href="https://www.google.com/intl/it_it/help/terms_maps.html">Termini</a>', minZoom: 6,  maxZoom: 7, maxNativeZoom: 7, label: 'Google Terrain'}), 
  ];
-
-<!-- box resaize -->
-var html ="<div class=\"iframe-container\"><iframe src=\"regioni\/grafico_ita.html\" frameborder=\"0\" scrolling=\"0\"  style=\overflow:hidden;width:610px; height:400px;\" <\/iframe><\/div>" ;
-
-
 
 <!-- funzioni mappa -->
         function setBounds() {
@@ -611,25 +604,8 @@ function pop_regionesemplificate500(feature, layer) {
             tileY: 0,
             tileZ: 1
         }));
-
-		var resizablebottomleft = new L.ResizableControl({
-            position: 'bottomleft',
-            minimizedHeight: 30,
-            minimizedWidth: 0.05,
-            enlargedHeight: 0.6,
-            enlargedWidth: 0.66,
-			minimizeCallback: function(e) {},
-            enlargeCallback: function(e) {},
-            contentClassName: "resizable-control-content",
-            scrollPaneClassName: "resizable-control-scrollpane",
-            className: "resizable-control-container",
-            jscrollpane: true,
-            appendOnAdd: function(divElement) {}
-        });
-		map.addControl(resizablebottomleft);
-		resizablebottomleft.setContent(html);
- 
         </script>
+        
  <!-- header -->       
 <div id="bot" class="leaflet-control">
 <div id="left-flyout-nav" class="layout-left-flyout visible-sm"></div>
@@ -685,7 +661,6 @@ function pop_regionesemplificate500(feature, layer) {
 <script src="lib/js/menu/main.js"></script>
 
 </div>  
- 
    <!-- loghi -->    
 <div id="tavolab"><img src="legend/n_incendi.png"  title="Mappa incendi boschivi dal 2009 a maggio 2016 in Italia, su base opendata."width="120"></div>           
 <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 

@@ -40,6 +40,9 @@ a:active {color: #FF0000; text-decoration:none; }
 
 #threejs_testo {position: fixed; width: 20%;	height: 20px;padding: 0;	margin: 35px; bottom: -5px;	left: 20px;	z-index: 1000; text-align:right;}
 
+#clip_gra {position:fixed; bottom:50px; left:60px; z-index: 1005; background-color:rgba(255,255,255,1.00);background-size: 45px 45px; width: 42px; height: 42px; 	border: 2px solid #ccc;
+    margin: 2 2px;    border-radius: 40px;    box-shadow: 0 1px 5px rgba(0,0,0,0.6); }
+	
 #note {position: relative;left:60px; bottom: 20px; width: 290px;	padding: 0;   /*top:60px;*/ right: 0px;	z-index: 1000;	text-align: right;}
 
 .legenda  {font-style: normal; font-weight:bold; font-size:16px; color: #4E4B4B; text-align: justify; }
@@ -85,51 +88,71 @@ top:45px;
 right:10px;
 z-index: 1010;}
 
-.sopra {
+/* popup grafico */
+.button {
+  font-size: 1em;
+  background-color: #FF9900;
+  padding: 5px;
+  color: #fff;
+  border: 2px solid #FF9900;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  background:#E81418;
+  border: 2px solid #E81418;
+  
+}
+
+.overlay {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(255, 255, 255, 0);
   transition: opacity 500ms;
   visibility: hidden;
   opacity: 0;
 }
-.sopra:target {
+.overlay:target {
   visibility: visible;
   opacity: 1;
 }
 
-.pop {
-  margin: 140px auto;
-  padding: 20px;
+.popup {
+  /*margin: 70px auto;*/
+  bottom:45px;
+  left:130px;
+  padding: 5px;
   background: #fff;
   border-radius: 5px;
-  width: 80%;
-  position: relative;
-  transition: all 5s ease-in-out;
+  width: 55%;
+  position:absolute;
+  transition: all 1s ease-in-out;
 }
-/* avviso */
-.pop h2 {
+
+.popup h2 {
   margin-top: 0;
   color: #333;
  font-family: 'Open Sans', Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
 }
-.pop .chiudi {
+.popup .close {
   position: absolute;
-  top: 10px;
-  right: 30px;
-  transition: all 200ms;
+  top: -10px;
+  right: 5px;
+  transition: all 75ms;
   font-size: 30px;
   font-weight: bold;
   text-decoration: none;
   color: #333;
 }
-.pop .chiudi:hover {
+.popup .close:hover {
   color: #E81418;
 }
-.pop .contenitore {
+.popup .content {
   max-height: 30%;
   overflow: auto;
   text-align: justify;
@@ -139,7 +162,7 @@ z-index: 1010;}
   .box{
     width: 70%;
   }
-  .pop{
+  .popup{
     width: 70%;
   }
 }
