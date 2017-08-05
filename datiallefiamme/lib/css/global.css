@@ -8,13 +8,16 @@
 
 html {
   font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;  /* 1 */
+  font-size: 11px;
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
-  font-size: 11px;
+  
 }
 
 .lorem {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 11px;}.awesome {font-style:fontawesome;  color: #4E4B4B;  }
 
+.footer {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; font-size: 14px;}
+.social {font-style: italic; color: #4E4B4B; font-size: 30px;}
 
 /**
  * Remove default margin.
@@ -231,8 +234,10 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
+	  font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;  /* 1 */
+  font-size: 11px;
+  /*font-family: monospace, monospace;
+  font-size: 1em;*/
 }
 
 /* Forms
@@ -941,7 +946,7 @@ pre {
   overflow: auto;
   background: #fff;
   padding: 0;
-  font-family: monospace;
+  /*font-family: monospace;*/
   -moz-tab-size: 2;
   -o-tab-size: 2;
   tab-size: 2;
@@ -961,6 +966,35 @@ pre code {
   overflow: auto;
   display: block;
 }
+
+pre1 {
+color: #cccccc;
+  overflow: auto;
+  overflow: auto;
+ background: none;
+  padding: 0;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -ms-word-break: normal;
+  word-break: normal;
+  word-break: normal;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  position: relative;
+}
+pre1 code {
+  background: #c0c0c0;
+  padding: 2%;
+  white-space: normal;
+  overflow: auto;
+ display: block;
+ box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 1);
+  
+}
+
 
 .layout-right-content {
   color: #ffdede;
