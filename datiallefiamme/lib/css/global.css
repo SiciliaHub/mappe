@@ -14,10 +14,12 @@ html {
   
 }
 
-.lorem {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 11px;}.awesome {font-style:fontawesome;  color: #4E4B4B;  }
+.lorem {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 11px;}
+.awesome {font-style:fontawesome;  color: #4E4B4B;  }
 
 .footer {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; font-size: 14px;}
-.social {font-style: italic; color: #4E4B4B; font-size: 30px;}
+.social {font-style: italic; color: #4E4B4B; font-size: 24px;}
+.social1 {font-style: italic; color: #4E4B4B; font-size: 24px;}
 
 /**
  * Remove default margin.

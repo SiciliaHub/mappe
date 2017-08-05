@@ -18,15 +18,13 @@
         <link rel="icon" href="../favicon.png" type="image/png"/> 
  <!-- css menu -->
 <link href="../lib/css/global.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
-#ods1 { position:fixed; bottom:10px; right:17px; z-index: 1014;}
-#itaf1 { position:fixed; bottom:55px; right:37px; z-index: 1014;}
-
-/*a:link {color: #FF9900;	text-decoration:none;}*/
-/*a:visited {	color: #FF9900;}/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */
-/*a:hover {color: #FF9900; text-decoration:underline; } 
-a:active {color: #FF0000; text-decoration:none; } */
+a:link {color: #FF9900;	text-decoration:none;}
+a:visited {	color: #FF9900; text-decoration:none;}/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */
+a:hover {color: #FF9900; text-decoration:underline; } 
+a:active {color: #FF0000; text-decoration:none; } 
 
 .footer a:link{color: #FFFFFF;	text-decoration:none;}
 .footer a:visited {	color: #FFFFFF; text-decoration:underline;}
@@ -35,6 +33,10 @@ a:active {color: #FF0000; text-decoration:none; } */
 .social a:link{color: #4E4B4B;	text-decoration:none;}
 .social a:visited {	color: #4E4B4B; text-decoration:none;}
 .social a:hover {color: #FFFFFF; text-decoration:none; } 
+
+.social1 a:link{color: #4E4B4B;	text-decoration:none;}
+.social1 a:visited {	color: #4E4B4B; text-decoration:none;}
+.social1 a:hover {color: #FF9900; text-decoration:none; } 
 
 </style>
 <script>
@@ -104,9 +106,14 @@ a:active {color: #FF0000; text-decoration:none; } */
 <script src="../lib/js/menu/jquery.cbFlyout.js"></script>
 <script src="../lib/js/menu/main.js"></script>
 		  <main class="container">
-          
-		    <h2><span style="color:#ff9900">Dati alle fiamme in grafici - Numero di indendi</span></h2>
-            
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+		      <tbody>
+		        <tr>
+		          <td width="95%" valign="bottom"><h2><span style="color:#ff9900">Dati alle fiamme in grafici - Numero di incendi</span></h2></td>
+		         <td width="5%" align="right" valign="bottom" class="social1"><a href="../index.html" title="Switch to map...Numero di incendi"><i class="fa fa-map-o" aria-hidden="true"></i></a></td>
+	            </tr>
+	          </tbody>
+	        </table>      
 <p class="lorem">Nel periodo 2009 - 2016 in Italia un ettaro di superficie su tre è andato in fumo in Sicilia, un ettaro su cinque in Sardegna. In totale due terzi degli incendi italiani ha interessato le isole maggiori e la Calabria. Sempre nelle isole maggiori gli incendi più devastanti. <br>  
   Ed in Sicilia la matrice dolosa viene accertata nella stragrande maggioranza dei casi. “Per incendio boschivo si intende un fuoco con suscettività a espandersi su aree boscate, cespugliate o arborate [...]” così recita l’art. 2 della Legge 353/2000 (Legge-quadro in materia di incendi boschivi). L’Incendio non boschivo, al contrario, si estende su aree diverse da quelle forestali e non le minaccia. </p>
  <pre>  
@@ -119,11 +126,31 @@ a:active {color: #FF0000; text-decoration:none; } */
  
 </main>
 		</div><!-- END .layout-left-flyout -->
-        <pre1><code> <p class="footer"><a target="_blank" href="http://italiaafuoco.info/"><strong>Progetto Italia a Fuoco</strong></a><br>
+        <pre1><code>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td width="5%" align="center" valign="middle"><a href="http://italiaafuoco.info/" title="italiaafuoco.info" target="_blank"> 
+<img src="../legend/italiaafuoco_clip.png" width="40" title="italiaafuoco.info" alt="italiaafuoco.info"></a></td>
+      <td width="2%">&nbsp;</td>
+      <td width="93%" rowspan="3" valign="top"><p class="footer"><a target="_blank" href="http://italiaafuoco.info/"><strong>Progetto Italia a Fuoco</strong></a><br>
 Progetto per raccogliere segnalazioni sugli incendi in Italia.<br>
-L&rsquo;idea è di <a target="_blank" href="https://twitter.com/il_tempe">Matteo Tempestini</a>, <a target="_blank" href="https://twitter.com/matt_fortini">Matteo Fortini</a> e <a target="_blank" href="https://twitter.com/aborruso">Andrea Borruso</a> e nasce a seguito di maturata esperienza di hacking civico, ma il   sostegno è di chiunque vuole darlo (privati, associazioni, imprese,   istituzioni) purché l&rsquo;iniziativa non sia strumentalizzata per secondi   fini e di questo chi ha ideato il progetto cerca di farsi garante. Se   vuoi collaborare indica con un <a target="_blank" href="https://github.com/emergenzeHack/italiaafuoco/issues">issue in questo repository</a> chi sei e perchè vorresti collaborare, ti aspettiamo!<br> 
-<a target="_blank" href="http://enketo.ona.io/x/#YVUh"><strong>SEGNALA</strong></a> - <a target="_blank" href="http://italiaafuoco.info/"><strong>BLOG</strong></a></p>
-  <table width="15%" border="0" align="left" cellpadding="0" cellspacing="0" class="social" >
+L&rsquo;idea è di <a target="_blank" href="https://twitter.com/il_tempe">Matteo Tempestini</a>, <a target="_blank" href="https://twitter.com/matt_fortini">Matteo Fortini</a> e <a target="_blank" href="https://twitter.com/aborruso">Andrea Borruso</a> e nasce a seguito di maturata esperienza di hacking civico, ma il   sostegno è di chiunque vuole darlo (privati, associazioni, imprese,   istituzioni) purché l&rsquo;iniziativa non sia strumentalizzata per secondi   fini e di questo chi ha ideato il progetto cerca di farsi garante. Se   vuoi collaborare indica con un <a target="_blank" href="https://github.com/emergenzeHack/italiaafuoco/issues">issue in questo repository</a> chi sei e perchè vorresti collaborare, ti aspettiamo!<br> <br> 
+<a target="_blank" href="http://enketo.ona.io/x/#YVUh" title="Italia A Fuoco: invia una segnalazione relativa ad un incendio"><strong>SEGNALA</strong></a> - <a target="_blank" href="http://italiaafuoco.info/" title="Italia A Fuoco - Progetto per raccogliere segnalazioni sugli incendi in Italia"><strong>BLOG</strong></a></p></td>
+    </tr>
+    <tr>
+      <td width="5%">&nbsp;</td>
+      <td width="2%">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="5%" align="center" valign="middle"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
+<img src="../lib/images/ods.svg" width="100" title="opendatasicilia.it" alt="opendatasicilia"></a></td>
+      <td width="2%">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+  <table width="10%" border="0" align="right" cellpadding="0" cellspacing="0" class="social" >
   <tbody>
     <tr>
       <td><a href="https://www.facebook.com/groups/1985622574797139/" title="Facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></td>
