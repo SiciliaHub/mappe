@@ -11,7 +11,12 @@
 	color: #4E4B4B;
 	font: 11px/1.5 "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;
 	text-align:center;
+	
 }
 
-/* foglio di stile atlante cartografico palermo -
+
+/* loghi opendatasicilia e italiaafuoco -
  giovan battista vitrano per opendatasicilia.it */
+
+#ods { position:fixed; bottom:58px; right:17px; z-index: 999;}
+#itaf { position:fixed; bottom:105px; right:37px; z-index: 999;}
