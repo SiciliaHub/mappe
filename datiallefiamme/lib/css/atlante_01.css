@@ -9,7 +9,7 @@ url("fonts/fontawesome-webfont.ttf") format("truetype"),
 url("fontst/fontawesome-webfont.svg#fontawesome") format("svg");
 font-weight:normal; font-style:normal;}
 
-html, body{padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; background-color:#ffffff;
+html, body{padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; background-color:#c0c0c0;
 /*background-image:url(../images/ods_02.png); background-size: 30px 30px;background-repeat:no-repeat;background-position:5px 3px;background-attachment: fixed;*/}
 /* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */ #map { height: 100%; top:45px;font: 11px "Open Sans", Helvetica Neue, fontawesome, Arial, Helvetica, sans-serif; background-color: #fff;  }
 
@@ -44,8 +44,21 @@ a:active {color: #FF0000; text-decoration:none; }
 
 #threejs_testo {position: fixed; width: 20%;	height: 20px;padding: 0;	margin: 35px; bottom: -5px;	left: 20px;	z-index: 1000; text-align:right;}
 
-#clip_gra {position:fixed; bottom:50px; left:60px; z-index: 1005; background-color:rgba(255,255,255,1.00);background-size: 45px 45px; width: 42px; height: 42px; 	border: 2px solid #ccc;
+#clip_gra {position:fixed; bottom:60px; left:55px; z-index: 1002; background-color:rgba(255,255,255,1.00);background-size: 45px 45px; width: 42px; height: 42px; 	border: 2px solid #ccc;
     margin: 2 2px;    border-radius: 40px;    box-shadow: 0 1px 5px rgba(0,0,0,0.6); }
+	
+	/* popup grafico spento su display 4" */
+	@media screen and (width: 320px) {  #clip_gra {display: none;  }}
+	@media screen and (width: 480px) {  #clip_gra {display: none;  }}
+
+/* popup grafico spento su display 5" */
+
+	@media screen and (width: 384px) {  #clip_gra {display: none;  }}
+	@media screen and (width: 360px) {#clip_gra {display: none; }}
+	@media screen and (width: 640px) { #clip_gra {display: none; }}
+
+/* popup grafico spento su display 6" portrait */
+	@media screen and (width: 375px) {#clip_gra {display: none; }}
 	
 #note {position: relative;left:60px; bottom: 20px; width: 290px;	padding: 0;   /*top:60px;*/ right: 0px;	z-index: 1000;	text-align: right;}
 

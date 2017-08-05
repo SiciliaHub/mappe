@@ -7,9 +7,10 @@
  */
 
 html {
-  font-family: Open Sans; /* 1 */
+  font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;  /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  font-size: 11px;
 }
 
 .lorem {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 11px;}.awesome {font-style:fontawesome;  color: #4E4B4B;  }
