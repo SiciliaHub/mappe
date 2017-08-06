@@ -74,6 +74,9 @@
 
 <link href="lib/css/iframe.css" rel="stylesheet" type="text/css"> 
 <style type="text/css">a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hover {color: #FF9900; text-decoration:underline; }a:active {color: #FF0000; text-decoration:none; }
+.social1 a:link{color: #4E4B4B;	text-decoration:none;}
+.social1 a:visited {	color: #4E4B4B; text-decoration:none;}
+.social1 a:hover {color: #FF9900; text-decoration:none; } 
 
 </style>       
             <!-- script mappa -->
@@ -118,13 +121,14 @@
 <!-- Nav tabs -->
         <div class="sidebar-tabs">
             <ul role="tablist">
-                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+                <li><a href="#home" title="Menu slider" role="tab"><i class="fa fa-bars"></i></a></li>
                 <li> <a href="regioni/incendi_full.html" title="Dati alle fiamme in grafici - Numero di indendi" role="tab"><i class="fa fa-bar-chart" aria-hidden="true"></i></a></li>
                 <li> <a href="mailto:coseerobe.gbvitrano@gmail.com" title="Email" role="tab"><i class="fa fa-envelope"></i></a></li>
                  <li><a href="#info"  title="Informazioni"role="tab"><i class="fa fa-info"></i></a></li>
                  <li><a href="#share"  title="Condividi questa mappa"role="tab"><i class="fa fa-share-alt"></i></a></li>
             </ul>
             <ul role="tablist">
+            <li><a href="#fire"  title="Progetto Italia a Fuoco"role="tab"><i class="fa fa-fire"></i></a></li>
                 <li><a href="#settings" title="Configurazione" role="tab"><i class="fa fa-gear"></i></a></li>
             </ul>
         </div>
@@ -155,9 +159,9 @@ L’Incendio non boschivo, al contrario, si estende su aree diverse da quelle fo
        <h2 class="sidebar-header">Informazioni<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
  <p class="lorem"> <strong>Rielaborazione di: </strong><a href="https://twitter.com/aborruso" target="_blank" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/giuragu" target="_blank" title="Giuseppe Ragusa">@giuragu</a> e <a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a>
  <br>per <strong><a href="http://opendatasicilia.it/" Title="Open Data Sicilia" target="_blank">Open Data Sicilia</a></strong> e <strong><a href="http://italiaafuoco.info/" Title="Italia a Fuoco" target="_blank">Italia a Fuoco</a></strong><br>
-   <p class="lorem"><strong>Fonte dati:</strong> <br>  <a href="#" title="Fonte dati" target="_blank">xxxx xxxx xxxx</a> <br> 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  
-
+   <p class="lorem"><strong>Fonte dati:</strong> <br>  <a href="http://www.corpoforestale.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/10667" title="Ex Corpo Forestale, oggi Carabinieri" target="_blank">Ex Corpo Forestale, oggi Carabinieri</a> <br><a href="http://datiallefiamme.it/" title="Dati alle Fiamme" target="_blank">datiallefiamme.it</a> di <a href="https://twitter.com/giuragu" target="_blank" title="Giuseppe Ragusa">Giuseppe Ragusa</a><br> <br><br>
+   <a href="http://datiallefiamme.it/" target="_blank" title="datiallefiamme.it di Giusepper Ragusa"><img src="legend/dati_alle_fiamme.jpg"alt="datiallefiamme.it di Giusepper Ragusa" width="370" height="262" class="clip_370_1" title="datiallefiamme.it di Giusepper Ragusa"/></a> <br> 
+<br><br><br><br><br><br><br><br><br>
 <hr>
 <p class="lorem">   <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i0.wp.com/i.creativecommons.org/l/by/4.0/88x31.png?ssl=1"  title="Tutto il materiale da me rielaborato è distribuito con Licenza Creative Commons Attribuzione 4.0 Internazionale." data-recalc-dims="1"/></a><br />
 <a href="http://creativecommons.org/licenses/by/4.0/" title="Licenza Creative Commons" target="_blank" rel="license">Creative Commons Attribuzione 4.0 Internazionale</a> - <a href="https://creativecommons.org/licenses/by/4.0/deed.it" title="Licenza Creative Commons" target="_blank" rel="license">Creative Commons Attribuzione 4.0 Italia</a> </p> 
@@ -168,11 +172,57 @@ L’Incendio non boschivo, al contrario, si estende su aree diverse da quelle fo
    <em>Per accedere agli atti ufficiali si rinvia agli elaborati definitivi allegati alle specifiche deliberazioni.</em> </p>
 </div>
 
-
-<!-- Tab email -->
-<div class="sidebar-pane" id="messages">
-<h2 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+<!-- Tab Progetto Italia a Fuoco -->
+<div class="sidebar-pane" id="fire">
+<h2 class="sidebar-header">Progetto Italia a Fuoco<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+<p class="lorem"><strong>Progetto per raccogliere segnalazioni sugli incendi in Italia.</strong></p>
+<p class="lorem">L&rsquo;idea è di <a target="_blank" href="https://twitter.com/il_tempe">Matteo Tempestini</a>, <a target="_blank" href="https://twitter.com/matt_fortini">Matteo Fortini</a> e <a target="_blank" href="https://twitter.com/aborruso">Andrea Borruso</a> e nasce a seguito di maturata esperienza di hacking civico, ma il   sostegno è di chiunque vuole darlo (privati, associazioni, imprese,   istituzioni) purché l&rsquo;iniziativa non sia strumentalizzata per secondi   fini e di questo chi ha ideato il progetto cerca di farsi garante. Se   vuoi collaborare indica con un <a target="_blank" href="https://github.com/emergenzeHack/italiaafuoco/issues">issue in questo repository</a> chi sei e perchè vorresti collaborare, ti aspettiamo!<br> <br> 
+<a target="_blank" href="http://enketo.ona.io/x/#YVUh" title="Italia A Fuoco: invia una segnalazione relativa ad un incendio"><strong>SEGNALA</strong></a> - <a target="_blank" href="http://italiaafuoco.info/" title="Italia A Fuoco - Progetto per raccogliere segnalazioni sugli incendi in Italia"><strong>BLOG</strong></a></p></p>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- table social -->
+  <table width="10%" border="0" align="center" cellpadding="0" cellspacing="0" class="social1" >
+  <tbody>
+    <tr>
+      <td><a href="https://www.facebook.com/groups/1985622574797139/" target="_blank" title="Facebook"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://github.com/emergenzeHack/italiaafuoco" target="_blank" title="GitHub"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://twitter.com/italiaafuoco" target="_blank" title="Twitter"> <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://t.me/italiaafuoco" target="_blank" title="Telegram"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-paper-plane fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://medium.com/open-data-stories/un-servizio-di-informazione-per-gli-incendi-2d8c2d3cc02b" target="_blank" title="Medium"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://www.flickr.com/groups/italiaafuoco/" target="_blank" title="Flickr"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+    </tr>
+  </tbody>
+</table>
 </div>
+
 <!-- Tab condividi -->
 <div class="sidebar-pane" id="share">
 <h2 class="sidebar-header">Condividi questa mappa<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
@@ -616,7 +666,7 @@ function pop_regionesemplificate500(feature, layer) {
 		    <div class="navbar container">
 		      
 		      <!-- Trigger -->
-		      <a class="btn-navbar btn-navbar-navtoggle btn-flyout-trigger" href="#" title="Apri il menù">
+		      <a class="btn-navbar btn-navbar-navtoggle btn-flyout-trigger" href="#" title="Menù principale">
 		        <span class="icon-bar btn-flyout-trigger"></span>
 		        <span class="icon-bar btn-flyout-trigger"></span>
 		        <span class="icon-bar btn-flyout-trigger"></span>

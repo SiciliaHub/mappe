@@ -9,9 +9,9 @@ url("fonts/fontawesome-webfont.ttf") format("truetype"),
 url("fontst/fontawesome-webfont.svg#fontawesome") format("svg");
 font-weight:normal; font-style:normal;}
 
-html, body{padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; background-color:#c0c0c0;
+html, body {padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; background-color:#ffffff;
 /*background-image:url(../images/ods_02.png); background-size: 30px 30px;background-repeat:no-repeat;background-position:5px 3px;background-attachment: fixed;*/}
-/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */ #map { height: 100%; top:45px;font: 11px "Open Sans", Helvetica Neue, fontawesome, Arial, Helvetica, sans-serif; background-color: #fff;  }
+/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */ #map { height: 100%; top:45px; font: 11px "Open Sans", Helvetica Neue, fontawesome, Arial, Helvetica, sans-serif; background-color: #fff;}
 
 /*#ods { position:fixed; bottom:51px; right:17px; z-index: 1014;}
 #itaf { position:fixed; bottom:95px; right:37px; z-index: 1014;}*/
@@ -19,7 +19,7 @@ html, body{padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "O
 .lorem {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 11px;}.awesome {font-style:fontawesome;  color: #4E4B4B;  }
 a:link {color: #FF9900;	text-decoration:none;}
 a:visited {	color: #FF9900;}/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */
-a:hover {color: #FF9900; text-decoration:underline; } 
+a:hover {color: ##4E4B4B; text-decoration:underline; } 
 a:active {color: #FF0000; text-decoration:none; } 
 .clip_omira {width: 60px; height: 69px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
 .clip_omira:hover {opacity: 1;  -webkit-filter: grayscale(100%); } 
@@ -79,7 +79,7 @@ a:active {color: #FF0000; text-decoration:none; }
 
 #tavola {position:fixed; left:3px; width: 5%;  top:50px; z-index: 1000; opacity: 1;  -webkit-filter: invert(100%); /* Safari */ filter: invert(100%); }
 
-#tavolab {position:fixed; left:10px; width: 125px;  top:55px; z-index: 1000;/* border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:2px; box-shadow: 0 2px 5px rgba(0,0,0,0.2)*/ }
+#tavolab {position:fixed; left: 50px; width: 125px;  top:55px; z-index: 1000;/* border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:2px; box-shadow: 0 2px 5px rgba(0,0,0,0.2)*/ }
 
 #logo {position:fixed; left:1%; width: 5%;  top:2px; z-index: 1000;}
 #titolo  {

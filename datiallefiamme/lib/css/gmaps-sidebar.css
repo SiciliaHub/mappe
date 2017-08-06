@@ -8,6 +8,19 @@
   .sidebar.collapsed {
     width: 40px;
 	top:87px; }
+	
+  @media (min-width: 320px) and (max-width: 675px){
+    .sidebar-left {
+      left: 10px; 
+	  top:48px;} 
+	    .sidebar.collapsed {
+    width: 40px;
+	top:48px; }
+	  }	
+	
+	
+	
+	
   @media (min-width: 768px) {
     .sidebar {
       top: 10px;
