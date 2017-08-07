@@ -288,7 +288,7 @@ Nella prima, due dati fra tutti: 800 ettari di superficie agricola e boschiva an
             } else {
               highlightLayer.setStyle({
                 fillColor: '#ffff00',
-                fillOpacity: 1
+                fillOpacity: 0.50
               });
             }
             highlightLayer.openPopup();
@@ -299,16 +299,16 @@ Nella prima, due dati fra tutti: 800 ettari di superficie agricola e boschiva an
             }
         });
 		
-var map = L.map('map', { zoomControl:false, maxZoom:16, minZoom:9 }).fitBounds([[37.6011061912,12.4036335813],[37.4614395741,15.667056554]]);
+var map = L.map('map', { zoomControl:false, maxZoom:12, minZoom:9 }).fitBounds([[37.6011061912,12.4036335813],[37.4614395741,15.667056554]]);
 map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> - Rielaborazione di: <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>');
 var bounds_group = new L.featureGroup([]);
 <!-- mappe di base -->	  
 var basemaps = [ 
-L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Source: &#9400; ESRI Satellite', minZoom: 9,  maxZoom: 16, maxNativeZoom: 16, label: 'ESRI Satellite'}),
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Source: &#9400; ESRI Satellite', minZoom: 9,  maxZoom: 12, maxNativeZoom: 12, label: 'ESRI Satellite'}),
 
-L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {attribution:'Map tiles by <a target="_blank" href="http://cartodb.com/attributions#basemaps">CartoDB</a>, under <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. map data &#9400; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap contributors</a> under ODbL', minZoom: 9,  maxZoom: 16, maxNativeZoom: 16,label: 'Map tiles by CartoDB'}),
+L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {attribution:'Map tiles by <a target="_blank" href="http://cartodb.com/attributions#basemaps">CartoDB</a>, under <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. map data &#9400; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap contributors</a> under ODbL', minZoom: 9,  maxZoom: 12, maxNativeZoom: 12,label: 'Map tiles by CartoDB'}),
 
-L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Dati cartografici &#9400; 2017 Google - <a href="https://www.google.com/intl/it_it/help/terms_maps.html">Termini</a>', minZoom: 9,  maxZoom: 16, maxNativeZoom: 16, label: 'Google Terrain'}), 
+L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Dati cartografici &#9400; 2017 Google - <a href="https://www.google.com/intl/it_it/help/terms_maps.html">Termini</a>', minZoom: 9,  maxZoom: 12, maxNativeZoom: 12, label: 'Google Terrain'}), 
  ];
 
 <!-- funzioni mappa -->
