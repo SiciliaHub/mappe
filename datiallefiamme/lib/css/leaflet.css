@@ -117,7 +117,7 @@
 	pointer-events: none;
 	}
 .leaflet-top {
-	top: 32px;
+	top: 80px;
 	}
 .leaflet-right {
 	right: 0;
@@ -420,7 +420,7 @@
 .leaflet-container .leaflet-control-attribution,
 .leaflet-container .leaflet-control-scale {
 	font-size: 11px;
-	margin-bottom:45px;
+	/*margin-bottom:45px;*/
 	}
 .leaflet-left .leaflet-control-scale {
 	margin-left: 5px;

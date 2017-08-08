@@ -11,7 +11,7 @@ font-weight:normal; font-style:normal;}
 
 html, body {padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; background-color:#ffffff;
 /*background-image:url(../images/ods_02.png); background-size: 30px 30px;background-repeat:no-repeat;background-position:5px 3px;background-attachment: fixed;*/}
-/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */ #map { height: 100%; top:45px; font: 11px "Open Sans", Helvetica Neue, fontawesome, Arial, Helvetica, sans-serif; background-color: #fff;}
+/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */ #map { height: 100%; top:0px; font: 11px "Open Sans", Helvetica Neue, fontawesome, Arial, Helvetica, sans-serif; background-color: #fff;}
 
 /*#ods { position:fixed; bottom:51px; right:17px; z-index: 1014;}
 #itaf { position:fixed; bottom:95px; right:37px; z-index: 1014;}*/
