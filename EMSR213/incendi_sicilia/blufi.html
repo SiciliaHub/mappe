@@ -261,39 +261,39 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         function pop_gradingmapblufi0(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">src date:</th>\
+                        <th scope="row">src date:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['src_date'] !== null ? Autolinker.link(String(feature.properties['src_date'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">ext scale:</th>\
+                        <th scope="row">ext scale:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['ext_scale'] !== null ? Autolinker.link(String(feature.properties['ext_scale'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">nam:</th>\
+                        <th scope="row">nam:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['nam'] !== null ? Autolinker.link(String(feature.properties['nam'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">ext date:</th>\
+                        <th scope="row">ext date:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['ext_date'] !== null ? Autolinker.link(String(feature.properties['ext_date'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">txt</th>\
+                        <th scope="row">txt:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['txt'] !== null ? Autolinker.link(String(feature.properties['txt'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">src info:</th>\
+                        <th scope="row">src info:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['src_info'] !== null ? Autolinker.link(String(feature.properties['src_info'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">act id:</th>\
+                        <th scope="row">act id:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['act_id'] !== null ? Autolinker.link(String(feature.properties['act_id'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">source nam:</th>\
+                        <th scope="row">source nam:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['source_nam'] !== null ? Autolinker.link(String(feature.properties['source_nam'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">grading:</th>\
+                        <th scope="row">grading:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['grading'] !== null ? Autolinker.link(String(feature.properties['grading'])) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -301,11 +301,11 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                         <td>' + (feature.properties['interpret'] !== null ? Autolinker.link(String(feature.properties['interpret'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">settl type:</th>\
+                        <th scope="row">settl type:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['settl_type'] !== null ? Autolinker.link(String(feature.properties['settl_type'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">subtype:</th>\
+                        <th scope="row">subtype:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['subtype'] !== null ? Autolinker.link(String(feature.properties['subtype'])) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -360,7 +360,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         bounds_group.addLayer(layer_gradingmapblufi0);
         map.addLayer(layer_gradingmapblufi0);
    var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/08_1.png" width="138" height="20"  /></a><br /><br /><span class="legenda1">Classificazione</span> <br> <table><tr><td style="text-align: center;"><img src="legend/Negligibletoslightdamage.png" /></td><td>Negligible to slight damage</td></tr><tr><td style="text-align: center;"><img src="legend/ModeratelyDamaged.png" /></td><td>Moderately Damaged</td></tr><tr><td style="text-align: center;"><img src="legend/HighlyDamaged.png" /></td><td>Highly Damaged</td></tr><tr><td style="text-align: center;"><img src="legend/CompletelyDestroyed.png" /></td><td>Completely Destroyed</td></tr></table> <br><br><span class="legenda">Elenco tavole</span> <br><br><a href="index.html" title="Quadro unione" target="_parent"><img src="legend/qua.png" width="177" height="20" class="clip_tav" /> <br> <a href="caltagirone.html" title="Grading Map Caltagirone" target="_parent"><img src="legend/02.png" width="177" height="20" class="clip_tav" /></a><br><a href="francofonte.html" title="Francofonte" target="_parent"><img src="legend/03.png" width="177" height="20" class="clip_tav" /></a><br>   <a href="avola.html" title="Avola" target="_parent"><img src="legend/04.png" width="177" height="20" class="clip_tav" /></a> <br>    <a href="sciacca.html" title="Sciacca" target="_parent"><img src="legend/05.png" width="177" height="20" class="clip_tav" /></a> <br>   <a href="monreale.html" title="Monreale" target="_parent"><img src="legend/06.png" width="177" height="20" class="clip_tav" /></a>  <br> <a href="san_vito_lo_capo.html" title="Grading Map San Vito Lo Capo" target="_parent"><img src="legend/07.png" width="177" height="20" class="clip_tav" /></a> <br>  <a href="mistretta.html" title="Mistretta" target="_parent"><img src="legend/09.png" class="clip_tav" /></a> <br>   <a href="messina.html" title="Messina" target="_parent"><img src="legend/10.png" class="clip_tav" /></a>  <br>   <a href="naso.html" title="Naso" target="_parent"><img src="legend/11.png" class="clip_tav" /></a>  <br>   <a href="etna_nord.html" title="Etna Nord" target="_parent"><img src="legend/12.png" class="clip_tav" /></a><br>   <a href="biancavilla.html" title="Biancavilla" target="_parent"><img src="legend/13.png" class="clip_tav" /></a>': layer_gradingmapblufi0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/08_1.png" width="138" height="20"  /></a><br /><br /><span class="legenda1">Classificazione</span> <br> <table><tr><td style="text-align: center;"><img src="legend/Negligibletoslightdamage.png" /></td><td>&nbsp;&nbsp;Negligible to slight damage</td></tr><tr><td style="text-align: center;"><img src="legend/ModeratelyDamaged.png" /></td><td>&nbsp;&nbsp;Moderately Damaged</td></tr><tr><td style="text-align: center;"><img src="legend/HighlyDamaged.png" /></td><td>&nbsp;&nbsp;Highly Damaged</td></tr><tr><td style="text-align: center;"><img src="legend/CompletelyDestroyed.png" /></td><td>&nbsp;&nbsp;Completely Destroyed</td></tr></table> <br><br><span class="legenda">Elenco tavole</span> <br><br><a href="index.html" title="Quadro unione" target="_parent"><img src="legend/qua.png" width="177" height="20" class="clip_tav" /> <br> <a href="caltagirone.html" title="Grading Map Caltagirone" target="_parent"><img src="legend/02.png" width="177" height="20" class="clip_tav" /></a><br><a href="francofonte.html" title="Francofonte" target="_parent"><img src="legend/03.png" width="177" height="20" class="clip_tav" /></a><br>   <a href="avola.html" title="Avola" target="_parent"><img src="legend/04.png" width="177" height="20" class="clip_tav" /></a> <br>    <a href="sciacca.html" title="Sciacca" target="_parent"><img src="legend/05.png" width="177" height="20" class="clip_tav" /></a> <br>   <a href="monreale.html" title="Monreale" target="_parent"><img src="legend/06.png" width="177" height="20" class="clip_tav" /></a>  <br> <a href="san_vito_lo_capo.html" title="Grading Map San Vito Lo Capo" target="_parent"><img src="legend/07.png" width="177" height="20" class="clip_tav" /></a> <br>  <a href="mistretta.html" title="Mistretta" target="_parent"><img src="legend/09.png" class="clip_tav" /></a> <br>   <a href="messina.html" title="Messina" target="_parent"><img src="legend/10.png" class="clip_tav" /></a>  <br>   <a href="naso.html" title="Naso" target="_parent"><img src="legend/11.png" class="clip_tav" /></a>  <br>   <a href="etna_nord.html" title="Etna Nord" target="_parent"><img src="legend/12.png" class="clip_tav" /></a><br>   <a href="biancavilla.html" title="Biancavilla" target="_parent"><img src="legend/13.png" class="clip_tav" /></a> <br><a href="piazza_armerina.html" title="Grading Map Piazza Armerina" target="_parent"><img src="legend/16.png" class="clip_tav" /></a>': layer_gradingmapblufi0,}).addTo(map);
         setBounds();      
 	
 		<!-- strumenti di leaflet -->
@@ -442,6 +442,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                       <li><a href="naso.html" title="Grading Map Naso" target="_parent">11 Naso</a></li>
                       <li><a href="etna_nord.html" title="Grading Map Etna Nord" target="_parent">12 Etna Nord</a></li>
                       <li><a href="biancavilla.html" title="Grading Map Biancavilla" target="_parent">13 Biancavilla</a></li>
+						<li><a href="piazza_armerina.html" title="Grading Map Piazza Armerina" target="_parent">16 Piazza Armerina</a></li>
 		            </ul>
 		          </li>
 					<li class="dropdown">
@@ -459,6 +460,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                       <li><a href="qgis2threejs/3d_naso.html" title="Grading Map Naso" target="_parent">11 Naso</a></li>
                       <li><a href="qgis2threejs/3d_etna_nord.html" title="Grading Map Etna Nord" target="_parent">12 Etna Nord</a></li>
                       <li><a href="qgis2threejs/3d_biancavilla.html" title="Grading Map Biancavilla" target="_parent">13 Biancavilla</a></li>
+<li><a href="qgis2threejs/3d_piazza_armerina.html" title="Grading Map Piazza Armerina" target="_parent">16 Piazza Armerina</a></li>
 		            </ul>
 		          </li>
 		        </ul>

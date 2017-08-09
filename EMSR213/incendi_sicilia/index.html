@@ -137,6 +137,8 @@ During recent weeks almost the whole Italian National Territory has suffered a p
        <h2 class="sidebar-header">Informazioni<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
  <p class="lorem"> <strong>Rielaborazione di: </strong><a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a><br>per <strong><a href="http://opendatasicilia.it/" Title="Open Data Sicilia" target="_blank">Open Data Sicilia</a></strong> e <strong><a href="http://italiaafuoco.info/" Title="Italia a Fuoco" target="_blank">Italia a Fuoco</a></strong><br>
    <p class="lorem"><strong>Fonte dati:</strong> <br>  <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_blank">EMSR213: Forest Fire in Southern Italy</a> <br> 
+   
+<p class="lorem">[EMSR213] Piazza Armerina: Grading Map <a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_16PIAZZAARMERINA_02GRADING_MAP/1" title="[EMSR213] Piazza Armerina: Grading Map " target="_blank">  Published: 2017-08-08 23:38 (UTC)</a></p>   
       
 <p class="lorem">[EMSR213] Avola: Grading Map <a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_04AVOLA_02GRADING_MAP/1" title="[EMSR213] Avola: Grading Map " target="_blank"> Published: 2017-07-20 07:46 (UTC)</a></p>
 
@@ -256,7 +258,7 @@ During recent weeks almost the whole Italian National Territory has suffered a p
             } else {
               highlightLayer.setStyle({
                 fillColor: '#ffff00',
-                fillOpacity: 1
+                fillOpacity: 0.5
               });
             }
         }
@@ -309,23 +311,23 @@ function pop_Centroidi0(feature, layer) {
             });	  
 	    var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Activation Extent Map:</th>\
+                        <th scope="row">Activation Extent Map:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['act_id'] !== null ? Autolinker.link(String(feature.properties['act_id'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Province interessate:</th>\
+                        <th scope="row">Province interessate:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-					 <th scope="row">Area mappata:</th>\
+					 <th scope="row">Area mappata:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
                     </tr>\
 					      <tr>\
-                        <th scope="row"> Data plubblicazione:</th>\
+                        <th scope="row"> Data plubblicazione:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties[' Published'] !== null ? Autolinker.link(String(feature.properties[' Published'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Apri la mappa:</th>\
+                        <th scope="row">Apri la mappa:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['link'] !== null ? Autolinker.link(String(feature.properties['link'])) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -465,6 +467,17 @@ function pop_Centroidi0(feature, layer) {
             iconSize: [26.6, 26.6]
         }),
             }
+			 break;
+                case '16 - Piazza Armerina':
+                    return {
+                pane: 'pane_Centroidi0',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/16.png',
+            iconSize: [26.6, 26.6]
+        }),
+            }
                     break;
                 default:
                     return {
@@ -510,11 +523,11 @@ function pop_Centroidi0(feature, layer) {
 		   
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">Activation Extent Map:</th>\
+                        <th scope="row">Activation Extent Map:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['act_id'] !== null ? Autolinker.link(String(feature.properties['act_id'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Province interessate:</th>\
+                        <th scope="row">Province interessate:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -523,11 +536,11 @@ function pop_Centroidi0(feature, layer) {
                     </tr>\
 					                    </tr>\
 					      <tr>\
-                        <th scope="row"> Data plubblicazione:</th>\
+                        <th scope="row"> Data plubblicazione:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties[' Published'] !== null ? Autolinker.link(String(feature.properties[' Published'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Apri la mappa:</th>\
+                        <th scope="row">Apri la mappa:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['link'] !== null ? Autolinker.link(String(feature.properties['link'])) : '') + '</td>\
                     </tr>\
                 </table>';
@@ -560,7 +573,7 @@ function pop_Centroidi0(feature, layer) {
      map.addLayer(layer_areeincendisiciliawgs841);
 	 
        var baseMaps = {};
-     L.control.layers(baseMaps,{'<img src="legend/quadro_01.png" width="138" height="20" /><br><br><span class="legenda">Elenco tavole</span> <br><br>  <a href="caltagirone.html" title="Grading Map Caltagirone" target="_parent"><img src="legend/02.png" width="177" height="20" class="clip_tav" /></a><br>   <a href="francofonte.html" title="Grading Map Francofonte" target="_parent"><img src="legend/03.png" width="177" height="20" class="clip_tav" /></a><br>   <a href="avola.html" title="Grading Map Avola" target="_parent"><img src="legend/04.png" width="177" height="20" class="clip_tav" /></a> <br>    <a href="sciacca.html" title="Grading Map Sciacca" target="_parent"><img src="legend/05.png" width="177" height="20" class="clip_tav" /></a> <br>   <a href="monreale.html" title="Grading Map Monreale" target="_parent"><img src="legend/06.png" width="177" height="20" class="clip_tav" /></a>  <br>   <a href="san_vito_lo_capo.html" title="Grading Map San Vito Lo Capo" target="_parent"><img src="legend/07.png" width="177" height="20" class="clip_tav" /></a>  <br>   <a href="blufi.html" title="Grading Map Blufi" target="_parent"><img src="legend/08.png" class="clip_tav" /></a> <br>   <a href="mistretta.html" title="Grading Map Mistretta" target="_parent"><img src="legend/09.png" class="clip_tav" /></a> <br>   <a href="messina.html" title="Grading Map Messina" target="_parent"><img src="legend/10.png" class="clip_tav" /></a>  <br>   <a href="naso.html" title="Grading Map Naso" target="_parent"><img src="legend/11.png" class="clip_tav" /></a>  <br>   <a href="etna_nord.html" title="Grading Map Etna Nord" target="_parent"><img src="legend/12.png" class="clip_tav" /></a><br>   <a href="biancavilla.html" title="Grading Map Biancavilla" target="_parent"><img src="legend/13.png" class="clip_tav" /></a>  '
+     L.control.layers(baseMaps,{'<img src="legend/quadro_01.png" width="138" height="20" /><br><br><span class="legenda">Elenco tavole</span> <br><br>  <a href="caltagirone.html" title="Grading Map Caltagirone" target="_parent"><img src="legend/02.png" width="177" height="20" class="clip_tav" /></a><br>   <a href="francofonte.html" title="Grading Map Francofonte" target="_parent"><img src="legend/03.png" width="177" height="20" class="clip_tav" /></a><br>   <a href="avola.html" title="Grading Map Avola" target="_parent"><img src="legend/04.png" width="177" height="20" class="clip_tav" /></a> <br>    <a href="sciacca.html" title="Grading Map Sciacca" target="_parent"><img src="legend/05.png" width="177" height="20" class="clip_tav" /></a> <br>   <a href="monreale.html" title="Grading Map Monreale" target="_parent"><img src="legend/06.png" width="177" height="20" class="clip_tav" /></a>  <br>   <a href="san_vito_lo_capo.html" title="Grading Map San Vito Lo Capo" target="_parent"><img src="legend/07.png" width="177" height="20" class="clip_tav" /></a>  <br>   <a href="blufi.html" title="Grading Map Blufi" target="_parent"><img src="legend/08.png" class="clip_tav" /></a> <br>   <a href="mistretta.html" title="Grading Map Mistretta" target="_parent"><img src="legend/09.png" class="clip_tav" /></a> <br>   <a href="messina.html" title="Grading Map Messina" target="_parent"><img src="legend/10.png" class="clip_tav" /></a>  <br>   <a href="naso.html" title="Grading Map Naso" target="_parent"><img src="legend/11.png" class="clip_tav" /></a>  <br>   <a href="etna_nord.html" title="Grading Map Etna Nord" target="_parent"><img src="legend/12.png" class="clip_tav" /></a><br>   <a href="biancavilla.html" title="Grading Map Biancavilla" target="_parent"><img src="legend/13.png" class="clip_tav" /></a><br><a href="piazza_armerina.html" title="Grading Map Piazza Armerina" target="_parent"><img src="legend/16.png" class="clip_tav" /></a>  '
 	 : layer_areeincendisiciliawgs841,}). addTo(map);
         setBounds();
 		<!-- strumenti di leaflet -->
@@ -642,6 +655,7 @@ function pop_Centroidi0(feature, layer) {
                       <li><a href="naso.html" title="Grading Map Naso" target="_parent">11 Naso</a></li>
                       <li><a href="etna_nord.html" title="Grading Map Etna Nord" target="_parent">12 Etna Nord</a></li>
                       <li><a href="biancavilla.html" title="Grading Map Biancavilla" target="_parent">13 Biancavilla</a></li>
+						<li><a href="piazza_armerina.html" title="Grading Map Piazza Armerina" target="_parent">16 Piazza Armerina</a></li>
 		            </ul>
 		          </li>
 					<li class="dropdown">
@@ -659,6 +673,7 @@ function pop_Centroidi0(feature, layer) {
                       <li><a href="qgis2threejs/3d_naso.html" title="Grading Map Naso" target="_parent">11 Naso</a></li>
                       <li><a href="qgis2threejs/3d_etna_nord.html" title="Grading Map Etna Nord" target="_parent">12 Etna Nord</a></li>
                       <li><a href="qgis2threejs/3d_biancavilla.html" title="Grading Map Biancavilla" target="_parent">13 Biancavilla</a></li>
+<li><a href="qgis2threejs/3d_piazza_armerina.html" title="Grading Map Piazza Armerina" target="_parent">16 Piazza Armerina</a></li>
 		            </ul>
 		          </li>
 		        </ul>
