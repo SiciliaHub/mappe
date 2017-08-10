@@ -95,7 +95,7 @@
 <script src="lib/js/print/leaflet.easyPrint.js"></script>
 
         <!-- script dati mappa -->
-        <script src="data/EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0.js"></script>
+        <script src="data/piazzaarmerina0.js"></script>
     </head>
     <body>
        
@@ -119,13 +119,13 @@
 <div class="sidebar-pane" id="home">
 <h2 class="sidebar-header">Sicilia a fuoco<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
  <p class="lorem"><strong>Gli incendi in Sicilia, una situazione drammatica vista da COPERNICUS - Emergency Management Service<br>
-     <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_blank">EMSR213: Forest Fire in Southern Italy</a></strong> <p class="lorem">[EMSR213] Piazza Armerina: Grading Map <a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_16PIAZZAARMERINA_02GRADING_MAP/1" title="[EMSR213] Piazza Armerina: Grading Map " target="_blank">  Published: 2017-08-08 23:38 (UTC)</a></p>  
+     <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_blank">EMSR213: Forest Fire in Southern Italy</a></strong> <p class="lorem">[EMSR213] Piazza Armerina: Grading Map <a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_16PIAZZAARMERINA_02GRADING_MONIT01/1" title="[EMSR213] Piazza Armerina: Grading Map " target="_blank">  Published: 2017-08-10 00:20 (UTC)</a></p>  
  <p class="lorem"><strong>Authorized User:</strong><br>
 Italy|Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile - Centro Situazioni<br><br>
 <strong>Activation Reason: </strong><br>
 During recent weeks almost the whole Italian National Territory has suffered a period characterized by very high temperatures and an absence of significant rain. Exacerbated by these conditions numerous fires are affecting Italy, most specifically in southern areas. Several fires are affecting large forested areas and, in certain cases, fires are threatening inhabited areas. Damages to infrastructures, public and private structures have occurred as have temporary evacuations due to risk to life.</p>
 <img src="legend/16.png" width="165" height="24"  /><br>
- <a href="http://emergency.copernicus.eu/mapping/system/files/components/EMSR213_16PIAZZAARMERINA_02GRADING_MAP_v1_100dpi.jpg" target="_blank" title="[EMSR213] Piazza Armerina: Grading Map"><img src="lib/images/piazza_armerina.jpg"alt="[EMSR213] Piazza Armerina" width="370" height="262" class="clip_370_1" title="[EMSR213] Piazza Armerina: Grading Map"/></a> <br>
+<a href="http://emergency.copernicus.eu/mapping/system/files/components/EMSR213_16PIAZZAARMERINA_02GRADING_MONIT01_v1_100dpi.jpg" target="_blank" title="[EMSR213] Piazza Armerina: Grading Map"><img src="lib/images/piazza_armerina_02.jpg"alt="[EMSR213] Piazza Armerina" width="370" height="262" class="clip_370_1" title="[EMSR213] Piazza Armerina: Grading Map"/></a> <br>
 
 <p class="lorem"> <em><strong>Copernicus EMS - Mapping mira a fornire prodotti quanto più accurati possibile. Tuttavia, le informazioni prodotte hanno limitazioni dovute alla scala, alla risoluzione, alla data e ai metodi di interpretazione dei dati originali dei materiali originali / satellitari.</strong></em><br>
   <em><strong>I prodotti Copernicus EMS - Mapping sono forniti "come è" senza alcuna garanzia, espressa o implicita, inclusa la qualità o l'idoneità per qualsiasi scopo. L'intero rischio relativo all'utilizzo di questi prodotti è assunto dall'Utente e l'UE non si assume alcuna responsabilità per eventuali perdite, danni o inconvenienti causati dalla dipendenza dai prodotti Copernicus EMS-Mapping.</strong></em></p>
@@ -222,12 +222,27 @@ During recent weeks almost the whole Italian National Territory has suffered a p
 <!-- Mappa  -->
 <div id="map" class="sidebar-map"></div>
         <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#fff',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#fff',
+                fillOpacity: 0.75
+              });
+            }
+        }
         L.ImageOverlay.include({
             getBounds: function () {
                 return this._bounds;
             }
         });
-var map = L.map('map', { zoomControl:false, maxZoom:17, minZoom:10 }).fitBounds([[37.3086170513,14.23853076],[37.4402993842,14.4904241365]]);
+var map = L.map('map', { zoomControl:false, maxZoom:17, minZoom:10 }).fitBounds([[37.2959263992,14.100647389],[37.5586142334,14.5885135522]]);
 map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> - Rielaborazione di: <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>');
 var bounds_group = new L.featureGroup([]);
 <!-- mappe di base -->	  
@@ -258,8 +273,14 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
               feature.properties[weight]
             ];
           });
-        }
-        function pop_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0(feature, layer) {
+        }        function pop_piazzaarmerina0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_piazzaarmerina0_0(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
             var popupContent = '<table>\
 			<tr>\<strong><a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_parent">EMSR213: Forest Fire in Southern Italy</a></strong><tr>\
                         <th scope="row"><hr></th>\
@@ -332,11 +353,11 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
             layer.bindPopup(popupContent);
         }
 
-        function style_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0_0(feature) {
+        function style_piazzaarmerina0_0(feature) {
             switch(feature.properties['grading']) {
                 case 'Negligible to slight damage':
                     return {
-                pane: 'pane_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0',
+                pane: 'pane_piazzaarmerina0',
                 stroke: false, 
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,0,0.749019607843)',
@@ -344,7 +365,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     break;
                 case 'Moderately Damaged':
                     return {
-                pane: 'pane_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0',
+                pane: 'pane_piazzaarmerina0',
                 stroke: false, 
                 fillOpacity: 1,
                 fillColor: 'rgba(255,170,0,0.749019607843)',
@@ -352,7 +373,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     break;
                 case 'Highly Damaged':
                     return {
-                pane: 'pane_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0',
+                pane: 'pane_piazzaarmerina0',
                 stroke: false, 
                 fillOpacity: 1,
                 fillColor: 'rgba(255,85,0,0.749019607843)',
@@ -360,7 +381,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     break;
                 case 'Completely Destroyed':
                     return {
-                pane: 'pane_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0',
+                pane: 'pane_piazzaarmerina0',
                 stroke: false, 
                 fillOpacity: 1,
                 fillColor: 'rgba(230,0,0,0.749019607843)',
@@ -368,19 +389,19 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     break;
             }
         }
-        map.createPane('pane_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0');
-        map.getPane('pane_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0').style.zIndex = 400;
-        map.getPane('pane_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0').style['mix-blend-mode'] = 'normal';
-    var layer_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0 = new L.geoJson(json_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0, {
+        map.createPane('pane_piazzaarmerina0');
+        map.getPane('pane_piazzaarmerina0').style.zIndex = 400;
+        map.getPane('pane_piazzaarmerina0').style['mix-blend-mode'] = 'normal';
+    var layer_piazzaarmerina0 = new L.geoJson(json_piazzaarmerina0, {
         attribution: '<a href=""></a>',
-        pane: 'pane_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0',
-        onEachFeature: pop_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0,
-        style: style_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0_0,
+        pane: 'pane_piazzaarmerina0',
+        onEachFeature: pop_piazzaarmerina0,
+        style: style_piazzaarmerina0_0,
     });
-        bounds_group.addLayer(layer_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0);
-        map.addLayer(layer_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0);
+        bounds_group.addLayer(layer_piazzaarmerina0);
+        map.addLayer(layer_piazzaarmerina0);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/16_1.png" width="138" height="20"  /></a><br /><br /><span class="legenda1">Classificazione</span> <br> <table><tr><td style="text-align: center;"><img src="legend/Negligibletoslightdamage.png" /></td><td>&nbsp;&nbsp;Negligible to slight damage</td></tr><tr><td style="text-align: center;"><img src="legend/ModeratelyDamaged.png" /></td><td>&nbsp;&nbsp;Moderately Damaged</td></tr><tr><td style="text-align: center;"><img src="legend/HighlyDamaged.png" /></td><td>&nbsp;&nbsp;Highly Damaged</td></tr><tr><td style="text-align: center;"><img src="legend/CompletelyDestroyed.png" /></td><td>&nbsp;&nbsp;Completely Destroyed</td></tr></table> <br><br><span class="legenda">Elenco tavole</span> <br><br><a href="index.html" title="Quadro unione" target="_parent"><img src="legend/qua.png" width="177" height="20" class="clip_tav" /><br> <a href="caltagirone.html" title="Grading Map Caltagirone" target="_parent"><img src="legend/02.png" width="177" height="20" class="clip_tav" /></a><br> <a href="francofonte.html" title="Francofonte" target="_parent"><img src="legend/03.png" width="177" height="20" class="clip_tav" /></a><br><a href="avola.html" title="Avola" target="_parent"><img src="legend/04.png" width="177" height="20" class="clip_tav" /><br> <a href="sciacca.html" title="Sciacca" target="_parent"><img src="legend/05.png" width="177" height="20" class="clip_tav" /></a> <br>   <a href="monreale.html" title="Monreale" target="_parent"><img src="legend/06.png" width="177" height="20" class="clip_tav" /></a>  <br> <a href="san_vito_lo_capo.html" title="Grading Map San Vito Lo Capo" target="_parent"><img src="legend/07.png" width="177" height="20" class="clip_tav" /></a> <br>  <a href="blufi.html" title="Blufi" target="_parent"><img src="legend/08.png" class="clip_tav" /></a> <br>   <a href="mistretta.html" title="Mistretta" target="_parent"><img src="legend/09.png" class="clip_tav" /></a> <br>   <a href="messina.html" title="Messina" target="_parent"><img src="legend/10.png" class="clip_tav" /></a>  <br>   <a href="naso.html" title="Naso" target="_parent"><img src="legend/11.png" class="clip_tav" /></a>  <br>   <a href="etna_nord.html" title="Etna Nord" target="_parent"><img src="legend/12.png" class="clip_tav" /></a><br>   <a href="biancavilla.html" title="Biancavilla" target="_parent"><img src="legend/13.png" class="clip_tav" /></a>': layer_EMSR21316PIAZZAARMERINA02GRADINGv125000crisisinformationpolygrading0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/16_1.png" width="138" height="20"  /></a><br /><br /><span class="legenda1">Classificazione</span> <br> <table><tr><td style="text-align: center;"><img src="legend/Negligibletoslightdamage.png" /></td><td>&nbsp;&nbsp;Negligible to slight damage</td></tr><tr><td style="text-align: center;"><img src="legend/ModeratelyDamaged.png" /></td><td>&nbsp;&nbsp;Moderately Damaged</td></tr><tr><td style="text-align: center;"><img src="legend/HighlyDamaged.png" /></td><td>&nbsp;&nbsp;Highly Damaged</td></tr><tr><td style="text-align: center;"><img src="legend/CompletelyDestroyed.png" /></td><td>&nbsp;&nbsp;Completely Destroyed</td></tr></table> <br><br><span class="legenda">Elenco tavole</span> <br><br><a href="index.html" title="Quadro unione" target="_parent"><img src="legend/qua.png" width="177" height="20" class="clip_tav" /><br> <a href="caltagirone.html" title="Grading Map Caltagirone" target="_parent"><img src="legend/02.png" width="177" height="20" class="clip_tav" /></a><br> <a href="francofonte.html" title="Francofonte" target="_parent"><img src="legend/03.png" width="177" height="20" class="clip_tav" /></a><br><a href="avola.html" title="Avola" target="_parent"><img src="legend/04.png" width="177" height="20" class="clip_tav" /><br> <a href="sciacca.html" title="Sciacca" target="_parent"><img src="legend/05.png" width="177" height="20" class="clip_tav" /></a> <br>   <a href="monreale.html" title="Monreale" target="_parent"><img src="legend/06.png" width="177" height="20" class="clip_tav" /></a>  <br> <a href="san_vito_lo_capo.html" title="Grading Map San Vito Lo Capo" target="_parent"><img src="legend/07.png" width="177" height="20" class="clip_tav" /></a> <br>  <a href="blufi.html" title="Blufi" target="_parent"><img src="legend/08.png" class="clip_tav" /></a> <br>   <a href="mistretta.html" title="Mistretta" target="_parent"><img src="legend/09.png" class="clip_tav" /></a> <br>   <a href="messina.html" title="Messina" target="_parent"><img src="legend/10.png" class="clip_tav" /></a>  <br>   <a href="naso.html" title="Naso" target="_parent"><img src="legend/11.png" class="clip_tav" /></a>  <br>   <a href="etna_nord.html" title="Etna Nord" target="_parent"><img src="legend/12.png" class="clip_tav" /></a><br>   <a href="biancavilla.html" title="Biancavilla" target="_parent"><img src="legend/13.png" class="clip_tav" /></a>': layer_piazzaarmerina0,}).addTo(map);
         setBounds();		
 		<!-- strumenti di leaflet -->
 		
@@ -414,7 +435,9 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         }));
  
         </script>
- <!-- header -->       
+        
+        
+         <!-- header -->       
 <div id="bot" class="leaflet-control">
 <div id="left-flyout-nav" class="layout-left-flyout visible-sm"></div>
 		<div class="layout-right-content">
