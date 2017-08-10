@@ -261,6 +261,34 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         }
         function pop_EMSR21306MONREALE0(feature, layer) {
             var popupContent = '<table>\
+			<tr>\<strong><a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_parent">EMSR213: Forest Fire in Southern Italy</a></strong><tr>\
+                        <th scope="row"><hr></th>\
+                        <td><hr></td>\
+                  	  </tr>\
+						 <tr>\
+                        <th scope="row">Tavola:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['tavola'] !== null ? Autolinker.link(String(feature.properties['tavola'])) : '') + '</td>\
+               	        </tr>\
+					 <tr>\
+                        <th scope="row">Published:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['ext_date'] !== null ? Autolinker.link(String(feature.properties['ext_date'])) : '') + '</td>\
+                		    </tr>\
+						<tr>\
+                        <th scope="row">Area Bruciata (ha)&nbsp;:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Perimetro (km):&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['perimetro'] !== null ? Autolinker.link(String(feature.properties['perimetro'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <th scope="row">Grading:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['grading'] !== null ? Autolinker.link(String(feature.properties['grading'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+					<th scope="row"><hr></th>\
+                        <td><hr></td>\
+                  	  </tr>\
                     <tr>\
                         <th scope="row">src date:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['src_date'] !== null ? Autolinker.link(String(feature.properties['src_date'])) : '') + '</td>\
@@ -272,10 +300,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     <tr>\
                         <th scope="row">nam:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['nam'] !== null ? Autolinker.link(String(feature.properties['nam'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ext date:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['ext_date'] !== null ? Autolinker.link(String(feature.properties['ext_date'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">txt:&nbsp;&nbsp;</th>\
@@ -293,11 +317,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                         <th scope="row">source nam:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['source_nam'] !== null ? Autolinker.link(String(feature.properties['source_nam'])) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <th scope="row">grading:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['grading'] !== null ? Autolinker.link(String(feature.properties['grading'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">interpret:</th>\
                         <td>' + (feature.properties['interpret'] !== null ? Autolinker.link(String(feature.properties['interpret'])) : '') + '</td>\
                     </tr>\
