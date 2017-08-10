@@ -354,6 +354,10 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row"><hr></th>\
                         <td><hr></td>\
                   	  </tr>\
+					                      <tr>\
+                        <th scope="row">Anno di riferimento:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Comune:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
@@ -366,9 +370,12 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row">Località:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['LOCALITA'] !== null ? Autolinker.link(String(feature.properties['LOCALITA'])) : '') + '</td>\
                     </tr>\
+					<th scope="row">Area Bruciata (ha)&nbsp;:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
-                        <th scope="row">Anno:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                        <th scope="row">Perimetro (km):&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['perimetro'] !== null ? Autolinker.link(String(feature.properties['perimetro'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
@@ -411,6 +418,10 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row"><hr></th>\
                         <td><hr></td>\
                   	  </tr>\
+					                      <tr>\
+                        <th scope="row">Anno di riferimento:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Comune:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
@@ -423,9 +434,12 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row">Località:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['LOCALITA'] !== null ? Autolinker.link(String(feature.properties['LOCALITA'])) : '') + '</td>\
                     </tr>\
+					<th scope="row">Area Bruciata (ha)&nbsp;:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
-                        <th scope="row">Anno:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                        <th scope="row">Perimetro (km):&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['perimetro'] !== null ? Autolinker.link(String(feature.properties['perimetro'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
@@ -468,6 +482,10 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row"><hr></th>\
                         <td><hr></td>\
                   	  </tr>\
+					                      <tr>\
+                        <th scope="row">Anno di riferimento:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Comune:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
@@ -480,9 +498,12 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row">Località:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['LOCALITA'] !== null ? Autolinker.link(String(feature.properties['LOCALITA'])) : '') + '</td>\
                     </tr>\
+					<th scope="row">Area Bruciata (ha)&nbsp;:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
-                        <th scope="row">Anno:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                        <th scope="row">Perimetro (km):&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['perimetro'] !== null ? Autolinker.link(String(feature.properties['perimetro'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
@@ -525,6 +546,10 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row"><hr></th>\
                         <td><hr></td>\
                   	  </tr>\
+					                      <tr>\
+                        <th scope="row">Anno di riferimento:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Comune:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
@@ -537,9 +562,12 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row">Località:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['LOCALITA'] !== null ? Autolinker.link(String(feature.properties['LOCALITA'])) : '') + '</td>\
                     </tr>\
+					<th scope="row">Area Bruciata (ha)&nbsp;:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
-                        <th scope="row">Anno:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                        <th scope="row">Perimetro (km):&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['perimetro'] !== null ? Autolinker.link(String(feature.properties['perimetro'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
@@ -582,6 +610,10 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row"><hr></th>\
                         <td><hr></td>\
                   	  </tr>\
+					                      <tr>\
+                        <th scope="row">Anno di riferimento:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Comune:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
@@ -594,9 +626,12 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row">Località:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['LOCALITA'] !== null ? Autolinker.link(String(feature.properties['LOCALITA'])) : '') + '</td>\
                     </tr>\
+					<th scope="row">Area Bruciata (ha)&nbsp;:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
-                        <th scope="row">Anno:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                        <th scope="row">Perimetro (km):&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['perimetro'] !== null ? Autolinker.link(String(feature.properties['perimetro'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
@@ -639,6 +674,10 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row"><hr></th>\
                         <td><hr></td>\
                   	  </tr>\
+					                      <tr>\
+                        <th scope="row">Anno di riferimento:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Comune:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
@@ -651,9 +690,12 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row">Località:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['LOCALITA'] !== null ? Autolinker.link(String(feature.properties['LOCALITA'])) : '') + '</td>\
                     </tr>\
+					<th scope="row">Area Bruciata (ha)&nbsp;:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
-                        <th scope="row">Anno:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                        <th scope="row">Perimetro (km):&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['perimetro'] !== null ? Autolinker.link(String(feature.properties['perimetro'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
@@ -696,6 +738,10 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row"><hr></th>\
                         <td><hr></td>\
                   	  </tr>\
+					                      <tr>\
+                        <th scope="row">Anno di riferimento:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">Comune:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
@@ -708,9 +754,12 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
                         <th scope="row">Località:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['LOCALITA'] !== null ? Autolinker.link(String(feature.properties['LOCALITA'])) : '') + '</td>\
                     </tr>\
+					<th scope="row">Area Bruciata (ha)&nbsp;:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['area'] !== null ? Autolinker.link(String(feature.properties['area'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
-                        <th scope="row">Anno:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['anno'] !== null ? Autolinker.link(String(feature.properties['anno'])) : '') + '</td>\
+                        <th scope="row">Perimetro (km):&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['perimetro'] !== null ? Autolinker.link(String(feature.properties['perimetro'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
