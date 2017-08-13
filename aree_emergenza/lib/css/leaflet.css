@@ -117,7 +117,7 @@
 	pointer-events: none;
 	}
 .leaflet-top {
-	top: 80px;
+	top: 50px;
 	}
 .leaflet-right {
 	right: 0;
@@ -391,7 +391,7 @@
 
 /* Default icon URLs */
 .leaflet-default-icon-path {
-	background-image: url(images/marker-icon.png);
+	background-image: url(../images/marker-icon.png);
 	}
 
 

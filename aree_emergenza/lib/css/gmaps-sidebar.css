@@ -7,7 +7,7 @@
   z-index: 1015; }
   .sidebar.collapsed {
     width: 40px;
-	top:87px; }
+	top:60px; }
 	
   @media (min-width: 320px) and (max-width: 675px){
     .sidebar-left {
@@ -18,9 +18,6 @@
 	top:48px; }
 	  }	
 	
-	
-	
-	
   @media (min-width: 768px) {
     .sidebar {
       top: 10px;
@@ -29,21 +26,21 @@
   @media (min-width: 768px) and (max-width: 991px) {
     .sidebar {
       width: 305px;
-	  top:87px; } }
+	  top:60px; } }
   @media (min-width: 992px) and (max-width: 1199px) {
     .sidebar {
       width: 390px; } }
   @media (min-width: 1200px) {
     .sidebar {
       width: 460px; 
-	  top:87px;} }
+	  top:60px;} }
 
 .sidebar-left {
   left: 0; }
   @media (min-width: 768px) {
     .sidebar-left {
       left: 10px; 
-	  top:87px;} }
+	  top:60px;} }
 
 .sidebar-right {
   right: 0; }
