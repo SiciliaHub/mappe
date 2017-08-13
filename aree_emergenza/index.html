@@ -123,6 +123,7 @@
 <script src="data/AssociazionidiVolontariatosicilia0.js"></script>
 <script src="data/Carabinierisicilia1.js"></script>
 <script src="data/VigilidelFuocosicilia2.js"></script>
+<script src="data/GuardiadiFinanza0.js"></script>
  
 
     </head>
@@ -1628,11 +1629,71 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             },
         });
         bounds_group.addLayer(layer_VigilidelFuocosicilia2);
-     
+  <!-- struttture guardia di finanza -->   
+        function pop_GuardiadiFinanza0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_GuardiadiFinanza0_0(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+							<tr>\
+                        <th scope="row">' + (feature.properties['ico'] !== null ? Autolinker.link(String(feature.properties['ico'])) : '') + '</th>\
+                        <td><span class="legenda1">Guardia di Finanza<spam /></td>\
+                       </tr>\
+                    <tr>\
+                        <th scope="row">Nome:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['DENOMINAZIONE'] !== null ? Autolinker.link(String(feature.properties['DENOMINAZIONE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indirizzo:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['INDIRIZZO'] !== null ? Autolinker.link(String(feature.properties['INDIRIZZO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telefono:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['CENTRALINO'] !== null ? Autolinker.link(String(feature.properties['CENTRALINO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fax:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['FAX'] !== null ? Autolinker.link(String(feature.properties['FAX'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_GuardiadiFinanza0_0() {
+            return {
+                pane: 'pane_GuardiadiFinanza0',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/gdf.png',
+            iconSize: [28.0, 30.0]
+        }),
+            }
+        }
+        map.createPane('pane_GuardiadiFinanza0');
+        map.getPane('pane_GuardiadiFinanza0').style.zIndex = 507;
+        map.getPane('pane_GuardiadiFinanza0').style['mix-blend-mode'] = 'normal';
+        var layer_GuardiadiFinanza0 = new L.geoJson(json_GuardiadiFinanza0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_GuardiadiFinanza0',
+            onEachFeature: pop_GuardiadiFinanza0,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_GuardiadiFinanza0_0(feature))
+            },
+        });
+        bounds_group.addLayer(layer_GuardiadiFinanza0);
 
 		
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa Aree di emergenza.</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Protezione Civile - Regione Sicilia<br /><br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda</span><br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/info.png" Title="Area di attesa" width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di attesa</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ricovero.png" Title="Area accoglienza o di ricovero" "width="25" height="29" /></td><td>&nbsp;&nbsp;&nbsp;Area di ricovero</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ammassamento.png" title="Area di ammassamento"width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammassamento</td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/firemen_01.png" Title=" Area di ammass. Colonna mobile VV.F" width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammass. Colonna mobile VV.F </td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ri.png" Title="Area rischio industriale " width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area rischio industriale</td></tr></table><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aree di emergenza.</span>':layer_poligonoisola0,'&nbsp;Provincia di Catania<br />': layer_AreeemergenzadellaprovinciadiCatania4,'&nbsp;Provincia di Enna<br />': layer_AreeemergenzadellaprovinciadiEnna3,'Provincia di Messina<br />': layer_AreeemergenzadellaprovinciadiMessina2,'&nbsp;Provincia di Ragusa<br />': layer_AreeemergenzadellaprovinciadiRagusa0, '&nbsp;Comune di Palermo<br /> <hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strutture operative territoriali<br /></span>': layer_AreeemergenzadelcomunediPalermo0, '&nbsp;&nbsp;<img src="legend/legge.png"Title=" Prefetture" width="25" height="29" />&nbsp;&nbsp;Prefetture': layer_Prefetture0, '&nbsp;&nbsp;<img src="legend/carabinieri.png" Title="Carabinieri" width="25" height="29" />&nbsp;&nbsp;Carabinieri': layer_Carabinierisicilia1, '&nbsp;&nbsp;<img src="legend/firemen.png" Title="Vigili del Fuoco" width="25" height="29"/>&nbsp;&nbsp;Vigili del Fuoco': layer_VigilidelFuocosicilia2, '&nbsp;&nbsp;<img src="legend/polizia.png" Title=" Polizia di Stato" width="25" height="29"/>&nbsp;&nbsp;Polizia di Stato': layer_PoliziadiStato1, '&nbsp;&nbsp;<img src="legend/ferry.png" Title="Capitanerie di porto " width="25" height="29" />&nbsp;&nbsp;Capitanerie di porto': layer_Capitaneriediporto0, '&nbsp;&nbsp;<img src="legend/ass_prot_civile.png" Title=" Associazioni di Volontariato" width="25" height="29" />&nbsp;&nbsp;Associazioni di Volontariato': layer_AssociazionidiVolontariatosicilia0,}).addTo(map);
+        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa Aree di emergenza.</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Protezione Civile - Regione Sicilia<br /><br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda</span><br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/info.png" Title="Area di attesa" width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di attesa</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ricovero.png" Title="Area accoglienza o di ricovero" "width="25" height="29" /></td><td>&nbsp;&nbsp;&nbsp;Area di ricovero</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ammassamento.png" title="Area di ammassamento"width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammassamento</td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/firemen_01.png" Title=" Area di ammass. Colonna mobile VV.F" width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammass. Colonna mobile VV.F </td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ri.png" Title="Area rischio industriale " width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area rischio industriale</td></tr></table><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aree di emergenza.</span>':layer_poligonoisola0,'&nbsp;Provincia di Catania<br />': layer_AreeemergenzadellaprovinciadiCatania4,'&nbsp;Provincia di Enna<br />': layer_AreeemergenzadellaprovinciadiEnna3,'Provincia di Messina<br />': layer_AreeemergenzadellaprovinciadiMessina2,'&nbsp;Provincia di Ragusa<br />': layer_AreeemergenzadellaprovinciadiRagusa0, '&nbsp;Comune di Palermo<br /> <hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strutture operative territoriali<br /></span>': layer_AreeemergenzadelcomunediPalermo0, '&nbsp;&nbsp;<img src="legend/legge.png"Title=" Prefetture" width="25" height="29" />&nbsp;&nbsp;Prefetture': layer_Prefetture0, '&nbsp;&nbsp;<img src="legend/carabinieri.png" Title="Carabinieri" width="25" height="29" />&nbsp;&nbsp;Carabinieri': layer_Carabinierisicilia1,  '&nbsp;&nbsp;<img src="legend/polizia.png" Title=" Polizia di Stato" width="25" height="29"/>&nbsp;&nbsp;Polizia di Stato': layer_PoliziadiStato1, '&nbsp;&nbsp;<img src="legend/gdf.png" Title="Guardia di Finanza " width="25" height="29"/>&nbsp;&nbsp;Guardia di Finanza': layer_GuardiadiFinanza0,  '&nbsp;&nbsp;<img src="legend/ferry.png" Title="Capitanerie di porto " width="25" height="29" />&nbsp;&nbsp;Capitanerie di porto': layer_Capitaneriediporto0, '&nbsp;&nbsp;<img src="legend/firemen.png" Title="Vigili del Fuoco" width="25" height="29"/>&nbsp;&nbsp;Vigili del Fuoco': layer_VigilidelFuocosicilia2, '&nbsp;&nbsp;<img src="legend/ass_prot_civile.png" Title=" Associazioni di Volontariato" width="25" height="29" />&nbsp;&nbsp;Associazioni di Volontariato': layer_AssociazionidiVolontariatosicilia0,}).addTo(map);
         setBounds();
 		<!-- strumenti di leaflet -->
 				var zoomHome = L.Control.zoomHome();zoomHome.addTo(map);
