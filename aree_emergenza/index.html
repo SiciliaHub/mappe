@@ -118,6 +118,8 @@
 <script src="data/AreeemergenzadellaprovinciadiRagusa0.js"></script>
 <script src="data/AreeemergenzadelcomunediPalermo0.js"></script>
 <script src="data/poligonoisola0.js"></script>
+<script src="data/Capitaneriediporto0.js"></script>
+<script src="data/PoliziadiStato1.js"></script>
  
 
     </head>
@@ -1186,11 +1188,168 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
     });
         bounds_group.addLayer(layer_AreeemergenzadelcomunediPalermo0);
         map.addLayer(layer_AreeemergenzadelcomunediPalermo0);
+<!-- struttture operativa -->
+<!-- struttture poliza e paitaneria di porto -->
+        function pop_Capitaneriediporto0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_Capitaneriediporto0_0(feature));
 
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+						<tr>\
+                        <th scope="row">' + (feature.properties['ico'] !== null ? Autolinker.link(String(feature.properties['ico'])) : '') + '</th>\
+                        <td><span class="legenda1">Capitaneria di Porto <spam /></td>\
+                    </tr>\
+					    <tr>\
+						                    <tr>\
+                        <th scope="row">Comune:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['CITTA'] !== null ? Autolinker.link(String(feature.properties['CITTA'])) : '') + '</td>\
+                    <tr>\
+                        <th scope="row">Provincia:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Ufficio:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['TIPO_COMAN'] !== null ? Autolinker.link(String(feature.properties['TIPO_COMAN'])) : '') + '</td>\
+                    </tr>\
+                    </tr>\
+                        <th scope="row">Dipendenza:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['DIPENDENZA'] !== null ? Autolinker.link(String(feature.properties['DIPENDENZA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indirizzo:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['INDIRIZZO'] !== null ? Autolinker.link(String(feature.properties['INDIRIZZO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telefono:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['TELEFONO'] !== null ? Autolinker.link(String(feature.properties['TELEFONO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fax:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['FAX'] !== null ? Autolinker.link(String(feature.properties['FAX'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Email:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['EMAIL'] !== null ? Autolinker.link(String(feature.properties['EMAIL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Pec:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['PEC'] !== null ? Autolinker.link(String(feature.properties['PEC'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_Capitaneriediporto0_0() {
+            return {
+                pane: 'pane_Capitaneriediporto0',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/ferry.png',
+            iconSize: [28.0, 30.0]
+        }),
+            }
+        }
+        map.createPane('pane_Capitaneriediporto0');
+        map.getPane('pane_Capitaneriediporto0').style.zIndex = 500;
+        map.getPane('pane_Capitaneriediporto0').style['mix-blend-mode'] = 'normal';
+        var layer_Capitaneriediporto0 = new L.geoJson(json_Capitaneriediporto0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Capitaneriediporto0',
+            onEachFeature: pop_Capitaneriediporto0,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_Capitaneriediporto0_0(feature))
+            },
+        });
+        bounds_group.addLayer(layer_Capitaneriediporto0);
+        function pop_PoliziadiStato1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_PoliziadiStato1_0(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+						<tr>\
+                        <th scope="row">' + (feature.properties['ico'] !== null ? Autolinker.link(String(feature.properties['ico'])) : '') + '</th>\
+                        <td><span class="legenda1">Polizia di Stato <spam /></td>\
+                    </tr>\
+					                    <tr>\
+                        <th scope="row">Comune:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['COMUNE'] !== null ? Autolinker.link(String(feature.properties['COMUNE'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['PROVINCIA'] !== null ? Autolinker.link(String(feature.properties['PROVINCIA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Uffici:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['TIPO'] !== null ? Autolinker.link(String(feature.properties['TIPO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nome:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['DENOMINAZI'] !== null ? Autolinker.link(String(feature.properties['DENOMINAZI'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indirizzo:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['INDIRIZZO'] !== null ? Autolinker.link(String(feature.properties['INDIRIZZO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Telefono:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['TELEFONO'] !== null ? Autolinker.link(String(feature.properties['TELEFONO'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FAX:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['FAX'] !== null ? Autolinker.link(String(feature.properties['FAX'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Email:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['EMAIL'] !== null ? Autolinker.link(String(feature.properties['EMAIL'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_PoliziadiStato1_0() {
+            return {
+                pane: 'pane_PoliziadiStato1',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/polizia.png',
+            iconSize: [28.0, 30.0]
+        }),
+            }
+        }
+        map.createPane('pane_PoliziadiStato1');
+        map.getPane('pane_PoliziadiStato1').style.zIndex = 501;
+        map.getPane('pane_PoliziadiStato1').style['mix-blend-mode'] = 'normal';
+        var layer_PoliziadiStato1 = new L.geoJson(json_PoliziadiStato1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_PoliziadiStato1',
+            onEachFeature: pop_PoliziadiStato1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_PoliziadiStato1_0(feature))
+            },
+        });
+        bounds_group.addLayer(layer_PoliziadiStato1);
 		
 		
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa Aree di emergenza.</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Protezione Civile - Regione Sicilia<br /><br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda</span><br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/info.png" Title="Area di attesa" width="32" height="37"/></td><td>&nbsp;&nbsp;&nbsp;Area di attesa</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ricovero.png" Title="Area accoglienza o di ricovero" "width="32" height="37" /></td><td>&nbsp;&nbsp;&nbsp;Area di ricovero</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ammassamento.png" title="Area di ammassamento"width="32" height="37"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammassamento</td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/firemen_01.png" Title=" Area di ammass. Colonna mobile VV.F" width="32" height="37"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammass. Colonna mobile VV.F </td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ri.png" Title="Area rischio industriale " width="32" height="37"/></td><td>&nbsp;&nbsp;&nbsp;Area rischio industriale</td></tr></table><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aree di emergenza.</span>':layer_poligonoisola0,'&nbsp;Provincia di Catania<br />': layer_AreeemergenzadellaprovinciadiCatania4,'&nbsp;Provincia di Enna<br />': layer_AreeemergenzadellaprovinciadiEnna3,'Provincia di Messina<br />': layer_AreeemergenzadellaprovinciadiMessina2,'&nbsp;Provincia di Ragusa<br />': layer_AreeemergenzadellaprovinciadiRagusa0, '&nbsp;Comune di Palermo<br /> <hr>': layer_AreeemergenzadelcomunediPalermo0,}).addTo(map);
+        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa Aree di emergenza.</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Protezione Civile - Regione Sicilia<br /><br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda</span><br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/info.png" Title="Area di attesa" width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di attesa</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ricovero.png" Title="Area accoglienza o di ricovero" "width="25" height="29" /></td><td>&nbsp;&nbsp;&nbsp;Area di ricovero</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ammassamento.png" title="Area di ammassamento"width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammassamento</td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/firemen_01.png" Title=" Area di ammass. Colonna mobile VV.F" width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammass. Colonna mobile VV.F </td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ri.png" Title="Area rischio industriale " width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area rischio industriale</td></tr></table><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aree di emergenza.</span>':layer_poligonoisola0,'&nbsp;Provincia di Catania<br />': layer_AreeemergenzadellaprovinciadiCatania4,'&nbsp;Provincia di Enna<br />': layer_AreeemergenzadellaprovinciadiEnna3,'Provincia di Messina<br />': layer_AreeemergenzadellaprovinciadiMessina2,'&nbsp;Provincia di Ragusa<br />': layer_AreeemergenzadellaprovinciadiRagusa0, '&nbsp;Comune di Palermo<br /> <hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strutture operative territoriali<br /></span>': layer_AreeemergenzadelcomunediPalermo0,'&nbsp;&nbsp;<img src="legend/ferry.png" Title="Capitanerie di porto " width="25" height="29" />&nbsp;&nbsp;Capitanerie di porto': layer_Capitaneriediporto0, '&nbsp;&nbsp;<img src="legend/polizia.png" Title=" Polizia di Stato" width="25" height="29"/>&nbsp;&nbsp;Polizia di Stato': layer_PoliziadiStato1,}).addTo(map);
         setBounds();
 		<!-- strumenti di leaflet -->
 				var zoomHome = L.Control.zoomHome();zoomHome.addTo(map);
