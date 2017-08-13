@@ -513,7 +513,7 @@ var json_comuniOSM0 = {
 { "type": "Feature", "properties": { "name": "Poggioreale" }, "geometry": { "type": "Point", "coordinates": [ 13.035943, 37.764043 ] } },
 { "type": "Feature", "properties": { "name": "Gibellina" }, "geometry": { "type": "Point", "coordinates": [ 12.869539, 37.807042 ] } },
 { "type": "Feature", "properties": { "name": "Lacco" }, "geometry": { "type": "Point", "coordinates": [ 14.8486432, 38.1410551 ] } },
-{ "type": "Feature", "properties": { "name": "Z�gari" }, "geometry": { "type": "Point", "coordinates": [ 15.2207674, 38.1400207 ] } },
+{ "type": "Feature", "properties": { "name": "Zìgari" }, "geometry": { "type": "Point", "coordinates": [ 15.2207674, 38.1400207 ] } },
 { "type": "Feature", "properties": { "name": "Custonaci" }, "geometry": { "type": "Point", "coordinates": [ 12.6752292, 38.0781631 ] } },
 { "type": "Feature", "properties": { "name": "Lido di Noto" }, "geometry": { "type": "Point", "coordinates": [ 15.1130841, 36.8550342 ] } },
 { "type": "Feature", "properties": { "name": "Sampieri" }, "geometry": { "type": "Point", "coordinates": [ 14.7367789, 36.720397 ] } },
