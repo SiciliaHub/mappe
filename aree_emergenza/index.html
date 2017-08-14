@@ -125,6 +125,7 @@
 <script src="data/Carabinierisicilia1.js"></script>
 <script src="data/VigilidelFuocosicilia2.js"></script>
 <script src="data/GuardiadiFinanza0.js"></script>
+<script src="data/pericolositsismica0.js"></script>
  
 
     </head>
@@ -178,10 +179,11 @@
 <a href="http://sit.protezionecivilesicilia.it/index.php?option=com_content&view=featured&Itemid=106" title="Regione Siciliana - Dipartimento della Protezione Civile" target="_blank">Regione Siciliana - Dipartimento della Protezione Civile</a>, <a href="http://sit.protezionecivilesicilia.it/index.php?option=com_content&view=article&id=89&Itemid=205" title="Strutture operative territoriali" target="_blank">Strutture operative territoriali</a>, <a href="http://sit.protezionecivilesicilia.it/index.php?option=com_content&view=article&id=86&Itemid=199" title="Associazioni per il Volontariato" target="_blank">Associazioni per il Volontariato</a>;<br></p>
 <p class="lorem"><strong>- Classificazione e Zone sismiche -</strong><br> 
   <a href="http://www.protezionecivile.gov.it/jcms/it/classificazione.wp" title="Protezione Civile - Classificazione sismica" target="_blank">Classificazione sismica</a>, <a href="http://zonesismiche.mi.ingv.it/" title="Zone Sismiche, Valori di pericolosità sismica del territorio italiano" target="_blank">Zone Sismiche, Valori di pericolosità sismica del territorio italiano</a> </p> 
-
+<p class="lorem">I valori di ag vengono forniti da <a href="http://zonesismiche.mi.ingv.it/elaborazioni/" title="INGV – zonesismiche.mi.ingv.it" target="_blank">INGV – zonesismiche.mi.ingv.it</a> per un uso consapevole da parte degli utenti e non possono essere commercializzati. Il loro utilizzo viene effettuato sotto la responsabilità dell’utente. I valori di ag devono essere citati come:
+Gruppo di Lavoro MPS (2004). Redazione della mappa di pericolosità sismica prevista dall’Ordinanza PCM 3274 del 20 marzo 2003. Rapporto Conclusivo per il Dipartimento della Protezione Civile, INGV, Milano-Roma, aprile 2004, 65 pp. + 5 appendici. </p>
 
 <p class="lorem"> <strong>- Elenco nomi Comuni -</strong><br>L'elenco dei nomi dei Comuni Siciliani è estratto da <a href="https://www.openstreetmap.org/#map=9/37.5304/13.9911" title="OpenStreetMap" target="_blank">OpenStreetMap</a> con <a href="http://overpass-turbo.eu/" title="overpass-turbo.eu" target="_blank">overpass-turbo.eu</a> seguendo la <a href="https://geomappando.com/2016/04/20/estrarre-dati-openstreetmap-overpass-turbo/" title="Estrarre dati da OpenStreetMap con Overpass turbo" target="_blank">guida</a> del blog <a href="https://geomappando.com/" title="Geomappando - Soluzioni WebGIS Open Source" target="_blank">geomappando</a></p> 
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
 <hr>
 <p class="lorem">   <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i0.wp.com/i.creativecommons.org/l/by/4.0/88x31.png?ssl=1"  title="Tutto il materiale da me rielaborato è distribuito con Licenza Creative Commons Attribuzione 4.0 Internazionale." data-recalc-dims="1"/></a><br />
 <a href="http://creativecommons.org/licenses/by/4.0/" title="Licenza Creative Commons" target="_blank" rel="license">Creative Commons Attribuzione 4.0 Internazionale</a> - <a href="https://creativecommons.org/licenses/by/4.0/deed.it" title="Licenza Creative Commons" target="_blank" rel="license">Creative Commons Attribuzione 4.0 Italia</a> </p> 
@@ -609,7 +611,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_AreeemergenzadellaprovinciadiRagusa0');
-        map.getPane('pane_AreeemergenzadellaprovinciadiRagusa0').style.zIndex = 401;
+        map.getPane('pane_AreeemergenzadellaprovinciadiRagusa0').style.zIndex = 550;
         map.getPane('pane_AreeemergenzadellaprovinciadiRagusa0').style['mix-blend-mode'] = 'normal';
     var layer_AreeemergenzadellaprovinciadiRagusa0 = new L.geoJson(json_AreeemergenzadellaprovinciadiRagusa0, {
         attribution: '<a href=""></a>',
@@ -744,7 +746,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_AreeemergenzadellaprovinciadiMessina2');
-        map.getPane('pane_AreeemergenzadellaprovinciadiMessina2').style.zIndex = 402;
+        map.getPane('pane_AreeemergenzadellaprovinciadiMessina2').style.zIndex = 550;
         map.getPane('pane_AreeemergenzadellaprovinciadiMessina2').style['mix-blend-mode'] = 'normal';
     var layer_AreeemergenzadellaprovinciadiMessina2 = new L.geoJson(json_AreeemergenzadellaprovinciadiMessina2, {
         attribution: '<a href=""></a>',
@@ -879,7 +881,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_AreeemergenzadellaprovinciadiEnna3');
-        map.getPane('pane_AreeemergenzadellaprovinciadiEnna3').style.zIndex = 403;
+        map.getPane('pane_AreeemergenzadellaprovinciadiEnna3').style.zIndex = 550;
         map.getPane('pane_AreeemergenzadellaprovinciadiEnna3').style['mix-blend-mode'] = 'normal';
     var layer_AreeemergenzadellaprovinciadiEnna3 = new L.geoJson(json_AreeemergenzadellaprovinciadiEnna3, {
         attribution: '<a href=""></a>',
@@ -1014,7 +1016,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_AreeemergenzadellaprovinciadiCatania4');
-        map.getPane('pane_AreeemergenzadellaprovinciadiCatania4').style.zIndex = 404;
+        map.getPane('pane_AreeemergenzadellaprovinciadiCatania4').style.zIndex = 550;
         map.getPane('pane_AreeemergenzadellaprovinciadiCatania4').style['mix-blend-mode'] = 'normal';
     var layer_AreeemergenzadellaprovinciadiCatania4 = new L.geoJson(json_AreeemergenzadellaprovinciadiCatania4, {
         attribution: '<a href=""></a>',
@@ -1176,7 +1178,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_AreeemergenzadelcomunediPalermo0');
-        map.getPane('pane_AreeemergenzadelcomunediPalermo0').style.zIndex = 400;
+        map.getPane('pane_AreeemergenzadelcomunediPalermo0').style.zIndex = 550;
         map.getPane('pane_AreeemergenzadelcomunediPalermo0').style['mix-blend-mode'] = 'normal';
     var layer_AreeemergenzadelcomunediPalermo0 = new L.geoJson(json_AreeemergenzadelcomunediPalermo0, {
         attribution: '<a href=""></a>',
@@ -1254,7 +1256,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_Capitaneriediporto0');
-        map.getPane('pane_Capitaneriediporto0').style.zIndex = 500;
+        map.getPane('pane_Capitaneriediporto0').style.zIndex = 551;
         map.getPane('pane_Capitaneriediporto0').style['mix-blend-mode'] = 'normal';
         var layer_Capitaneriediporto0 = new L.geoJson(json_Capitaneriediporto0, {
             attribution: '<a href=""></a>',
@@ -1330,7 +1332,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_PoliziadiStato1');
-        map.getPane('pane_PoliziadiStato1').style.zIndex = 501;
+        map.getPane('pane_PoliziadiStato1').style.zIndex = 552;
         map.getPane('pane_PoliziadiStato1').style['mix-blend-mode'] = 'normal';
         var layer_PoliziadiStato1 = new L.geoJson(json_PoliziadiStato1, {
             attribution: '<a href=""></a>',
@@ -1402,7 +1404,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_Prefetture0');
-        map.getPane('pane_Prefetture0').style.zIndex = 503;
+        map.getPane('pane_Prefetture0').style.zIndex = 553;
         map.getPane('pane_Prefetture0').style['mix-blend-mode'] = 'normal';
         var layer_Prefetture0 = new L.geoJson(json_Prefetture0, {
             attribution: '<a href=""></a>',
@@ -1459,7 +1461,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_AssociazionidiVolontariatosicilia0');
-        map.getPane('pane_AssociazionidiVolontariatosicilia0').style.zIndex = 505;
+        map.getPane('pane_AssociazionidiVolontariatosicilia0').style.zIndex = 554;
         map.getPane('pane_AssociazionidiVolontariatosicilia0').style['mix-blend-mode'] = 'normal';
         var layer_AssociazionidiVolontariatosicilia0 = new L.geoJson(json_AssociazionidiVolontariatosicilia0, {
             attribution: '<a href=""></a>',
@@ -1545,7 +1547,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_Carabinierisicilia1');
-        map.getPane('pane_Carabinierisicilia1').style.zIndex = 506;
+        map.getPane('pane_Carabinierisicilia1').style.zIndex = 555;
         map.getPane('pane_Carabinierisicilia1').style['mix-blend-mode'] = 'normal';
         var layer_Carabinierisicilia1 = new L.geoJson(json_Carabinierisicilia1, {
             attribution: '<a href=""></a>',
@@ -1623,7 +1625,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_VigilidelFuocosicilia2');
-        map.getPane('pane_VigilidelFuocosicilia2').style.zIndex = 507;
+        map.getPane('pane_VigilidelFuocosicilia2').style.zIndex = 556;
         map.getPane('pane_VigilidelFuocosicilia2').style['mix-blend-mode'] = 'normal';
         var layer_VigilidelFuocosicilia2 = new L.geoJson(json_VigilidelFuocosicilia2, {
             attribution: '<a href=""></a>',
@@ -1684,7 +1686,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_GuardiadiFinanza0');
-        map.getPane('pane_GuardiadiFinanza0').style.zIndex = 507;
+        map.getPane('pane_GuardiadiFinanza0').style.zIndex = 557;
         map.getPane('pane_GuardiadiFinanza0').style['mix-blend-mode'] = 'normal';
         var layer_GuardiadiFinanza0 = new L.geoJson(json_GuardiadiFinanza0, {
             attribution: '<a href=""></a>',
@@ -1791,7 +1793,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_classificazionesicilia0');
-        map.getPane('pane_classificazionesicilia0').style.zIndex = 390;
+        map.getPane('pane_classificazionesicilia0').style.zIndex = 401;
         map.getPane('pane_classificazionesicilia0').style['mix-blend-mode'] = 'normal';
     var layer_classificazionesicilia0 = new L.geoJson(json_classificazionesicilia0, {
         attribution: '<a href=""></a>',
@@ -1800,15 +1802,147 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
         style: style_classificazionesicilia0_0,
     });
         bounds_group.addLayer(layer_classificazionesicilia0);
-<!-- Zome sismiche -->
-
-
-
-
-
 		
+<!-- Pericolosità  sismica passo 0.02 gradi -->
+        function pop_pericolositsismica0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_pericolositsismica0_0(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+						<tr>\
+                        <th scope="row">' + (feature.properties['ico'] !== null ? Autolinker.link(String(feature.properties['ico'])) : '') + '</th>\
+                        <td><span class="legenda1">Pericolosià Sismica di riferimento a passo 0,02 gradi<spam /></td>\
+                       </tr>\
+                    <tr>\
+                        <th scope="row">Valori a(g):&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['ag'] !== null ? Autolinker.link(String(feature.properties['ag'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Descrizione:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['descrizion'] !== null ? Autolinker.link(String(feature.properties['descrizion'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_pericolositsismica0_0(feature) {
+            switch(feature.properties['ag']) {
+                case '0.000 - 0.025':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(225,225,225,0.75)',
+            }
+                    break;
+                case '0.025 - 0.050':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(178,178,178,0.75)',
+            }
+                    break;
+                case '0.050 - 0.075':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(190,232,255,0.75)',
+            }
+                    break;
+                case '0.075 - 0.100':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(115,178,255,0.75)',
+            }
+                    break;
+                case '0.100 - 0.125':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(165,245,122,0.75)',
+            }
+                    break;
+                case '0.125 - 0.150':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(56,167,0,0.75)',
+            }
+                    break;
+                case '0.150 - 0.175':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(254,255,115,0.75)',
+            }
+                    break;
+                case '0.175 - 0.200':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,211,128,0.75)',
+            }
+                    break;
+                case '0.200 - 0.225':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(230,152,0,0.75)',
+            }
+                    break;
+                case '0.225 - 0.250':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(254,0,0,0.75)',
+            }
+                    break;
+                case '0.250 - 0.275':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(167,0,132,0.75)',
+            }
+                    break;
+                case '0.275 - 0.300':
+                    return {
+                pane: 'pane_pericolositsismica0',
+                stroke: false, 
+                fillOpacity: 1,
+                fillColor: 'rgba(77,0,116,0.75)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_pericolositsismica0');
+        map.getPane('pane_pericolositsismica0').style.zIndex = 400;
+        map.getPane('pane_pericolositsismica0').style['mix-blend-mode'] = 'normal';
+    var layer_pericolositsismica0 = new L.geoJson(json_pericolositsismica0, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_pericolositsismica0',
+        onEachFeature: pop_pericolositsismica0,
+        style: style_pericolositsismica0_0,
+    });
+        bounds_group.addLayer(layer_pericolositsismica0);
+		
+<!-- Legenda mappa -->
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa Aree di emergenza</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prot. Civile - Reg. Sicilia<br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda</span><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/info.png" Title="Area di attesa" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di attesa</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ricovero.png" Title="Area accoglienza o di ricovero" "width="20" height="23" /></td><td>&nbsp;&nbsp;&nbsp;Area di ricovero</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ammassamento.png" title="Area di ammassamento"width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammassamento</td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/firemen_01.png" Title=" Area di ammassamento Colonna mobile VV.F" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Colonna mobile VV.F </td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ri.png" Title="Area rischio industriale " width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area rischio industriale</td></tr></table><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aree di emergenza.</span>':layer_poligonoisola0,'&nbsp;Provincia di Catania<br />': layer_AreeemergenzadellaprovinciadiCatania4,'&nbsp;Provincia di Enna<br />': layer_AreeemergenzadellaprovinciadiEnna3,'Provincia di Messina<br />': layer_AreeemergenzadellaprovinciadiMessina2,'&nbsp;Provincia di Ragusa<br />': layer_AreeemergenzadellaprovinciadiRagusa0, '&nbsp;Comune di Palermo<br /> <hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strutture operative<br /></span>': layer_AreeemergenzadelcomunediPalermo0, '&nbsp;&nbsp;<img src="legend/legge.png"Title=" Prefetture" width="20" height="23" />&nbsp;&nbsp;Prefetture': layer_Prefetture0, '&nbsp;&nbsp;<img src="legend/carabinieri.png" Title="Carabinieri" width="20" height="23" />&nbsp;&nbsp;Carabinieri': layer_Carabinierisicilia1,  '&nbsp;&nbsp;<img src="legend/polizia.png" Title=" Polizia di Stato" width="20" height="23"/>&nbsp;&nbsp;Polizia di Stato': layer_PoliziadiStato1, '&nbsp;&nbsp;<img src="legend/gdf.png" Title="Guardia di Finanza " width="20" height="23"/>&nbsp;&nbsp;Guardia di Finanza': layer_GuardiadiFinanza0,  '&nbsp;&nbsp;<img src="legend/ferry.png" Title="Capitanerie di porto " width="20" height="23" />&nbsp;&nbsp;Capitanerie di porto': layer_Capitaneriediporto0, '&nbsp;&nbsp;<img src="legend/firemen.png" Title="Vigili del Fuoco" width="20" height="23"/>&nbsp;&nbsp;Vigili del Fuoco': layer_VigilidelFuocosicilia2, '&nbsp;&nbsp;<img src="legend/ass_prot_civile.png" Title=" Associazioni di Volontariato" width="20" height="23" />&nbsp;&nbsp;Ass. Volontariato<br /><hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sismicità<br /></span>': layer_AssociazionidiVolontariatosicilia0, '&nbsp;&nbsp; Classificazione Sismica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z1.png" /></td><td>&nbsp;&nbsp;Zona 1</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z2.png" /></td><td>&nbsp;&nbsp;Zona 2</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z3.png" /></td><td>&nbsp;&nbsp;Zona 3</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z4.png" /></td><td>&nbsp;&nbsp;Zona 4</td></tr></table><br /><br /><br />': layer_classificazionesicilia0,}).addTo(map);
+        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa Aree di emergenza</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prot. Civile - Reg. Sicilia<br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda</span><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/info.png" Title="Area di attesa" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di attesa</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ricovero.png" Title="Area accoglienza o di ricovero" "width="20" height="23" /></td><td>&nbsp;&nbsp;&nbsp;Area di ricovero</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ammassamento.png" title="Area di ammassamento"width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammassamento</td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/firemen_01.png" Title=" Area di ammassamento Colonna mobile VV.F" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Colonna mobile VV.F </td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ri.png" Title="Area rischio industriale " width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area rischio industriale</td></tr></table><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aree di emergenza.</span>':layer_poligonoisola0,'&nbsp;Provincia di Catania<br />': layer_AreeemergenzadellaprovinciadiCatania4,'&nbsp;Provincia di Enna<br />': layer_AreeemergenzadellaprovinciadiEnna3,'Provincia di Messina<br />': layer_AreeemergenzadellaprovinciadiMessina2,'&nbsp;Provincia di Ragusa<br />': layer_AreeemergenzadellaprovinciadiRagusa0, '&nbsp;Comune di Palermo<br /> <hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strutture operative<br /></span>': layer_AreeemergenzadelcomunediPalermo0, '&nbsp;&nbsp;<img src="legend/legge.png"Title=" Prefetture" width="20" height="23" />&nbsp;&nbsp;Prefetture': layer_Prefetture0, '&nbsp;&nbsp;<img src="legend/carabinieri.png" Title="Carabinieri" width="20" height="23" />&nbsp;&nbsp;Carabinieri': layer_Carabinierisicilia1,  '&nbsp;&nbsp;<img src="legend/polizia.png" Title=" Polizia di Stato" width="20" height="23"/>&nbsp;&nbsp;Polizia di Stato': layer_PoliziadiStato1, '&nbsp;&nbsp;<img src="legend/gdf.png" Title="Guardia di Finanza " width="20" height="23"/>&nbsp;&nbsp;Guardia di Finanza': layer_GuardiadiFinanza0,  '&nbsp;&nbsp;<img src="legend/ferry.png" Title="Capitanerie di porto " width="20" height="23" />&nbsp;&nbsp;Capitanerie di porto': layer_Capitaneriediporto0, '&nbsp;&nbsp;<img src="legend/firemen.png" Title="Vigili del Fuoco" width="20" height="23"/>&nbsp;&nbsp;Vigili del Fuoco': layer_VigilidelFuocosicilia2, '&nbsp;&nbsp;<img src="legend/ass_prot_civile.png" Title=" Associazioni di Volontariato" width="20" height="23" />&nbsp;&nbsp;Ass. Volontariato<br /><hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sismicità<br /></span>': layer_AssociazionidiVolontariatosicilia0, '&nbsp;&nbsp;&nbsp;Classificazione Sismica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z1.png" /></td><td>&nbsp;&nbsp;Zona 1</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z2.png" /></td><td>&nbsp;&nbsp;Zona 2</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z3.png" /></td><td>&nbsp;&nbsp;Zona 3</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z4.png" /></td><td>&nbsp;&nbsp;Zona 4</td></tr></table>': layer_classificazionesicilia0, '&nbsp;&nbsp;&nbsp;Pericolosità Sismica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/0.png" /></td><td>&nbsp;&nbsp;0.000 - 0.025</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/025.png" /></td><td>&nbsp;&nbsp;0.025 - 0.050</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/050.png" /></td><td>&nbsp;&nbsp;0.050 - 0.075</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/075.png" /></td><td>&nbsp;&nbsp;0.075 - 0.100</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/100.png" /></td><td>&nbsp;&nbsp;0.100 - 0.125</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/125.png" /></td><td>&nbsp;&nbsp;0.125 - 0.150</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/150.png" /></td><td>&nbsp;&nbsp;0.150 - 0.175</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/175.png" /></td><td>&nbsp;&nbsp;0.175 - 0.200</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/200.png" /></td><td>&nbsp;&nbsp;0.200 - 0.225</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/225.png" /></td><td>&nbsp;&nbsp;0.225 - 0.250</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/250.png" /></td><td>&nbsp;&nbsp;0.250 - 0.275</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/275.png" /></td><td>&nbsp;&nbsp;0.275 - 0.300</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br /> <br /><br /><br /><br />': layer_pericolositsismica0,}).addTo(map);
         setBounds();
 		<!-- strumenti di leaflet -->
 		var zoomHome = L.Control.zoomHome();zoomHome.addTo(map);
