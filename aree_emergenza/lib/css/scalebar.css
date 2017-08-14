@@ -34,6 +34,7 @@
 
 /*  spento su display 6" portrait */
 	@media screen and (width: 375px) {.leaflet-control-graphicscale {display: none; }}
+    @media screen and (width: 414px) {.leaflet-control-graphicscale {display: none; }}
 	@media screen and (width: 667px) {.leaflet-control-graphicscale {display: none; }}
   
 
