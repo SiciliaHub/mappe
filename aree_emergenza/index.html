@@ -348,7 +348,13 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
 
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { attribution: 'Source: &#9400; ESRI Satellite', minZoom: 9,  maxZoom: 19, maxNativeZoom: 19, label: 'ESRI Satellite - Max zoom 19'}),
  ];
- 
+ 	<!-- scala mappa -->		
+    var graphicScale = L.control.graphicScale({
+		doubleLine: true,
+		fill: 'hollow',
+        showSubunits: true
+	}).addTo(map);	
+	
 <!-- selettore comuni -->	
 var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
 			select.addTo(map);
@@ -366,6 +372,13 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
 				map.fitBounds(country.getBounds());
 				
 			});	
+			
+<!-- muose coordinate -->	
+		   L.control.mousePosition().addTo(map);
+	    map.on("mousemove", function(e) {
+		baselayer.setCenter(e.containerPoint.x, e.containerPoint.y); e_sat.setCenter(e.containerPoint.x, e.containerPoint.y);
+         }) 		
+			
 			
 <!-- funzioni mappa -->
         function setBounds() {
@@ -397,11 +410,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 },
                 mouseover: highlightFeature,
             });
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">name</th>\
-                        <td>' + (feature.properties['name'] !== null ? Autolinker.link(String(feature.properties['name'])) : '') + '</td>\
-                    </tr>\
+           var popupContent = '<table>\
                 </table>';
             layer.bindPopup(popupContent);
         }
@@ -413,12 +422,12 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
         rotationOrigin: 'center center',
         icon: L.icon({
             iconUrl: 'markers/point.svg',
-            iconSize: [1.9, 1.9]
+            iconSize: [0.01, 0.01]
         }),
             }
         }
         map.createPane('pane_comuniOSM0');
-        map.getPane('pane_comuniOSM0').style.zIndex = 400;
+        map.getPane('pane_comuniOSM0').style.zIndex = 1;
         map.getPane('pane_comuniOSM0').style['mix-blend-mode'] = 'normal';
         var layer_comuniOSM0 = new L.geoJson(json_comuniOSM0, {
             attribution: '<a href=""></a>',
@@ -444,10 +453,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Comune:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
-                    </tr>\
                 </table>';
             layer.bindPopup(popupContent);
         }
@@ -465,7 +470,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             }
         }
         map.createPane('pane_poligonoisola0');
-        map.getPane('pane_poligonoisola0').style.zIndex = 400;
+        map.getPane('pane_poligonoisola0').style.zIndex = 1;
         map.getPane('pane_poligonoisola0').style['mix-blend-mode'] = 'normal';
     var layer_poligonoisola0 = new L.geoJson(json_poligonoisola0, {
         attribution: '<a href=""></a>',
@@ -1695,18 +1700,21 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
 
 		
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa Aree di emergenza.</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Protezione Civile - Regione Sicilia<br /><br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda</span><br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/info.png" Title="Area di attesa" width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di attesa</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ricovero.png" Title="Area accoglienza o di ricovero" "width="25" height="29" /></td><td>&nbsp;&nbsp;&nbsp;Area di ricovero</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ammassamento.png" title="Area di ammassamento"width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammassamento</td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/firemen_01.png" Title=" Area di ammass. Colonna mobile VV.F" width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammass. Colonna mobile VV.F </td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ri.png" Title="Area rischio industriale " width="25" height="29"/></td><td>&nbsp;&nbsp;&nbsp;Area rischio industriale</td></tr></table><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aree di emergenza.</span>':layer_poligonoisola0,'&nbsp;Provincia di Catania<br />': layer_AreeemergenzadellaprovinciadiCatania4,'&nbsp;Provincia di Enna<br />': layer_AreeemergenzadellaprovinciadiEnna3,'Provincia di Messina<br />': layer_AreeemergenzadellaprovinciadiMessina2,'&nbsp;Provincia di Ragusa<br />': layer_AreeemergenzadellaprovinciadiRagusa0, '&nbsp;Comune di Palermo<br /> <hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strutture operative territoriali<br /></span>': layer_AreeemergenzadelcomunediPalermo0, '&nbsp;&nbsp;<img src="legend/legge.png"Title=" Prefetture" width="25" height="29" />&nbsp;&nbsp;Prefetture': layer_Prefetture0, '&nbsp;&nbsp;<img src="legend/carabinieri.png" Title="Carabinieri" width="25" height="29" />&nbsp;&nbsp;Carabinieri': layer_Carabinierisicilia1,  '&nbsp;&nbsp;<img src="legend/polizia.png" Title=" Polizia di Stato" width="25" height="29"/>&nbsp;&nbsp;Polizia di Stato': layer_PoliziadiStato1, '&nbsp;&nbsp;<img src="legend/gdf.png" Title="Guardia di Finanza " width="25" height="29"/>&nbsp;&nbsp;Guardia di Finanza': layer_GuardiadiFinanza0,  '&nbsp;&nbsp;<img src="legend/ferry.png" Title="Capitanerie di porto " width="25" height="29" />&nbsp;&nbsp;Capitanerie di porto': layer_Capitaneriediporto0, '&nbsp;&nbsp;<img src="legend/firemen.png" Title="Vigili del Fuoco" width="25" height="29"/>&nbsp;&nbsp;Vigili del Fuoco': layer_VigilidelFuocosicilia2, '&nbsp;&nbsp;<img src="legend/ass_prot_civile.png" Title=" Associazioni di Volontariato" width="25" height="29" />&nbsp;&nbsp;Associazioni di Volontariato': layer_AssociazionidiVolontariatosicilia0,}).addTo(map);
+        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa Aree di emergenza.</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Protezione Civile - Regione Sicilia<br /><br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda</span><br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/info.png" Title="Area di attesa" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di attesa</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ricovero.png" Title="Area accoglienza o di ricovero" "width="20" height="23" /></td><td>&nbsp;&nbsp;&nbsp;Area di ricovero</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ammassamento.png" title="Area di ammassamento"width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammassamento</td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/firemen_01.png" Title=" Area di ammass. Colonna mobile VV.F" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammass. Colonna mobile VV.F </td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ri.png" Title="Area rischio industriale " width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area rischio industriale</td></tr></table><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aree di emergenza.</span>':layer_poligonoisola0,'&nbsp;Provincia di Catania<br />': layer_AreeemergenzadellaprovinciadiCatania4,'&nbsp;Provincia di Enna<br />': layer_AreeemergenzadellaprovinciadiEnna3,'Provincia di Messina<br />': layer_AreeemergenzadellaprovinciadiMessina2,'&nbsp;Provincia di Ragusa<br />': layer_AreeemergenzadellaprovinciadiRagusa0, '&nbsp;Comune di Palermo<br /> <hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strutture operative territoriali<br /></span>': layer_AreeemergenzadelcomunediPalermo0, '&nbsp;&nbsp;<img src="legend/legge.png"Title=" Prefetture" width="20" height="23" />&nbsp;&nbsp;Prefetture': layer_Prefetture0, '&nbsp;&nbsp;<img src="legend/carabinieri.png" Title="Carabinieri" width="20" height="23" />&nbsp;&nbsp;Carabinieri': layer_Carabinierisicilia1,  '&nbsp;&nbsp;<img src="legend/polizia.png" Title=" Polizia di Stato" width="20" height="23"/>&nbsp;&nbsp;Polizia di Stato': layer_PoliziadiStato1, '&nbsp;&nbsp;<img src="legend/gdf.png" Title="Guardia di Finanza " width="20" height="23"/>&nbsp;&nbsp;Guardia di Finanza': layer_GuardiadiFinanza0,  '&nbsp;&nbsp;<img src="legend/ferry.png" Title="Capitanerie di porto " width="20" height="23" />&nbsp;&nbsp;Capitanerie di porto': layer_Capitaneriediporto0, '&nbsp;&nbsp;<img src="legend/firemen.png" Title="Vigili del Fuoco" width="20" height="23"/>&nbsp;&nbsp;Vigili del Fuoco': layer_VigilidelFuocosicilia2, '&nbsp;&nbsp;<img src="legend/ass_prot_civile.png" Title=" Associazioni di Volontariato" width="20" height="23" />&nbsp;&nbsp;Associazioni di Volontariato': layer_AssociazionidiVolontariatosicilia0,}).addTo(map);
         setBounds();
 		<!-- strumenti di leaflet -->
-				var zoomHome = L.Control.zoomHome();zoomHome.addTo(map);
+		var zoomHome = L.Control.zoomHome();zoomHome.addTo(map);
 		var hash = new L.Hash(map);
-			   var sidebar = L.control.sidebar('sidebar').addTo(map);
 		
-			  
-	   L.control.mousePosition().addTo(map);
-	    map.on("mousemove", function(e) {
-		baselayer.setCenter(e.containerPoint.x, e.containerPoint.y); e_sat.setCenter(e.containerPoint.x, e.containerPoint.y);
-         }) <!--.zoomControl.setPosition("topleft") -->;
+		map.addControl(new L.Control.Search({
+            layer:  layer_comuniOSM0,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'name'}));
+			
+		  var sidebar = L.control.sidebar('sidebar').addTo(map);
+
+		 <!--.zoomControl.setPosition("topleft") -->;
 		 L.control.locate().addTo(map);
 		var measureControl = new L.Control.Measure({
             primaryLengthUnit: 'meters',
@@ -1714,11 +1722,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             primaryAreaUnit: 'sqmeters',
             secondaryAreaUnit: 'hectares'
         });
-    var graphicScale = L.control.graphicScale({
-		doubleLine: true,
-		fill: 'hollow',
-        showSubunits: true
-	}).addTo(map);
+
         measureControl.addTo(map);
 		L.easyPrint({title: 'Stampa la mappa',	position: 'topleft'}).addTo(map);
 		 map.addControl(L.control.basemaps({
@@ -1727,13 +1731,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             tileY: 0,
             tileZ: 1
         }));
-		map.addControl(new L.Control.Search({
-            layer:  layer_comuniOSM0,
-            initial: false,
-            hideMarkerOnCollapse: true,
-            propertyName: 'name'}));
-			
-			
         </script>
         
  <!-- header -->       

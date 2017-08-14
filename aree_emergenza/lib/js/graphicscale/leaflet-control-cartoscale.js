@@ -6,7 +6,7 @@
 
 L.Control.CartographicScale = L.Control.extend({
     options: {
-        position: 'bottomleft',
+        position: 'bottomright',
         text: 'Map scale'
     },
     initialize: function(options) {

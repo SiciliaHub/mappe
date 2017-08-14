@@ -4,19 +4,33 @@
 	border-radius: 2px;
 	padding: 0 5px;
 	width:120px;
-/*  margin:0;
-    left:10px;*/
-	right: 0px;
-	bottom: 0px;
+  margin:0;
+ left:10px;
+  bottom:35px;
+
 	color: #4E4B4B;
 	font: 11px/1.5 "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;
 	text-align:center;
-	
+	z-index:50;
 }
+
+  	/*  spento su display 4" */
+	@media screen and (width: 320px) {  .leaflet-container .leaflet-control-mouseposition {display: none;  }}
+	@media screen and (width: 480px) {  .leaflet-container .leaflet-control-mouseposition {display: none;  }}
+
+/*  spento su display 5" */
+
+	@media screen and (width: 384px) {  .leaflet-container .leaflet-control-mouseposition {display: none;  }}
+	@media screen and (width: 360px) {.leaflet-container .leaflet-control-mouseposition {display: none; }}
+	/*@media screen and (width: 640px) { .leaflet-container .leaflet-control-mouseposition {display: none; }}*/
+
+/*  spento su display 6" portrait */
+	@media screen and (width: 375px) {.leaflet-container .leaflet-control-mouseposition {display: none; }}
+	/*@media screen and (width: 667px) {.leaflet-container .leaflet-control-mouseposition {display: none; }}*/
 
 
 /* loghi opendatasicilia e italiaafuoco -
  giovan battista vitrano per opendatasicilia.it */
 
-#ods { position:fixed; bottom:90px; right:17px; z-index: 999;}
-#itaf { position:fixed; bottom:155px; right:37px; z-index: 999;}
+#ods { position:fixed; bottom:65px; right:17px; z-index: 999;}
+/*#itaf { position:fixed; bottom:155px; right:37px; z-index: 999;}*/

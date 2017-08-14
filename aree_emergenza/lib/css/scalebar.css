@@ -16,10 +16,26 @@
     background-image: url(noise.png);
     padding: 20px 45px 30px 35px;
     box-shadow: 0px 0px 30px rgba(52, 38, 13, .5);*/
-  color: #4E4B4B; 
-  bottom:-33px;
-  right:120px;
-}
+    bottom:-5px;
+	color: #4E4B4B; 
+  right:0px;
+  z-index:50;
+  }
+  
+  	/*  spento su display 4" */
+	@media screen and (width: 320px) {  .leaflet-control-graphicscale {display: none;  }}
+	@media screen and (width: 480px) {  .leaflet-control-graphicscale {display: none;  }}
+
+/*  spento su display 5" */
+
+	@media screen and (width: 384px) {  .leaflet-control-graphicscale {display: none;  }}
+	@media screen and (width: 360px) {.leaflet-control-graphicscale {display: none; }}
+	@media screen and (width: 640px) { .leaflet-control-graphicscale {display: none; }}
+
+/*  spento su display 6" portrait */
+	@media screen and (width: 375px) {.leaflet-control-graphicscale {display: none; }}
+	@media screen and (width: 667px) {.leaflet-control-graphicscale {display: none; }}
+  
 
 .leaflet-control-graphicscale .label {
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -27,37 +43,45 @@
 	 color: #4E4B4B;
     margin-bottom: 2px;
 	font-weight:bold;
+	  
 }
 /* foglio di stile atlante cartografico palermo -
  giovan battista vitrano per opendatasicilia.it */
 .leaflet-control-graphicscale .labelSub {
     font-size: 10px;
     margin-bottom: 4px;
+
 }
 
 .leaflet-control-graphicscale .line {
     border-color: color: #4E4B4B; 
+
 }
 
 .leaflet-control-graphicscale .filled .fill {
     background-color: color: #4E4B4B; 
+
 }
 
 .scaleText {
     margin-bottom: 35px;
     text-align: center;
+
 }
 
 .scaleText h1, .scaleText p {
     margin: 0;
+
 }
 
 .scaleText h1 {
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 10px;
+
 }
 
 .scaleText .choice {
     margin: 0 5px;
     cursor: pointer;
+
 }
