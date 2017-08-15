@@ -20,37 +20,43 @@
 	color: #4E4B4B; 
   right:0px;
   z-index:50;
+
   }
-  
+    @media (min-width: 320px) and (max-width: 667px) {
+	.leaflet-control-graphicscale {bottom:-10px; }}
+	   
+	 
   	/*  spento su display 4" */
 	@media screen and (width: 320px) {  .leaflet-control-graphicscale {display: none;  }}
 	@media screen and (width: 480px) {  .leaflet-control-graphicscale {display: none;  }}
 
 /*  spento su display 5" */
 
-	@media screen and (width: 384px) {  .leaflet-control-graphicscale {display: none;  }}
+/* @media screen and (width: 384px) {  .leaflet-control-graphicscale {display: none;  }}
 	@media screen and (width: 360px) {.leaflet-control-graphicscale {display: none; }}
-	@media screen and (width: 640px) { .leaflet-control-graphicscale {display: none; }}
+	@media screen and (width: 640px) {.leaflet-control-graphicscale .label {	font-size: 8px;} .leaflet-control-graphicscale .labelSub {font-size: 6px; }}*/
 
 /*  spento su display 6" portrait */
-	@media screen and (width: 375px) {.leaflet-control-graphicscale {display: none; }}
+/*	@media screen and (width: 375px) {.leaflet-control-graphicscale {display: none; }}
     @media screen and (width: 414px) {.leaflet-control-graphicscale {display: none; }}
-	@media screen and (width: 667px) {.leaflet-control-graphicscale {display: none; }}
+	@media screen and (width: 667px) {.leaflet-control-graphicscale {display: none; }} */
   
 
 .leaflet-control-graphicscale .label {
-	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
-     font-size: 12px;
+	font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;
+     font-size: 10px;
 	 color: #4E4B4B;
     margin-bottom: 2px;
 	font-weight:bold;
+
 	  
 }
 /* foglio di stile atlante cartografico palermo -
  giovan battista vitrano per opendatasicilia.it */
 .leaflet-control-graphicscale .labelSub {
-    font-size: 10px;
+    font-size: 8px;
     margin-bottom: 4px;
+
 
 }
 
@@ -76,7 +82,7 @@
 }
 
 .scaleText h1 {
-	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;
     font-size: 10px;
 
 }

@@ -19,7 +19,8 @@ html, body {padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "
   	/*  spento su display 4" */
 	@media screen and (width: 320px) {  #beta {left:80px;} .beta{width: 42px; height: 42px;}}
 	@media screen and (width: 480px) {  #beta {left:85px; bottom:40px; }.beta{width: 42px; height: 42px;}}
-
+	@media screen and (width: 533px) {  #beta {left:85px; bottom:60px; }.beta{width: 42px; height: 42px;}}
+    @media screen and (width: 568px) {  #beta {left:85px; bottom:60px; }.beta{width: 42px; height: 42px;}}
 /*  spento su display 5" */
 
 	@media screen and (width: 384px) { #beta {left:80px;}.beta{width: 42px; height: 42px;}}
@@ -27,10 +28,13 @@ html, body {padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "
 	@media screen and (width: 640px) { #beta {left:90px; bottom:50px;} .beta{width: 40px; height: 40px;}}
 
 /*  spento su display 6" portrait */
+   
 	@media screen and (width: 375px) {#beta {left:50px; bottom:80px;}.beta{width: 42px; height: 42px;}}
 	@media screen and (width: 414px) {#beta {left:50px; bottom:70px;}.beta{width: 42px; height: 42px;}}
+	@media screen and (width: 412px) {#beta {left:50px; bottom:70px;}.beta{width: 42px; height: 42px;}}
 	@media screen and (width: 667px) {#beta {left:90px; bottom:50px;}.beta{width: 42px; height: 42px;}}
-    @media screen and (width: 736px) {#beta {left:90px; bottom:50px;}.beta{width: 42px; height: 42px;}}
+    @media screen and (width: 732px) {#beta {left:90px; bottom:60px;}.beta{width: 42px; height: 42px;}}
+	@media screen and (width: 736px) {#beta {left:90px; bottom:50px;}.beta{width: 42px; height: 42px;}}
 
 
 

@@ -24,9 +24,7 @@
 
   ga('create', 'UA-87653723-1', 'auto');
   ga('send', 'pageview');
-
 </script> 
-   
        
  <!-- Open Graph Protocol -->
 <meta property="og:title" content="Aree di Emergenza - Protezione Civilie - Regione Sicilia" />
@@ -47,7 +45,6 @@
 <meta name="twitter:url" content="github.com/SiciliaHub/mappe">
 <!-- twitter -->    
 
- <!-- css -->
  <!-- css -->
 <link href="lib/css/atlante_01.css" rel="stylesheet" type="text/css">
 <link href="lib/css/leaflet_sicilia.css" rel="stylesheet" type="text/css">
@@ -80,9 +77,9 @@
 .social1 a:link{color: #4E4B4B;	text-decoration:none;}
 .social1 a:visited {	color: #4E4B4B; text-decoration:none;}
 .social1 a:hover {color: #FF9900; text-decoration:none; } 
-
 </style>       
-            <!-- script mappa -->
+
+<!-- script mappa -->
 <script src="lib/js/qgi2web/qgis2web_expressions.js"></script>
 <script src="lib/js/qgi2web/leaflet.js"></script>
 <script src="lib/js/qgi2web/L.Control.Locate.min.js"></script>
@@ -104,13 +101,19 @@
 <script src="lib/js/sidebar/leaflet-sidebar.js"></script>
 <script src="lib/js/social/jquery_csbuttons.js"></script>
 <script src="lib/js/mouseposition/LControlMousePosition.js"></script>
-<script src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"></script>  
+<!-- <script src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"></script> -->
+ 
+<script> if (screen && screen.width > 738) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"><\/script>'); } </script>
+<script> if (screen && screen.width < 737) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min_mobile.js"><\/script>'); } </script>
+
+
 <script src="lib/js/zoomhome/leaflet.zoomhome.js"></script>     
 <script src="lib/js/basemap/L.Control.Basemaps.js"></script>
 <script src="lib/js/print/leaflet.easyPrint.js"></script>
 <script src="lib/js/countryselect/Leaflet.CountrySelect.js" charset="UTF-8"></script>
-       
-        <!-- script dati mappa -->
+
+
+<!-- script dati mappa -->
 <script src="data/comuniOSM0.js" charset="UTF-8"></script>
 <script src="data/AreeemergenzadellaprovinciadiCatania4.js"></script>
 <script src="data/AreeemergenzadellaprovinciadiEnna3.js"></script>
@@ -126,10 +129,14 @@
 <script src="data/VigilidelFuocosicilia2.js"></script>
 <script src="data/GuardiadiFinanza0.js"></script>
 <script src="data/pericolositsismica0.js"></script>
- 
 
-    </head>
-    <body>
+
+
+
+
+</head>
+
+<body>
 <div id="sidebar" class="sidebar collapsed">
 <!-- Nav tabs -->
         <div class="sidebar-tabs">
@@ -248,7 +255,6 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
   </tbody>
 </table>
 
-
 <br><br><br><br><br><br><br><br><br><br>
 <p class="lorem">Ci trovi in questi luoghi: </p> <br>
   <table width="10%" border="0" align="center" cellpadding="0" cellspacing="0" class="social1" >
@@ -343,7 +349,7 @@ map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qg
 var bounds_group = new L.featureGroup([]);
 <!-- mappe di base -->	  
 var basemaps = [ 
-L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {attribution:'Map tiles by <a target="_blank" href="http://cartodb.com/attributions#basemaps">CartoDB</a>, under <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. map data &#9400; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap contributors</a> under ODbL', minZoom: 7,  maxZoom: 20, maxNativeZoom: 20,label: 'Map tiles by CartoDB'}),
+L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="http://cartodb.com/attributions">CartoDB</a> - <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>', minZoom: 7,  maxZoom: 20, maxNativeZoom: 20,label: 'Map tiles by CartoDB'}),
 
 L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {attribution: 'Source: Google Satellite - Map data ©2015 Google',
 				minZoom: 7,  maxZoom: 20, maxNativeZoom: 20, label: 'Google Satellite'}),
@@ -383,7 +389,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
 		baselayer.setCenter(e.containerPoint.x, e.containerPoint.y); e_sat.setCenter(e.containerPoint.x, e.containerPoint.y);
          }) 		
 			
-			
 <!-- funzioni mappa -->
         function setBounds() {
         }
@@ -410,7 +415,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_comuniOSM0_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
@@ -490,7 +494,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_AreeemergenzadellaprovinciadiRagusa0_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
@@ -625,7 +628,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_AreeemergenzadellaprovinciadiMessina2_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
@@ -760,7 +762,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_AreeemergenzadellaprovinciadiEnna3_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
