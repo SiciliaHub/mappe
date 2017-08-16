@@ -95,7 +95,8 @@
 <script src="lib/js/qgi2web/leaflet.markercluster.js"></script>
 <script src="lib/js/qgi2web/leaflet-search.js"></script>     
 <script src="data/classificazionesicilia0.js"></script>       
-            
+<script src="data/PericolositSismicaIstat0.js"></script>
+                    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>        
 <script src="lib/js/sidebar/leaflet-sidebar.js"></script>
@@ -478,8 +479,8 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
         bounds_group.addLayer(layer_poligonoisola0);
         map.addLayer(layer_poligonoisola0);
 		
-<!-- mapper  Istat-->
-		
+<!-- mappe  Istat-->
+<!-- Zone altimetriche -->		
         function pop_ZonaAltimetrica0(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -641,8 +642,238 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
     });
         bounds_group.addLayer(layer_ZonaAltimetrica0);
         map.addLayer(layer_ZonaAltimetrica0);
+		
+<!-- Pericolosità sismica -->v		
+        function pop_PericolositSismicaIstat0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_PericolositSismicaIstat0_0(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+												<tr>\
+                        <th scope="row"><span class="legenda1">PERICOLOSIT&Agrave; SISMICA<br /><br /><spam /> </th>\
+                       </tr>\
+			                    <tr>\
+                        <th scope="row">REGIONE:&nbsp;&nbsp;</th>\
+                        <td>Sicilia</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">COMUNE:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ZONA ALTIMETRICA:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['ZONA_ALT_T'] !== null ? Autolinker.link(String(feature.properties['ZONA_ALT_T'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ALTIMETRIA LOC ABITATA (CENTRO):&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['ALT_LOC_AB'] !== null ? Autolinker.link(String(feature.properties['ALT_LOC_AB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SUPERFICIE URBANIZZATA:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['SUP_URB'] !== null ? Autolinker.link(String(feature.properties['SUP_URB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ALTEZZA MIN COM:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['ALT_MIN'] !== null ? Autolinker.link(String(feature.properties['ALT_MIN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ALTEZZA MAX COM:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['ALT_MAX'] !== null ? Autolinker.link(String(feature.properties['ALT_MAX'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ACCELERAZIONE MAX SUOLO:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['AGMAX_50'] !== null ? Autolinker.link(String(feature.properties['AGMAX_50'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ACCELERAZIONE MIN SUOLO:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['AGMIN_50'] !== null ? Autolinker.link(String(feature.properties['AGMIN_50'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_PericolositSismicaIstat0_0(feature) {
+            if (feature.properties['AGMAX_50'] >= 0.000000 && feature.properties['AGMAX_50'] <= 0.030000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(225,225,225,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.030000 && feature.properties['AGMAX_50'] <= 0.050000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(178,178,178,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.050000 && feature.properties['AGMAX_50'] <= 0.075000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(190,232,255,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.075000 && feature.properties['AGMAX_50'] <= 0.100000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(115,178,255,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.100000 && feature.properties['AGMAX_50'] <= 0.125000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(165,245,122,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.125000 && feature.properties['AGMAX_50'] <= 0.150000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(56,167,0,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.150000 && feature.properties['AGMAX_50'] <= 0.175000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(254,255,115,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.175000 && feature.properties['AGMAX_50'] <= 0.200000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,211,128,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.200000 && feature.properties['AGMAX_50'] <= 0.225000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(230,152,0,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.225000 && feature.properties['AGMAX_50'] <= 0.250000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(254,0,0,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.250000 && feature.properties['AGMAX_50'] <= 0.275000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(167,0,132,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.275000 && feature.properties['AGMAX_50'] <= 0.300000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(77,0,116,0.75)',
+            }
+            }
+        }
+        map.createPane('pane_PericolositSismicaIstat0');
+        map.getPane('pane_PericolositSismicaIstat0').style.zIndex = 400;
+        map.getPane('pane_PericolositSismicaIstat0').style['mix-blend-mode'] = 'normal';
+    var layer_PericolositSismicaIstat0 = new L.geoJson(json_PericolositSismicaIstat0, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_PericolositSismicaIstat0',
+        onEachFeature: pop_PericolositSismicaIstat0,
+        style: style_PericolositSismicaIstat0_0,
+    });
+        bounds_group.addLayer(layer_PericolositSismicaIstat0);
+       // map.addLayer(layer_PericolositSismicaIstat0);		
+		
+		
+<!-- Legenda -->		
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa dei Rischi</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dati ISTAT<br /><br />':layer_poligonoisola0,'&nbsp;&nbsp;&nbsp;Zona Altimetrica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Montagna_interna.png" Title="Montagna interna" width="16" height="16" /></td><td>&nbsp;&nbsp;&nbsp;Montagna interna</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Montagna_litoranea.png"Title="Montagna litoranea" width="16" height="16" /></td><td>&nbsp;&nbsp;&nbsp;Montagna litoranea</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Collina_interna.png" Title="Collina interna" width="16" height="16"/></td><td>&nbsp;&nbsp;&nbsp;Collina interna</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Collina_litoranea.png" Title="Collina litoranea" width="16" height="16"/></td><td>&nbsp;&nbsp;&nbsp;Collina litoranea</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Pianura.png"Title="Pianura" width="16" height="16" /></td><td>&nbsp;&nbsp;&nbsp;Pianura</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br /> <br /><br /><br /><br />': layer_ZonaAltimetrica0,}).addTo(map);
+        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa dei Rischi</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dati ISTAT<br /><br />':layer_poligonoisola0,'&nbsp;&nbsp;&nbsp;Zona Altimetrica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Montagna_interna.png" Title="Montagna interna" width="16" height="16" /></td><td>&nbsp;&nbsp;&nbsp;Montagna interna</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Montagna_litoranea.png"Title="Montagna litoranea" width="16" height="16" /></td><td>&nbsp;&nbsp;&nbsp;Montagna litoranea</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Collina_interna.png" Title="Collina interna" width="16" height="16"/></td><td>&nbsp;&nbsp;&nbsp;Collina interna</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Collina_litoranea.png" Title="Collina litoranea" width="16" height="16"/></td><td>&nbsp;&nbsp;&nbsp;Collina litoranea</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Pianura.png"Title="Pianura" width="16" height="16" /></td><td>&nbsp;&nbsp;&nbsp;Pianura</td></tr></table>': layer_ZonaAltimetrica0, '&nbsp;&nbsp;&nbsp;Pericolosità Sismica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/0.png" /></td><td>&nbsp;&nbsp;0.000 - 0.025</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/025.png" /></td><td>&nbsp;&nbsp;0.025 - 0.050</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/050.png" /></td><td>&nbsp;&nbsp;0.050 - 0.075</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/075.png" /></td><td>&nbsp;&nbsp;0.075 - 0.100</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/100.png" /></td><td>&nbsp;&nbsp;0.100 - 0.125</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/125.png" /></td><td>&nbsp;&nbsp;0.125 - 0.150</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/150.png" /></td><td>&nbsp;&nbsp;0.150 - 0.175</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/175.png" /></td><td>&nbsp;&nbsp;0.175 - 0.200</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/200.png" /></td><td>&nbsp;&nbsp;0.200 - 0.225</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/225.png" /></td><td>&nbsp;&nbsp;0.225 - 0.250</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/250.png" /></td><td>&nbsp;&nbsp;0.250 - 0.275</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/275.png" /></td><td>&nbsp;&nbsp;0.275 - 0.300</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br /> <br /><br /><br /><br />': layer_PericolositSismicaIstat0,}).addTo(map);
         setBounds();
 		<!-- strumenti di leaflet -->
 		var zoomHome = L.Control.zoomHome();zoomHome.addTo(map);
