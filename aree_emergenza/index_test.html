@@ -129,10 +129,7 @@
 <script src="data/VigilidelFuocosicilia2.js"></script>
 <script src="data/GuardiadiFinanza0.js"></script>
 <script src="data/pericolositsismica0.js"></script>
-
-
-
-
+<script src="data/PericolositSismicaIstat0.js"></script>
 
 </head>
 
@@ -1941,11 +1938,239 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
         onEachFeature: pop_pericolositsismica0,
         style: style_pericolositsismica0_0,
     });
-        bounds_group.addLayer(layer_pericolositsismica0);
+       bounds_group.addLayer(layer_pericolositsismica0);
+
+
+<!-- Pericolosità  sismica passo 0.02 gradi ISTAT -->
+function pop_PericolositSismicaIstat0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_PericolositSismicaIstat0_0(feature));
+
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+												<tr>\
+                        <th scope="row"><span class="legenda1">PERICOLOSIT&Agrave; SISMICA<br /><br /><spam /> </th>\
+                       </tr>\
+			                    <tr>\
+                        <th scope="row">REGIONE:&nbsp;&nbsp;</th>\
+                        <td>Sicilia</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">COMUNE:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ZONA ALTIMETRICA:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['ZONA_ALT_T'] !== null ? Autolinker.link(String(feature.properties['ZONA_ALT_T'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ALTIMETRIA LOC ABITATA (CENTRO):&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['ALT_LOC_AB'] !== null ? Autolinker.link(String(feature.properties['ALT_LOC_AB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SUPERFICIE URBANIZZATA:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['SUP_URB'] !== null ? Autolinker.link(String(feature.properties['SUP_URB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ALTEZZA MIN COM:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['ALT_MIN'] !== null ? Autolinker.link(String(feature.properties['ALT_MIN'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ALTEZZA MAX COM:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['ALT_MAX'] !== null ? Autolinker.link(String(feature.properties['ALT_MAX'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ACCELERAZIONE MAX SUOLO:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['AGMAX_50'] !== null ? Autolinker.link(String(feature.properties['AGMAX_50'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ACCELERAZIONE MIN SUOLO:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['AGMIN_50'] !== null ? Autolinker.link(String(feature.properties['AGMIN_50'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_PericolositSismicaIstat0_0(feature) {
+            if (feature.properties['AGMAX_50'] >= 0.000000 && feature.properties['AGMAX_50'] <= 0.030000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(225,225,225,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.030000 && feature.properties['AGMAX_50'] <= 0.050000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(178,178,178,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.050000 && feature.properties['AGMAX_50'] <= 0.075000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(190,232,255,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.075000 && feature.properties['AGMAX_50'] <= 0.100000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(115,178,255,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.100000 && feature.properties['AGMAX_50'] <= 0.125000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(165,245,122,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.125000 && feature.properties['AGMAX_50'] <= 0.150000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(56,167,0,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.150000 && feature.properties['AGMAX_50'] <= 0.175000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(254,255,115,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.175000 && feature.properties['AGMAX_50'] <= 0.200000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(255,211,128,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.200000 && feature.properties['AGMAX_50'] <= 0.225000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(230,152,0,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.225000 && feature.properties['AGMAX_50'] <= 0.250000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(254,0,0,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.250000 && feature.properties['AGMAX_50'] <= 0.275000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(167,0,132,0.75)',
+            }
+            }
+            if (feature.properties['AGMAX_50'] >= 0.275000 && feature.properties['AGMAX_50'] <= 0.300000 ) {
+                return {
+                pane: 'pane_PericolositSismicaIstat0',
+                opacity: 1,
+                color: 'rgba(204,204,204,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(77,0,116,0.75)',
+            }
+            }
+        }
+        map.createPane('pane_PericolositSismicaIstat0');
+        map.getPane('pane_PericolositSismicaIstat0').style.zIndex = 400;
+        map.getPane('pane_PericolositSismicaIstat0').style['mix-blend-mode'] = 'normal';
+    var layer_PericolositSismicaIstat0 = new L.geoJson(json_PericolositSismicaIstat0, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_PericolositSismicaIstat0',
+        onEachFeature: pop_PericolositSismicaIstat0,
+        style: style_PericolositSismicaIstat0_0,
+    });
+        bounds_group.addLayer(layer_PericolositSismicaIstat0);
+       // map.addLayer(layer_PericolositSismicaIstat0);	
 		
 <!-- Legenda mappa -->
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa Aree di emergenza</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prot. Civile - Reg. Sicilia<br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda</span><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/info.png" Title="Area di attesa" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di attesa</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ricovero.png" Title="Area accoglienza o di ricovero" "width="20" height="23" /></td><td>&nbsp;&nbsp;&nbsp;Area di ricovero</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ammassamento.png" title="Area di ammassamento"width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammassamento</td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/firemen_01.png" Title=" Area di ammassamento Colonna mobile VV.F" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Colonna mobile VV.F </td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ri.png" Title="Area rischio industriale " width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area rischio industriale</td></tr></table><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aree di emergenza.</span>':layer_poligonoisola0,'&nbsp;Provincia di Catania<br />': layer_AreeemergenzadellaprovinciadiCatania4,'&nbsp;Provincia di Enna<br />': layer_AreeemergenzadellaprovinciadiEnna3,'Provincia di Messina<br />': layer_AreeemergenzadellaprovinciadiMessina2,'&nbsp;Provincia di Ragusa<br />': layer_AreeemergenzadellaprovinciadiRagusa0, '&nbsp;Comune di Palermo<br /> <hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strutture operative<br /></span>': layer_AreeemergenzadelcomunediPalermo0, '&nbsp;&nbsp;<img src="legend/legge.png"Title=" Prefetture" width="20" height="23" />&nbsp;&nbsp;Prefetture': layer_Prefetture0, '&nbsp;&nbsp;<img src="legend/carabinieri.png" Title="Carabinieri" width="20" height="23" />&nbsp;&nbsp;Carabinieri': layer_Carabinierisicilia1,  '&nbsp;&nbsp;<img src="legend/polizia.png" Title=" Polizia di Stato" width="20" height="23"/>&nbsp;&nbsp;Polizia di Stato': layer_PoliziadiStato1, '&nbsp;&nbsp;<img src="legend/gdf.png" Title="Guardia di Finanza " width="20" height="23"/>&nbsp;&nbsp;Guardia di Finanza': layer_GuardiadiFinanza0,  '&nbsp;&nbsp;<img src="legend/ferry.png" Title="Capitanerie di porto " width="20" height="23" />&nbsp;&nbsp;Capitanerie di porto': layer_Capitaneriediporto0, '&nbsp;&nbsp;<img src="legend/firemen.png" Title="Vigili del Fuoco" width="20" height="23"/>&nbsp;&nbsp;Vigili del Fuoco': layer_VigilidelFuocosicilia2, '&nbsp;&nbsp;<img src="legend/ass_prot_civile.png" Title=" Associazioni di Volontariato" width="20" height="23" />&nbsp;&nbsp;Ass. Volontariato<br /><hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sismicità<br /></span>': layer_AssociazionidiVolontariatosicilia0, '&nbsp;&nbsp;&nbsp;Classificazione Sismica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z1.png" /></td><td>&nbsp;&nbsp;Zona 1</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z2.png" /></td><td>&nbsp;&nbsp;Zona 2</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z3.png" /></td><td>&nbsp;&nbsp;Zona 3</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z4.png" /></td><td>&nbsp;&nbsp;Zona 4</td></tr></table>': layer_classificazionesicilia0, '&nbsp;&nbsp;&nbsp;Pericolosità Sismica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/0.png" /></td><td>&nbsp;&nbsp;0.000 - 0.025</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/025.png" /></td><td>&nbsp;&nbsp;0.025 - 0.050</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/050.png" /></td><td>&nbsp;&nbsp;0.050 - 0.075</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/075.png" /></td><td>&nbsp;&nbsp;0.075 - 0.100</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/100.png" /></td><td>&nbsp;&nbsp;0.100 - 0.125</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/125.png" /></td><td>&nbsp;&nbsp;0.125 - 0.150</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/150.png" /></td><td>&nbsp;&nbsp;0.150 - 0.175</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/175.png" /></td><td>&nbsp;&nbsp;0.175 - 0.200</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/200.png" /></td><td>&nbsp;&nbsp;0.200 - 0.225</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/225.png" /></td><td>&nbsp;&nbsp;0.225 - 0.250</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/250.png" /></td><td>&nbsp;&nbsp;0.250 - 0.275</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/275.png" /></td><td>&nbsp;&nbsp;0.275 - 0.300</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br /> <br /><br /><br /><br />': layer_pericolositsismica0,}).addTo(map);
+        L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa Aree di emergenza</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prot. Civile - Reg. Sicilia<br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda</span><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/info.png" Title="Area di attesa" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di attesa</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ricovero.png" Title="Area accoglienza o di ricovero" "width="20" height="23" /></td><td>&nbsp;&nbsp;&nbsp;Area di ricovero</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ammassamento.png" title="Area di ammassamento"width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammassamento</td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/firemen_01.png" Title=" Area di ammassamento Colonna mobile VV.F" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Colonna mobile VV.F </td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ri.png" Title="Area rischio industriale " width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area rischio industriale</td></tr></table><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aree di emergenza.</span>':layer_poligonoisola0,'&nbsp;Provincia di Catania<br />': layer_AreeemergenzadellaprovinciadiCatania4,'&nbsp;Provincia di Enna<br />': layer_AreeemergenzadellaprovinciadiEnna3,'Provincia di Messina<br />': layer_AreeemergenzadellaprovinciadiMessina2,'&nbsp;Provincia di Ragusa<br />': layer_AreeemergenzadellaprovinciadiRagusa0, '&nbsp;Comune di Palermo<br /> <hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strutture operative<br /></span>': layer_AreeemergenzadelcomunediPalermo0, '&nbsp;&nbsp;<img src="legend/legge.png"Title=" Prefetture" width="20" height="23" />&nbsp;&nbsp;Prefetture': layer_Prefetture0, '&nbsp;&nbsp;<img src="legend/carabinieri.png" Title="Carabinieri" width="20" height="23" />&nbsp;&nbsp;Carabinieri': layer_Carabinierisicilia1,  '&nbsp;&nbsp;<img src="legend/polizia.png" Title=" Polizia di Stato" width="20" height="23"/>&nbsp;&nbsp;Polizia di Stato': layer_PoliziadiStato1, '&nbsp;&nbsp;<img src="legend/gdf.png" Title="Guardia di Finanza " width="20" height="23"/>&nbsp;&nbsp;Guardia di Finanza': layer_GuardiadiFinanza0,  '&nbsp;&nbsp;<img src="legend/ferry.png" Title="Capitanerie di porto " width="20" height="23" />&nbsp;&nbsp;Capitanerie di porto': layer_Capitaneriediporto0, '&nbsp;&nbsp;<img src="legend/firemen.png" Title="Vigili del Fuoco" width="20" height="23"/>&nbsp;&nbsp;Vigili del Fuoco': layer_VigilidelFuocosicilia2, '&nbsp;&nbsp;<img src="legend/ass_prot_civile.png" Title=" Associazioni di Volontariato" width="20" height="23" />&nbsp;&nbsp;Ass. Volontariato<br /><hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sismicità<br /></span>': layer_AssociazionidiVolontariatosicilia0, '&nbsp;&nbsp;&nbsp;Classificazione Sismica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z1.png" /></td><td>&nbsp;&nbsp;Zona 1</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z2.png" /></td><td>&nbsp;&nbsp;Zona 2</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z3.png" /></td><td>&nbsp;&nbsp;Zona 3</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z4.png" /></td><td>&nbsp;&nbsp;Zona 4</td></tr></table>': layer_classificazionesicilia0, '&nbsp;&nbsp;&nbsp;Pericolosità Sismica (ISTAT)': layer_PericolositSismicaIstat0, '&nbsp;&nbsp;&nbsp;Pericolosità Sismica (INGV)<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/0.png" /></td><td>&nbsp;&nbsp;0.000 - 0.025</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/025.png" /></td><td>&nbsp;&nbsp;0.025 - 0.050</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/050.png" /></td><td>&nbsp;&nbsp;0.050 - 0.075</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/075.png" /></td><td>&nbsp;&nbsp;0.075 - 0.100</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/100.png" /></td><td>&nbsp;&nbsp;0.100 - 0.125</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/125.png" /></td><td>&nbsp;&nbsp;0.125 - 0.150</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/150.png" /></td><td>&nbsp;&nbsp;0.150 - 0.175</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/175.png" /></td><td>&nbsp;&nbsp;0.175 - 0.200</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/200.png" /></td><td>&nbsp;&nbsp;0.200 - 0.225</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/225.png" /></td><td>&nbsp;&nbsp;0.225 - 0.250</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/250.png" /></td><td>&nbsp;&nbsp;0.250 - 0.275</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/275.png" /></td><td>&nbsp;&nbsp;0.275 - 0.300</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br /> <br /><br /><br /><br />': layer_pericolositsismica0, }).addTo(map);
         setBounds();
 		<!-- strumenti di leaflet -->
 		var zoomHome = L.Control.zoomHome();zoomHome.addTo(map);
@@ -2005,7 +2230,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 <!-- menu dx -->
 		        <ul class="nav nav-pill pull-right">
                 <li><a href="index.html" title="Mappa Aree di Emergenza - Protezione Civilie - Regione Sicilia">Mappa Aree di Emergenza</a></li>
-                <li><a href="mappa_altimetrica_ag.html" title="Mappa Zona Altimetrica e Mappa accellerazione sismica max suolo  - Dati ISTAT">Mappa dei rischi</a></li>
                  <li><a href="about.html" title="About">About</a></li>
 		      </ul>
 		          </li>
