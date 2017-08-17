@@ -2,12 +2,12 @@
 .leaflet-control-measure p,.leaflet-measure-resultpopup p{margin:10px 0 0;line-height:1em}
 .leaflet-control-measure p:first-child,.leaflet-measure-resultpopup p:first-child{margin-top:0}
 .leaflet-control-measure a,.leaflet-measure-resultpopup a{color:#5E66CC;text-decoration:none}
-.leaflet-control-measure a:hover,.leaflet-measure-resultpopup a:hover{opacity:0.5;text-decoration:none}
+.leaflet-control-measure a:hover,.leaflet-measure-resultpopup a:hover{opacity:0.75;text-decoration:none}
 .leaflet-control-measure .tasks,.leaflet-measure-resultpopup .tasks{margin:12px 0 0;padding:10px 0 0;border-top:solid 1px #DDD;list-style:none;list-style-image:none}
 .leaflet-control-measure .tasks li,.leaflet-measure-resultpopup .tasks li{display:inline;margin:0 10px 0 0}
 .leaflet-control-measure .tasks li:last-child,.leaflet-measure-resultpopup .tasks li:last-child{margin-right:0}
 .leaflet-control-measure .coorddivider,.leaflet-measure-resultpopup .coorddivider{color:#999}
-.leaflet-control-measure{background:#fff;border-radius:5px;box-shadow:0 1px 5px rgba(0,0,0,0.4);}
+.leaflet-control-measure{background:rgba(255,255,255,0.90);border-radius:5px;box-shadow:0 1px 5px rgba(0,0,0,0.4);}
 .leaflet-control-measure .leaflet-control-measure-toggle,.leaflet-control-measure .leaflet-control-measure-toggle:hover{display:block;width:26px;height:26px;background-position:50% 50%;background-repeat:no-repeat;background-image:url(../images/rulers.png);border-radius:5px;text-indent:100%;white-space:nowrap;overflow:hidden}
 .leaflet-retina .leaflet-control-measure .leaflet-control-measure-toggle,.leaflet-retina .leaflet-control-measure .leaflet-control-measure-toggle:hover{background-image:url(../images/rulers_@2X.png);background-size:16px 16px}
 .leaflet-touch .leaflet-control-measure .leaflet-control-measure-toggle,.leaflet-touch .leaflet-control-measure .leaflet-control-measure-toggle:hover{width:26px;height:26px}

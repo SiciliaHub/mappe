@@ -259,12 +259,12 @@
 /* general toolbar styles */
 
 .leaflet-bar {
-	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.50);
 	border-radius: 4px;
 	}
 .leaflet-bar a,
 .leaflet-bar a:hover {
-	background-color: #fff;
+	background-color: rgba(255,255,255,0.90);
 	border-bottom: 1px solid #ccc;
 	width: 26px;
 	height: 26px;
@@ -281,7 +281,7 @@
 	display: block;
 	}
 .leaflet-bar a:hover {
-	background-color: #f4f4f4;
+	background-color: rgba(255,255,255,0.75);
 	}
 .leaflet-bar a:first-child {
 	border-top-left-radius: 4px;
