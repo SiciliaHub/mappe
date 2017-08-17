@@ -76,18 +76,11 @@ a:active {color: #FF0000; text-decoration:none; }
 #clip_gra {position:fixed; top:55px; right:250px; z-index: 1002; background-color:rgba(255,255,255,1.00);background-size: 45px 45px; width: 42px; height: 42px; 	border: 2px solid #ccc;
     margin: 2 2px;    border-radius: 40px;    box-shadow: 0 1px 5px rgba(0,0,0,0.6); }
 	
-	/* popup grafico spento su display 4" */
-	@media screen and (width: 320px) {  #clip_gra {display: none;  }}
-	@media screen and (width: 480px) {  #clip_gra {display: none;  }}
-
-/* popup grafico spento su display 5" */
-
-	@media screen and (width: 384px) {  #clip_gra {display: none;  }}
-	@media screen and (width: 360px) {#clip_gra {display: none; }}
-	@media screen and (width: 640px) { #clip_gra {display: none; }}
-
-/* popup grafico spento su display 6" portrait */
-	@media screen and (width: 375px) {#clip_gra {display: none; }}
+	/* popup grafico spento su mobile" */
+	 @media (min-width: 320px) and (max-width: 736px) { #clip_gra {display: none;  }}
+	 
+	 	/* div 3d  spento su mobile" */
+	 @media (min-width: 320px) and (max-width: 736px) { #threejs {display: none;  }}
 	
 #note {position: relative;left:60px; bottom: 20px; width: 290px;	padding: 0;   /*top:60px;*/ right: 0px;	z-index: 1000;	text-align: right;}
 
