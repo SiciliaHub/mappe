@@ -73,7 +73,7 @@ a:active {color: #FF0000; text-decoration:none; }
 #threejs {resize:both; overflow:auto;  position:fixed; padding: 0; border-radius: 5px;	margin: 35px; bottom: 20px;	left: 20px; width: 30%;	height: 30%; background-color: rgba(255,255,255,0.80);	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	z-index: 1000; }
 #threejs_testo {position: fixed; width: 20%;	height: 20px;padding: 0;	margin: 35px; bottom: -5px;	left: 20px;	z-index: 1000; text-align:right;}
 
-#clip_gra {position:fixed; bottom:60px; left:55px; z-index: 1002; background-color:rgba(255,255,255,1.00);background-size: 45px 45px; width: 42px; height: 42px; 	border: 2px solid #ccc;
+#clip_gra {position:fixed; top:55px; right:250px; z-index: 1002; background-color:rgba(255,255,255,1.00);background-size: 45px 45px; width: 42px; height: 42px; 	border: 2px solid #ccc;
     margin: 2 2px;    border-radius: 40px;    box-shadow: 0 1px 5px rgba(0,0,0,0.6); }
 	
 	/* popup grafico spento su display 4" */
@@ -170,12 +170,12 @@ z-index: 1010;}
 
 .popup {
   /*margin: 70px auto;*/
-  bottom:45px;
+  bottom:56px;
   left:130px;
   padding: 5px;
   background: #fff;
   border-radius: 5px;
-  width: 55%;
+  width: 60%;
   position:absolute;
   transition: all 1s ease-in-out;
 }
@@ -199,7 +199,7 @@ z-index: 1010;}
   color: #E81418;
 }
 .popup .content {
-  max-height: 30%;
+  max-height: 35%;
   overflow: auto;
   text-align: justify;
 }
