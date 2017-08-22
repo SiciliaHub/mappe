@@ -370,6 +370,8 @@
 	color: #333;
 	background: #fff;
 	}
+	@media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-expanded {font-size:9px;  }}
+	
 .leaflet-control-layers-scrollbar {
 	overflow-y: scroll;
 	overflow-x:hidden;
@@ -471,6 +473,8 @@
 	border-radius: 12px;
 		width: 310px;
 	}
+	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-popup-content-wrapper {font-size:9px; width: 240px; }}	
+	
 .leaflet-popup-content {
 	margin: 13px 19px;
 	line-height: 1.4;

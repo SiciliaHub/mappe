@@ -13,8 +13,9 @@ html, body{padding: 0;    margin: 0;	height: 100%; font: 11px "Open Sans", Helve
 /*background-image:url(../images/ods_02.png); background-size: 30px 30px;background-repeat:no-repeat;background-position:5px 3px;background-attachment: fixed;*/}
 /* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */ #map { height: 100%; font: 11px "Open Sans", Helvetica Neue, fontawesome, Arial, Helvetica, sans-serif; background-color: #fff;  }
 
-#ods { position:fixed; bottom:51px; right:17px; z-index: 1014;}
-#itaf { position:fixed; bottom:95px; right:37px; z-index: 1014;}
+#ods { position:fixed; bottom:51px; right:17px; z-index: 800;}
+#itaf { position:fixed; bottom:95px; right:37px; z-index: 800;}
+
 .lorem {font-style: italic; color: #4E4B4B; text-align: justify; }.awesome {font-style:fontawesome;  color: #4E4B4B;  }
 a:link {color: #FF9900;	text-decoration:none;}
 a:visited {	color: #FF9900;}/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */
@@ -37,14 +38,16 @@ a:active {color: #FF0000; text-decoration:none; }
 
 
 #threejs {resize:both; overflow:auto;  position:fixed; padding: 0;	margin: 35px; bottom: 20px;	left: 20px; width: 20%;	height: 20%; background-color: rgba(255,255,255,0.80);	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	z-index: 1000; }
-
+ @media (min-width: 320px) and (max-width: 736px) { #threejs {display:none;}}
 #threejs_testo {position: fixed; width: 20%;	height: 20px;padding: 0;	margin: 35px; bottom: -5px;	left: 20px;	z-index: 1000; text-align:right;}
+ @media (min-width: 320px) and (max-width: 736px) { #threejs_testo {display:none;}}
 
 #note {position: relative;left:60px; bottom: 20px; width: 290px;	padding: 0;   /*top:60px;*/ right: 0px;	z-index: 1000;	text-align: right;}
 
 .legenda  {font-style: normal; font-weight:bold; font-size:16px; color: #4E4B4B; text-align: justify; }
 .legenda1 {font-style: normal; font-weight:bold; font-size:12px; color: #4E4B4B; text-align: justify; }
-
+ @media (min-width: 320px) and (max-width: 736px) { .legenda1 {font-style: normal; font-weight:bold; font-size:10px; color: #4E4B4B; text-align: justify; }}
+ @media (min-width: 320px) and (max-width: 736px) { .legenda {font-style: normal; font-weight:bold; font-size:14px; color: #4E4B4B; text-align: justify; }}
 .legenda1 a:link{color: #4E4B4B;	text-decoration:none;}
 .legenda1 a:visited {	color: #4E4B4B;}
 .legenda1 a:hover {color: #FFFFFF; text-decoration:underline; } 

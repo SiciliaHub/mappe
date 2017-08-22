@@ -1,8 +1,8 @@
 L.Control.GraphicScale=L.Control.extend({
 	options:{position:"bottomright",
 updateWhenIdle:false,
-minUnitWidth:30,
-maxUnitsWidth:240,
+minUnitWidth:25,
+maxUnitsWidth:120,
 fill:false,
 showSubunits:false,
 doubleLine:false,
