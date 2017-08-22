@@ -13,6 +13,10 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
   
 }
+
+  /*Clip resize;*/
+.clip_resize {width: 100%; height: 100%; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) } 
+
 /* nuove classi per footer */
 .lorem {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 11px;}
 .awesome {font-style:fontawesome;  color: #4E4B4B;  }
@@ -25,22 +29,22 @@ html {
 	font-family: "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;
 	font-size: 1.20em;
 }
-	 @media (min-width: 320px) and (max-width: 736px) { .footer {font-size: 0.9em } }
+@media (min-width: 320px) and (max-width: 736px) { .footer {font-size: 0.9em } }
 	 
 
 .ods_footer a:link{color: #FF9900;	text-decoration:none;}
 .ods_footer a:visited {	color: #FF9900; text-decoration:none;}
 .ods_footer a:hover {color: #FF9900; text-decoration:underline; } 
 
-.ods_social {font-style: italic; color: #4E4B4B; font-size: 11px;}
+/* icone social */
+.ods_social {font-style: italic; color: #4E4B4B; font-size: 14px;}
 .ods_social a:link{color: #4E4B4B;	text-decoration:none;}
 .ods_social a:visited {	color: #4E4B4B; text-decoration:none;}
 .ods_social a:hover {color: #FF9900; text-decoration:none; } 
+ @media (min-width: 320px) and (max-width: 736px) {.ods_social {font-size: 10px;}}
 
 .social {font-style: italic; color: #4E4B4B; font-size: 24px;}
 
-.social1 {color: #4E4B4B; font-size: 14px;}
- @media (min-width: 320px) and (max-width: 736px) {.social1 {font-size: 12px;}}
 /**
  * Remove default margin.
  */
@@ -94,7 +98,7 @@ audio:not([controls]) {
   display: none;
   height: 0;
 }
-
+/* Giovan Battista Vitrano per ODS */
 /**
  * Address `[hidden]` styling not present in IE 8/9.
  * Hide the `template` element in IE, Safari, and Firefox < 22.
@@ -172,7 +176,7 @@ mark {
   background: #ff0;
   color: #000;
 }
-
+/* Giovan Battista Vitrano per ODS */
 /**
  * Address inconsistent and variable font size in all browsers.
  */
@@ -308,7 +312,7 @@ button,
 select {
   text-transform: none;
 }
-
+/* Giovan Battista Vitrano per ODS */
 /**
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
  *    and `video` controls.
@@ -906,9 +910,9 @@ ul li {
 }
 
 .container {
-  font-family: 'Open Sans', Sans-serif;
-  width: 95%;
-  margin: 0 auto;
+	font-family: 'Open Sans', Sans-serif;
+	width: 94%;
+	margin: 0 auto;
 
   	/*background-image:url(../images/opendatasicilia1.svg);
 	background-repeat:no-repeat;
@@ -1022,6 +1026,4 @@ pre1 code {
   color: #ffdede;
 }
 
-
-
-  .clip_about {width: 100%; height: 100%; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }  
+ 

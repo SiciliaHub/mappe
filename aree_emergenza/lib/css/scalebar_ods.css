@@ -19,7 +19,7 @@
     bottom:-5px;
 	color: #4E4B4B; 
   right:0px;
-  z-index:50;
+  z-index:800;
 
   }
     @media (min-width: 320px) and (max-width: 667px) {

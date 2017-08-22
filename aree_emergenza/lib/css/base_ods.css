@@ -36,9 +36,6 @@ html, body {padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "
     @media screen and (width: 732px) {#beta {left:90px; bottom:60px;}.beta{width: 42px; height: 42px;}}
 	@media screen and (width: 736px) {#beta {left:90px; bottom:50px;}.beta{width: 42px; height: 42px;}}
 
-
-
-
 /*#ods { position:fixed; bottom:51px; right:17px; z-index: 1014;}
 
 #itaf { position:fixed; bottom:95px; right:37px; z-index: 1014;}*/
@@ -56,14 +53,11 @@ a:active {color: #FF0000; text-decoration:none; }
 .clip_tav { width: 138px; height: 20px; /*border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) */}
 .clip_tav:hover {opacity: 1;  -webkit-filter: grayscale(100%); } 
 
-  .clip_370 {width: 370px; height: 277px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
-    .clip_370_1 {width: 370px; height: 261px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
-	    .clip_370_2 {width: 370px; height: 524px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
-  
-  
 #bot {	position: fixed; width: 100%;	height: 40px;	/*background-color: rgba(255,255,255,1); rgba(78,75,75,1.00);*/	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	padding: 0;	margin: 0;top: 0px;	right: 0px;	z-index: 2000;	text-align: left;}
 #page {	position: fixed; width: 100%;	height: 100%;	/*background: #fff;/*	background-color: /*rgba(255,255,255,1);*/ rgba(78,75,75,1.00);	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	padding: 0;	margin: 0;top: 0px;	right: 0px;	z-index: 1000;	text-align: left;}
 
+/*Clip resize;*/
+/*.clip_resize {width: 100%; height: 100%; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) } */
 
 #grafico {resize: both; overflow: auto;  position:fixed; padding: 0;	margin: 35px; bottom: 20px; right:	left: 20px; width: 650px;	height:485px; background-color: rgba(255,255,255,0.80);	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	z-index: 1000; }
 

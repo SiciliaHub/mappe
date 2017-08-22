@@ -15,16 +15,16 @@
 }
 
   	/*  spento su display 4" */
-	@media screen and (width: 320px) {  .leaflet-container .leaflet-control-mouseposition {display: none;  }}
-	@media screen and (width: 480px) {  .leaflet-container .leaflet-control-mouseposition {display: none;  }}
+	@media screen and (width: 320px) {  .leaflet-container .leaflet-control-mouseposition {display: none;  } }
+	@media screen and (width: 480px) {  .leaflet-container .leaflet-control-mouseposition {display: none;  } }
    
 /*  spento su display 5" */
 
-	@media screen and (width: 384px) {  .leaflet-container .leaflet-control-mouseposition {left:10px; bottom:40px;  }}
-	@media screen and (width: 360px) {.leaflet-container .leaflet-control-mouseposition { left:10px; bottom:39px; }}
-	@media screen and (width: 533px) {  .leaflet-container .leaflet-control-mouseposition {left:60px; bottom:43px;  }}
+	@media screen and (width: 384px) {  .leaflet-container .leaflet-control-mouseposition {left:10px; bottom:40px;  } }
+	@media screen and (width: 360px) {.leaflet-container .leaflet-control-mouseposition { left:10px; bottom:39px; } }
+	@media screen and (width: 533px) {  .leaflet-container .leaflet-control-mouseposition {left:60px; bottom:43px;  }
 	 @media screen and (width: 568px) {  .leaflet-container .leaflet-control-mouseposition {left:60px; bottom:22px;  }}
-	@media screen and (width: 640px) { .leaflet-container .leaflet-control-mouseposition {left:10px; bottom:22px; }}
+	@media screen and (width: 640px) { .leaflet-container .leaflet-control-mouseposition {left:10px; bottom:22px; } #ods {display:none}}
 
 /*  spento su display 6" portrait */
 	@media screen and (width: 375px) {.leaflet-container .leaflet-control-mouseposition {left:10px; bottom:39px; }}
@@ -34,8 +34,13 @@
 	@media screen and (width: 732px) {.leaflet-container .leaflet-control-mouseposition {left:10px; bottom:26px; }}
 	@media screen and (width: 736px) {.leaflet-container .leaflet-control-mouseposition {left:10px; bottom:30px; }}
 
+	 @media (min-width: 737px) and (max-width: 1280px) { #ods { position:fixed; bottom:200px; right:17px; z-index: 400;}}
+	 
+	@media (min-width: 1281px) and (max-width: 1920px) { #ods { position:fixed; bottom:165px; right:17px; z-index: 400;}}
+
 /* loghi opendatasicilia e italiaafuoco -
  giovan battista vitrano per opendatasicilia.it */
 
-#ods { position:fixed; bottom:65px; right:17px; z-index: 999;}
-/*#itaf { position:fixed; bottom:155px; right:37px; z-index: 999;}*/
+/* #ods { position:fixed; bottom:200px; right:17px; z-index: 400;}*/
+/*#itaf { position:fixed; bottom:155px; right:37px; z-index: 999;}*/ 
+

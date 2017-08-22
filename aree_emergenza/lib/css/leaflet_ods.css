@@ -41,7 +41,6 @@
 	}
 /* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */
 /* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */
-/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */
 .leaflet-container .leaflet-overlay-pane svg,
 .leaflet-container .leaflet-marker-pane img,
 .leaflet-container .leaflet-shadow-pane img,
@@ -49,7 +48,7 @@
 .leaflet-container img.leaflet-image-layer {
 	max-width: none !important;
 	}
-
+/* Giovan Battista Vitrano per ODS */
 .leaflet-container.leaflet-touch-zoom {
 	-ms-touch-action: pan-x pan-y;
 	touch-action: pan-x pan-y;
@@ -97,14 +96,20 @@
 	height: 1px;
 	}
 .lvml {
-	behavior: url(#default#VML);	display: inline-block;	position: absolute;	}
-/* foglio di stile atlante cartografico palermo -
- giovan battista vitrano per opendatasicilia.it */
+	behavior: url(#default#VML);
+	display: inline-block;
+	position: absolute;
+	}
+
+
 /* control positioning */
-.leaflet-control {	position: relative;	z-index: 800;
-	pointer-events: visiblePainted;
-	/* IE 9-10 doesn't have auto */
-	pointer-events: auto;	}
+
+.leaflet-control {
+	position: relative;
+	z-index: 800;
+	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
+	pointer-events: auto;
+	}
 .leaflet-top,
 .leaflet-bottom {
 	position: absolute;
@@ -112,7 +117,7 @@
 	pointer-events: none;
 	}
 .leaflet-top {
-	top: 0;
+	top: 50px;
 	}
 .leaflet-right {
 	right: 0;
@@ -131,7 +136,7 @@
 	float: right;
 	}
 .leaflet-top .leaflet-control {
-	margin-top: 60px;
+	margin-top: 10px;
 	}
 .leaflet-bottom .leaflet-control {
 	margin-bottom: 10px;
@@ -142,6 +147,7 @@
 .leaflet-right .leaflet-control {
 	margin-right: 10px;
 	}
+
 
 /* zoom and fade animations */
 
@@ -164,9 +170,8 @@
 	        transform-origin: 0 0;
 	}
 .leaflet-zoom-anim .leaflet-zoom-animated {
-	will-change: transform;	}
-	/* foglio di stile atlante cartografico palermo -
- giovan battista vitrano per opendatasicilia.it */
+	will-change: transform;
+	}
 .leaflet-zoom-anim .leaflet-zoom-animated {
 	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
 	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
@@ -254,12 +259,12 @@
 /* general toolbar styles */
 
 .leaflet-bar {
-	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.50);
 	border-radius: 4px;
 	}
 .leaflet-bar a,
 .leaflet-bar a:hover {
-	background-color: #fff;
+	background-color: rgba(255,255,255,0.90);
 	border-bottom: 1px solid #ccc;
 	width: 26px;
 	height: 26px;
@@ -276,7 +281,7 @@
 	display: block;
 	}
 .leaflet-bar a:hover {
-	background-color: #f4f4f4;
+	background-color: rgba(255,255,255,0.75);
 	}
 .leaflet-bar a:first-child {
 	border-top-left-radius: 4px;
@@ -327,8 +332,8 @@
 	border-radius: 5px;
 	}
 .leaflet-control-layers-toggle {
-	background-image: url(../images/omira_clip.jpg);
-	background-size: 42px 42px;
+	background-image: url(../images/layers.jpg);
+	background-size: 45px 45px;
 	width: 42px;
 	height: 42px;
 	border: 2px solid #FF9900;
@@ -337,34 +342,39 @@
     box-shadow: 0 1px 5px rgba(0,0,0,0.6);
 	}
 .leaflet-retina .leaflet-control-layers-toggle {
-	background-image: url(../images/omira_clip.jpg);
-	background-size: 42px 42px;
+	background-image: url(../images/layers.jpg);
+	background-size: 45px 45px;
 	width: 42px;
 	height: 42px;
-	border: 2px solid #FFF;
+	border: 2px solid #FF9900;
     margin: 2 2px;
     border-radius: 40px;
     box-shadow: 0 1px 5px rgba(0,0,0,0.6);
 	}
-	
 .leaflet-touch .leaflet-control-layers-toggle {
-	width: 42px;
-	height: 42px;
+	width: 44px;
+	height: 44px;
 	border-radius: 40px;
-	}
 	
+	}
 .leaflet-control-layers .leaflet-control-layers-list,
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
 	display: none;
+	
 	}
 .leaflet-control-layers-expanded .leaflet-control-layers-list {
 	display: block;
 	position: relative;
-	}
+		}
+/* dimensione testo legenda mobile */		
+	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-expanded {font-size:9px;  }}
+
+
 .leaflet-control-layers-expanded {
 	padding: 6px 10px 6px 6px;
 	color: #333;
 	background: #fff;
+	
 	}
 .leaflet-control-layers-scrollbar {
 	overflow-y: scroll;
@@ -384,8 +394,7 @@
 	border-top: 1px solid #ddd;
 	margin: 5px -10px 5px -6px;
 	}
-/* foglio di stile atlante cartografico palermo
- - giovan battista vitrano per opendatasicilia.it */
+
 /* Default icon URLs */
 .leaflet-default-icon-path {
 	background-image: url(../images/marker-icon.png);
@@ -413,6 +422,7 @@
 .leaflet-container .leaflet-control-attribution,
 .leaflet-container .leaflet-control-scale {
 	font-size: 11px;
+		/*margin-bottom:45px;*/
 	}
 .leaflet-left .leaflet-control-scale {
 	margin-left: 5px;
@@ -439,6 +449,7 @@
 	border-bottom: none;
 	margin-top: -2px;
 	}
+	/* Giovan Battista Vitrano per ODS */
 .leaflet-control-scale-line:not(:first-child):not(:last-child) {
 	border-bottom: 2px solid #777;
 	}
@@ -466,7 +477,11 @@
 	padding: 1px;
 	text-align: left;
 	border-radius: 12px;
+		width: 340px;
 	}
+/* popup  su mobile" */
+	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-popup-content-wrapper {font-size:9px; width: 250px; }}	
+	 
 .leaflet-popup-content {
 	margin: 13px 19px;
 	line-height: 1.4;
@@ -525,8 +540,7 @@
 	border-bottom: 1px solid #ddd;
 	border-top: 1px solid #ddd;
 	}
-/* foglio di stile atlante cartografico palermo
- - giovan battista vitrano per opendatasicilia.it */
+
 .leaflet-oldie .leaflet-popup-content-wrapper {
 	zoom: 1;
 	}
@@ -590,8 +604,7 @@
 	}
 
 /* Directions */
-/* foglio di stile atlante cartografico palermo
- - giovan battista vitrano per opendatasicilia.it */
+
 .leaflet-tooltip-bottom {
 	margin-top: 6px;
 }

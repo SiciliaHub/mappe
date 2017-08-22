@@ -43,21 +43,23 @@
 <meta name="twitter:creator" content="@gbvitrano Giovan Battista Vitrano per Open Data Sicilia">
 <meta name="twitter:site" content="github.com/SiciliaHub/mappe" />
 <meta name="twitter:url" content="github.com/SiciliaHub/mappe">
-<!-- twitter -->    
+<!-- twitter -->   
+ 
+ <!-- css menu -->
+ <link href="lib/css/global_ods.css" rel="stylesheet" type="text/css">
 
- <!-- css -->
-<link href="lib/css/ods_base.css" rel="stylesheet" type="text/css">
-<link href="lib/css/leaflet_sicilia.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="lib/css/L.Control.Locate.min.css" />
+ <!-- css mappa -->
+<link href="lib/css/base_ods.css" rel="stylesheet" type="text/css">
+<link href="lib/css/leaflet_ods.css" rel="stylesheet" type="text/css">
+<link href="lib/css/L.Control.Locate.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="lib/css/qgis2web.css">
-<link rel="stylesheet" href="lib/css/leaflet-search.css" />
-<link rel="stylesheet" href="lib/css/MarkerCluster.css" />
-<link rel="stylesheet" href="lib/css/MarkerCluster.Default.css" />
-<link rel="stylesheet" href="lib/css/leaflet-measure.css" />
+<link href="lib/css/leaflet-search.css" rel="stylesheet" type="text/css">
+<link href="lib/css/MarkerCluster.css" rel="stylesheet" type="text/css">
+<link href="lib/css/MarkerCluster.Default.css" rel="stylesheet" type="text/css">
+<link href="lib/css/leaflet-measure.css" rel="stylesheet" type="text/css">
 <link href="lib/css/L.Control.Basemaps.css" rel="stylesheet" type="text/css">
-<link href="lib/css/LControlMousePosition.css" rel="stylesheet" type="text/css">
-<link href="lib/css/scalebar.css" rel="stylesheet" type="text/css">
+<link href="lib/css/LControlMousePosition_ods.css" rel="stylesheet" type="text/css">
+<link href="lib/css/scalebar_ods.css" rel="stylesheet" type="text/css">
 <link href="lib/css/Leaflet_GraphicScale_min.css" rel="stylesheet" type="text/css">
 <link href="lib/css/leaflet-sidebar.css" rel="stylesheet" type="text/css">
 <link href="lib/css/gmaps-sidebar.css" rel="stylesheet" type="text/css">
@@ -65,18 +67,14 @@
 <link href="lib/css/leaflet.zoomhome.css" rel="stylesheet" type="text/css">
 <link href="lib/css/L.countryselect.css" rel="stylesheet" type="text/css">
 
- <!-- css menu -->
- <link href="lib/css/global.css" rel="stylesheet" type="text/css">
- 
+<!-- css remoto -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/> 
 
-<link href="lib/css/iframe.css" rel="stylesheet" type="text/css"> 
-<style type="text/css">a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hover {color: #FF9900; text-decoration:underline; }a:active {color: #FF0000; text-decoration:none; }
-.social1 a:link{color: #4E4B4B;	text-decoration:none;}
-.social1 a:visited {	color: #4E4B4B; text-decoration:none;}
-.social1 a:hover {color: #FF9900; text-decoration:none; } 
+<style type="text/css">
+a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hover {color: #FF9900; text-decoration:underline; }a:active {color: #FF0000; text-decoration:none; }
 </style>       
 
 <!-- script mappa -->
@@ -94,18 +92,22 @@
 <script src="lib/js/qgi2web/leaflet-measure.js"></script>
 <script src="lib/js/qgi2web/leaflet.markercluster.js"></script>
 <script src="lib/js/qgi2web/leaflet-search.js"></script>  
-<script src="data/classificazionesicilia0.js"></script>       
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>        
+<script src="data/classificazionesicilia0.js"></script> 
 <script src="lib/js/sidebar/leaflet-sidebar.js"></script>
-<script> if (screen && screen.width < 737) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min_mobile.js"><\/script>'); } </script>
-<script> if (screen && screen.width > 738) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"><\/script>'); } </script>   
 <script src="lib/js/social/jquery_csbuttons.js"></script>
 <script src="lib/js/mouseposition/LControlMousePosition.js"></script>
 <script src="lib/js/zoomhome/leaflet.zoomhome.js"></script>     
 <script src="lib/js/basemap/L.Control.Basemaps.js"></script>
 <script src="lib/js/print/leaflet.easyPrint.js"></script>
 <script src="lib/js/countryselect/Leaflet.CountrySelect.js" charset="UTF-8"></script>
+
+  <!-- script automatico mobile/desktop --> 
+<script> if (screen && screen.width < 737) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min_mobile.js"><\/script>'); } </script>
+<script> if (screen && screen.width > 738) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"><\/script>'); } </script> 
+ 
+  <!-- script mappa remoto -->  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>   
 
 <!-- script dati mappa -->
 <script src="data/comuniOSM0.js" charset="UTF-8"></script>
@@ -128,6 +130,7 @@
 </head>
 
 <body>
+<!-- Sidebar SX -->
 <div id="sidebar" class="sidebar collapsed">
 <!-- Nav tabs -->
         <div class="sidebar-tabs">
@@ -153,7 +156,7 @@
 <p class="lorem">Censimento delle aree di emergenza ai fini della pianificazione di Protezione Civile (Aree di attesa della popolazione, Aree di accoglienza o di ricovero della popolazione e Aree di ammassamento soccorritori e risorse) dei Comuni delle Provincia di Catania, Enna, Messina, Ragusa e del Comune di Palermo.<br>
 Inoltre disponibili informazioni sulle principali strutture operative (Prefetture, Carabinieri, Polizia di Stato, Guardia di Finanza, Capitanerie di porto, Vigili del Fuoco, Ass. Volontariato iscritte nel Registro Regionale del DRPC).<br>
 Per ogni oggetto geo localizzato in mappa sono riportare le informazioni ricavate dagli open data resi disponibili dal nuovo <a href="https://dati.regione.sicilia.it/" title="Portale Opendata della Regione Sicilia" target="_blank">Portale Open data della Regione Sicilia</a> e dal <a href="http://sit.protezionecivilesicilia.it/" title="Portale cartografico del Dipartimento Regionale della Protezione Civile della Regione Siciliana" target="_blank">Portale cartografico del Dipartimento Regionale della Protezione Civile della Regione Siciliana</a>. </p><br><br>
-<img src="legend/aree_emergenza_370.jpg" width="370" title="Aree di Emergenza - Protezione Civilie - Regione Sicilia" class="clip_about" /> <br>
+<img src="legend/aree_emergenza_370.jpg" width="370" title="Aree di Emergenza - Protezione Civilie - Regione Sicilia" class="clip_resize" /> <br>
 <br><br><br><br><br><br>
 
 <hr>
@@ -212,11 +215,11 @@ Una piena conoscenza di questi aspetti è la premessa indispensabile per ridurre
 <p class="lorem"><strong>Puoi condividere online la mappe con altre persone</strong></p>
 <p class="lorem"><strong>Condividi:</strong></p >
 <div id="social">  <p >
-		<a href="#" title="Condividi su Facebook" class="csbuttons soc" data-type="facebook"><img src="lib/images/fb.png" alt="facebook" width="32" height="20"></a>&nbsp;&nbsp;
-	    <a href="#" title="Condividi su Twitter" class="csbuttons soc" data-type="twitter"><img src="lib/images/tw.png" alt="twitter" width="32" height="20"></a>&nbsp;&nbsp;
-		<a href="#" title="Condividi su GooglePlus" class="csbuttons soc" data-type="google" ><img src="lib/images/gp.png"width="32" height="20" alt="google"></a>&nbsp;&nbsp;
-		<a href="#" title="Condividi su Linkedin" class="csbuttons soc" data-type="linkedin"><img src="lib/images/in.png"width="32" height="20" alt="linkedin"></a>&nbsp;&nbsp;
-    <a href="#" title="Condividi su Pinterest" class="csbuttons soc" data-type="pinterest"><img src="lib/images/pin.png" width="32" height="20"alt="pinterest"></a></p>
+		<a href="#" title="Condividi su Facebook" class="csbuttons soc" data-type="facebook"><img src="lib/images/fb.png" alt="facebook" width="32" height="32"></a>&nbsp;&nbsp;
+	    <a href="#" title="Condividi su Twitter" class="csbuttons soc" data-type="twitter"><img src="lib/images/tw.png" alt="twitter" width="32" height="32"></a>&nbsp;&nbsp;
+		<a href="#" title="Condividi su GooglePlus" class="csbuttons soc" data-type="google" ><img src="lib/images/gp.png"width="32" height="32" alt="google"></a>&nbsp;&nbsp;
+		<a href="#" title="Condividi su Linkedin" class="csbuttons soc" data-type="linkedin"><img src="lib/images/in.png"width="32" height="32" alt="linkedin"></a>&nbsp;&nbsp;
+    <a href="#" title="Condividi su Pinterest" class="csbuttons soc" data-type="pinterest"><img src="lib/images/pin.png" width="32" height="32"alt="pinterest"></a></p>
 </div>
 <script>
 			$(document).ready(function(){
@@ -249,7 +252,7 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
 </table>
 <br><br>
 <p class="lorem">Ci trovi in questi luoghi: </p> <br>
-  <table width="10%" border="0" align="center" cellpadding="0" cellspacing="0" class="social1" >
+  <table width="10%" border="0" align="center" cellpadding="0" cellspacing="0" class="ods_social" >
   <tbody>
     <tr>
       <td><a href="https://www.facebook.com/groups/opendatasicilia/" target="_blank" title="Facebook"><span class="fa-stack fa-lg">
@@ -307,10 +310,7 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
 <li><p class="lorem"><a href="https://github.com/ahalota/Leaflet.CountrySelect/" title="Leaflet CountrySelect" target="_blank">Leaflet CountrySelect</a>, un semplice puglin per selezionare il Stato/Regione/Provincia/Comune desiderato;</li></p>
 <li><p class="lorem"><a href="http://www.jqueryscript.net/menu/Responsive-Multi-level-Off-Screen-Navigation-Plugin-For-jQuery-cbFlyout.html" title="Responsive Multi-level Off Screen Navigation Plugin For jQuery - cbFlyout" target="_blank">Menu jQuery</a>, Responsive Multi-level Off Screen Navigation Plugin For jQuery - cbFlyout;</li><br><br></p>
 <li><p class="lorem">Icone per le tue mappe <a href="https://mapicons.mapsmarker.com/category/markers/stores/" title="Map Icons Collection" target="_blank"><img src="https://mapicons.mapsmarker.com/wp-content/uploads/2011/03/miclogo-88x31.gif" width="88" height="31" alt=""/></a> </li></p>
-      </ul>
-</div>
-</div>
-</div>  
+      </ul> </div></div> </div>  
   
 <!-- Mappa  -->
 <div id="map" class="sidebar-map"></div>
@@ -335,10 +335,11 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
                 return this._bounds;
             }
         });	
-					
+	
 var map = L.map('map', { zoomControl:false, maxZoom:20, minZoom:7 }).fitBounds([[37.6011061912,12.4036335813],[37.4614395741,15.667056554]]);
 map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> - Rielaborazione di: <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>');
 var bounds_group = new L.featureGroup([]);
+
 <!-- mappe di base -->	  
 var basemaps = [ 
 L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="http://cartodb.com/attributions">CartoDB</a> - <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>', minZoom: 7,  maxZoom: 20, maxNativeZoom: 20,label: 'Map tiles by CartoDB'}),
@@ -443,6 +444,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
         });
         bounds_group.addLayer(layer_comuniOSM0);
         map.addLayer(layer_comuniOSM0);
+		
 <!-- Poligono fantasma -->	
         function pop_poligonoisola0(feature, layer) {
             layer.on({
@@ -481,7 +483,8 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
         bounds_group.addLayer(layer_poligonoisola0);
         map.addLayer(layer_poligonoisola0);
 		
-<!-- Aree Emergneza  Province-->		
+<!-- Aree Emergneza  Province-->
+ <!-- Aree Emergenza Prov. Ragusa -->		
         function pop_AreeemergenzadellaprovinciadiRagusa0(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -616,6 +619,8 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
     });
         bounds_group.addLayer(layer_AreeemergenzadellaprovinciadiRagusa0);
         map.addLayer(layer_AreeemergenzadellaprovinciadiRagusa0);
+		
+ <!-- Aree Emergenza Prov. Messina -->
         function pop_AreeemergenzadellaprovinciadiMessina2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -695,7 +700,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_AreeemergenzadellaprovinciadiMessina2_0(feature) {
             switch(feature.properties['Tipologia']) {
                 case 'AREA DI ATTESA':
@@ -750,6 +754,8 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
     });
         bounds_group.addLayer(layer_AreeemergenzadellaprovinciadiMessina2);
         map.addLayer(layer_AreeemergenzadellaprovinciadiMessina2);
+
+<!-- Aree Emergenza Prov. Enna -->		
         function pop_AreeemergenzadellaprovinciadiEnna3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -829,7 +835,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_AreeemergenzadellaprovinciadiEnna3_0(feature) {
             switch(feature.properties['Tipologia']) {
                 case 'AREA DI ATTESA':
@@ -884,6 +889,8 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
     });
         bounds_group.addLayer(layer_AreeemergenzadellaprovinciadiEnna3);
         map.addLayer(layer_AreeemergenzadellaprovinciadiEnna3);
+		
+<!-- Aree Emergenza Prov. Catania  -->
         function pop_AreeemergenzadellaprovinciadiCatania4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -964,7 +971,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_AreeemergenzadellaprovinciadiCatania4_0(feature) {
             switch(feature.properties['Tipologia']) {
                 case 'AREA DI ATTESA':
@@ -1019,7 +1025,8 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
     });
         bounds_group.addLayer(layer_AreeemergenzadellaprovinciadiCatania4);
         map.addLayer(layer_AreeemergenzadellaprovinciadiCatania4);
-<!-- Aree Emergneza  Comune Palermo-->	
+		
+<!-- Aree Emergneza Comune Palermo-->	
         function pop_AreeemergenzadelcomunediPalermo0(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -1100,7 +1107,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_AreeemergenzadelcomunediPalermo0_0(feature) {
             switch(feature.properties['Tipologia']) {
                 case 'AREA DI ATTESA':
@@ -1176,19 +1182,19 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
     var layer_AreeemergenzadelcomunediPalermo0 = new L.geoJson(json_AreeemergenzadelcomunediPalermo0, {
         attribution: '<a href=""></a>',
         pane: 'pane_AreeemergenzadelcomunediPalermo0',
-
         onEachFeature: pop_AreeemergenzadelcomunediPalermo0,
         style: style_AreeemergenzadelcomunediPalermo0_0,
     });
         bounds_group.addLayer(layer_AreeemergenzadelcomunediPalermo0);
         map.addLayer(layer_AreeemergenzadelcomunediPalermo0);
+		
 <!-- struttture operativa -->
 <!-- struttture poliza e paitaneria di porto -->
+<!-- struttture Capiteria di porto  -->
         function pop_Capitaneriediporto0(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_Capitaneriediporto0_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
@@ -1236,7 +1242,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_Capitaneriediporto0_0() {
             return {
                 pane: 'pane_Capitaneriediporto0',
@@ -1264,11 +1269,12 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             },
         });
         bounds_group.addLayer(layer_Capitaneriediporto0);
+		
+		<!-- struttture Polizia di Stato  -->
         function pop_PoliziadiStato1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_PoliziadiStato1_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
@@ -1312,7 +1318,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_PoliziadiStato1_0() {
             return {
                 pane: 'pane_PoliziadiStato1',
@@ -1340,12 +1345,12 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             },
         });
         bounds_group.addLayer(layer_PoliziadiStato1);
+		
 <!-- struttture prefetture -->		
         function pop_Prefetture0(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_Prefetture0_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
@@ -1384,7 +1389,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_Prefetture0_0() {
             return {
                 pane: 'pane_Prefetture0',
@@ -1412,12 +1416,12 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             },
         });
         bounds_group.addLayer(layer_Prefetture0);
-<!-- struttture carabinieri vigili del fuoco associazioni  -->
+
+<!-- struttture Associazioni  -->
         function pop_AssociazionidiVolontariatosicilia0(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_AssociazionidiVolontariatosicilia0_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
@@ -1441,7 +1445,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_AssociazionidiVolontariatosicilia0_0() {
             return {
                 pane: 'pane_AssociazionidiVolontariatosicilia0',
@@ -1470,11 +1473,11 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
         });
         bounds_group.addLayer(layer_AssociazionidiVolontariatosicilia0);
 		
+<!-- struttture Carabinieri  -->
         function pop_Carabinierisicilia1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_Carabinierisicilia1_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
@@ -1527,7 +1530,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_Carabinierisicilia1_0() {
             return {
                 pane: 'pane_Carabinierisicilia1',
@@ -1556,7 +1558,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
         });
         bounds_group.addLayer(layer_Carabinierisicilia1);
 		
-		
+	<!-- struttture Vigili del fuoco  -->	
         function pop_VigilidelFuocosicilia2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -1633,6 +1635,7 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             },
         });
         bounds_group.addLayer(layer_VigilidelFuocosicilia2);
+		
   <!-- struttture guardia di finanza -->   
         function pop_GuardiadiFinanza0(feature, layer) {
             layer.on({
@@ -1700,7 +1703,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_classificazionesicilia0_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
@@ -1728,7 +1730,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_classificazionesicilia0_0(feature) {
             switch(feature.properties['Classifica']) {
                 case '1':
@@ -1801,7 +1802,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_pericolositsismica0_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
@@ -1821,7 +1821,6 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_pericolositsismica0_0(feature) {
             switch(feature.properties['ag']) {
                 case '0.000 - 0.025':
@@ -1933,18 +1932,16 @@ var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
     });
        bounds_group.addLayer(layer_pericolositsismica0);
 
-
 <!-- Pericolosità  sismica passo 0.02 gradi ISTAT -->
 function pop_PericolositSismicaIstat0(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     layer.setStyle(style_PericolositSismicaIstat0_0(feature));
-
                 },
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-												<tr>\
+								<tr>\
                         <th scope="row"><span class="legenda1">PERICOLOSIT&Agrave; SISMICA<br /><br /><spam /> </th>\
                        </tr>\
 			                    <tr>\
@@ -1990,7 +1987,6 @@ function pop_PericolositSismicaIstat0(feature, layer) {
                 </table>';
             layer.bindPopup(popupContent);
         }
-
         function style_PericolositSismicaIstat0_0(feature) {
             if (feature.properties['AGMAX_50'] >= 0.000000 && feature.properties['AGMAX_50'] <= 0.030000 ) {
                 return {
@@ -2159,12 +2155,14 @@ function pop_PericolositSismicaIstat0(feature, layer) {
         style: style_PericolositSismicaIstat0_0,
     });
         bounds_group.addLayer(layer_PericolositSismicaIstat0);
+		<!-- Layer Pericolosità  Sismica Istat disattivatò all'avvio -->
        // map.addLayer(layer_PericolositSismicaIstat0);	
 		
 <!-- Legenda mappa -->
         var baseMaps = {};
         L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Mappa Aree di emergenza</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prot. Civile - Reg. Sicilia<br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Legenda</span><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/info.png" Title="Area di attesa" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di attesa</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ricovero.png" Title="Area accoglienza o di ricovero" "width="20" height="23" /></td><td>&nbsp;&nbsp;&nbsp;Area di ricovero</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ammassamento.png" title="Area di ammassamento"width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area di ammassamento</td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/firemen_01.png" Title=" Area di ammassamento Colonna mobile VV.F" width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Colonna mobile VV.F </td></tr></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/ri.png" Title="Area rischio industriale " width="20" height="23"/></td><td>&nbsp;&nbsp;&nbsp;Area rischio industriale</td></tr></table><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aree di emergenza.</span>':layer_poligonoisola0,'&nbsp;Provincia di Catania<br />': layer_AreeemergenzadellaprovinciadiCatania4,'&nbsp;Provincia di Enna<br />': layer_AreeemergenzadellaprovinciadiEnna3,'Provincia di Messina<br />': layer_AreeemergenzadellaprovinciadiMessina2,'&nbsp;Provincia di Ragusa<br />': layer_AreeemergenzadellaprovinciadiRagusa0, '&nbsp;Comune di Palermo<br /> <hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Strutture operative<br /></span>': layer_AreeemergenzadelcomunediPalermo0, '&nbsp;&nbsp;<img src="legend/legge.png"Title=" Prefetture" width="20" height="23" />&nbsp;&nbsp;Prefetture': layer_Prefetture0, '&nbsp;&nbsp;<img src="legend/carabinieri.png" Title="Carabinieri" width="20" height="23" />&nbsp;&nbsp;Carabinieri': layer_Carabinierisicilia1,  '&nbsp;&nbsp;<img src="legend/polizia.png" Title=" Polizia di Stato" width="20" height="23"/>&nbsp;&nbsp;Polizia di Stato': layer_PoliziadiStato1, '&nbsp;&nbsp;<img src="legend/gdf.png" Title="Guardia di Finanza " width="20" height="23"/>&nbsp;&nbsp;Guardia di Finanza': layer_GuardiadiFinanza0,  '&nbsp;&nbsp;<img src="legend/ferry.png" Title="Capitanerie di porto " width="20" height="23" />&nbsp;&nbsp;Capitanerie di porto': layer_Capitaneriediporto0, '&nbsp;&nbsp;<img src="legend/firemen.png" Title="Vigili del Fuoco" width="20" height="23"/>&nbsp;&nbsp;Vigili del Fuoco': layer_VigilidelFuocosicilia2, '&nbsp;&nbsp;<img src="legend/ass_prot_civile.png" Title=" Associazioni di Volontariato" width="20" height="23" />&nbsp;&nbsp;Ass. Volontariato<br /><hr> <span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sismicità<br /></span>': layer_AssociazionidiVolontariatosicilia0, '&nbsp;&nbsp;&nbsp;Classificazione Sismica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z1.png" /></td><td>&nbsp;&nbsp;Zona 1</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z2.png" /></td><td>&nbsp;&nbsp;Zona 2</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z3.png" /></td><td>&nbsp;&nbsp;Zona 3</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z4.png" /></td><td>&nbsp;&nbsp;Zona 4</td></tr></table>': layer_classificazionesicilia0, '&nbsp;&nbsp;&nbsp;Pericolosità Sismica (ISTAT)': layer_PericolositSismicaIstat0, '&nbsp;&nbsp;&nbsp;Pericolosità Sismica (INGV)<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/0.png" /></td><td>&nbsp;&nbsp;0.000 - 0.025</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/025.png" /></td><td>&nbsp;&nbsp;0.025 - 0.050</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/050.png" /></td><td>&nbsp;&nbsp;0.050 - 0.075</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/075.png" /></td><td>&nbsp;&nbsp;0.075 - 0.100</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/100.png" /></td><td>&nbsp;&nbsp;0.100 - 0.125</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/125.png" /></td><td>&nbsp;&nbsp;0.125 - 0.150</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/150.png" /></td><td>&nbsp;&nbsp;0.150 - 0.175</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/175.png" /></td><td>&nbsp;&nbsp;0.175 - 0.200</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/200.png" /></td><td>&nbsp;&nbsp;0.200 - 0.225</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/225.png" /></td><td>&nbsp;&nbsp;0.225 - 0.250</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/250.png" /></td><td>&nbsp;&nbsp;0.250 - 0.275</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/275.png" /></td><td>&nbsp;&nbsp;0.275 - 0.300</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br /> <br /><br /><br /><br />': layer_pericolositsismica0, }).addTo(map);
         setBounds();
+		
 		<!-- strumenti di leaflet -->
 		var zoomHome = L.Control.zoomHome();zoomHome.addTo(map);
 		var hash = new L.Hash(map);
@@ -2196,7 +2194,8 @@ function pop_PericolositSismicaIstat0(feature, layer) {
         }));
         </script>
         
- <!-- header -->       
+ <!-- header -->  
+ <!-- inizio menu -->     
 <div id="bot" class="leaflet-control">
 <div id="left-flyout-nav" class="layout-left-flyout visible-sm"></div>
 		<div class="layout-right-content">
@@ -2226,7 +2225,7 @@ function pop_PericolositSismicaIstat0(feature, layer) {
 		      </nav>
 		    </div>
 		  </header>
-		</div><!-- END .layout-left-flyout -->
+		</div><!--fine menu -->
         
 <script src="lib/js/menu/jquery.js"></script>
 <script src="lib/js/menu/jquery.cbFlyout.js"></script>
