@@ -33,8 +33,6 @@
 <link href="../lib/css/leaflet-sidebar.css" rel="stylesheet" type="text/css">
 <link href="../lib/css/gmaps-sidebar.css" rel="stylesheet" type="text/css">
 <link href="../lib/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-
-
  <!-- css menu -->
  <link href="../lib/css/global.css" rel="stylesheet" type="text/css">
  
@@ -42,6 +40,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/> 
  
+
 <link href="../lib/css/atlante_01.css" rel="stylesheet" type="text/css">
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -87,7 +86,6 @@
   <h1>About</h1>
   <div id="about">
   EMSR213: Forest Fire in Southern Italy - Sicilia, <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213"  title="EMSR213: Forest Fire in Southern Italy" target="_blank">Vector package </a><br>Rielaborazione dati <a href="https://twitter.com/gbvitrano" title="@gbvitrano" target="_blank">@gbvitrano</a> per <a href="http://opendatasicilia.it/" title="Open Data Sicilia" target="_blank">Open Data Sicilia</a><br>I contenuti della mappa sono rilasciati con la licenza: <a href="http://effis.jrc.ec.europa.eu/about-effis/data-license/"  title="Data License - EFFIS"target="_blank">Data License - EFFIS</a><br><br>
-
 This page was made with <a href="http://www.qgis.org/" target="_blank">QGIS</a> and <a href="https://github.com/minorua/Qgis2threejs" target="_blank">Qgis2threejs</a> plugin, 
 and uses the following library:
   <ul>
@@ -102,14 +100,13 @@ and uses the following library:
 <div id="footer"><div id="infobtn">i</div></div>
 
 <script src="./threejs/three.min.js"></script>
-<script src="./Qgis2threejs.js"></script>
+<script src="./Qgis2threejs_piazza_a_clip.js"></script>
 <script src="./threejs/OrbitControls.js"></script>
 <script>
 var option = Q3D.Options;
 option.bgcolor = 0xffffff;
 </script>
-<script src="./sciacca.js"></script>
-
+<script src="./piazza_armerina.js"></script>
 <script>
 if (typeof proj4 !== "undefined") document.getElementById("lib_proj4js").style.display = "list-item";
 
@@ -148,13 +145,13 @@ app.start();
 <div class="sidebar-pane" id="home">
 <h2 class="sidebar-header">Sicilia a fuoco<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
  <p class="lorem"><strong>Gli incendi in Sicilia, una situazione drammatica vista da COPERNICUS - Emergency Management Service<br>
-     <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_blank">EMSR213: Forest Fire in Southern Italy</a></strong> <p class="lorem">[EMSR213] Sciacca: Grading Map<a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_05SCIACCA_02GRADING_MAP/1" title="[EMSR213] Sciacca: Grading Map" target="_blank"> Published: 2017-07-18 02:19 (UTC)</a></p>
+     <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_blank">EMSR213: Forest Fire in Southern Italy</a></strong> <p class="lorem">[EMSR213] Piazza Armerina: Grading Map <a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_16PIAZZAARMERINA_02GRADING_MAP/1" title="[EMSR213] Piazza Armerina: Grading Map " target="_blank">  Published: 2017-08-08 23:38 (UTC)</a></p>  
  <p class="lorem"><strong>Authorized User:</strong><br>
 Italy|Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile - Centro Situazioni<br><br>
 <strong>Activation Reason: </strong><br>
 During recent weeks almost the whole Italian National Territory has suffered a period characterized by very high temperatures and an absence of significant rain. Exacerbated by these conditions numerous fires are affecting Italy, most specifically in southern areas. Several fires are affecting large forested areas and, in certain cases, fires are threatening inhabited areas. Damages to infrastructures, public and private structures have occurred as have temporary evacuations due to risk to life.</p>
-<img src="../legend/05.png" width="165" height="24"  /><br>
- <a href="http://emergency.copernicus.eu/mapping/system/files/components/EMSR213_05SCIACCA_02GRADING_MAP_v1_100dpi.jpg" target="_blank" title="[EMSR213] Sciacca: Grading Map"><img src="../lib/images/sciacca.jpg"alt="[EMSR213] Sciacca: Grading Map" width="370" height="262" class="clip_about" title="[EMSR213] Sciacca: Grading Map"/></a> <br>
+<img src="../legend/16.png" width="165" height="24"  /><br>
+ <a href="http://emergency.copernicus.eu/mapping/system/files/components/EMSR213_16PIAZZAARMERINA_02GRADING_MAP_v1_100dpi.jpg" target="_blank" title="[EMSR213] Piazza Armerina: Grading Map"><img src="../lib/images/piazza_armerina.jpg"alt="[EMSR213] Piazza Armerina" width="370" height="262" class="clip_about" title="[EMSR213] Piazza Armerina: Grading Map"/></a> <br>
 
 <p class="lorem"> <em><strong>Copernicus EMS - Mapping mira a fornire prodotti quanto più accurati possibile. Tuttavia, le informazioni prodotte hanno limitazioni dovute alla scala, alla risoluzione, alla data e ai metodi di interpretazione dei dati originali dei materiali originali / satellitari.</strong></em><br>
   <em><strong>I prodotti Copernicus EMS - Mapping sono forniti "come è" senza alcuna garanzia, espressa o implicita, inclusa la qualità o l'idoneità per qualsiasi scopo. L'intero rischio relativo all'utilizzo di questi prodotti è assunto dall'Utente e l'UE non si assume alcuna responsabilità per eventuali perdite, danni o inconvenienti causati dalla dipendenza dai prodotti Copernicus EMS-Mapping.</strong></em></p>
@@ -166,11 +163,12 @@ During recent weeks almost the whole Italian National Territory has suffered a p
  <p class="lorem"> <strong>Rielaborazione di: </strong><a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a><br>per <strong><a href="http://opendatasicilia.it/" Title="Open Data Sicilia" target="_blank">Open Data Sicilia</a></strong> e <strong><a href="http://italiaafuoco.info/" Title="Italia a Fuoco" target="_blank">Italia a Fuoco</a></strong><br>
    <p class="lorem"><strong>Fonte dati:</strong> <br>  <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_blank">EMSR213: Forest Fire in Southern Italy</a> <br> 
 
-<p class="lorem">[EMSR213] Sciacca: Grading Map<a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_05SCIACCA_02GRADING_MAP/1" title="[EMSR213] Sciacca: Grading Map" target="_blank"> Published: 2017-07-18 02:19 (UTC)</a></p>
+<p class="lorem">[EMSR213] Piazza Armerina: Grading Map <a href="http://emergency.copernicus.eu/mapping/ems-product-component/EMSR213_16PIAZZAARMERINA_02GRADING_MAP/1" title="[EMSR213] Piazza Armerina: Grading Map " target="_blank">  Published: 2017-08-08 23:38 (UTC)</a></p>  
 
-<p class="lorem"><strong>News </strong> del 14/07/2017 - Le fiamme minacciano Sciacca: evacuate 40 famiglie. Continua l...<a href="http://www.huffingtonpost.it/2017/07/14/le-fiamme-minacciano-sciacca-evacuate-40-famiglie-continua-le_a_23029808/" title="Le fiamme minacciano Sciacca: evacuate 40 famiglie. Continua l...L'Huffington Post " target="_blank">...L'Huffington Post</a></p> 
-<p class="lorem"><strong>News </strong> del 24/06/2017 - Emergenza incendi, distrutti 10 ettari di area boschiva al lago Arancio<a href="http://www.agrigentonotizie.it/cronaca/incendi-distrutti-10-ettari-bosco-lago-arancio-sambuca-di-sicilia-24-giugno-2017.html" title="Emergenza incendi, distrutti 10 ettari di area boschiva al lago Arancio...Agrigento Notizie" target="_blank">...Agrigento Notizie</a></p> 
- <a href="#" target="_blank" title="bla bla"><img src="https://o.aolcdn.com/images/dims3/GLOB/crop/902x450+0+726/resize/630x315!/format/jpg/quality/85/http%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2F34e4000bc79263e498e421c7fdf27e1e%2F205476510%2F47484388%2B-%2BANSA%2B-%2B13.17.32.jpg"alt="news incendi" width="400" height="566" class="clip_about" title="Le fiamme minacciano Sciacca: evacuate 40 famiglie. Continua l...L'Huffington Post"/></a><br>
+<p class="lorem"><strong>News </strong> del 04/08/2017 - Provincia sud di Enna: da tre giorni fuoco. Chiuse le strade per Piazza Armerina ed Aidone, evacuate abitazioni di...<a href="http://www.vivienna.it/2017/08/06/provincia-sud-di-enna-da-tre-giorni-fuoco-chiuse-le-strade-per-piazza-armerina-ed-aidone-evacuate-abitazioni-di-contrada-castani-a-valguarnera-salvato-un-uomo-a-rossomanno-arriva-autobotte-eser//" title="Provincia sud di Enna: da tre giorni fuoco. Chiuse le strade per Piazza Armerina ed Aidone, evacuate abitazioni di ...Vivi Enna" target="_blank">...Vivi Enna</a></p>
+<a href="http://www.vivienna.it/2017/08/06/provincia-sud-di-enna-da-tre-giorni-fuoco-chiuse-le-strade-per-piazza-armerina-ed-aidone-evacuate-abitazioni-di-contrada-castani-a-valguarnera-salvato-un-uomo-a-rossomanno-arriva-autobotte-eser/" target="_blank" title="Provincia sud di Enna: da tre giorni fuoco. Chiuse le strade per Piazza Armerina ed Aidone, evacuate abitazioni di ...Vivi Enna"><img src="http://www.vivienna.it/wp-content/uploads/2017/08/incendi-operatore.jpg"alt="news incendi" width="400" height="566" class="clip_about" title="Provincia sud di Enna: da tre giorni fuoco. Chiuse le strade per Piazza Armerina ed Aidone, evacuate abitazioni di ...Vivi Enna"/></a><br>
+
+<p class="lorem"><strong>News </strong> del 06/08/2017 - Valguarnera coperta da molte ore da una folta coltre fumogena...<a href="http://www.vivienna.it/2017/08/06/valguarnera-coperta-da-molte-ore-da-una-folta-coltre-fumogena/" title="Valguarnera coperta da molte ore da una folta coltre fumogena...Vivi Enna" target="_blank">...Vivi Enna</a></p>
 
 <hr>
 <p class="lorem">I contenuti della mappa sono rilasciati con la licenza: <a href="http://emergency.copernicus.eu/mapping/sites/default/files/files/CopernicusEMS-Data_and_Dissemination_Policy.pdf " title="Copernicus EMS - Rapid Data Mapping Policy" target="_blank"><br><strong>Copernicus EMS - Rapid Data Mapping Policy</strong></a> </p> 
@@ -338,18 +336,18 @@ var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 
 <!-- clip mappa 2d --> 
-  <div id="tavola"><img src="../legend/05_1.png" width="165"></div>  
+  <div id="tavola"><img src="../legend/16_1.png" width="165"></div>  
 <div id="threejs" class="leaflet-control">
-<iframe src="../grading_map.html#13/37.5193/13.0955" width="100%" height="98%" frameborder="0" scrolling="no"></iframe>
+<iframe src="../grading_map.html#11/37.3909/14.3639" width="100%" height="98%" frameborder="0" scrolling="no"></iframe>
 </div> 
 <div id="threejs_testo" class="leaflet-control legenda2">
-  <a href="../sciacca.html" title="Grading Map - Forest Fire in Southern Italy - Visualizza a schermo intero" target="_parent">Apri Grading Map EMSR213</a> </div>   
+  <a href="../piazza_armerina.html" title="Grading Map - Forest Fire in Southern Italy - Visualizza a schermo intero" target="_parent">Apri Grading Map EMSR213</a> </div>   
   
 <!-- loghi e legenda -->   
   <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
 <img src="../lib/images/ods.svg" width="80" title="opendatasicilia.it" alt="opendatasicilia"></a></div>   
 <div id="itaf"><a href="http://italiaafuoco.info/" title="italiaafuoco.info" target="_blank"> 
 <img src="../legend/italiaafuoco_clip.png" width="40" title="italiaafuoco.info" alt="italiaafuoco.info"></a></div>  
-<div id="leg3d"><img src="../legend/legenda.png" width="120" title="Fire Grading" alt="Fire Grading"></a></div>  
+<div id="leg3d"><img src="../legend/legenda.png" width="120" title="Fire Grading" alt="Fire Grading"></a></div> 
 </body>
 </html>
