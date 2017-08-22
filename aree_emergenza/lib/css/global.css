@@ -17,9 +17,30 @@ html {
 .lorem {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 11px;}
 .awesome {font-style:fontawesome;  color: #4E4B4B;  }
 .footer {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; font-size: 14px;}
-.social {font-style: italic; color: #4E4B4B; font-size: 24px;}
-.social1 {font-style: italic; color: #4E4B4B; font-size: 14px;}
 
+.ods_footer {
+	font-style: italic;
+	color: #F5F5F5;
+	text-align: justify;
+	font-family: "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;
+	font-size: 1.20em;
+}
+	 @media (min-width: 320px) and (max-width: 736px) { .footer {font-size: 0.9em } }
+	 
+
+.ods_footer a:link{color: #FF9900;	text-decoration:none;}
+.ods_footer a:visited {	color: #FF9900; text-decoration:none;}
+.ods_footer a:hover {color: #FF9900; text-decoration:underline; } 
+
+.ods_social {font-style: italic; color: #4E4B4B; font-size: 11px;}
+.ods_social a:link{color: #4E4B4B;	text-decoration:none;}
+.ods_social a:visited {	color: #4E4B4B; text-decoration:none;}
+.ods_social a:hover {color: #FF9900; text-decoration:none; } 
+
+.social {font-style: italic; color: #4E4B4B; font-size: 24px;}
+
+.social1 {color: #4E4B4B; font-size: 14px;}
+ @media (min-width: 320px) and (max-width: 736px) {.social1 {font-size: 12px;}}
 /**
  * Remove default margin.
  */
@@ -121,7 +142,8 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: bold;
+	font-weight: bold;
+	text-align: justify;
 }
 
 /**
@@ -187,7 +209,8 @@ sub {
  */
 
 img {
-  border: 0;
+	border: 0;
+	text-align: center;
 }
 
 /**
@@ -769,11 +792,11 @@ body {
   }
 
   .the-nav > .nav > li:nth-of-type(1) > a {
-    padding-left: 0;
+    padding-left: 10px;
   }
 
   .the-nav > .nav > li:last-of-type > a {
-    padding-right: 0;
+    padding-right: 10px;
   }
 
   /* Active State */
@@ -894,10 +917,8 @@ ul li {
 }
 
 .container.navbar {
-
-	
   width: 100%;
-  height:45px;
+  height:50px;
   box-shadow: 0 1px 5px rgba(0,0,0,0.65);
 }
 .container:before, .container:after {
@@ -988,7 +1009,7 @@ color: #cccccc;
 }
 pre1 code {
   background: #F5F5F5;
-  padding: 2%;
+  padding: 1%;
   white-space: normal;
   overflow: auto;
  display: block;
