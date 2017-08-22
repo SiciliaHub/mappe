@@ -15,11 +15,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="shortcut icon" href="favicon.ico"/> 
         <link rel="icon" href="favicon.png" type="image/png"/> 
-        
-          <!-- @media screen   ods css-->    
-<script> if (screen && screen.width < 737) { document.write('<link href="lib/css/leaflet_osd_mobile.css" rel="stylesheet" type="text/css">'); } </script>   
-<script> if (screen && screen.width > 738) { document.write('<link href="lib/css/leaflet_sicilia.css" rel="stylesheet" type="text/css">'); } </script>    
-        
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -51,7 +47,7 @@
 
  <!-- css -->
 <link href="lib/css/ods_base.css" rel="stylesheet" type="text/css">
- <!--  <link href="lib/css/leaflet_sicilia.css" rel="stylesheet" type="text/css"> -->
+<link href="lib/css/leaflet_sicilia.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="lib/css/L.Control.Locate.min.css" />
 <link rel="stylesheet" type="text/css" href="lib/css/qgis2web.css">
@@ -97,25 +93,19 @@
 <script src="lib/js/qgi2web/Autolinker.min.js"></script>
 <script src="lib/js/qgi2web/leaflet-measure.js"></script>
 <script src="lib/js/qgi2web/leaflet.markercluster.js"></script>
-<script src="lib/js/qgi2web/leaflet-search.js"></script>     
+<script src="lib/js/qgi2web/leaflet-search.js"></script>  
 <script src="data/classificazionesicilia0.js"></script>       
-            
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>        
 <script src="lib/js/sidebar/leaflet-sidebar.js"></script>
+<script> if (screen && screen.width < 737) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min_mobile.js"><\/script>'); } </script>
+<script> if (screen && screen.width > 738) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"><\/script>'); } </script>   
 <script src="lib/js/social/jquery_csbuttons.js"></script>
 <script src="lib/js/mouseposition/LControlMousePosition.js"></script>
-<!-- <script src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"></script> -->
- 
-<script> if (screen && screen.width > 738) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"><\/script>'); } </script>
-<script> if (screen && screen.width < 737) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min_mobile.js"><\/script>'); } </script>
-
-
 <script src="lib/js/zoomhome/leaflet.zoomhome.js"></script>     
 <script src="lib/js/basemap/L.Control.Basemaps.js"></script>
 <script src="lib/js/print/leaflet.easyPrint.js"></script>
 <script src="lib/js/countryselect/Leaflet.CountrySelect.js" charset="UTF-8"></script>
-
 
 <!-- script dati mappa -->
 <script src="data/comuniOSM0.js" charset="UTF-8"></script>
@@ -249,16 +239,15 @@ Una piena conoscenza di questi aspetti è la premessa indispensabile per ridurre
 <p class="lorem"><strong>Che cos’è</strong><br>
 <strong><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank">#opendatasicilia</a></strong> e’ una iniziativa civica che si propone di far conoscere e diffondere la cultura dell’open government e le prassi dell’open data nel nostro territorio e aprire una discussione pubblica partecipata.<br><br>
 <strong>Chi siamo</strong>  <br>
-Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo accomunati dalla genuina volontà di contribuire a migliorare la qualità della vita della nostra comunità. Lo vogliamo fare con spirito di collaborazione e concretezza.  </p> <br><br><br><br><br>
+Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo accomunati dalla genuina volontà di contribuire a migliorare la qualità della vita della nostra comunità. Lo vogliamo fare con spirito di collaborazione e concretezza.  </p> <br><br><br>
 <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tbody>
     <tr>
-      <td><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank" style="text-align: center"><img src="lib/images/ods.svg" width="350" title="opendatasicilia.it" alt="opendatasicilia"></a></td>
+      <td><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank" style="text-align: center"><img src="lib/images/ods.svg" width="280" title="opendatasicilia.it" alt="opendatasicilia"></a></td>
     </tr>
   </tbody>
 </table>
-
-<br><br><br><br><br><br><br><br><br><br>
+<br><br>
 <p class="lorem">Ci trovi in questi luoghi: </p> <br>
   <table width="10%" border="0" align="center" cellpadding="0" cellspacing="0" class="social1" >
   <tbody>
@@ -316,7 +305,7 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
 <li><p class="lorem"><a href="https://github.com/rowanwins/leaflet-easyPrint" title="Leaflet-easyPrint" target="_blank">Leaflet-easyPrint</a>, un semplice plugin che aggiunge un'icona per stampare la mappa;</li></p>
 <li><p class="lorem"><a href="https://github.com/dalbrx/Leaflet.ResizableControl" title="Leaflet ResizableControl" target="_blank">Leaflet ResizableControl</a>, un semplice pannello di controllo ridimensionabile e scorrimento;</li></p>
 <li><p class="lorem"><a href="https://github.com/ahalota/Leaflet.CountrySelect/" title="Leaflet CountrySelect" target="_blank">Leaflet CountrySelect</a>, un semplice puglin per selezionare il Stato/Regione/Provincia/Comune desiderato;</li></p>
-<li><p class="lorem"><a href="http://www.jqueryscript.net/menu/Responsive-Multi-level-Off-Screen-Navigation-Plugin-For-jQuery-cbFlyout.html" title="Responsive Multi-level Off Screen Navigation Plugin For jQuery - cbFlyout" target="_blank">Menu jQuery</a>, Responsive Multi-level Off Screen Navigation Plugin For jQuery - cbFlyout;</li><br><br><br><br><br><br></p>
+<li><p class="lorem"><a href="http://www.jqueryscript.net/menu/Responsive-Multi-level-Off-Screen-Navigation-Plugin-For-jQuery-cbFlyout.html" title="Responsive Multi-level Off Screen Navigation Plugin For jQuery - cbFlyout" target="_blank">Menu jQuery</a>, Responsive Multi-level Off Screen Navigation Plugin For jQuery - cbFlyout;</li><br><br></p>
 <li><p class="lorem">Icone per le tue mappe <a href="https://mapicons.mapsmarker.com/category/markers/stores/" title="Map Icons Collection" target="_blank"><img src="https://mapicons.mapsmarker.com/wp-content/uploads/2011/03/miclogo-88x31.gif" width="88" height="31" alt=""/></a> </li></p>
       </ul>
 </div>

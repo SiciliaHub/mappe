@@ -365,8 +365,10 @@
 .leaflet-control-layers-expanded .leaflet-control-layers-list {
 	display: block;
 	position: relative;
-	
 		}
+	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-expanded {font-size:9px;  }}
+
+
 .leaflet-control-layers-expanded {
 	padding: 6px 10px 6px 6px;
 	color: #333;
@@ -475,6 +477,8 @@
 	border-radius: 12px;
 		width: 340px;
 	}
+		/* popup  su mobile" */
+	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-popup-content-wrapper {font-size:9px; width: 250px; }}	
 .leaflet-popup-content {
 	margin: 13px 19px;
 	line-height: 1.4;
