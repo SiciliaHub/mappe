@@ -373,6 +373,7 @@
 	
 	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-expanded {font-size:9px;  }}
 	
+	
 .leaflet-control-layers-scrollbar {
 	overflow-y: scroll;
 	overflow-x:hidden;
@@ -473,11 +474,11 @@
 	padding: 1px;
 	text-align: left;
 	border-radius: 12px;
-		width: 280px;
+		width: 190px;
+		
 	}
-		/* popup  su mobile" */
-	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-popup-content-wrapper {font-size:9px; width: 240px; }}	
-	
+	/* popup  su mobile" */
+	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-popup-content-wrapper {font-size:9px; width: 160px; }}	
 .leaflet-popup-content {
 	margin: 13px 19px;
 	line-height: 1.4;
