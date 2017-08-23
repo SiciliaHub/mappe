@@ -6,13 +6,18 @@
  *    user zoom.
  */
 
-html {
+html body {
   font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;  /* 1 */
   font-size: 11px;
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
-  
+  /* ie scrollbar*/
+  scrollbar-base-color : #F5F5F5;
+  scrollbar-arrow-color: #fff;
+  scrollbar-3dlight-color : #F5F5F5;
+  scrollbar-highlight-color :#F5F5F5;
 }
+
 /* nuove classi per footer */
 .lorem {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 11px;}
 .awesome {font-style:fontawesome;  color: #4E4B4B;  }
@@ -1011,3 +1016,18 @@ pre1 code {
 
   .clip_about {width: 100%; height: 100%; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }  
 
+ /* scrollbar*/
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    border-radius: 2px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8); 
+}
