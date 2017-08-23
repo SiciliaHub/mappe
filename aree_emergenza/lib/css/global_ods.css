@@ -18,8 +18,6 @@ html body {
   scrollbar-highlight-color :#F5F5F5;
 }
 
-
-
   /*Clip resize;*/
 .clip_resize {width: 100%; height: 100%; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) } 
 
@@ -1016,6 +1014,7 @@ color: #cccccc;
   -ms-hyphens: none;
   hyphens: none;
   position: relative;
+   z-index:1500;
 }
 pre1 code {
   background: #F5F5F5;
@@ -1024,7 +1023,6 @@ pre1 code {
   overflow: auto;
  display: block;
  border-top: 1px solid #ccc;
-  
 }
 
 
@@ -1035,15 +1033,19 @@ pre1 code {
  /* scrollbar*/
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
+	height:7px;
 }
  
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-    border-radius: 2px;
+    -webkit-box-shadow: inset 0 0 10px rgba(255,255,255,0.9); 
+    border-radius: 0px;
 }
  
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8); 
+::-webkit-scrollbar-thumb:vertical {
+height: 50px;
+background-color: rgba(0,0,0,0.2);
+border: 1px solid rgba(0,0,0,0.2);
+-webkit-border-radius: 6px;
+max-height:100px;
 }
