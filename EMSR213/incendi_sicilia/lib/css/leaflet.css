@@ -361,22 +361,36 @@
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
 	display: none;
 	}
+	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers .leaflet-control-layers-list,
+.leaflet-control-layers-expanded .leaflet-control-layers-toggle{width:180px;  }}	
+	
 .leaflet-control-layers-expanded .leaflet-control-layers-list {
 	display: block;
 	position: relative;
 		}
+/* dimensione testo legenda mobile */		
+ @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-expanded {font-size:9px;  }}		
+		
 .leaflet-control-layers-expanded {
+		max-height:630px;
+		overflow:auto;
+	overflow-x:hidden;
 	padding: 6px 10px 6px 6px;
 	color: #333;
-	background: #fff;
+	background: rgba(255,255,255,0.9);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65)
 	}
-	@media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-expanded {font-size:9px;  }}
+
+		 @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-expanded {max-height:350px;  }}
 	
 .leaflet-control-layers-scrollbar {
+	max-height:610px;
 	overflow-y: scroll;
 	overflow-x:hidden;
 	padding-right: 5px;
 	}
+
+	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-scrollbar {max-height:320px;  }}	
 .leaflet-control-layers-selector {
 	margin-top: 2px;
 	position: relative;

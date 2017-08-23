@@ -350,37 +350,47 @@
     margin: 2 2px;
     border-radius: 40px;
     box-shadow: 0 1px 5px rgba(0,0,0,0.6);
-	}
-.leaflet-touch .leaflet-control-layers-toggle {
+		}
+.leaflet-touch .leaflet-control-layers-toggle  {
 	width: 44px;
 	height: 44px;
 	border-radius: 40px;
-	
 	}
+	
 .leaflet-control-layers .leaflet-control-layers-list,
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
 	display: none;
-	
-	}
+    width:200px;
+		}
+	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers .leaflet-control-layers-list,
+.leaflet-control-layers-expanded .leaflet-control-layers-toggle{width:160px;  }}
+	 
 .leaflet-control-layers-expanded .leaflet-control-layers-list {
 	display: block;
 	position: relative;
 		}
 /* dimensione testo legenda mobile */		
-	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-expanded {font-size:9px;  }}
-
+ @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-expanded {font-size:9px;  }}
 
 .leaflet-control-layers-expanded {
+	max-height:650px;
+	overflow:auto;
+	overflow-x:hidden;
 	padding: 6px 10px 6px 6px;
 	color: #333;
-	background: #fff;
-	
+	background: rgba(255,255,255,0.9);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65)
 	}
+ @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-expanded {max-height:500px;  }}
+
 .leaflet-control-layers-scrollbar {
 	overflow-y: scroll;
 	overflow-x:hidden;
-	padding-right: 5px;
+	max-height:630px;
 	}
+	
+ @media (min-width: 320px) and (max-width: 736px) {.leaflet-control-layers-scrollbar {max-height:490px;  }}
+
 .leaflet-control-layers-selector {
 	margin-top: 2px;
 	position: relative;
@@ -526,7 +536,7 @@
 	text-align: center;
 	width: 18px;
 	height: 14px;
-	font: 16px/14px Tahoma, Verdana, sans-serif;
+	font: 16px/14px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;
 	color: #c3c3c3;
 	text-decoration: none;
 	font-weight: bold;
@@ -648,3 +658,5 @@
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
+
+
