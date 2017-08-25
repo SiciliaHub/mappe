@@ -18,6 +18,13 @@ html body {
   scrollbar-highlight-color :#F5F5F5;
 }
 
+.social1 a:link{color: #4E4B4B;	text-decoration:none;}
+.social1 a:visited {	color: #4E4B4B; text-decoration:none;}
+.social1 a:hover {color: #FF9900; text-decoration:none; } 
+
+.social1 {font-style: italic; color: #4E4B4B; font-size: 14px;}
+ @media (min-width: 320px) and (max-width: 736px) {.social1 {font-size: 12px;}}
+
 /**
  * Remove default margin.
  */
