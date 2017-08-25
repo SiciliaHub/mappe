@@ -63,6 +63,7 @@
 <link href="lib/css/gmaps-sidebar.css" rel="stylesheet" type="text/css">
 <link href="lib/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link href="lib/css/leaflet.zoomhome.css" rel="stylesheet" type="text/css">
+<link href="lib/css/leaflet-search.css" rel="stylesheet" type="text/css">
 
  <!-- css menu -->
  <link href="lib/css/global.css" rel="stylesheet" type="text/css">
@@ -82,7 +83,9 @@
 <script src="lib/js/qgi2web/qgis2web_expressions.js"></script>
 <script src="lib/js/qgi2web/leaflet.js"></script>
 <script src="lib/js/qgi2web/L.Control.Locate.min.js"></script>
+<script src="lib/js/qgi2web/multi-style-layer.js"></script>
 <script src="lib/js/qgi2web/leaflet-heat.js"></script>
+<script src="lib/js/qgi2web/leaflet-svg-shape-markers.min.js"></script>
 <script src="lib/js/qgi2web/leaflet.rotatedMarker.js"></script>
 <script src="lib/js/qgi2web/OSMBuildings-Leaflet.js"></script>
 <script src="lib/js/qgi2web/leaflet-hash.js"></script>
@@ -90,18 +93,22 @@
 <script src="lib/js/qgi2web/Autolinker.min.js"></script>
 <script src="lib/js/qgi2web/leaflet-measure.js"></script>
 <script src="lib/js/qgi2web/leaflet.markercluster.js"></script>
-<script src="lib/js/qgi2web/multi-style-layer.js"></script>
-        
+<script src="lib/js/qgi2web/leaflet-search.js"></script>   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>        
 <script src="lib/js/sidebar/leaflet-sidebar.js"></script>
 <script src="lib/js/social/jquery_csbuttons.js"></script>
 <script src="lib/js/mouseposition/LControlMousePosition.js"></script>
-<script src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"></script>  
+<script src="lib/js/countryselect/Leaflet.CountrySelect.js" charset="UTF-8"></script>
+
+  <!-- script automatico mobile/desktop --> 
+<script> if (screen && screen.width < 737) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min_mobile.js"><\/script>'); } </script>
+<script> if (screen && screen.width > 738) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"><\/script>'); } </script> 
 <script src="lib/js/zoomhome/leaflet.zoomhome.js"></script>     
 <script src="lib/js/basemap/L.Control.Basemaps.js"></script>
 <script src="lib/js/print/leaflet.easyPrint.js"></script>
         <!-- script dati mappa -->
+<script src="data/comuniOSM0.js" charset="UTF-8"></script>
 <script src="data/Anno20160.js"></script>
 <script src="data/Anno20151.js"></script>
 <script src="data/Anno20142.js"></script>
@@ -110,7 +117,6 @@
 <script src="data/Anno20115.js"></script>
 <script src="data/Anno20106.js"></script>
 <script src="data/poligonoisola0.js"></script>
- 
 
     </head>
     <body>
@@ -372,7 +378,23 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 
 L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Dati cartografici &#9400; 2017 Google - <a href="https://www.google.com/intl/it_it/help/terms_maps.html">Termini</a>', minZoom: 9,  maxZoom: 16, maxNativeZoom: 16, label: 'Google Terrain'}), 
  ];
+<!-- selettore comuni -->	
+var select = L.countrySelect({title:"Seleziona il Comune di interesse!"});
+			select.addTo(map);
+			select.on('change', function(e){
+				if (e.feature === undefined){ //Do nothing on title
+					return;
+				}
+				var country = L.geoJson(e.feature);
+				if (this.previousCountry != null){
+					map.removeLayer(this.previousCountry);
+				}
+				this.previousCountry = country;
 
+				map.addLayer(country);
+				map.fitBounds(country.getBounds());
+				
+			});	
 <!-- funzioni mappa -->
         function setBounds() {
         }
@@ -394,6 +416,48 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
             ];
           });
         }
+
+<!-- Cerca Comune -->	
+        function pop_comuniOSM0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    layer.setStyle(style_comuniOSM0_0(feature));
+                },
+                mouseover: highlightFeature,
+            });
+           var popupContent = '<table>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_comuniOSM0_0() {
+            return {
+                pane: 'pane_comuniOSM0',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/point.svg',
+            iconSize: [0.01, 0.01]
+        }),
+            }
+        }
+        map.createPane('pane_comuniOSM0');
+        map.getPane('pane_comuniOSM0').style.zIndex = 1;
+        map.getPane('pane_comuniOSM0').style['mix-blend-mode'] = 'normal';
+        var layer_comuniOSM0 = new L.geoJson(json_comuniOSM0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_comuniOSM0',
+            onEachFeature: pop_comuniOSM0,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_comuniOSM0_0(feature))
+            },
+        });
+        bounds_group.addLayer(layer_comuniOSM0);
+        map.addLayer(layer_comuniOSM0);
 
   // function pop_Centroidi0(feature, layer) {
         function pop_Anno20160(feature, layer) {
@@ -895,6 +959,13 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution:
 		
 				var zoomHome = L.Control.zoomHome();zoomHome.addTo(map);
 		var hash = new L.Hash(map);
+		
+				map.addControl(new L.Control.Search({
+            layer:  layer_comuniOSM0,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'name'}));
+			
 			   var sidebar = L.control.sidebar('sidebar').addTo(map);
 			  
 	   L.control.mousePosition().addTo(map);

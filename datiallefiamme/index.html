@@ -96,7 +96,9 @@
 <script src="lib/js/sidebar/leaflet-sidebar.js"></script>
 <script src="lib/js/social/jquery_csbuttons.js"></script>
 <script src="lib/js/mouseposition/LControlMousePosition.js"></script>
-<script src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"></script>  
+  <!-- script automatico mobile/desktop --> 
+<script> if (screen && screen.width < 737) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min_mobile.js"><\/script>'); } </script>
+<script> if (screen && screen.width > 738) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"><\/script>'); } </script>
 <script src="lib/js/zoomhome/leaflet.zoomhome.js"></script>     
 <script src="lib/js/basemap/L.Control.Basemaps.js"></script>
 
@@ -130,7 +132,7 @@
             <ul role="tablist">
             <li><a href="#fire"  title="Progetto Italia a Fuoco"role="tab"><i class="fa fa-fire"></i></a></li>
             <li> <a href="#about" title="OpenDataSicilia" role="tab"><img src="legend/logoods.svg" alt="OSD" width="20" height="20"/></a></li>
-                <li><a href="#settings" title="Configurazione" role="tab"><i class="fa fa-gear"></i></a></li>
+            <li><a href="#settings" title="Configurazione" role="tab"><i class="fa fa-gear"></i></a></li>
             </ul>
         </div>
         
