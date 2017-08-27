@@ -7,7 +7,7 @@
  <!-- css -->
 <link href="../lib/css/atlante_01.css" rel="stylesheet" type="text/css">
 <link href="../lib/css/leaflet.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
 <link href="../lib/css/leaflet-sidebar.css" rel="stylesheet" type="text/css">
 <link href="../lib/css/gmaps-sidebar.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../lib/css/L.Control.Locate.min.css" />
@@ -48,7 +48,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>        
 <script src="../lib/js/sidebar/leaflet-sidebar.js"></script>
-<script src="../lib/js/social/jquery_csbuttons.js"></script>
+<!-- script social -->
 <script src="../lib/js/mouseposition/LControlMousePosition.js"></script>
 <script src="../lib/js/graphicscale/Leaflet_GraphicScale_min.js"></script>  
 <script src="../lib/js/zoomhome/leaflet.zoomhome.js"></script>     
@@ -92,7 +92,9 @@ z-index: 999;}
                  <li><a href="#share"  title="Condividi questa mappa"role="tab"><i class="fa fa-share-alt"></i></a></li>
             </ul>
             <ul role="tablist">
-                <li><a href="#settings" title="Configurazione" role="tab"><i class="fa fa-gear"></i></a></li>
+            <li><a href="#fire"  title="Progetto Italia a Fuoco"role="tab"><i class="fa fa-fire"></i></a></li>
+             <li> <a href="#about" title="OpenDataSicilia" role="tab"><img src="../legend/logoods.svg" alt="OSD" width="20" height="20"/></a></li>
+            <li><a href="#settings" title="Configurazione" role="tab"><i class="fa fa-gear"></i></a></li>
             </ul>
         </div>
         
@@ -106,7 +108,7 @@ z-index: 999;}
 Italy|Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile - Centro Situazioni<br><br>
 <strong>Activation Reason: </strong><br>
 During recent weeks almost the whole Italian National Territory has suffered a period characterized by very high temperatures and an absence of significant rain. Exacerbated by these conditions numerous fires are affecting Italy, most specifically in southern areas. Several fires are affecting large forested areas and, in certain cases, fires are threatening inhabited areas. Damages to infrastructures, public and private structures have occurred as have temporary evacuations due to risk to life.</p>
- <a href="http://cdn-j.copernicus-ems.eu/mapping/sites/default/files/thumbnails/EMSR213-AEM-1500546681-r08-v1.jpg" target="_blank" title="EMSR213 - Activation Extent Map - Release: r08 - Version: v1 - Delivered: 2017-07-20 12:31"><img src="../lib/images/EMSR213-AEM-1500546681-r08-v1.jpg"alt="EMSR213 - Activation Extent Map - Release: r08 - Version: v1 - Delivered: 2017-07-20 12:31" width="370" height="262" class="clip_370_1" title="EMSR213 - Activation Extent Map - Release: r08 - Version: v1 - Delivered: 2017-07-20 12:31 "/></a> <br>
+ <a href="http://cdn-j.copernicus-ems.eu/mapping/sites/default/files/thumbnails/EMSR213-AEM-1500546681-r08-v1.jpg" target="_blank" title="EMSR213 - Activation Extent Map - Release: r08 - Version: v1 - Delivered: 2017-07-20 12:31"><img src="../lib/images/EMSR213-AEM-1500546681-r08-v1.jpg"alt="EMSR213 - Activation Extent Map - Release: r08 - Version: v1 - Delivered: 2017-07-20 12:31" width="370" height="262" class="clip_about" title="EMSR213 - Activation Extent Map - Release: r08 - Version: v1 - Delivered: 2017-07-20 12:31 "/></a> <br>
 
 <p class="lorem"> <em><strong>Copernicus EMS - Mapping mira a fornire prodotti quanto più accurati possibile. Tuttavia, le informazioni prodotte hanno limitazioni dovute alla scala, alla risoluzione, alla data e ai metodi di interpretazione dei dati originali dei materiali originali / satellitari.</strong></em><br>
   <em><strong>I prodotti Copernicus EMS - Mapping sono forniti "come è" senza alcuna garanzia, espressa o implicita, inclusa la qualità o l'idoneità per qualsiasi scopo. L'intero rischio relativo all'utilizzo di questi prodotti è assunto dall'Utente e l'UE non si assume alcuna responsabilità per eventuali perdite, danni o inconvenienti causati dalla dipendenza dai prodotti Copernicus EMS-Mapping.</strong></em></p>
@@ -115,7 +117,7 @@ During recent weeks almost the whole Italian National Territory has suffered a p
 <!-- Tab info -->
        <div class="sidebar-pane" id="info">
        <h2 class="sidebar-header">Informazioni<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
- <p class="lorem"> <strong>Rielaborazione di: </strong><a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a><br>per <strong><a href="http://opendatasicilia.it/" Title="Open Data Sicilia" target="_blank">Open Data Sicilia</a></strong><br>
+ <p class="lorem"> <strong>Rielaborazione di: </strong><a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a><br>per <strong><a href="http://opendatasicilia.it/" Title="Open Data Sicilia" target="_blank">Open Data Sicilia</a></strong> e <strong><a href="http://italiaafuoco.info/" Title="Italia a Fuoco" target="_blank">Italia a Fuoco</a></strong><br>
    <p class="lorem"><strong>Fonte dati:</strong> <br>  <a href="http://emergency.copernicus.eu/mapping/list-of-components/EMSR213" title="EMSR213: Forest Fire in Southern Italy" target="_blank">EMSR213: Forest Fire in Southern Italy</a> <br> 
    
    
@@ -135,7 +137,7 @@ During recent weeks almost the whole Italian National Territory has suffered a p
 <p class="lorem"><strong>Mappa delle news sugli incendi in Italia:</strong> <a href="http://u.osmfr.org/m/158685/" title="Mappa delle news sugli incendi in Italia" target="_blank"><strong>Apri Umap</strong></a></p>
 
 <hr>
-<p class="lorem">I contenuti della mappa sono rilasciati con la licenza: <a href="http://effis.jrc.ec.europa.eu/about-effis/data-license/" title="Data License - EFFIS" target="_blank"><br><strong>Data License - EFFIS</strong></a> </p> 
+<p class="lorem">I contenuti della mappa sono rilasciati con la licenza: <a href="http://emergency.copernicus.eu/mapping/sites/default/files/files/CopernicusEMS-Data_and_Dissemination_Policy.pdf " title="Copernicus EMS - Rapid Data Mapping Policy" target="_blank"><br><strong>Copernicus EMS - Rapid Data Mapping Policy</strong></a> </p> 
 <p class="lorem">  <em><strong>Disclaimer of liability</strong></em><br>
   <em>Copernicus EMS - Mapping mira a fornire prodotti quanto più accurati possibile. Tuttavia, le informazioni prodotte hanno limitazioni dovute alla scala, alla risoluzione, alla data e ai metodi di interpretazione dei dati originali dei materiali originali / satellitari.</em><br>
   <em>I prodotti Copernicus EMS - Mapping sono forniti "come è" senza alcuna garanzia, espressa o implicita, inclusa la qualità o l'idoneità per qualsiasi scopo. L'intero rischio relativo all'utilizzo di questi prodotti è assunto dall'Utente e l'UE non si assume alcuna responsabilità per eventuali perdite, danni o inconvenienti causati dalla dipendenza dai prodotti Copernicus EMS-Mapping.</em></p>
@@ -153,9 +155,110 @@ During recent weeks almost the whole Italian National Territory has suffered a p
          
 </div>
 
-<!-- Tab email -->
-<div class="sidebar-pane" id="messages">
-<h2 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+<!-- Tab Progetto Italia a Fuoco -->
+<div class="sidebar-pane" id="fire">
+<h2 class="sidebar-header">Progetto Italia a Fuoco<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+<p class="lorem"><strong>Progetto per raccogliere segnalazioni sugli incendi in Italia.</strong></p>
+<p class="lorem">Questo è un progetto non profit, organizzato interamente da volontari. È nato per condividere informazioni utili e verificate sugli incendi che ogni estate affliggono l’Italia.<br><br>Il progetto si pone come scopo quello di aggregare e non disperdere contenuti utili a tutti provenienti da fonti di varia natura (ufficiali e non) al fine creare valore in un momento di crisi per il paese.<br><br>Il progetto non vuole in alcun modo sostituirsi a fonti istituzionali di informazione a cui rimandiamo caldamente per l’attendibilità.<br><br>Il progetto, laddove lo si ritenga utile, è usabile da organizzazioni, associazioni, gruppi informali ed anche pubbliche amministrazioni che avessero bisogno di un servizio per informare su quanto sta avvenendo a seguito degli incendi.</p>
+<p class="lorem">L&rsquo;idea è di <a target="_blank" href="https://twitter.com/il_tempe">Matteo Tempestini</a>, <a target="_blank" href="https://twitter.com/matt_fortini">Matteo Fortini</a> e <a target="_blank" href="https://twitter.com/aborruso">Andrea Borruso</a> e nasce a seguito di maturata esperienza di hacking civico, ma il   sostegno è di chiunque vuole darlo (privati, associazioni, imprese,   istituzioni) purché l&rsquo;iniziativa non sia strumentalizzata per secondi   fini e di questo chi ha ideato il progetto cerca di farsi garante. Se   vuoi collaborare indica con un <a target="_blank" href="https://github.com/emergenzeHack/italiaafuoco/issues">issue in questo repository</a> chi sei e perchè vorresti collaborare, ti aspettiamo!<br> <br> 
+<a target="_blank" href="http://enketo.ona.io/x/#YVUh" title="Italia A Fuoco: invia una segnalazione relativa ad un incendio"><strong>SEGNALA</strong></a> - <a target="_blank" href="http://italiaafuoco.info/" title="Italia A Fuoco - Progetto per raccogliere segnalazioni sugli incendi in Italia"><strong>BLOG</strong></a></p>
+<br><br>
+<p class="lorem"><em>Ci trovi in questi luoghi: </em></p>
+<!-- table social -->
+  <table width="10%" border="0" align="center" cellpadding="0" cellspacing="0" class="social1" >
+  <tbody>
+    <tr>
+      <td><a href="https://www.facebook.com/groups/1985622574797139/" target="_blank" title="Facebook"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://github.com/emergenzeHack/italiaafuoco" target="_blank" title="GitHub"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://twitter.com/italiaafuoco" target="_blank" title="Twitter"> <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://t.me/italiaafuoco" target="_blank" title="Telegram"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-paper-plane fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://medium.com/open-data-stories/un-servizio-di-informazione-per-gli-incendi-2d8c2d3cc02b" target="_blank" title="Medium"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://www.flickr.com/groups/italiaafuoco/" target="_blank" title="Flickr"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-flickr fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- Tab about -->
+<div class="sidebar-pane" id="about">
+<h2 class="sidebar-header">#OpenDataSicilia<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+<p class="lorem"><strong>Che cos’è</strong><br>
+<strong><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank">#opendatasicilia</a></strong> e’ una iniziativa civica che si propone di far conoscere e diffondere la cultura dell’open government e le prassi dell’open data nel nostro territorio e aprire una discussione pubblica partecipata.<br><br>
+<strong>Chi siamo</strong>  <br>
+Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo accomunati dalla genuina volontà di contribuire a migliorare la qualità della vita della nostra comunità. Lo vogliamo fare con spirito di collaborazione e concretezza.  </p> <br><br><br>
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank" style="text-align: center"><img src="lib/images/ods.svg" width="280" title="opendatasicilia.it" alt="opendatasicilia"></a></td>
+    </tr>
+  </tbody>
+</table>
+<br><br>
+<p class="lorem">Ci trovi in questi luoghi: </p> <br>
+  <table width="10%" border="0" align="center" cellpadding="0" cellspacing="0" class="social1" >
+  <tbody>
+    <tr>
+      <td><a href="https://www.facebook.com/groups/opendatasicilia/" target="_blank" title="Facebook"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://github.com/SiciliaHub" target="_blank" title="GitHub"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://twitter.com/opendatasicilia" target="_blank" title="Twitter"> <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="http://opendatasicilia.it/" target="_blank" title="OpenDataSicilia.it"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+            <td>&nbsp;</td>
+      <td><a href="https://groups.google.com/d/forum/opendatasicilia" target="_blank" title="mailing list OpenDataSicilia.it"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope-open fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+    </tr>
+  </tbody>
+</table>
 </div>
 <!-- Tab condividi -->
 <div class="sidebar-pane" id="share">
@@ -163,11 +266,11 @@ During recent weeks almost the whole Italian National Territory has suffered a p
 <p class="lorem"><strong>Puoi condividere online la mappe con altre persone</strong></p>
 <p class="lorem"><strong>Condividi:</strong></p >
 <div id="social">  <p >
-		<a href="#" title="Condividi su Facebook" class="csbuttons soc" data-type="facebook"><img src="../lib/images/fb.png" alt="facebook" width="32" height="20"></a>&nbsp;&nbsp;
-	    <a href="#" title="Condividi su Twitter" class="csbuttons soc" data-type="twitter"><img src="../lib/images/tw.png" alt="twitter" width="32" height="20"></a>&nbsp;&nbsp;
-		<a href="#" title="Condividi su GooglePlus" class="csbuttons soc" data-type="google" ><img src="../lib/images/gp.png"width="32" height="20" alt="google"></a>&nbsp;&nbsp;
-		<a href="#" title="Condividi su Linkedin" class="csbuttons soc" data-type="linkedin"><img src="../lib/images/in.png"width="32" height="20" alt="linkedin"></a>&nbsp;&nbsp;
-    <a href="#" title="Condividi su Pinterest" class="csbuttons soc" data-type="pinterest"><img src="../lib/images/pin.png" width="32" height="20"alt="pinterest"></a></p>
+		<a href="#" title="Condividi su Facebook" class="csbuttons soc" data-type="facebook"><img src="../lib/images/fb.png" alt="facebook"  width="32" height="32"></a>&nbsp;&nbsp;
+	    <a href="#" title="Condividi su Twitter" class="csbuttons soc" data-type="twitter"><img src="../lib/images/tw.png" alt="twitter"  width="32" height="32"></a>&nbsp;&nbsp;
+		<a href="#" title="Condividi su GooglePlus" class="csbuttons soc" data-type="google" ><img src="../lib/images/gp.png" width="32" height="32" alt="google"></a>&nbsp;&nbsp;
+		<a href="#" title="Condividi su Linkedin" class="csbuttons soc" data-type="linkedin"><img src="../lib/images/in.png" width="32" height="32" alt="linkedin"></a>&nbsp;&nbsp;
+    <a href="#" title="Condividi su Pinterest" class="csbuttons soc" data-type="pinterest"><img src="../lib/images/pin.png"  width="32" height="32"alt="pinterest"></a></p>
 </div>
 <script>
 			$(document).ready(function(){
@@ -175,7 +278,7 @@ During recent weeks almost the whole Italian National Territory has suffered a p
 			});
 		</script><br>
  <label for="url breve"><strong><p class="lorem">URL breve</strong></label><br><br>
-<input name="url breve" type="text" autofocus id="url_breve" title="url breve" Value="https://goo.gl/nXFp2U" readonly></p><br>
+<input name="url breve" type="text" autofocus id="url_breve" title="url breve" Value="https://goo.gl/CHz2PC"  readonly></p><br>
 <hr>
 <br>
 <p class="lorem"><strong>Includi la mappa</strong></p>   
@@ -188,10 +291,11 @@ During recent weeks almost the whole Italian National Territory has suffered a p
 <h2 class="sidebar-header">Strumenti<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
 <p class="lorem"><strong>I principali strumenti usati per realizzare questa semplice mappa:</strong></p>
 <ul>
-<li><p class="lorem"><a href="http://u.osmfr.org/m/89239/" title="Piano Protezione Civile Palermo da open data comunale" target="_blank">Piano Protezione Civile Palermo da open data comunale</a>, rielaborazione opendata di: <a href="https://twitter.com/cirospat" target="_blank" title="Ciro Spataro">@cirospat</a> (rielaborazione di riferimento) <br><br></li></p>
+
 <li><p class="lorem"><a href="http://www.qgis.org/it/site/" title="Qgis" target="_blank">Qgis,</a> per creare, modificare, visualizzare, analizzare e pubblicare le informazioni geospaziali su Windows, Mac, Linux, BSD;<br><br></li></p>
 <li><p class="lorem"><a href="https://github.com/tomchadwin/qgis2web" title="Qtiles" target="_blank">Qgis2web ,</a>plugin per Qgis per esportare il progetto in un webmap OpenLayers o foglio elettronico. Non è richiesto alcun software lato server;<br><br></li></p>
 <li><p class="lorem"><a href="https://github.com/minorua/Qgis2threejs" title="Qgis2threejs " target="_blank">Qgis2threejs  ,</a>il plugin esporta i dati del terreno, l'immagine delle telecamere e i dati vettoriali sul tuo browser web. È possibile visualizzare gli oggetti 3D nel browser web che supporta WebGL;<br><br></li></p>
+<li><p class="lorem"><a href="https://plugins.qgis.org/plugins/qtiles/" title="Qtiles" target="_blank">QTiles,</a> per generare tiles raster dal progetto QGIS per livelli di zoom selezionati e le convenzioni di denominazione di piastrelle (Slippy mappa o TMS);<br><br></li></p>
 <li><p class="lorem"><a href="http://leafletjs.com/" title="Leaflet" target="_blank">Leaflet,</a> per creare l'interfaccia di web mapping;<br><br></li></p>
 <li><p class="lorem"><a href="https://github.com/mlevans/leaflet-hash" title="Leaflet-hash" target="_blank">Leaflet-hash</a>, per generare URL che contengono livello di zoom e posizione corrente;<br><br></li></p>
 <li><p class="lorem"><a href="https://github.com/turbo87/sidebar-v2/" title="Sidebar-v2" target="_blank">Sidebar-v2</a>, per creare questa sidebar a scomparsa;<br><br></li></p>
