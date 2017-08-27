@@ -63,7 +63,7 @@
 <link href="lib/css/Leaflet_GraphicScale_min.css" rel="stylesheet" type="text/css">
 <link href="lib/css/leaflet-sidebar.css" rel="stylesheet" type="text/css">
 <link href="lib/css/gmaps-sidebar.css" rel="stylesheet" type="text/css">
-<link href="lib/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
 <link href="lib/css/leaflet.zoomhome.css" rel="stylesheet" type="text/css">
 <link href="lib/css/L.countryselect.css" rel="stylesheet" type="text/css">
 
@@ -95,7 +95,7 @@ a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hov
 <script src="lib/js/qgi2web/leaflet-search.js"></script>  
 <script src="data/classificazionesicilia0.js"></script> 
 <script src="lib/js/sidebar/leaflet-sidebar.js"></script>
-<script src="lib/js/social/jquery_csbuttons.js"></script>
+
 <script src="lib/js/mouseposition/LControlMousePosition.js"></script>
 <script src="lib/js/zoomhome/leaflet.zoomhome.js"></script>     
 <script src="lib/js/basemap/L.Control.Basemaps.js"></script>
@@ -220,11 +220,13 @@ Una piena conoscenza di questi aspetti è la premessa indispensabile per ridurre
 		<a href="#" title="Condividi su Linkedin" class="csbuttons soc" data-type="linkedin"><img src="lib/images/in.png"width="32" height="32" alt="linkedin"></a>&nbsp;&nbsp;
     <a href="#" title="Condividi su Pinterest" class="csbuttons soc" data-type="pinterest"><img src="lib/images/pin.png" width="32" height="32"alt="pinterest"></a></p>
 </div>
+<script src="lib/js/social/jquery_csbuttons.js"></script>
 <script>
 			$(document).ready(function(){
 				$('.csbuttons').cSButtons({total : "#total","url" 	: "http://siciliahub.github.io/mappe/datiallefiamme/index.html",});
 			});
-		</script><br>
+		</script>
+        <br>
  <label for="url breve"><strong><p class="lorem">URL breve</strong></label><br><br>
 <input name="url breve" type="text" autofocus id="url_breve" title="url breve" Value="https://goo.gl/FNmVTu"  readonly></p><br>
 <hr>
