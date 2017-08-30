@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="data/ArchivedBurnAarea0.js"></script>
+        <script src="data/mappadellenewssugliincendi20161.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[36.3577415801,1.42462279655],[46.6105266003,24.4977155627]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 28
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        function pop_ArchivedBurnAarea0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">objectid</th>\
+                        <td>' + (feature.properties['objectid'] !== null ? Autolinker.link(String(feature.properties['objectid'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">firedate</th>\
+                        <td>' + (feature.properties['firedate'] !== null ? Autolinker.link(String(feature.properties['firedate'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">area_ha</th>\
+                        <td>' + (feature.properties['area_ha'] !== null ? Autolinker.link(String(feature.properties['area_ha'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">place_name</th>\
+                        <td>' + (feature.properties['place_name'] !== null ? Autolinker.link(String(feature.properties['place_name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">province</th>\
+                        <td>' + (feature.properties['province'] !== null ? Autolinker.link(String(feature.properties['province'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lastupdate</th>\
+                        <td>' + (feature.properties['lastupdate'] !== null ? Autolinker.link(String(feature.properties['lastupdate'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">yearid</th>\
+                        <td>' + (feature.properties['yearid'] !== null ? Autolinker.link(String(feature.properties['yearid'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">id_source</th>\
+                        <td>' + (feature.properties['id_source'] !== null ? Autolinker.link(String(feature.properties['id_source'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">yearseason</th>\
+                        <td>' + (feature.properties['yearseason'] !== null ? Autolinker.link(String(feature.properties['yearseason'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">fireid</th>\
+                        <td>' + (feature.properties['fireid'] !== null ? Autolinker.link(String(feature.properties['fireid'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">flag</th>\
+                        <td>' + (feature.properties['flag'] !== null ? Autolinker.link(String(feature.properties['flag'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">countryfullname</th>\
+                        <td>' + (feature.properties['countryfullname'] !== null ? Autolinker.link(String(feature.properties['countryfullname'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lastfiredate</th>\
+                        <td>' + (feature.properties['lastfiredate'] !== null ? Autolinker.link(String(feature.properties['lastfiredate'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">lastfiretime</th>\
+                        <td>' + (feature.properties['lastfiretime'] !== null ? Autolinker.link(String(feature.properties['lastfiretime'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">country</th>\
+                        <td>' + (feature.properties['country'] !== null ? Autolinker.link(String(feature.properties['country'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_ArchivedBurnAarea0_0(feature) {
+            switch(feature.properties['yearseason'].toString()) {
+                case '2012':
+                    return {
+                pane: 'pane_ArchivedBurnAarea0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(58,51,240,1.0)',
+            }
+                    break;
+                case '2013':
+                    return {
+                pane: 'pane_ArchivedBurnAarea0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(229,23,223,1.0)',
+            }
+                    break;
+                case '2014':
+                    return {
+                pane: 'pane_ArchivedBurnAarea0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(220,228,62,1.0)',
+            }
+                    break;
+                case '2015':
+                    return {
+                pane: 'pane_ArchivedBurnAarea0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(91,221,97,1.0)',
+            }
+                    break;
+                case '2016':
+                    return {
+                pane: 'pane_ArchivedBurnAarea0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(227,106,101,1.0)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_ArchivedBurnAarea0');
+        map.getPane('pane_ArchivedBurnAarea0').style.zIndex = 400;
+        map.getPane('pane_ArchivedBurnAarea0').style['mix-blend-mode'] = 'normal';
+    var layer_ArchivedBurnAarea0 = new L.geoJson(json_ArchivedBurnAarea0, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_ArchivedBurnAarea0',
+        onEachFeature: pop_ArchivedBurnAarea0,
+        style: style_ArchivedBurnAarea0_0,
+    });
+        bounds_group.addLayer(layer_ArchivedBurnAarea0);
+        map.addLayer(layer_ArchivedBurnAarea0);
+        function pop_mappadellenewssugliincendi20161(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">name</th>\
+                        <td>' + (feature.properties['name'] !== null ? Autolinker.link(String(feature.properties['name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">description</th>\
+                        <td>' + (feature.properties['description'] !== null ? Autolinker.link(String(feature.properties['description'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Title</th>\
+                        <td>' + (feature.properties['Title'] !== null ? Autolinker.link(String(feature.properties['Title'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">URL</th>\
+                        <td>' + (feature.properties['URL'] !== null ? Autolinker.link(String(feature.properties['URL'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FireID</th>\
+                        <td>' + (feature.properties['FireID'] !== null ? Autolinker.link(String(feature.properties['FireID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Place</th>\
+                        <td>' + (feature.properties['Place'] !== null ? Autolinker.link(String(feature.properties['Place'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Size</th>\
+                        <td>' + (feature.properties['Size'] !== null ? Autolinker.link(String(feature.properties['Size'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SizeClass</th>\
+                        <td>' + (feature.properties['SizeClass'] !== null ? Autolinker.link(String(feature.properties['SizeClass'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Country</th>\
+                        <td>' + (feature.properties['Country'] !== null ? Autolinker.link(String(feature.properties['Country'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Update</th>\
+                        <td>' + (feature.properties['Update'] !== null ? Autolinker.link(String(feature.properties['Update'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">StartDate</th>\
+                        <td>' + (feature.properties['StartDate'] !== null ? Autolinker.link(String(feature.properties['StartDate'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">EndDate</th>\
+                        <td>' + (feature.properties['EndDate'] !== null ? Autolinker.link(String(feature.properties['EndDate'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Today</th>\
+                        <td>' + (feature.properties['Today'] !== null ? Autolinker.link(String(feature.properties['Today'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Critical</th>\
+                        <td>' + (feature.properties['Critical'] !== null ? Autolinker.link(String(feature.properties['Critical'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? Autolinker.link(String(feature.properties['Notes'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_mappadellenewssugliincendi20161_0() {
+            return {
+                pane: 'pane_mappadellenewssugliincendi20161',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(179,0,0,1.0)',
+            }
+        }
+        map.createPane('pane_mappadellenewssugliincendi20161');
+        map.getPane('pane_mappadellenewssugliincendi20161').style.zIndex = 401;
+        map.getPane('pane_mappadellenewssugliincendi20161').style['mix-blend-mode'] = 'normal';
+        var layer_mappadellenewssugliincendi20161 = new L.geoJson(json_mappadellenewssugliincendi20161, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_mappadellenewssugliincendi20161',
+            onEachFeature: pop_mappadellenewssugliincendi20161,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_mappadellenewssugliincendi20161_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_mappadellenewssugliincendi20161);
+        map.addLayer(layer_mappadellenewssugliincendi20161);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/mappadellenewssugliincendi20161.png" /> News sugli incendi 2016 (261)': layer_mappadellenewssugliincendi20161,'ArchivedBurnAarea<br /><table><tr><td style="text-align: center;"><img src="legend/ArchivedBurnAarea0_2012331incendi0.png" /></td><td>2012 (331 incendi)</td></tr><tr><td style="text-align: center;"><img src="legend/ArchivedBurnAarea0_201369incendi1.png" /></td><td>2013 (69 incendi)</td></tr><tr><td style="text-align: center;"><img src="legend/ArchivedBurnAarea0_201478incendi2.png" /></td><td>2014 (78 incendi)</td></tr><tr><td style="text-align: center;"><img src="legend/ArchivedBurnAarea0_201565incendi3.png" /></td><td>2015 (65 incendi)</td></tr><tr><td style="text-align: center;"><img src="legend/ArchivedBurnAarea0_2016145incendi4.png" /></td><td>2016 (145 incendi)</td></tr></table>': layer_ArchivedBurnAarea0,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
