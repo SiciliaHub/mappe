@@ -3,8 +3,11 @@
 <head>
   <title>Compare maps</title>
   <meta charset="utf-8" />
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
   <script src="http://cdn.leafletjs.com/leaflet-0.6.1/leaflet.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <style>
 
     @import url(http://cdn.leafletjs.com/leaflet-0.6.1/leaflet.css);
@@ -40,7 +43,7 @@
   //function, that adds a leaflet-map to each map-Container
   function showMap(d){
     //initial view
-    var map = L.map('map'+d).setView([38.11127,13.3534422], 14);
+    var map = L.map('map'+d).setView([38.11127,13.3534422], 17);
     var data_attrib = " | Data: <a href='http://www.openstreetmap.org/'>&copy; OpenStreetMap </a>contributers | <a href='http://d3js.org/'>D3.js</a>"
     var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
@@ -79,17 +82,18 @@ minZoom: 13,
 	  minZoom: 13,
       maxZoom: 17,
       maxNativeZoom: 17
-        });
-        basemap2.addTo(map);
-
-        var overlays = {
-          };			  
+		     }).addTo(map);
+ 
 			  
 
     //add the favored layers to an JSON-object
     var baseLayers = {"Google Road": Google_Road,"ESRI Standard": stamen2, "OpenStreetMap":osm, "ESRI Satellite":ESRI_Satellite, "Google Satellite":Google_Satellite};
     //add the layer-JSON-object to a layer-control AND add it to the map
     L.control.layers(baseLayers).addTo(map);
+	map.on("mousemove", function(e) {
+           basemap2.setCenter(e.containerPoint.x, e.containerPoint.y);
+         }).zoomControl.setPosition("topleft");
+	        var hash = new L.Hash(map);
     //add the automatic map-view-updating to the corresponding events
     map.on("viewreset", reset);
     map.on("drag", reset);
@@ -104,7 +108,9 @@ minZoom: 13,
     });    
   }
 
- var hash = new L.Hash(map);
+
 </script>
+<div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
+<img src="images/ods_1.png" width="80" title="opendatasicilia.it" alt="opendatasicilia"></a></div>
  </body>
 </html>
