@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Compare maps</title>
+  <meta charset="utf-8" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.6.1/leaflet.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+  <style>
+
+    @import url(http://cdn.leafletjs.com/leaflet-0.6.1/leaflet.css);
+    .mapContainer{
+    display: inline-block;
+    width: 48%;
+    height: 400px;
+    margin: 5px;
+    border: 3px solid #ccc; 
+    }
+  </style>
+<script src="js/hash/leaflet-hash.js"></script>
+<script src="js/tileoverlay/leaflet-tileoverlay-mask.js"></script>  
+</head>
+<body>
+  <script>
+  //initialise an array for the automatic visualisation
+  var maps_ = [], numMaps = 4;
+  for(var i=0;i<numMaps;i++)maps_.push(i)
+  //set the heading
+  d3.select('body').append('div')
+    .style('text-align','center')
+    .style('font-size','24pt')
+    .append('text')
+      .text('Compare '+ maps_.length +' maps!');
+  //add a map-Container for each element in the initial array
+  d3.select('body').selectAll('.maps').data(maps_).enter().append('div')
+    .attr('class','mapContainer')
+    .attr('id',function(d){return 'map'+d});
+  //make a map for each element in the initial array AND return the corresponding map-Elements
+  var maps = maps_.map(showMap);
+
+  //function, that adds a leaflet-map to each map-Container
+  function showMap(d){
+    //initial view
+    var map = L.map('map'+d).setView([38.11127,13.3534422], 14);
+    var data_attrib = " | Data: <a href='http://www.openstreetmap.org/'>&copy; OpenStreetMap </a>contributers | <a href='http://d3js.org/'>D3.js</a>"
+    var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
+        }).addTo(map);
+    var esri = L.tileLayer('http://services.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}.png', {attribution: "Map: <a href='http://www.arcgis.com/home/item.html?id=c4ec722a1cd34cf0a23904aadf8923a0'>ArcGIS - World Physical Map</a>" + data_attrib}).addTo(map);
+    var Google_Road = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+                attribution: 'Source: Google Road - Map data ©2015 Google',
+				minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
+              });
+    var stamen2 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Source: ESRI Standard',
+				minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
+              });
+    var ESRI_Satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Source: ESRI Satellite',
+				minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
+              });
+    var Google_Satellite =  L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                attribution: 'Source: Google Satellite - Map data ©2015 Google',
+				minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
+              });
+			  
+			       var basemap2 = L.tileLayer.mask("http://mapwarper.net/maps/tile/19706/{z}/{x}/{y}.png", {
+      attribution: '<a href="https://github.com/frogcat/leaflet-tileoverlay-mask" target="_blank"  title="Leaflet-tileoverlay-mask">Leaflet-tileoverlay-mask</a> - Cartografia storica - Carta Tecnica di Palermo - Omira 1935 - Rielaborazione di: <a href="https://twitter.com/aborruso" target="_blank" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/napo"target="_blank" title="Maurizio Napolitano">@napo</a>, <a href=" https://twitter.com/Piersoft" target="_blank" title="Francesco Piero Paolicelli">@piersoft</a>, <a href="https://twitter.com/cirospat" target="_blank" title="Ciro Spataro">@cirospat</a> e <a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a> per <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>',
+	  minZoom: 13,
+      maxZoom: 17,
+      maxNativeZoom: 17
+        });
+        basemap2.addTo(map);
+
+        var overlays = {
+          };			  
+			  
+
+    //add the favored layers to an JSON-object
+    var baseLayers = {"Google Road": Google_Road,"ESRI Standard": stamen2, "OpenStreetMap":osm, "ESRI Satellite":ESRI_Satellite, "Google Satellite":Google_Satellite};
+    //add the layer-JSON-object to a layer-control AND add it to the map
+    L.control.layers(baseLayers).addTo(map);
+    //add the automatic map-view-updating to the corresponding events
+    map.on("viewreset", reset);
+    map.on("drag", reset);
+    return map;
+  }
+  function reset(e){
+    var current = this._container.id.replace('map','');
+    maps_.forEach(function(d){ 
+      if(d!=current){
+        maps[d].setView(maps[current].getCenter(), maps[current].getZoom())
+      }
+    });    
+  }
+
+ var hash = new L.Hash(map);
+</script>
+ </body>
+</html>
