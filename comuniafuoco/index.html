@@ -53,16 +53,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
 <link rel="stylesheet" href="lib/css/L.Control.Locate.min.css" />
 <link rel="stylesheet" type="text/css" href="lib/css/qgis2web.css">
-<link rel="stylesheet" href="lib/css/MarkerCluster.css" />
-<link rel="stylesheet" href="lib/css/MarkerCluster.Default.css" />
-<link rel="stylesheet" href="lib/css/leaflet-measure.css" />
 <link href="lib/css/L.Control.Basemaps.css" rel="stylesheet" type="text/css">
 <link href="lib/css/LControlMousePosition.css" rel="stylesheet" type="text/css">
 <link href="lib/css/scalebar.css" rel="stylesheet" type="text/css">
 <link href="lib/css/Leaflet_GraphicScale_min.css" rel="stylesheet" type="text/css">
 <link href="lib/css/leaflet-sidebar.css" rel="stylesheet" type="text/css">
 <link href="lib/css/gmaps-sidebar.css" rel="stylesheet" type="text/css">
-<link href="lib/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link href="lib/css/leaflet.zoomhome.css" rel="stylesheet" type="text/css">
 
  <!-- css menu -->
@@ -88,7 +84,6 @@
 <script src="lib/js/qgi2web/leaflet-hash.js"></script>
 <script src="lib/js/qgi2web/leaflet-tilelayer-wmts.js"></script>
 <script src="lib/js/qgi2web/Autolinker.min.js"></script>
-<script src="lib/js/qgi2web/leaflet.markercluster.js"></script>
 <script src="lib/js/qgi2web/multi-style-layer.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script> 
@@ -134,7 +129,9 @@ Grazie a questa mappa, cliccando sui poligoni dei Comuni e quindi sul link "<str
 <br><br>
 </p>
 <img src="legend/mappa_comuniafuoco2.jpg"alt="Comuniafuoco" width="370" height="262" class="clip_about" title="Accedi al modulo Foiapop e richiedi la pubblicazione dei catasti delle terre bruciate"/>
-<br><br><br><br><br><br><br><br><br><br><br>
+   <p class="lorem">La mappa è basata sui dati delle Fire News geolocalizzate e pubblicate da <a href="http://effis.jrc.ec.europa.eu/applications/fire-news/" title="European Forest Fire Information System" target="_blank">EFFIS</a> - European Forest Fire Information System, dal 2012 al 2017.<br>
+     <strong>1856 Fire News geolocalizzate in 1232 Comuni Italiani.</strong></p>
+<br><br><br><br><br><br>
 <hr>
 <p class="lorem"> <em><strong>Le informazioni visibili e condivise in queste pagine non comportano la visualizzazione di dati sensibili.</strong></em><br>
   <em><strong>Data la natura esclusivamente informativa degli elaborati grafici e dei testi riportati, questi non costituiscono atti ufficiali.</strong></em>
@@ -147,14 +144,11 @@ Grazie a questa mappa, cliccando sui poligoni dei Comuni e quindi sul link "<str
  <p class="lorem"> <strong>Rielaborazione di: </strong><a href="https://twitter.com/aborruso" target="_blank" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/giuragu" target="_blank" title="Giuseppe Ragusa">@giuragu</a> e <a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a>
  <br>per <strong><a href="http://opendatasicilia.it/" Title="Open Data Sicilia" target="_blank">Open Data Sicilia</a></strong> e <strong><a href="http://italiaafuoco.info/" Title="Italia a Fuoco" target="_blank">Italia a Fuoco</a></strong><br>
    <p class="lorem"><strong>Fonte dati:</strong> <br>  <a href="http://effis.jrc.ec.europa.eu/applications/fire-news/" title="EFFIS - European Forest Fire Information System" target="_blank">EFFIS - European Forest Fire Information System - Copernicus</a> <br><a href="https://www.istat.it/it/archivio/124086" title="Confini delle unità amministrative a fini statistici - ISTAT" target="_blank">Confini delle unità amministrative a fini statistici - ISTAT<br> <br><br> 
-<a href="http://effis.jrc.ec.europa.eu/applications/fire-news/" title="EFFIS - European Forest Fire Information System" target="_blank"><img src="legend/fire-news.jpg"alt="Fire News" width="370" height="262" class="clip_about" title="Fire News Copernicus"/></a><br> I dati Fire News sono rilasciati con la licenza <a href="http://effis.jrc.ec.europa.eu/about-effis/data-license/" title="Data License - EFFIS" target="_blank">Data License - EFFIS</a></p> 
-   <p class="lorem">La mappa è basata sui dati delle Fire News geolocalizzate e pubblicate da <a href="http://effis.jrc.ec.europa.eu/applications/fire-news/" title="European Forest Fire Information System" target="_blank">EFFIS</a> - European Forest Fire Information System, dal 2012 al 2017</p> 
-  <br> 
-<br><br><br><br><br>
+<a href="http://effis.jrc.ec.europa.eu/applications/fire-news/" title="EFFIS - European Forest Fire Information System" target="_blank"><img src="legend/fire-news.jpg"alt="Fire News" width="370" height="262" class="clip_about" title="Fire News Copernicus"/></a><br><br> I dati Fire News sono rilasciati con la licenza <a href="http://effis.jrc.ec.europa.eu/about-effis/data-license/" title="Data License - EFFIS" target="_blank">Data License - EFFIS</a></p> 
+<br><br><br><br><br><br><br><br>
 <hr>
 <p class="lorem">   <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i0.wp.com/i.creativecommons.org/l/by/4.0/88x31.png?ssl=1"  title="Tutto il materiale da me rielaborato è distribuito con Licenza Creative Commons Attribuzione 4.0 Internazionale." data-recalc-dims="1"/></a><br />
 <a href="http://creativecommons.org/licenses/by/4.0/" title="Licenza Creative Commons" target="_blank" rel="license">Creative Commons Attribuzione 4.0 Internazionale</a> - <a href="https://creativecommons.org/licenses/by/4.0/deed.it" title="Licenza Creative Commons" target="_blank" rel="license">Creative Commons Attribuzione 4.0 Italia</a> </p> 
-
 
 <p class="lorem"> <em>Le informazioni visibili e condivise in queste pagine non comportano la visualizzazione di dati sensibili.</em><br>
   <em>Data la natura esclusivamente informativa degli elaborati grafici e dei testi riportati, questi non costituiscono atti ufficiali.</em>
@@ -308,12 +302,8 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
 <li><p class="lorem"><a href="https://github.com/ardhi/Leaflet.MousePosition" title="Leaflet.MousePosition" target="_blank">Leaflet.MousePosition</a>, &egrave;  un semplice controllo della posizione del mouse. Esso mostra le coordinate geografiche del puntatore del mouse, mentre viene spostato sulla mappa;<br><br></li></p>
 <li><p class="lorem"><a href="https://github.com/nerik/leaflet-graphicscale" title="leaflet-graphicscale" target="_blank">Leaflet-graphicscale</a>, &egrave;  un semplice barra di scala con effetto animato al cambio dello zoom;<br><br></li></p>
 <li><p class="lorem"><a href="https://github.com/consbio/Leaflet.Basemaps" title="Leaflet.Basemaps" target="_blank">Leaflet.Basemaps</a>, consente di creare un controllo dell'interfaccia utente per la scelta della mappa di base utilizzato sulla mappa.<br><br></li></p>
-<li><p class="lorem"><a href="https://github.com/ppete2/Leaflet.PolylineMeasure" title="Leaflet.PolylineMeasure" target="_blank">Leaflet.PolylineMeasure</a>, consente di misurare distanze con linee semplici, sistema metrico (metri, chilometri).<br><br></li></p>
 <li><p class="lorem"><a href="https://github.com/torfsen/leaflet.zoomhome" title="Leaflet.zoomhome" target="_blank">Leaflet.zoomhome</a>, aggiunge un pulsante Home al controllo zoom per ripristinare la visualizzazione.<br><br></li></p>
-<li><p class="lorem"><a href="https://github.com/rowanwins/leaflet-easyPrint" title="Leaflet-easyPrint" target="_blank">Leaflet-easyPrint</a>, un semplice plugin che aggiunge un'icona per stampare la mappa.<br><br></li></p>
-<li><p class="lorem"><a href="https://github.com/dalbrx/Leaflet.ResizableControl" title="Leaflet ResizableControl" target="_blank">Leaflet ResizableControl</a>, un semplice pannello di controllo ridimensionabile e scorrimento.<br><br></li></p>
 <li><p class="lorem"><a href="http://www.jqueryscript.net/menu/Responsive-Multi-level-Off-Screen-Navigation-Plugin-For-jQuery-cbFlyout.html" title="Responsive Multi-level Off Screen Navigation Plugin For jQuery - cbFlyout" target="_blank">Menu jQuery</a>, Responsive Multi-level Off Screen Navigation Plugin For jQuery - cbFlyout.<br><br></li></p>
-<li><p class="lorem"><a href="https://www.tableau.com/" title="Tableau" target="_blank">Tableau</a>, software leader per la business intelligence: analisi veloci, facili, con qualsiasi sorgente di dati, su qualsiasi dispositivo.<br><br></li></p>
       </ul>
 </div>
 </div>
