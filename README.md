@@ -44,3 +44,6 @@ Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di app
 - [**Mappa Aree di Emergenza, Regione Sicilia - Proezione Civilie su base opendata**](http://siciliahub.github.io/mappe/aree_emergenza/index.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 
 - [**Palermo 3D Maps © WRLD**](http://siciliahub.github.io/mappe/wrld/index.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
+
+
+- [**Comuni a fuoco #FoiaeFiamme**](http://siciliahub.github.io/mappe/comuniafuoco/index.html) a cura di [@aborruso](https://twitter.com/aborruso), [@giuragu](https://twitter.com/giuragu) e [@gbvitrano](https://twitter.com/gbvitrano);
