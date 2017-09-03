@@ -493,8 +493,13 @@
 	border-radius: 12px;
 	margin-bottom:0px;
 		width: 300px;
-		height:250px
+		height:170px;
 	}
+	
+			/* popup  su mobile" */
+	 @media (min-width: 320px) and (max-width: 736px) {.leaflet-popup-content-wrapper {font-size:9px; height:150px; width: 260px; }}	
+	
+	
 .leaflet-popup-content {
 	margin: 13px 19px;
 	line-height: 1.4;

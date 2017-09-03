@@ -136,7 +136,7 @@ Per applicarla però c’è un vincolo: i comuni devono aggiornare il catasto in
 Su <a href="http://italiaafuoco.info/foia/" title="http://italiaafuoco.info/foia/" target="_blank">http://italiaafuoco.info/foia/</a> la richiesta viene creata grazie all’integrazione sul sito di FoiaPop, una piattaforma online per la compilazione di richieste di accesso civico semplice e generalizzato. Il <a href="http://www.funzionepubblica.gov.it/articolo/dipartimento/01-06-2017/circolare-n-2-2017-attuazione-delle-norme-sull%E2%80%99accesso-civico" title="Foia" target="_blank">Foia</a>, Freedom of Information Act, garantisce ai cittadini l’accesso a documenti, informazioni e dati in possesso delle pubbliche amministrazioni. In Italia questo diritto è sancito dall’art. 5 del <a href="http://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2013-03-14;33!vig=" title="D. Lgs. 33/2013" target="_blank">D. Lgs. 33/2013</a> ma è poco esercitato. Con FoiaPop si rende automatica la compilazione di richieste di accesso civico semplice e generalizzato, e viene data visibilità immediata semplice ai procedimenti amministrativi come appalti, pagamenti, ecc, su cui il cittadino può inviare delle domande specifiche di accesso. <br> <br>
 <strong>O semplicemente...</strong>ti basta cliccare su uno dei poligoni dei Comuni a fuoco e cliccare nel link "<strong>Genera la richiesta di accesso civico con FOIAPop</strong>"  per accedere al modulo Foiapop per chiedere la pubblicazione dei catasti delle terre bruciate!
 </p>
-<img src="legend/mappa_comuniafuoco.jpg"alt="Comuniafuoco" width="370" height="262" class="clip_about" title="Accedi al modulo Foiapop e richiedi la pubblicazione dei catasti delle terre bruciate"/>
+<img src="legend/mappa_comuniafuoco2.jpg"alt="Comuniafuoco" width="370" height="262" class="clip_about" title="Accedi al modulo Foiapop e richiedi la pubblicazione dei catasti delle terre bruciate"/>
 <hr>
 <p class="lorem"> <em><strong>Le informazioni visibili e condivise in queste pagine non comportano la visualizzazione di dati sensibili.</strong></em><br>
   <em><strong>Data la natura esclusivamente informativa degli elaborati grafici e dei testi riportati, questi non costituiscono atti ufficiali.</strong></em>
@@ -390,33 +390,25 @@ function pop_comunieventilink0(feature, layer) {
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">id</th>\
-                        <td>' + (feature.properties['id'] !== null ? Autolinker.link(String(feature.properties['id'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">cod_reg</th>\
-                        <td>' + (feature.properties['cod_reg'] !== null ? Autolinker.link(String(feature.properties['cod_reg'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">cod_pro</th>\
-                        <td>' + (feature.properties['cod_pro'] !== null ? Autolinker.link(String(feature.properties['cod_pro'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">pro_com</th>\
-                        <td>' + (feature.properties['pro_com'] !== null ? Autolinker.link(String(feature.properties['pro_com'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">comune</th>\
+<tr>\
+                        <th scope="row"><br/><img src="legend/italiaafuoco_clip.png" width="64" height="64" title="Italiaafuoco" alt="Italiaafuoco"/></th>\
+                        <td><br/><span class="legenda2">Clicca qui! ' + (feature.properties['link'] !== null ? Autolinker.link(String(feature.properties['link'])) : '') + ' Accedi al modulo per chiedere la pubblicazione dei catasti delle terre bruciate!<spam /><br/></td>\
+						<tr>\
+	                    <tr>\
+                        <th scope="row">Comune:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <th scope="row">numero_eventi</th>\
+					                    <tr>\
+                        <th scope="row"># eventi:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['numero_eventi'] !== null ? Autolinker.link(String(feature.properties['numero_eventi'])) : '') + '</td>\
                     </tr>\
+					<tr>\
+                        <th scope="row"><br/>Regione:</th>\
+                        <td><br/>' + (feature.properties['cod_reg'] !== null ? Autolinker.link(String(feature.properties['cod_reg'])) : '') + '</td>\
+                    </tr>\
                     <tr>\
-                        <th scope="row">link</th>\
-                        <td>' + (feature.properties['link'] !== null ? Autolinker.link(String(feature.properties['link'])) : '') + '</td>\
+                        <th scope="row">Provincia:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['cod_pro'] !== null ? Autolinker.link(String(feature.properties['cod_pro'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent);
