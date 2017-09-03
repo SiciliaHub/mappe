@@ -13,6 +13,30 @@ html, body {padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "
 /*background-image:url(../images/ods_02.png); background-size: 30px 30px;background-repeat:no-repeat;background-position:5px 3px;background-attachment: fixed;*/}
 /* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */ #map { height: 100%; top:0px; font: 11px "Open Sans", Helvetica Neue, fontawesome, Arial, Helvetica, sans-serif; background-color: #fff;}
 
+
+.beta{width: 70px; height: 70px; border-radius: 35px;  -moz-border-radius: 35px;  -webkit-border-radius: 35px; box-shadow: 0 1px 5px rgba(0,0,0,0.6); 
+	}
+#beta { position:fixed; bottom:80px; left:60px; z-index: 800;}
+  	/*  spento su display 4" */
+	@media screen and (width: 320px) {  #beta {left:80px;} .beta{width: 42px; height: 42px;}}
+	@media screen and (width: 480px) {  #beta {left:85px; bottom:40px; }.beta{width: 42px; height: 42px;}}
+	@media screen and (width: 533px) {  #beta {left:85px; bottom:60px; }.beta{width: 42px; height: 42px;}}
+    @media screen and (width: 568px) {  #beta {left:85px; bottom:60px; }.beta{width: 42px; height: 42px;}}
+/*  spento su display 5" */
+
+	@media screen and (width: 384px) { #beta {left:80px;}.beta{width: 42px; height: 42px;}}
+	@media screen and (width: 360px) {#beta { left:50px; bottom:80px;} .beta{width: 42px; height: 42px;}}
+	@media screen and (width: 640px) { #beta {left:90px; bottom:50px;} .beta{width: 40px; height: 40px;}}
+
+/*  spento su display 6" portrait */
+   
+	@media screen and (width: 375px) {#beta {left:50px; bottom:80px;}.beta{width: 42px; height: 42px;}}
+	@media screen and (width: 414px) {#beta {left:50px; bottom:70px;}.beta{width: 42px; height: 42px;}}
+	@media screen and (width: 412px) {#beta {left:50px; bottom:70px;}.beta{width: 42px; height: 42px;}}
+	@media screen and (width: 667px) {#beta {left:90px; bottom:50px;}.beta{width: 42px; height: 42px;}}
+    @media screen and (width: 732px) {#beta {left:90px; bottom:60px;}.beta{width: 42px; height: 42px;}}
+	@media screen and (width: 736px) {#beta {left:90px; bottom:50px;}.beta{width: 42px; height: 42px;}}
+
 /*#ods { position:fixed; bottom:51px; right:17px; z-index: 1014;}
 #itaf { position:fixed; bottom:95px; right:37px; z-index: 1014;}*/
 
