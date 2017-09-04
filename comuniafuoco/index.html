@@ -380,7 +380,7 @@ function pop_comunieventilink0(feature, layer) {
             var popupContent = '<table>\
 <tr>\
                         <th scope="row"><br/><img src="legend/italiaafuoco_clip.png" width="64" height="64" title="Italiaafuoco" alt="Italiaafuoco"/></th>\
-                        <td><br/><span class="legenda2">Clicca qui! ' + (feature.properties['link'] !== null ? Autolinker.link(String(feature.properties['link'])) : '') + ' Accedi al modulo per chiedere la pubblicazione dei catasti delle terre bruciate!<spam /><br/></td>\
+                        <td><br/><span class="legenda2">' + (feature.properties['link'] !== null ? Autolinker.link(String(feature.properties['link'])) : '') + ' per accedere al modulo Foiapop di richiesta di accesso civico e chiedere al Comune la pubblicazione del catasto delle terre bruciate!<spam /><br/></td>\
 						<tr>\
 	                    <tr>\
                         <th scope="row">Comune:&nbsp;&nbsp;</th>\
