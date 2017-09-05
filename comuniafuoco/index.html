@@ -483,9 +483,8 @@ function pop_comunieventilink0(feature, layer) {
         style: style_province0_0,
     });
         bounds_group.addLayer(layer_province0);
-        map.addLayer(layer_province0);
-		
-		
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'&nbsp;&nbsp;<img src="legend/province0.png" />&nbsp;&nbsp;Confine Province': layer_province0,}).addTo(map);
         setBounds();
 		<!-- strumenti di leaflet -->
 		
