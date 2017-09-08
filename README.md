@@ -46,4 +46,4 @@ Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di app
 - [**Palermo 3D Maps © WRLD**](http://siciliahub.github.io/mappe/wrld/index.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano);
 
 
-- [**Comuni a fuoco #FoiaeFiamme**](http://siciliahub.github.io/mappe/comuniafuoco/index.html) a cura di [@aborruso](https://twitter.com/aborruso), [@giuragu](https://twitter.com/giuragu) e [@gbvitrano](https://twitter.com/gbvitrano);
+- [**Comuni a fuoco - #FoiaeFiamme - Richiesta di accesso civico**](http://siciliahub.github.io/mappe/comuniafuoco/index.html) a cura di [@aborruso](https://twitter.com/aborruso), [@giuragu](https://twitter.com/giuragu) e [@gbvitrano](https://twitter.com/gbvitrano);
