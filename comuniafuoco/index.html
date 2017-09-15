@@ -98,7 +98,7 @@
 <script src="lib/js/basemap/L.Control.Basemaps.js"></script>
 
         <!-- script dati mappa -->
- <script src="data/comunieventilink0.js"></script>
+ <script src="data1/comunieventilink0.js"></script>
 <script src="data/province0.js"></script>
 
     </head>
@@ -147,7 +147,9 @@ Grazie a questa mappa, cliccando sui poligoni dei Comuni puoi accedere al modulo
  <br>per <strong><a href="http://opendatasicilia.it/" Title="Open Data Sicilia" target="_blank">Open Data Sicilia</a></strong> e <strong><a href="http://italiaafuoco.info/" Title="Italia a Fuoco" target="_blank">Italia a Fuoco</a></strong><br>
    <p class="lorem"><strong>Fonte dati:</strong> <br>  <a href="http://effis.jrc.ec.europa.eu/applications/fire-news/" title="EFFIS - European Forest Fire Information System" target="_blank">EFFIS - European Forest Fire Information System - Copernicus</a> <br><a href="https://www.istat.it/it/archivio/124086" title="Confini delle unità amministrative a fini statistici - ISTAT" target="_blank">Confini delle unità amministrative a fini statistici - ISTAT<br> <br><br> 
 <a href="http://effis.jrc.ec.europa.eu/applications/fire-news/" title="EFFIS - European Forest Fire Information System" target="_blank"><img src="legend/fire-news.jpg"alt="Fire News" width="370" height="262" class="clip_about" title="Fire News Copernicus"/></a><br><br> I dati Fire News sono rilasciati con la licenza <a href="http://effis.jrc.ec.europa.eu/about-effis/data-license/" title="Data License - EFFIS" target="_blank">Data License - EFFIS</a></p> 
-<br><br><br><br><br><br><br><br>
+<br><br>
+  <p class="lorem"> <em>Mappa work in progress!</em><br>
+  <em>Stiamo lavorando per aggiungare altri Comuni.</em>  <br><br><br><br>
 <hr>
 <p class="lorem">   <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i0.wp.com/i.creativecommons.org/l/by/4.0/88x31.png?ssl=1"  title="Tutto il materiale da me rielaborato è distribuito con Licenza Creative Commons Attribuzione 4.0 Internazionale." data-recalc-dims="1"/></a><br />
 <a href="http://creativecommons.org/licenses/by/4.0/" title="Licenza Creative Commons" target="_blank" rel="license">Creative Commons Attribuzione 4.0 Internazionale</a> - <a href="https://creativecommons.org/licenses/by/4.0/deed.it" title="Licenza Creative Commons" target="_blank" rel="license">Creative Commons Attribuzione 4.0 Italia</a> </p> 
@@ -155,6 +157,7 @@ Grazie a questa mappa, cliccando sui poligoni dei Comuni puoi accedere al modulo
 <p class="lorem"> <em>Le informazioni visibili e condivise in queste pagine non comportano la visualizzazione di dati sensibili.</em><br>
   <em>Data la natura esclusivamente informativa degli elaborati grafici e dei testi riportati, questi non costituiscono atti ufficiali.</em>
    <em>Per accedere agli atti ufficiali si rinvia agli elaborati definitivi allegati alle specifiche deliberazioni.</em> </p>
+ 
 </div>
 
 <!-- Tab Progetto Italia a Fuoco -->
@@ -392,6 +395,10 @@ function pop_comunieventilink0(feature, layer) {
                         <th scope="row"># eventi:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['numero_eventi'] !== null ? Autolinker.link(String(feature.properties['numero_eventi'])) : '') + '</td>\
                     </tr>\
+										 <tr>\
+                        <th scope="row">Richiesta:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['richiesta'] !== null ? Autolinker.link(String(feature.properties['richiesta'])) : '') + '</td>\
+                    </tr>\
 					<tr>\
                         <th scope="row"><br/>Regione:&nbsp;&nbsp;</th>\
                         <td><br/>' + (feature.properties['cod_reg'] !== null ? Autolinker.link(String(feature.properties['cod_reg'])) : '') + '</td>\
@@ -403,20 +410,37 @@ function pop_comunieventilink0(feature, layer) {
                 </table>';
             layer.bindPopup(popupContent);
         }
-
-        function style_comunieventilink0_0() {
-            return {
+		        function style_comunieventilink0_0(feature) {
+            switch(feature.properties['richiesta'].toString()) {
+                case 'no':
+                    return {
                 pane: 'pane_comunieventilink0',
                 opacity: 1,
-                color: 'rgba(190,190,190,0.65)',
+                color: 'rgba(255,127,0,0.65)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1, 
+                weight: 1.0, 
                 fillOpacity: 1,
-                fillColor: 'rgba(255,127,0,0.65)',
+                fillColor: 'rgba(255,127,0,0.65',
+            }
+                    break;
+                case 'sì':
+                    return {
+                pane: 'pane_comunieventilink0',
+                opacity: 1,
+                color: 'rrgba(145,207,96,0.65',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fillOpacity: 1,
+                fillColor: 'rgba(145,207,96,0.65)',
+            }
+                    break;
             }
         }
+	
         map.createPane('pane_comunieventilink0');
         map.getPane('pane_comunieventilink0').style.zIndex = 450;
         map.getPane('pane_comunieventilink0').style['mix-blend-mode'] = 'normal';
@@ -484,7 +508,7 @@ function pop_comunieventilink0(feature, layer) {
     });
         bounds_group.addLayer(layer_province0);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'&nbsp;&nbsp;<img src="legend/province0.png" />&nbsp;&nbsp;Confine Province': layer_province0,}).addTo(map);
+        L.control.layers(baseMaps,{'&nbsp;&nbsp;Richiesta FOIA inviata<br /><table><tr><td style="text-align: center;"><img src="legend/no.png" /></td><td>&nbsp;&nbsp;no</td></tr><tr><td style="text-align: center;"><img src="legend/si.png" /></td><td>&nbsp;&nbsp;sì</td></tr></table>': layer_comunieventilink0,'&nbsp;&nbsp;<img src="legend/province0.png" />&nbsp;&nbsp;Confine Province': layer_province0,}).addTo(map);
         setBounds();
 		<!-- strumenti di leaflet -->
 		
