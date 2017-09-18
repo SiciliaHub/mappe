@@ -159,14 +159,14 @@
     zIndex: 200
   }).addTo(map);
 
-  // L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Messina_ata20122013/MapServer/WMSServer', {
-  //   layers: '0',
-  //   format: 'image/png',
-  //   maxZoom: 20,
-  //   minZoom: 0,
-  //   transparent: 'true',
-  //   zIndex: 200
-  // }).addTo(map);
+  L.tileLayer.wms('http://map.sitr.regione.sicilia.it/gis/rest/services/ATA_2012_2013/Ortofoto_ATA_2012_2013_Messina_14cm/MapServer/WMSServer', {
+  layers: '0',
+  format: 'image/png',
+  maxZoom: 20,
+  minZoom: 0,
+  transparent: 'true',
+  zIndex: 200
+   }).addTo(map);
 
   L.tileLayer.wms('http://map.sitr.regione.sicilia.it/ArcGIS/services/AREE_URBANE/Ortofoto14cm_Ragusa_ata20122013/MapServer/WMSServer', {
     layers: '0',
