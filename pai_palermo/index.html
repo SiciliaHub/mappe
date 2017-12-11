@@ -452,6 +452,17 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+			<tr>\
+                        <th scope="row"><span class="legenda1">P.A.I. - Palermo&nbsp;<spam /></th>\
+                        <td><span class="legenda1">- Geomorfologia Siti di attenzione<spam /> <br /><br /></td>\
+                    </tr>\
+					<tr>\
+                        <th scope="row">' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</th>\
+                       <td>Note:&nbsp;&nbsp;<span class="legenda1">' + (feature.properties['sa'] !== null ? Autolinker.link(String(feature.properties['sa'])) : '') + '<spam />			                     </td>\
+                    </tr>\
+					<th scope="row"><hr></th>\
+                        <td><hr></td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">N° bacino:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['pai_nmr'] !== null ? Autolinker.link(String(feature.properties['pai_nmr'])) : '') + '</td>\
@@ -489,10 +500,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                         <td>' + (feature.properties['altri_comu'] !== null ? Autolinker.link(String(feature.properties['altri_comu'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Note:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['sa'] !== null ? Autolinker.link(String(feature.properties['sa'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">Info ---</th>\
                         <td>' + (feature.properties['info'] !== null ? Autolinker.link(String(feature.properties['info'])) : '') + '</td>\
                     </tr>\
@@ -507,10 +514,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     <tr>\
                         <th scope="row">Licenza:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['licenza'] !== null ? Autolinker.link(String(feature.properties['licenza'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ico_1</th>\
-                        <td>' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -557,6 +560,17 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+			            <tr>\
+                        <th scope="row"><span class="legenda1">P.A.I. - Palermo&nbsp;<spam /></th>\
+                        <td><span class="legenda1">- Perciolosità Geomorfologica<spam /> <br /><br /></td>\
+                    </tr>\
+					<tr>\
+                        <th scope="row">' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</th>\
+                       <td>Pericolo frana:&nbsp;&nbsp;<span class="legenda1">' + (feature.properties['note'] !== null ? Autolinker.link(String(feature.properties['note'])) : '') + '<spam />			                     </td>\
+                    </tr>\
+					<th scope="row"><hr></th>\
+                        <td><hr></td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">N° bacino:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['pai_nmr'] !== null ? Autolinker.link(String(feature.properties['pai_nmr'])) : '') + '</td>\
@@ -594,10 +608,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                         <td>' + (feature.properties['pericolo'] !== null ? Autolinker.link(String(feature.properties['pericolo'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Pericolosità della frana:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['note'] !== null ? Autolinker.link(String(feature.properties['note'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">Aggiunto&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['aggiunto'] !== null ? Autolinker.link(String(feature.properties['aggiunto'])) : '') + '</td>\
                     </tr>\
@@ -632,14 +642,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     <tr>\
                         <th scope="row">Licenza:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['licenza'] !== null ? Autolinker.link(String(feature.properties['licenza'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ico_1</th>\
-                        <td>' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ico_2</th>\
-                        <td>' + (feature.properties['ico_2'] !== null ? Autolinker.link(String(feature.properties['ico_2'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -741,6 +743,17 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+						            <tr>\
+                        <th scope="row"><span class="legenda1">P.A.I. - Palermo&nbsp;<spam /></th>\
+                        <td><span class="legenda1">- Rischio Geomorfologico<spam /> <br /><br /></td>\
+                    </tr>\
+					<tr>\
+                        <th scope="row">' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</th>\
+                       <td>Rischio frana:&nbsp;&nbsp;<span class="legenda1">' + (feature.properties['note'] !== null ? Autolinker.link(String(feature.properties['note'])) : '') + '<spam />			                     </td>\
+                    </tr>\
+					<th scope="row"><hr></th>\
+                        <td><hr></td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">N° bacino:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['pai_nmr'] !== null ? Autolinker.link(String(feature.properties['pai_nmr'])) : '') + '</td>\
@@ -782,10 +795,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                         <td>' + (feature.properties['rischio'] !== null ? Autolinker.link(String(feature.properties['rischio'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Rischio della frana:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['note'] !== null ? Autolinker.link(String(feature.properties['note'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">Aggiunto&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['aggiunto'] !== null ? Autolinker.link(String(feature.properties['aggiunto'])) : '') + '</td>\
                     </tr>\
@@ -824,14 +833,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     <tr>\
                         <th scope="row">Licenza:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['licenza'] !== null ? Autolinker.link(String(feature.properties['licenza'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ico_1</th>\
-                        <td>' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ico_2</th>\
-                        <td>' + (feature.properties['ico_2'] !== null ? Autolinker.link(String(feature.properties['ico_2'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -969,7 +970,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 		      <nav class="the-nav nav-collapse clearfix">
 		        <ul class="nav nav-pill pull-left">
 		         <!-- inseriri qui menu di sx --> 
-		            <a href="http://opendatasicilia.it/" title="Iniziativa civica per la promozione degli OpenData nell&#039;isola (e non solo)" target="_blank"><img src="lib/images/ods_g.png" width="132" height="15" style="margin-top:15px; margin-left:12px" alt=""/><b class="caret"></b></a>
+		            <a href="http://opendatasicilia.it/" title="Iniziativa civica per la promozione degli OpenData nell&#039;isola (e non solo)" target="_blank"><img src="lib/images/ods_g.png" width="125" height="14" style="margin-top:18px; margin-left:12px" alt=""/><b class="caret"></b></a>
 		        </ul>
                 <!-- menu dx -->
 		        <ul class="nav nav-pill pull-right">

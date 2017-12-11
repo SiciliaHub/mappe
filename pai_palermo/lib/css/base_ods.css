@@ -85,7 +85,7 @@ a:active {color: #FF0000; text-decoration:none; }
 	
 #note {position: relative;left:60px; bottom: 20px; width: 290px;	padding: 0;   /*top:60px;*/ right: 0px;	z-index: 1000;	text-align: right;}
 
-.legenda  {font-style: normal; font-weight:bold; font-size:13px; color: #4E4B4B; text-align: justify; }
+.legenda  {font-style: normal; font-weight:bold; font-size:16px; color: #4E4B4B; text-align: justify; }
 
 .legenda1 {font-style: normal; font-weight:bold; font-size:12px; color: #4E4B4B; text-align: justify; }
 

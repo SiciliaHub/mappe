@@ -448,6 +448,17 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+						<tr>\
+                        <th scope="row"><span class="legenda1">P.A.I. - Palermo&nbsp;<spam /></th>\
+                        <td><span class="legenda1">- Pericolosità Idraulica<spam /> <br /><br /></td>\
+                    </tr>\
+					<tr>\
+                        <th scope="row">' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</th>\
+                        <td>Pericolo Alluvione:&nbsp;&nbsp;<span class="legenda1">' + (feature.properties['note'] !== null ? Autolinker.link(String(feature.properties['note'])) : '') + '<spam />			                     </td>\
+                    </tr>\
+					<th scope="row"><hr></th>\
+                        <td><hr></td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">N° bacino:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['bcn_nmr'] !== null ? Autolinker.link(String(feature.properties['bcn_nmr'])) : '') + '</td>\
@@ -459,10 +470,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     <tr>\
                         <th scope="row">Grado del pericolo:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['pericolo'] !== null ? Autolinker.link(String(feature.properties['pericolo'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Grado della Pericolosità:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['note'] !== null ? Autolinker.link(String(feature.properties['note'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Info ---</th>\
@@ -479,10 +486,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     <tr>\
                         <th scope="row">Licenza:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['licenza'] !== null ? Autolinker.link(String(feature.properties['licenza'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ico_1</th>\
-                        <td>' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -585,6 +588,17 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+									<tr>\
+                        <th scope="row"><span class="legenda1">P.A.I. - Palermo&nbsp;<spam /></th>\
+                        <td><span class="legenda1">- Rischio Idraulico<spam /> <br /><br /></td>\
+                    </tr>\
+					<tr>\
+                        <th scope="row">' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</th>\
+                        <td>Rischio Alluvione:&nbsp;&nbsp;<span class="legenda1">' + (feature.properties['note'] !== null ? Autolinker.link(String(feature.properties['note'])) : '') + '<spam />			                     </td>\
+                    </tr>\
+					<th scope="row"><hr></th>\
+                        <td><hr></td>\
+                    </tr>\
                     <tr>\
                         <th scope="row">N° bacino:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['bcn_nmr'] !== null ? Autolinker.link(String(feature.properties['bcn_nmr'])) : '') + '</td>\
@@ -596,10 +610,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     <tr>\
                         <th scope="row">Grado rischio:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['rischio'] !== null ? Autolinker.link(String(feature.properties['rischio'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Grado del rischio:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['note'] !== null ? Autolinker.link(String(feature.properties['note'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Info ---</th>\
@@ -616,14 +626,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     <tr>\
                         <th scope="row">Licenza:&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['licenza'] !== null ? Autolinker.link(String(feature.properties['licenza'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ico_1</th>\
-                        <td>' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ico_2</th>\
-                        <td>' + (feature.properties['ico_2'] !== null ? Autolinker.link(String(feature.properties['ico_2'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -693,11 +695,9 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Piano Stralcio di Bacino per<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l&lsquo;Assetto Idrogeologico (P.A.I.)</span><br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Regione Sicilia</span><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Palermo</span><hr>':layer_poligonoisola0,
 '<span class="legenda">&nbsp;C.T.R. 10k</span><hr><span class="legenda">Pericolosità e Rischio Idraulico<br /><br /></span>':ctr10k,
 
+'<span class="legenda1">&nbsp;Rischio Alluvione</span><br /><table><tr><td style="text-align: center;"><img src="legend/R4MoltoElevato0.png" /></td><td>&nbsp;&nbsp;&nbsp;R4 - Molto Elevato</td></tr><tr><td style="text-align: center;"><img src="legend/R3Elevato1.png" /></td><td>&nbsp;&nbsp;&nbsp;R3 - Elevato	</td></tr><tr><td style="text-align: center;"><img src="legend/R2Medio2.png" /></td><td>&nbsp;&nbsp;&nbsp;R2 - Medio</td></tr></table><br />':layer_RischioAlluvione_1,
 
-
-'<span class="legenda1">&nbsp;Rischio Alluvione</span><br /><table><tr><td style="text-align: center;"><img src="legend/R4MoltoElevato0.png" /></td><td>&nbsp;&nbsp;&nbsp;R4 - Molto Elevato</td></tr><tr><td style="text-align: center;"><img src="legend/R3Elevato1.png" /></td><td>&nbsp;&nbsp;&nbsp;R3 - Elevato	</td></tr><tr><td style="text-align: center;"><img src="legend/R2Medio2.png" /></td><td>&nbsp;&nbsp;&nbsp;R2 - Medio</td></tr></table><br />': layer_RischioAlluvione_1,
-
-'<span class="legenda1">&nbsp;Pericolosità Alluvione</span><br /><table><tr><td style="text-align: center;"><img src="legend/idro_P4Moltoelevata0.png" /></td><td>&nbsp;&nbsp;&nbsp;P4 - Molto elevata</td></tr><tr><td style="text-align: center;"><img src="legend/idro_P3Elevata1.png" /></td><td>&nbsp;&nbsp;&nbsp;P3 - Elevata</td></tr><tr><td style="text-align: center;"><img src="legend/idro_P2Media2.png" /></td><td>&nbsp;&nbsp;&nbsp;P2 - Media</td></tr><tr><td style="text-align: center;"><img src="legend/idro_P1Moderata3.png" /></td><td>&nbsp;&nbsp;&nbsp;P1 - Moderata</td></tr><tr><td style="text-align: center;"><img src="legend/idro_Sitidiattenzione4.png" /></td><td>&nbsp;&nbsp;&nbsp;Siti di attenzione</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br />': layer_PericolositAlluvione_0,
+'<span class="legenda1">&nbsp;Pericolosità Alluvione</span><br /><table><tr><td style="text-align: center;"><img src="legend/idro_P4Moltoelevata0.png" /></td><td>&nbsp;&nbsp;&nbsp;P4 - Molto elevata</td></tr><tr><td style="text-align: center;"><img src="legend/idro_P3Elevata1.png" /></td><td>&nbsp;&nbsp;&nbsp;P3 - Elevata</td></tr><tr><td style="text-align: center;"><img src="legend/idro_P2Media2.png" /></td><td>&nbsp;&nbsp;&nbsp;P2 - Media</td></tr><tr><td style="text-align: center;"><img src="legend/idro_P1Moderata3.png" /></td><td>&nbsp;&nbsp;&nbsp;P1 - Moderata</td></tr><tr><td style="text-align: center;"><img src="legend/idro_Sitidiattenzione4.png" /></td><td>&nbsp;&nbsp;&nbsp;Siti di attenzione</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br />':layer_PericolositAlluvione_0,
 }).addTo(map);
       setBounds();
 		
