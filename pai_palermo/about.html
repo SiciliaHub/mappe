@@ -1,53 +1,235 @@
 <!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Documento senza titolo</title>
-<link href="lib/css/base_ods.css" rel="stylesheet" type="text/css">
+<html lang="it">
+    <head>
+ <title>About - Mappa delle Pericolosità e del Rischio Geomofologico - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Mappa delle Pericolosità e del Rischio Geomofologico - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo, su base opendata">
+        <meta name="keywords" content="Open Data,Sicilia,PAI,Geologia,">
+        <meta name="author" content="Giovan Battista Vitrano per OpenDataSicilia.it">
+        <meta http-equiv="content-language" content="IT">
+        <meta name="robots" content="index,follow">
+        <meta name="creation_Date" content="22/07/2017">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="shortcut icon" href="favicon.ico"/> 
+        <link rel="icon" href="favicon.png" type="image/png"/> 
+
+ <!-- css menu -->
+<link href="lib/css/global_ods.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+<style type="text/css">
+a:link {color: #FF9900;	text-decoration:none;}
+a:visited {	color: #FF9900; text-decoration:none;}/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */
+a:hover {color: #FF9900; text-decoration:underline; } 
+a:active {color: #FF0000; text-decoration:none; }
+
+.footer a:link{color: #FF9900;	text-decoration:none;}
+.footer a:visited {	color: #FF9900; text-decoration:none;}
+.footer a:hover {color: #FF9900; text-decoration:underline; } 
+
+.social a:link{color: #4E4B4B;	text-decoration:none;}
+.social a:visited {	color: #4E4B4B; text-decoration:none;}
+.social a:hover {color: #FFFFFF; text-decoration:none; } 
+
+.social1 a:link{color: #4E4B4B;	text-decoration:none;}
+.social1 a:visited {	color: #4E4B4B; text-decoration:none;}
+.social1 a:hover {color: #FF9900; text-decoration:none; } 
+
+.lorem a:link{color: #FF9900;	text-decoration:none;}
+.lorem a:visited {	color: #FF9900; text-decoration:none;}
+.lorem a:hover {color: #FF9900; text-decoration:underline; } 
+</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-87653723-1', 'auto');
+  ga('send', 'pageview');
+
+</script> 
+ <!-- Open Graph Protocol -->
+<meta property="og:title" content="Aree di Emergenza - Protezione Civile - Regione Sicilia" />
+<meta property="og:description" content="Aree di Emergenza - Protezione Civile - Regione Sicilia, su base opendata." />
+<meta property="og:url" content="http://siciliahub.github.io/mappe/aree_emergenza/index.html" />
+<meta property="article:author" content="Giovan Battista Vitrano per Open Data Sicilia" />
+<meta property="og:image" content="http://siciliahub.github.io/mappe/aree_emergenza/legend/aree_emergenza.jpg" />
+<meta property="og:site_name" content="github.com/SiciliaHub/mappe" />
+<!-- Open Graph Protocol -->
+
+<!-- twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Aree di Emergenza - Protezione Civile - Regione Sicilia">
+<meta name="twitter:description" content="Aree di Emergenza - Protezione Civile - Regione Sicilia, su base opendata.">
+<meta name="twitter:image" content="http://siciliahub.github.io/mappe/aree_emergenza/legend/aree_emergenza.jpg">
+<meta name="twitter:creator" content="@gbvitrano Giovan Battista Vitrano per Open Data Sicilia">
+<meta name="twitter:site" content="github.com/SiciliaHub/mappe" />
+<meta name="twitter:url" content="github.com/SiciliaHub/mappe">
+<!-- twitter -->   
+
+
 </head>
 
 <body>
+ <!-- header -->   
+<div id="bot" class="leaflet-control">
+<div id="left-flyout-nav" class="layout-left-flyout visible-sm"></div>
+		<div class="layout-right-content">
+		  <header class="the-header">
+		    <div class="navbar container">
+		      
+		      <!-- Trigger -->
+		      <a class="btn-navbar btn-navbar-navtoggle btn-flyout-trigger" href="#" title="Menù principale">
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		        <span class="icon-bar btn-flyout-trigger"></span>
+		      </a>
+		      
+		      <!-- Structure -->
+		      <nav class="the-nav nav-collapse clearfix">
+		        <ul class="nav nav-pill pull-left">
+		         <!-- inseriri qui menu di sx --> 
+		            <a href="http://opendatasicilia.it/" title="Iniziativa civica per la promozione degli OpenData nell&#039;isola (e non solo)" target="_blank"><img src="lib/images/ods_g.png" width="125" height="14" style="margin-top:18px; margin-left:12px" alt=""/><b class="caret"></b></a>
+		        </ul>
+                <!-- menu dx -->
+		        <ul class="nav nav-pill pull-right">
+                <li><a href="index.html" title="Mappa delle Pericolosità e del Rischio Geomofologico" target="_parent"><strong>Pericolosità e Rischio Geomofologico</strong></a></li>
+                <li><a href="dissesti.html" title="Mappa dei Dissesti" target="_parent">Dissesti</a></li>
+                <li><a href="idraulica.html" title="Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione">Pericolosità e Rischio Idraulico</a></li>
+                <li><a href="pericolosità_idrogeologica.html" title="Mappa della Pericolosità idrogeologica">Pericolosità idrogeologica</a></li>
+                <li><a href="rischio_idrogeologico.html" title="Mappa del Rischio idrogeologico">Rischio idrogeologico</a></li>
+                 <li><a href="about.html" title="About">About</a></li>
+		      </ul>
+		          </li>
+		        </ul>
+		      </nav>
+		    </div>
+		  </header>
+		</div><!-- END .layout-left-flyout -->
+        
+<script src="lib/js/menu/jquery.js"></script>
+<script src="lib/js/menu/jquery.cbFlyout.js"></script>
+<script src="lib/js/menu/main.js"></script>
 
-  <p class="lorem">
-  <table width="50%" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>
-        <td></td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle"><span class="lorem"><strong>Work in progress... </strong></span></td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle">&nbsp;</td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle"><span class="lorem"><strong>Coming soon...</strong></span></td>
-      </tr>
-    </tbody>
-  </table> 
+</div>  
+		  <main class="container">
+		    <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+		      <tbody>
+		        <tr>
+		          <td width="95%" valign="bottom"><h2><span style="color:#ff9900">P.A.I. Geomorfologia e Idraulica di Palermo, su base opendata</span></h2></td>
+		          <td width="5%" align="center" valign="bottom" class="social1"><a href="index.html" title="Switch to map...Mappa P.A.I. del Comune di Palermo"><span class="fa-stack fa-lg">
+                 <i class="fa fa-circle fa-stack-2x"></i>
+                 <i class="fa fa-map-o fa-stack-1x fa-inverse"></i>
+                 </span>
+                 </a></td>
+	            </tr>
+		        <tr>
+		          <td valign="bottom">&nbsp;</td>
+		          <td align="center" valign="middle" class="social1"></td>
+	            </tr>
+		        <tr>
+		          <td colspan="2"><p class="lorem">La mappa riporta il Piano per l’Assetto Idrogeologico (PAI) di Palermo<br />Il PAI è uno strumento fondamentale della politica di assetto territoriale delineata dalla legge 183/89, viene avviata in ogni regione la pianificazione di bacino, esso ne costituisce il primo stralcio tematico e funzionale. <br />
+	              Il Piano Stralcio per l’Assetto Idrogeologico, di seguito denominato Piano Stralcio o Piano o P.A.I., redatto ai sensi dell’art. 17, comma 6 ter, della L. 183/89, dell’art. 1, comma 1, del D.L. 180/98, convertito con modificazioni dalla L. 267/98, e dell’art. 1 bis del D.L. 279/2000, convertito con modificazioni dalla L. 365/2000, ha valore di Piano Territoriale di Settore ed è lo strumento conoscitivo, normativo e tecnico-operativo mediante il quale sono pianificate e programmate le azioni, gli interventi e le norme d’uso riguardanti la difesa dal rischio idrogeologico del territorio. (fonte <a href="https://it.wikipedia.org/wiki/Piano_di_assetto_idrogeologico" target="_blank">it.wikipedia.org</a>).</p> 
+<p class="lorem"><strong>Norme di attuazione:</strong><br>
+Le norme di attuazione contenute nel capitolo 11 della Relazione Generale del P.A.I. prevedono al comma 1 dell’art.5 che il P.A.I. è suscettibile di aggiornamento a seguito di variazioni succedutesi nel tempo o a nuovi studi che dimostrino un diverso assetto del territorio. In particolare, l’art. 5 “Aggiornamenti e modifiche” recita:
+  <ol>
+  <li>  Il P.A.I. potrà essere oggetto di integrazioni e modifiche su richiesta e/o segnalazioni di Enti pubblici e Uffici territoriali, in relazione a:<br>
+    a) indagini e studi a scala di dettaglio presentati da pubbliche amministrazioni;<br>
+    b) nuovi eventi idrogeologici idonei a modificare il quadro della pericolosità;<br>
+    c) variazioni delle condizioni di pericolosità derivanti da: effetti d’interventi non strutturali; realizzazione e/o completamento d’interventi strutturali di messa in sicurezza delle aree interessate ed effetti prodotti dalle opere realizzate per la mitigazione del rischio.</li>
+    <li>Nei casi di cui ai precedenti punti a), b) e c), le amministrazioni interessate devono provvedere a perimetrare le aree sulla Carta Tecnica Regionale, in scala 1:10000 e a trasmettere tali elaborati all’Assessorato Regionale Territorio e Ambiente – Dipartimento Territorio.
+    <li>Le modifiche e/o le integrazioni e gli aggiornamenti del P.A.I. saranno approvati con Decreto del Presidente della Regione, previa Delibera della Giunta Regionale, su proposta dell’assessore regionale a Territorio e Ambiente.</li>
+    <li>Tutti gli elementi ricadenti in aree a pericolosità determinano condizioni di rischio; per quanto riguarda quelli non individuati nelle carte allegate al progetto del P.A.I., si invitano i comuni a segnalarne la presenza con ubicazione su cartografia.</li>
+</ol></p></td>
+	            </tr>
+	          </tbody>
+	        </table>
+
+ <pre>   
+<img src="legend/pai_pa_hd.jpg" alt="Palermo, Piano per l’Assetto Idrogeologico (P.A.I.) mappa delle pericolosità e rischio geomorfologico, realizzata con Qgis" class="clip_resize"  title="Palermo, Piano per l’Assetto Idrogeologico (P.A.I.) mappa delle pericolosità e rischio geomorfologico, realizzata con Qgis"/>
+  </pre> 
+ <h3><span style="color:#ff9900">Fonte dati</span></h3>
+ 
+ <p class="lorem">Il <a href="http://pti.regione.sicilia.it/portal/page/portal/PIR_PORTALE/PIR_LaStrutturaRegionale/PIR_Assessoratoregionaledelterritorioedellambiente/PIR_DipUrbanistica" target="_blank">Dipartimento dell’Urbanistica</a> della Regione Siciliana diffonde gratuitamente i <a href="http://www.sitr.regione.sicilia.it/?p=576" target="_blank">dati tematici originari</a> del <a href="http://www.sitr.regione.sicilia.it/pai/CD_PAI/RELAZIONE_GENERALE_P.A.I.zip" target="_blank">PAI</a> in formato shape (anno 2015/2016)  a fini di utilizzo istituzionali, secondo metodi di produzione e criteri di validazione atti a determinarne gli ambiti di sicurezza e completezza; essi non hanno alcun valore legale, ferme restando le opportune indicazioni fomite da <a href="http://www.sitr.regione.sicilia.it/pai/" target="_blank">precise delibere di Giunta Regionale</a>. Pertanto, i dati tematici originari, in formato shape (.shp) o la loro elaborazione non sostituiscono le cartografie ufficiali del P.A.I., in formato .pdf, notificate alle Amministrazioni Comunali. Tali cartografie sono le uniche alle quali fare riferimento per le perimetrazioni vigenti. I dati tematici originari non sono commerciabili, ma possono essere utilizzati dagli utenti in base alle seguenti limitazioni di utilizzo e di diffusione: essi sono di proprietà della Regione Siciliana, che ne detiene i diritti d’autore (Legge n. 633/ 1941 e ss.mm.ii.)<br /><br />I <a href="http://www.sitr.regione.sicilia.it/?p=576" target="_blank"> dati tematici originari</a> originari consistono nelle diverse aree a dissesto - vincolo del P.A.I. (Piano Assetto Idrogeologico), ossia:<br />
+   Geomorfologia: (D_GEO.shp, P _Crolli_SproCGEO.shp, Buffer_GEO.shp, Rischio_GEO.shp e S_A_GEO.shp); <br /> 
+   Idraulica: (PAI_IDR_SA.shp e PAI_IDR_R.shp). </p>
+ <p class="lorem"><a href="http://www.sitr.regione.sicilia.it/pai/PAI/Licenza_utilizzo_dati_tematici_PAI.pdf" target="_blank">Licenza:&nbsp;&nbsp;</a> sulle condizioni di utilizzo e diffusione dei dati tematici originari in formato ESRITM SHAPE della Regione Siciliana – Dipartimento Regionale Ambiente – Servizio 3 ‘Assetto del Territorio e Difesa del Suolo’</p>
+<p class="lorem">   <a href="https://creativecommons.org/licenses/by-nc/3.0/it/" target="_blank" rel="license"><img src="legend/cc_nc.png" alt="Licenza Creative Commons" width="91" height="32" style="border-width:0"  title="Licenza sulle condizioni di utilizzo e diffusione dei dati tematici originari in formato ESRITM SHAPE della Regione Siciliana – Dipartimento Regionale Ambiente – Servizio 3 ‘Assetto del Territorio e Difesa del Suolo’ Creative Commons Attribuzione - Non commerciale 3.0 Italia (CC BY-NC 3.0 IT)." data-recalc-dims="1"/></a><br />
+<a href="https://creativecommons.org/licenses/by-nc/3.0/it/" title="Licenza Creative Commons Attribuzione - Non commerciale 3.0 Italia (CC BY-NC 3.0 IT)" target="_blank" rel="license">Creative Commons Attribuzione - Non commerciale 3.0 Italia (CC BY-NC 3.0 IT)</a></p>
+  <h3><span style="color:#ff9900">Mappa rielaborate</span></h3> 
+  <p class="lorem">Dai dati <span id="site-info"><a title="Download file PAI Geomorfologia e Idraulica - Anno 2015/2016" href="http://www.sitr.regione.sicilia.it/?p=576" target="_blank" rel="noopener">tematici originari</a> del <a title="Relazione generale PAI " href="http://www.sitr.regione.sicilia.it/pai/CD_PAI/RELAZIONE_GENERALE_P.A.I.zip" target="_blank" rel="noopener">PAI</a></span> della Regione Sicilia sono stati rielaborati i dati del <a href="http://www.sitr.regione.sicilia.it/pai/bacini.htm" title="Bacini Idrografici" target="_blank">Bacino idrografico</a>  <a href="http://www.sitr.regione.sicilia.it/pai/index_of-CD_PAI_per_BACINO_037-038_per_EL_CARTOGRAFIA.html" target="_blank">37-38</a> (<a href="http://www.sitr.regione.sicilia.it/pai/bac037-038.htm" target="_blank" rel="noopener">Fiume Eleuterio</a> –  <a href="http://www.sitr.regione.sicilia.it/pai/bac037-038.htm" target="_blank" rel="noopener">Area tra Fiume Eleuterio e Fiume Oreto</a>),  <a href="http://www.sitr.regione.sicilia.it/pai/index_of-CD_PAI_per_BACINO_039-040_per_CARTOGRAFIA.html" target="_blank" rel="noopener">39-40</a> (<a href="http://www.sitr.regione.sicilia.it/pai/bac039-040.htm" target="_blank">Fiume Oreto</a> –  <a href="http://www.sitr.regione.sicilia.it/pai/bac039-040.htm" target="_blank">Area tra Fiume Oreto e Punta Raisi</a>) e <a href="http://www.sitr.regione.sicilia.it/pai/index_of-CD_PAI_per_BACINO_041-042_per_CARTOGRAFIA.html" target="_blank">41-42</a> (Fiume Nocella ed Area tra Fiume Nocella e Fiume Jato e Area tra Punta   Raisi e Fiume Nocella) ed estratte le mappe della pericolosità e rischio   idrogeologico e dei dissesti del Comune di Palermo.</p>
+  
+  <p class="lorem">  <a href="index.html" title="PAI - Palermo - Mappa delle Pericolosità e del Rischio Geomofologico" target="_parent">Mappa delle Pericolosità e del Rischio Geomofologico</a> (D_GEO.shp , Rischio_GEO.shp e S_A_GEO.shp)<br />
+   <a href="dissesti.html" title="PAI - Palermo - Mappa dei Dissesti" target="_parent">Mappa dei Dissesti </a>(P _Crolli_SproCGEO.shp)<br />
+   <a href="idraulica.html" title="PAI - Palermo - Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione" target="_parent">Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione</a> (PAI_IDR_SA.shp e PAI_IDR_R.shp)<br />
+   <a href="pericolosità_idrogeologica.html" title="PAI - Palermo - Mappa della Pericolosità idrogeologica" target="_parent">Mappa della Pericolosità idrogeologica</a> (D_GEO.shp e PAI_IDR_SA.shp)<br />
+   <a href="rischio_idrogeologico.html" title="PAI - Palermo - Mappa del Rischio idrogeologico" target="_parent">Mappa del Rischio idrogeologico</a> (Rischio_GEO.shp e PAI_IDR_R.shp)<br /> 
+   </p>
+  
+ <p class="lorem">Navigare la mappa è semplice...coming soon...</p>
+ <p class="lorem">Le funzioni basilari...coming soon...</p>
+</main>
+		</div><!-- END .layout-left-flyout -->
+                <pre1><code>
+<table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td width="5%" align="center" valign="top"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
+<img src="lib/images/ods.svg" width="100" title="opendatasicilia.it" alt="opendatasicilia"></a></td>
+      <td width="2%">&nbsp;</td>
+      <td width="93%" valign="top"><p class="footer"><a target="_blank" href="http://opendatasicilia.it/" title="opendatasicilia.it"><strong>#OpenDataSicilia</strong></a> e’ una iniziativa civica che si propone di far conoscere e diffondere la cultura dell’open government e le prassi dell’open data nel nostro territorio e aprire una discussione pubblica partecipata.<br>
+Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo accomunati dalla genuina volontà di contribuire a migliorare la qualità della vita della nostra comunità. Lo vogliamo fare con spirito di collaborazione e concretezza.
+</td>
+    </tr>
+    <tr>
+      <td align="center" valign="top">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td align="right" valign="middle"><!-- table social -->
+  <table width="10%" border="0" align="right" cellpadding="0" cellspacing="0" class="ods_social" >
+  <tbody>
+    <tr>
+      <td><a href="https://www.facebook.com/groups/opendatasicilia/" target="_blank" title="Facebook"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://github.com/SiciliaHub" target="_blank" title="GitHub"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="https://twitter.com/opendatasicilia" target="_blank" title="Twitter"> <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+      <td>&nbsp;</td>
+      <td><a href="http://opendatasicilia.it/" target="_blank" title="OpenDataSicilia.it"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+            <td>&nbsp;</td>
+      <td><a href="https://groups.google.com/d/forum/opendatasicilia" target="_blank" title="mailing list OpenDataSicilia.it"><span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope-open fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table></td>
+    </tr>
+  </tbody>
+</table>
+
+</code></pre1>
 </body>
 </html>
