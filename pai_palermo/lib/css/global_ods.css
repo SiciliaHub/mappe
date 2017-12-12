@@ -660,6 +660,8 @@ body {
     display: none;
   }
 }
+
+
 /* Navbar Styles */
 .navbar {
   height: 40px;
@@ -677,6 +679,18 @@ body {
   background-size: 200px 19px;
   background-position:90% 1px;
   background-repeat:no-repeat;*/
+}
+@media (min-width: 880px) and (max-width: 1050px){
+  .navbar {font-size:11px;
+  }
+}
+@media (min-width: 880px) and (max-width: 938px){
+  .navbar {font-size:10px;
+  }
+}
+@media (min-width: 767px) and (max-width: 879px){
+  .navbar {font-size:8px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -798,6 +812,16 @@ body {
     /*font-weight: 500;*/
     text-decoration: none;
   }
+  
+@media (min-width: 800px) and (max-width: 1050px){
+  .the-nav > .nav > li a { padding: 19px 10px 10px;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 879px){
+  .the-nav > .nav > li a {padding: 20px 10px 10px;
+  }
+}
 
   .the-nav > .nav > li:nth-of-type(1) > a {
     padding-left: 10px;
