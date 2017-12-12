@@ -47,3 +47,5 @@ Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di app
 
 
 - [**Comuni a fuoco - #FoiaeFiamme - Richiesta di accesso civico**](http://siciliahub.github.io/mappe/comuniafuoco/index.html) a cura di [@aborruso](https://twitter.com/aborruso), [@giuragu](https://twitter.com/giuragu) e [@gbvitrano](https://twitter.com/gbvitrano);
+
+- [**Piano per l’Assetto Idrogeologico (PAI) - Palermo - work in progress...**](http://siciliahub.github.io/mappe/comuniafuoco/index.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano)
