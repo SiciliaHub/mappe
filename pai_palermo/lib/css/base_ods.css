@@ -48,6 +48,8 @@ html, body {padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "
 /*#itaf { position:fixed; bottom:95px; right:37px; z-index: 1014;}*/
 
 .lorem {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 11px;}.awesome {font-style:fontawesome;  color: #4E4B4B; }
+ @media (min-width: 320px) and (max-width: 736px) { .lorem {font-style: italic; color: #4E4B4B; text-align: left; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 8.5px;}.awesome {font-style:fontawesome;  color: #4E4B4B; }}
+
 a:link {color: #FF9900;	text-decoration:none;}
 a:visited {	color: #FF9900;}/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */
 a:hover {color: ##4E4B4B; text-decoration:underline; } 
@@ -91,7 +93,7 @@ a:active {color: #FF0000; text-decoration:none; }
 
 .legenda1 {font-style: normal; font-weight:bold; font-size:12px; color: #4E4B4B; text-align: justify; }
 
- @media (min-width: 320px) and (max-width: 736px) { .legenda1 {font-style: normal; font-weight:bold; font-size:10px; color: #4E4B4B; text-align: justify; }}
+ @media (min-width: 320px) and (max-width: 736px) { .legenda1 {font-style: normal; font-weight:bold; font-size:9px; color: #4E4B4B; text-align: justify; }}
 
 .legenda1 a:link{color: #4E4B4B;	text-decoration:none;}
 .legenda1 a:visited {	color: #4E4B4B;}
