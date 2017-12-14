@@ -26,6 +26,10 @@ html body {
 .awesome {font-style:fontawesome;  color: #4E4B4B;  }
 .footer {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; font-size: 14px;}
 
+ .lorem2 {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 12px;}.awesome {font-style:fontawesome;  color: #4E4B4B; }
+ 
+  @media (min-width: 320px) and (max-width: 1024px) { .lorem2 {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 9.8px;}.awesome {font-style:fontawesome;  color: #4E4B4B; }}
+  
 .ods_footer {
 	font-style: italic;
 	color: #F5F5F5;
