@@ -680,16 +680,35 @@ body {
   background-position:90% 1px;
   background-repeat:no-repeat;*/
 }
-@media (min-width: 880px) and (max-width: 1050px){
+@media (min-width: 971px) and (max-width: 1050px){
   .navbar {font-size:11px;
   }
 }
-@media (min-width: 880px) and (max-width: 938px){
-  .navbar {font-size:10px;
+@media (min-width: 951px) and (max-width: 970px){
+  .navbar {font-size:9px;
   }
 }
-@media (min-width: 767px) and (max-width: 879px){
-  .navbar {font-size:8px;
+
+@media (min-width: 871px) and (max-width: 950px){
+  .navbar {font-size:9px;
+  }
+}
+@media (min-width: 821px) and (max-width: 870px){
+  .navbar {font-size:8.5px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 820px){
+  .navbar {font-size:8.3px;
+  }
+}
+@media (min-width: 750px) and (max-width: 800px){
+  .navbar {font-size:7.8px;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 800px){
+  .navbar {font-size:7.8px;
   }
 }
 
