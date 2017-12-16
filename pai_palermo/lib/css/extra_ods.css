@@ -9,16 +9,24 @@ url("fonts/fontawesome-webfont.ttf") format("truetype"),
 url("fontst/fontawesome-webfont.svg#fontawesome") format("svg");
 font-weight:normal; font-style:normal;}
 
-html, body {padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 11px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; background-color:#ffffff;
-/*background-image:url(../images/ods_02.png); background-size: 30px 30px;background-repeat:no-repeat;background-position:5px 3px;background-attachment: fixed;*/}
+html body {
+  font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;  /* 1 */
+  font-size: 11px;
+  margin-top:60px;
+
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  /* ie scrollbar*/
+  scrollbar-base-color : #F5F5F5;
+  scrollbar-arrow-color: #fff;
+  scrollbar-3dlight-color : #F5F5F5;
+  scrollbar-highlight-color :#F5F5F5;
+}
+hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900;}
 
 
 
 /* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it  */
-
-
-
- #map { height: 100%; top:0px; font: 11px "Open Sans", Helvetica Neue, fontawesome, Arial, Helvetica, sans-serif; background-color: #fff;}
 
 .beta{width: 70px; height: 70px; border-radius: 35px;  -moz-border-radius: 35px;  -webkit-border-radius: 35px; box-shadow: 0 1px 5px rgba(0,0,0,0.6); 
 	}
@@ -327,7 +335,6 @@ border: 1px solid rgba(0,0,0,0.2);
 -webkit-border-radius: 6px;
 max-height:100px;
 }
-
 /* posizione icone sidebar per google chrome*/
 ul {
   list-style: none;
@@ -344,4 +351,70 @@ ul li {
 
 .pull-right {
   float: right;
+}
+
+.container1 {
+	font-family: 'Open Sans', Sans-serif;
+	width: 94%;
+	margin: 0 auto;
+
+  	/*background-image:url(../images/opendatasicilia1.svg);
+	background-repeat:no-repeat;
+	background-size: 149px 14px;
+	background-position: 45px 16px;*/
+}
+
+pre2 {
+  color: #fff;
+  overflow: auto;
+  overflow: auto;
+  background: #fff;
+  padding: 0;
+  /*font-family: monospace;*/
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -ms-word-break: normal;
+  word-break: normal;
+  word-break: normal;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  position: relative;
+}
+pre2 code {
+  background: none;
+  padding: 15px;
+  white-space: pre;
+  overflow: auto;
+  display: block;
+}
+
+pre1 {
+color: #cccccc;
+  overflow: auto;
+  overflow: auto;
+ background: none;
+  padding: 0;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -ms-word-break: normal;
+  word-break: normal;
+  word-break: normal;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  position: relative;
+   z-index:1500;
+}
+pre1 code {
+  background: #F5F5F5;
+  padding: 1%;
+  white-space: normal;
+  overflow: auto;
+ display: block;
+ border-top: 1px solid #ccc;
 }
