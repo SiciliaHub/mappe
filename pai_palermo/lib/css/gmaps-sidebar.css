@@ -12,10 +12,10 @@
   @media (min-width: 320px) and (max-width: 675px){
     .sidebar-left {
       left: 10px; 
-	  top:48px;} 
+	  top:55px;} 
 	    .sidebar.collapsed {
     width: 40px;
-	top:48px; }
+	top:55px; }
 	  }	
 	
   @media (min-width: 768px) {
