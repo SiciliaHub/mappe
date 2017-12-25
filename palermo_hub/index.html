@@ -119,6 +119,7 @@ a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hov
 
 <!-- script dati mappa -->
 <script src="data/poligonoisola0.js"></script>
+<script src="data/osm_confine_palermo_epsg_3004_0.js"></script>
 <script src="data/ATA1213_Tracce_pa_1.js"></script>
 <script src="data/ATA1213_Tracce_pa_Trasversali_2.js"></script>
 <script src="data/ATA1213_Volo14cm_Tracce_pa_4.js"></script>
@@ -333,7 +334,7 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
             }
         });	
 		  
-var map = L.map('map', { zoomControl:false, maxZoom:20, minZoom:7 }).fitBounds([[38.0391060456,13.140160209],[38.2277793856,13.4984503497]]);
+var map = L.map('map', { zoomControl:false, maxZoom:20, minZoom:12}).fitBounds([[38.0391060456,13.140160209],[38.2277793856,13.4984503497]]);
 map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> - Rielaborazione di: <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>');
 var bounds_group = new L.featureGroup([]);
 	  
@@ -443,7 +444,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
     attribution: 'SITR Regione Siciliana Volo ATA 2012 2013',
 }) //.addTo(map);	
   
-	    	  //Confine Comunale OSM
+	    	  // Sfondo trasparente
 		 var sfondo_tra =L.tileLayer('data/sfondo/{z}/{x}/{y}.png', {
         minZoom: 12,
         maxZoom: 17,
@@ -768,6 +769,46 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         });
         bounds_group.addLayer(layer_2k_2);	
 		
+				// Perimetro OSM
+        function pop_osm_confine_palermo_epsg_3004_0(feature, layer) {
+            var popupContent = '<table>\
+						                    <tr>\
+			  <th scope="row"><img src="legend/osm_confine_palermo_epsg_3004_0.png" /><span class="legenda1">&nbsp;&nbsp;Confine Comunale<spam /></th>\
+                        <td><span class="legenda1">- OSM<spam /> <br /><br /></td>\
+                    </tr>\
+                      <tr>\
+                        <th scope="row">Nome:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['name'] !== null ? Autolinker.link(String(feature.properties['name'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_osm_confine_palermo_epsg_3004_0_0() {
+            return {
+                pane: 'pane_osm_confine_palermo_epsg_3004_0',
+                opacity: 1,
+                color: 'rgba(215,25,28,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(224,209,134,0.0)',
+            }
+        }
+        map.createPane('pane_osm_confine_palermo_epsg_3004_0');
+        map.getPane('pane_osm_confine_palermo_epsg_3004_0').style.zIndex = 400;
+        map.getPane('pane_osm_confine_palermo_epsg_3004_0').style['mix-blend-mode'] = 'normal';
+        var layer_osm_confine_palermo_epsg_3004_0 = new L.geoJson(json_osm_confine_palermo_epsg_3004_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_osm_confine_palermo_epsg_3004_0',
+            onEachFeature: pop_osm_confine_palermo_epsg_3004_0,
+            style: style_osm_confine_palermo_epsg_3004_0_0,
+        });
+        bounds_group.addLayer(layer_osm_confine_palermo_epsg_3004_0);
+		 map.addLayer(layer_osm_confine_palermo_epsg_3004_0);
 		
 		
 
@@ -783,7 +824,8 @@ L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;#OpenDataSicilia - Pale
 '<img src="legend/ATA1213_Volo14cm_Tracce_pa_4.png" /><span class="legenda1">&nbsp;&nbsp;Volo 14cm Tracce</span><hr> <span class="legenda1">&nbsp;Carta Tecnica Regionale</span>': layer_ATA1213_Volo14cm_Tracce_pa_4,
 
 '<img src="legend/sfonfo_tra.png" /><span class="legenda1">&nbsp;Sfondo semi trasparente</span>':sfondo_tra,
-'<img src="legend/ctr_02.png" /><span class="legenda1">&nbsp;&nbsp;Palermo 10k</span><hr><span class="legenda1">&nbsp;Quadro unione</span>' :ctr10k, 
+'<img src="legend/ctr_02.png" /><span class="legenda1">&nbsp;&nbsp;Palermo 10k</span>' :ctr10k,
+'<img src="legend/osm_confine_palermo_epsg_3004_0.png" /> Confine Comunale<hr><span class="legenda1">&nbsp;Quadro unione</span>': layer_osm_confine_palermo_epsg_3004_0,
 
 '<img src="legend/2k_2.png" /><span class="legenda1">&nbsp;&nbsp;2k</span>': layer_2k_2,
 '<img src="legend/5k_1.png" /><span class="legenda1">&nbsp;&nbsp;5k</span>': layer_5k_1,
