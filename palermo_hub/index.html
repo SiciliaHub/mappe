@@ -79,7 +79,6 @@
 a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hover {color: #FF9900; text-decoration:underline; }a:active {color: #FF0000; text-decoration:none; }
 </style>       
 
-
 <!-- script mappa -->
 <script src="lib/js/qgi2web/qgis2web_expressions.js"></script>
 <script src="lib/js/qgi2web/leaflet.js"></script>
@@ -164,7 +163,6 @@ a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hov
    <em>Data la natura esclusivamente informativa degli elaborati grafici e dei testi riportati, questi non costituiscono atti ufficiali.</em><br>
    <em>Per accedere agli atti ufficiali si rinvia agli elaborati definitivi allegati alle specifiche deliberazioni.</em><br><br>
 <strong>Si declina ogni responsabilit&agrave; sulla veridicit&agrave; dei dati.</strong></p>
-
 </div>    
           
 <!-- Tab info -->
@@ -334,11 +332,7 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
             }
         });	
 		  
-<<<<<<< HEAD
 var map = L.map('map', { zoomControl:false, maxZoom:20, minZoom:12}).fitBounds([[38.0391060456,13.140160209],[38.2277793856,13.4984503497]]);
-=======
-var map = L.map('map', { zoomControl:false, maxZoom:20, minZoom:12 }).fitBounds([[38.0391060456,13.140160209],[38.2277793856,13.4984503497]]);
->>>>>>> origin/gh-pages
 map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> - Rielaborazione di: <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>');
 var bounds_group = new L.featureGroup([]);
 	  
@@ -388,6 +382,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
             ];
           });
         }
+		
 <!-- Poligono fantasma  inizio -->	
         function pop_poligonoisola0(feature, layer) {
             layer.on({
