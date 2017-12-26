@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="it">
     <head>
- <title>Mappa dei Dissesti - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo</title>
+ <title>Mappa delle Pericolosità e del Rischio Geomofologico - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Mappa dei Dissesti - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo, su base opendata">
+        <meta name="description" content="Mappa delle Pericolosità e del Rischio Geomofologico - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo, su base opendata">
         <meta name="keywords" content="Open Data,Sicilia,PAI,Geologia,">
         <meta name="author" content="Giovan Battista Vitrano per OpenDataSicilia.it">
         <meta http-equiv="content-language" content="IT">
@@ -43,7 +43,7 @@
 <meta name="twitter:creator" content="@gbvitrano Giovan Battista Vitrano per Open Data Sicilia">
 <meta name="twitter:site" content="github.com/SiciliaHub/mappe" />
 <meta name="twitter:url" content="github.com/SiciliaHub/mappe">
-<!-- twitter --> 
+<!-- twitter -->   
  
  <!-- css menu  -->
 <!-- Bootstrap -->
@@ -79,6 +79,7 @@
 a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hover {color: #FF9900; text-decoration:underline; }a:active {color: #FF0000; text-decoration:none; }
 </style>       
 
+
 <!-- script mappa -->
 <script src="lib/js/qgi2web/qgis2web_expressions.js"></script>
 <script src="lib/js/qgi2web/leaflet.js"></script>
@@ -113,11 +114,15 @@ a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hov
  
   <!-- script mappa remoto -->  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>   
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>  
+ <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>  
 
 <!-- script dati mappa -->
-<script src="data/PAIDissestiAttivit_0.js"></script>
 <script src="data/poligonoisola0.js"></script>
+<script src="data/SitidiAttenzione_0.js"></script>
+<script src="data/PerciolositFrana_1.js"></script>
+<script src="data/RischioFrana_2.js"></script>
+
 </head>
 
 <body>
@@ -144,73 +149,96 @@ a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hov
 <div class="sidebar-pane" id="home">
 <h2 class="sidebar-header">Palermo Hub - P.A.I.<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2><br>
 <p class="legenda"> <strong>Piano Assetto Idrogeologico Palermo</strong></p>
-<p class="lorem2"><strong>Mappa dei Dissesti</strong></p>
-<table width="98%" border="0" cellspacing="0" cellpadding="0">
+<p class="lorem2"><strong>Mappa delle Pericolosità e del Rischio Geomofologicoa</strong></p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tbody>
     <tr>
-      <td><span class="legenda1">Tipologia</span></td>
-      <td width="2%">&nbsp;</td>
-      <td><span class="legenda1">Attività</span></td>
-      <td width="2%">&nbsp;</td>
-      <td>&nbsp;</td>
+      <td><span class="legenda"><span class="legenda1">Rischio Frana</span></span></td>
+      <td width="1%">&nbsp;</td>
+      <td><span class="legenda1">Perciolosità Frana</span></td>
+      <td width="1%">&nbsp;</td>
+      <td><span class="legenda1">Siti di Attenzione</span></td>
     </tr>
     <tr valign="top">
       <td><table>
         <tr>
-          <td style="text-align: center;"><img src="legend/Crollo.png" /></td>
-          <td class="lorem">&nbsp;&nbsp;&nbsp;Crollo</td>
+          <td style="text-align: center;"><img src="legend/R4MoltoElevato0.png" /></td>
+          <td class="lorem">&nbsp;&nbsp;&nbsp;R4 - Molto Elevato</td>
         </tr>
         <tr>
-          <td style="text-align: center;"><img src="legend/Sprofondamento.png" /></td>
-          <td class="lorem">&nbsp;&nbsp;&nbsp;Sprofondamento</td>
+          <td style="text-align: center;"><img src="legend/R3Elevato1.png" /></td>
+          <td class="lorem2">&nbsp;&nbsp;&nbsp;R3 - Elevato</td>
         </tr>
         <tr>
-          <td style="text-align: center;"><img src="legend/Scivolamento.png" /></td>
-          <td class="lorem">&nbsp;&nbsp;&nbsp;Scivolamento</td>
+          <td style="text-align: center;"><img src="legend/R2Medio2.png" /></td>
+          <td class="lorem">&nbsp;&nbsp;&nbsp;R2 - Medio</td>
         </tr>
         <tr>
-          <td style="text-align: center;"><img src="legend/Soliflusso.png" /></td>
-          <td class="lorem">&nbsp;&nbsp;&nbsp;Soliflusso</td>
-        </tr>
-        <tr>
-          <td style="text-align: center;"><img src="legend/Erosioneconcrentrataodiffusa.png" /></td>
-          <td class="lorem">&nbsp;&nbsp;&nbsp;Erosione concrentrata o diffusa</td>
+          <td style="text-align: center;"><img src="legend/R1Moderata3.png" /></td>
+          <td class="lorem">&nbsp;&nbsp;&nbsp;R1 - Moderata</td>
         </tr>
       </table></td>
-      <td width="2%">&nbsp;</td>
+      <td width="1%">&nbsp;</td>
       <td><table>
         <tr>
-          <td style="text-align: center;"><img src="legend/Attivo.png" /></td>
-          <td class="lorem">&nbsp;&nbsp;&nbsp;Attivo</td>
+          <td style="text-align: center;"><img src="legend/P4Moltoelevata0.png" /></td>
+          <td class="lorem">&nbsp;&nbsp;&nbsp;P4 - Molto elevata</td>
         </tr>
         <tr>
-          <td style="text-align: center;"><img src="legend/Sospeso.png" /></td>
-          <td class="lorem">&nbsp;&nbsp;&nbsp;Sospeso</td>
+          <td style="text-align: center;"><img src="legend/P3Elevata1.png" /></td>
+          <td class="lorem">&nbsp;&nbsp;&nbsp;P3 - Elevata</td>
         </tr>
         <tr>
-          <td style="text-align: center;"><img src="legend/Stabilizzato.png" /></td>
-          <td class="lorem">&nbsp;&nbsp;&nbsp;Stabilizzato</td>
+          <td style="text-align: center;"><img src="legend/P2Media2.png" /></td>
+          <td class="lorem2">&nbsp;&nbsp;&nbsp;P2 - Media</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;"><img src="legend/P1Moderata3.png" /></td>
+          <td class="lorem">&nbsp;&nbsp;&nbsp;P1 - Moderata</td>
+        </tr>
+        <tr>
+          <td style="text-align: center;"><img src="legend/P0Basso4.png" /></td>
+          <td class="lorem">&nbsp;&nbsp;&nbsp;P0 - Basso</td>
         </tr>
       </table></td>
-      <td width="2%">&nbsp;</td>
-      <td>&nbsp;</td>
+      <td width="1%">&nbsp;</td>
+      <td><table>
+        <tr>
+          <td style="text-align: center;"><img src="legend/sa.png" /></td>
+          <td class="lorem">&nbsp;&nbsp;&nbsp;Siti di attenzione</td>
+        </tr>
+      </table></td>
     </tr>
   </tbody>
 </table><br>
-<p class="lorem2"> <strong><a href="http://www.sitr.regione.sicilia.it/pai/index_of-CD_PAI_per_BACINO_039-040_per_CARTOGRAFIA_per_DISSESTI.html" title="Assessorato del territorio e dell'ambiente - Dipartimento dell'ambiente - Servizio III - Assetto del territorio e difesa del suolo - Piano Stralcio di Bacino per l'Assetto Idrogeologico" target="_blank">Tavole in formato pdf - Dissesti - Regione Sicilina</a></strong><br><br>
-<a href="http://www.sitr.regione.sicilia.it/pai/index_of-CD_PAI_per_BACINO_039-040_per_CARTOGRAFIA_per_DISSESTI.html" title="Assessorato del territorio e dell'ambiente - Dipartimento dell'ambiente - Servizio III - Assetto del territorio e difesa del suolo - Piano Stralcio di Bacino per l'Assetto Idrogeologico." target="_blank"><img src="legend/DIS-ORETO-595010-05.jpg" class="clip_resize" title="Assessorato del territorio e dell'ambiente - Dipartimento dell'ambiente - Servizio III - Assetto del territorio e difesa del suolo - Piano Stralcio di Bacino per l'Assetto Idrogeologico." border="0" /></a></p>
+<p class="lorem2"> <strong><a href="http://www.sitr.regione.sicilia.it/pai/index_of-CD_PAI_per_BACINO_039-040_per_CARTOGRAFIA_per_PERICOLOSITA_E_RISCHIO.html" title="Assessorato del territorio e dell'ambiente - Dipartimento dell'ambiente - Servizio III - Assetto del territorio e difesa del suolo - Piano Stralcio di Bacino per l'Assetto Idrogeologico" target="_blank">Tavole in formato pdf - Pericolosità e rischio geomorfologico - Regione Sicilina</a></strong><br><br>
+<a href="http://www.sitr.regione.sicilia.it/pai/index_of-CD_PAI_per_BACINO_039-040_per_CARTOGRAFIA_per_PERICOLOSITA_E_RISCHIO.html" title="Assessorato del territorio e dell'ambiente - Dipartimento dell'ambiente - Servizio III - Assetto del territorio e difesa del suolo - Piano Stralcio di Bacino per l'Assetto Idrogeologico." target="_blank"><img src="legend/P-R-ORETO-595050-09.jpg" class="clip_resize" title="Assessorato del territorio e dell'ambiente - Dipartimento dell'ambiente - Servizio III - Assetto del territorio e difesa del suolo - Piano Stralcio di Bacino per l'Assetto Idrogeologico." border="0" /></a></p>
 <p class="lorem2"> <strong><a href="http://www.sitr.regione.sicilia.it/pai/index.htm" target="_blank">Piano Stralcio di Bacino per l'Assetto Idrogeologico - Regione Sicilia</a></strong></p>
 <hr>
-<p class="lorem2"><strong>Il dissesto idrogeologico</strong> è l'insieme dei processi morfologici che hanno un'azione fortemente distruttiva in termini di degradazione del suolo e quindi indirettamente nei confronti dei manufatti. Esso comprende tutti quei processi, a partire dall'erosione superficiale e sotto la superficie, fino agli eventi più catastrofici quali frane e alluvioni.</p>
-<p class="lorem2"> <strong>Le azioni da attuare in presenza di un dissesto idrogeologico sono:</strong><br></p>
-         <ol>
-  <li>  <p class="lorem2"> Descrizione dello stato di natura, che consiste nella raccolta delle informazioni relative ad un dato fenomeno catastrofico potenziale, con riferimento anche alle informazioni storiche;</p></li>
-     <li><p class="lorem2">Valutazione dell'intensità, cioè la valutazione del grado di distruttività che il fenomeno in analisi può assumere. In generale si può procedere considerando uno o più parametri legati all'intensità e valutarli oppure considerando anche gli effetti del fenomeno, quindi attuando anche un'implicita valutazione del valore e della vulnerabilità degli oggetti a rischio;</p></li>
-    <li><p class="lorem2"> Valutazione della pericolosità, che consiste nella valutazione della probabilità che un dato evento avvenga in un certo periodo; in questa analisi ci si basa su metodi euristici (con valutazioni soggettive e qualitative), statistici (basati sullo studio del fenomeno nel passato) o deterministici (con riferimento a leggi fisico-matematiche);</p></li>
-    <li><p class="lorem2"> Valutazione del rischio inteso come sintesi del lavoro di individuazione e attribuzione di un valore degli elementi a rischio e della loro vulnerabilità;</p></li>
-    <li><p class="lorem2"> Gestione del rischio, cioè la serie di interventi atti a diminuire l'effetto del fenomeno su ambiente, manufatti e popolazione.</p></li>
-</ol>
-<p class="lorem2"> <strong><a href="http://www.isprambiente.gov.it/contentfiles/00003400/3462-manuale-2006-39.pdf" target="_blank">Fenomeni di dissesto geologico - idraulico sui versanti - Classificazione e simbologia</a></strong></p>
+<p class="lorem2"><strong>La pericolosità geomorfologica</strong><br> <br>Pericolosità ambientale riferita alla probabilità che si verifichi un fenomeno di instabilità geomorfologica, cioè un fenomeno connesso a forme del terreno che non sono in equilibrio con l’ambiente naturale o che lo sono ma in modo particolarmente dinamico.<br><br> 
+  <strong>Processi che determinano una pericolosità geomorfologica sono:</strong><br> <br> 
+<strong>a)</strong> la degradazione dei versanti e, in particolare, i movimenti franosi. <br> 
+Le frane, infatti, oltre alla loro pericolosità intrinseca, possono ostruire temporaneamente gli alvei fluviali e allo stesso tempo dar luogo ad accumuli incanalati che si scaricano periodicamente a valle, spesso in conseguenza di intense precipitazioni. Fondamentali sono anche i fenomeni di instabilità dei versanti in aree vulcaniche e le deformazioni gravitative profonde assieme al loro monitoraggio;<br> <br>
+<strong>b)</strong> l’erosione e le inondazioni fluviali. Il processo di inondazione si manifesta in dipendenza di diversi fattori, naturali e artificiali, che interagiscono al fine di determinare la capacità di trasferimento delle acque all’interno del sistema fluviale. Risulta così evidente quanto sia fondamentale la previsione in tempo reale delle piene di un corso d’acqua, previsione che può realizzarsi a condizione di disporre di sistemi di telemisura sui bacini idrografici; queste devono consentire di disporre di un valore affidabile del volume di pioggia che cade su un bacino e di una sua eventuale previsione, nonché di conoscere in modo più dettagliato i fenomeni di infiltrazione delle acque e di avere una migliore interpretazione della variabilità spazio-temporale delle precipitazioni. Di particolare importanza sono inoltre la previsione in tempi brevi delle piogge di breve durata e forte intensità, e l’individuazione delle cosiddette aree inondabili, cioè di quelle aree soggette a differenti modalità di allagamento in relazione ai reciproci rapporti geometrici con il corso d’acqua di pertinenza;<br> <br>
+<strong>c)</strong> l’erosione marina. La pericolosità connessa all’erosione marina è legata ai danni prodotti alle attività antropiche, le quali rappresentano esse stesse la principale fonte di instabilità nell’ambiente costiero, a seguito delle escavazioni negli alvei fluviali di sabbia e ghiaia (che impoveriscono gli apporti detritici dei corsi d’acqua alimentanti le spiagge), della costruzione dei porti-canali (che allontanano verso il mare i sedimenti apportati alla costa, impedendone il trasferimento lungo il litorale), dell’estrazione di acqua e metano dal sottosuolo (che causa processi di subsidenza e quindi sopraelevazione del locale livello marino), della costruzione di dighe per bacini idroelettrici (che trattengono ingenti quantitativi di sedimenti sabbiosi, sottratti così al ripascimento naturale della spiaggia). Benché nuove strutture di difesa siano state realizzate a protezione dei litorali, la migliore strategia d’intervento è sicuramente rappresentata dal ripascimento;<br> <br>
+<strong>d)</strong> l’erosione eolica. L’azione esercitata dal vento risulta essere fonte di pericolosità geomorfologica lungo i litorali sabbiosi fortemente antropizzati: qui, a causa dello sfruttamento turistico incontrollato, sono state rimosse e destabilizzate le sabbie dunari e dei cordoni litorali, con il risultato che la maggior parte di questi materiali è andata a ricoprire le confinanti aree coltivate, rendendole impraticabili per l’agricoltura;<br> <br>
+<strong>e)</strong> l’erosione glaciale. La pericolosità geomorfologica dei ghiacciai si esplica in aree montagnose, dove l’origine dei dissesti è principalmente connessa alle deformazioni subite dalle masse rocciose in seguito alle pressioni esercitate dalle lingue glaciali che confluiscono nelle valli. Con il ritiro dei ghiacci queste zone, notevolmente fessurate, subiscono crolli improvvisi e i materiali, ostacolando il libero deflusso delle acque, creano le condizioni per potenziali inondazioni;<br> <br>
+<strong>f)</strong> l’erosione periglaciale. In ambiente periglaciale la maggiore pericolosità geomorfologica è rappresentata dalle valanghe. Oltre che da fattori ambientali, le cause di innesco delle valanghe possono essere prodotte dall’uomo, soprattutto in quelle aree dove la pressione turistica è molto forte; <br> <br>
+<strong>g)</strong> l’erosione carsica. La pericolosità ambientale nelle regioni carsiche è connessa alla presenza di numerose cavità nel sottosuolo, a causa delle quali si possono verificare sprofondamenti del terreno; in aree sismiche, queste cavità rappresentano inoltre un fattore di potenziale pericolosità indotta, in quanto possono causare cedimenti e crolli che vanno a riflettersi in superficie, provocando avvallamenti del terreno e crollo di eventuali edifici presenti.<br> <br>
+Fonte: <a href="http://www.treccani.it/enciclopedia/rischio-ambientale/" target="_blank">enciclopedia treccani.it</a></p>
+<hr>
+<p class="lorem2"><strong>Il rischio geomorfologico</strong><br> <br>Il rischio geomorfologico si manifesta prevalentemente tramite eventi franosi e tramite l'erosione, causata da diversi fenomeni naturali, dei versanti. Questi fenomeni determinano dissesti di varia tipologia: frane di crollo dovute a particolari situazioni di fragilità strutturale e tettonica degli ammassi rocciosi su pendii acclivi, colate detritiche improvvise e veloci, deformazioni gravitative profonde di versante o colamenti lenti e continui nel tempo.<br> <br>
+Con il termine <strong>frana</strong> si indica "un movimento di una massa di roccia, terra o detrito lungo un versante" (Cruden, 1991).<br> <br>
+Le cause che predispongono e determinano questi processi di destabilizzazione sono molteplici, complesse e spesso combinate tra loro. Tra i fattori naturali che predispongono il nostro territorio ai dissesti idrogeologici, rientra senza dubbio la sua conformazione geologica e geomorfologica, caratterizzata da un'orografia giovane e tutt'ora in via di sollevamento e dalla diffusa presenza di litotipi, facilmente erodibili dagli agenti atmosferici. Inoltre le caratteristiche climatiche e la distribuzione annuale delle precipitazioni il disboscamento e gli incendi contribuiscono ad aumentare la vulnerabilità del territorio.<br> <br>
+Le frane presentano condizioni di pericolosità diverse a seconda della massa e della velocità del corpo di frana. Ai fini della prevenzione, un problema di non semplice risoluzione è quello di definire i precursori e le soglie, intese sia come quantità di pioggia in grado di innescare il movimento franoso che come spostamenti/deformazioni del terreno, superati i quali si potrebbe avere il collasso delle masse instabili.<br> <br>
+Nonostante esse siano oggetto di studio da oltre cento anni, non sono state ancora trovate ne una definizione né una classificazione universalmente riconosciute.<br> <br>
+Sulla base delle tipologie di movimento e dei materiali coinvolti, tuttavia, i fenomeni franosi possono essere classificati in (Varnes, 1978):<br>
+crolli e ribaltamenti;<br>
+espandimenti laterali;<br>
+scivolamenti;<br>
+colamenti;<br>
+frane complesse.<br><br>
+Fonte:<a href="http://www.ruwa.it/site/rischio-geomorfologico" target="_blank"> ruwa.it</a></p>
 </div>    
           
 <!-- Tab info -->
@@ -308,7 +336,6 @@ E = Esposizione o Valore esposto:<br> è il numero di unità (o “valore”) di
        <textarea name="iframe" maxlength="2000" autofocus readonly id="iframe" title="iframe"><iframe width="100%" height="600px" frameBorder="0" src="https://siciliahub.github.io/mappe/palermo_hub/index_pai.html"></iframe><a href="https://siciliahub.github.io/mappe/palermo_hub/index_pai.html" title="Piano per l'Assetto Idrogeologico (P.A.I.) di Palermo - Regione Sicilia, su base opendata">Visualizza a schermo intero</a>
       </textarea><br><br>
            <p class="lorem2">Copia e incolla questo codice in documenti HTML per incorporare questa mappa nelle tue pagine web.<br> Copy and paste this code into HTML documents to embed this map on web pages.</p>
-
     </div>
     
 <!-- Tab about -->
@@ -501,16 +528,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         // map.addLayer(layer_poligonoisola0);		
 <!-- Poligono fantasma  fine -->	
 	  
-	  
-	  // mappa tipologia dissesto geo
-		 var tipo_dissesto =L.tileLayer('../pai_palermo/data/tipo_dissesto/{z}/{x}/{y}.png', {
-         minZoom: 12,
-        maxZoom: 17,
-        maxNativeZoom: 17,
-        tms: true,
-        attribution: 'Generated by QTiles'
-      }) .addTo(map);	
-	  
+  
 	   	  //mappa ctr10k
 		 var ctr10k =L.tileLayer('data/ctr10k/{z}/{x}/{y}.png', {
         minZoom: 12,
@@ -519,10 +537,11 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
         tms: true,
         attribution: 'Carta Tecnica Regionale 10k'
       }) .addTo(map); 	
-	  
-	  
-		// PAI Dissesti Attività
-        function pop_PAIDissestiAttivit_0(feature, layer) {
+		
+		
+		// PAI - Geomorfologia - Pericolosità e Rischio
+		// PAI - Geomorfologia Siti di Attenzione
+        function pop_SitidiAttenzione_0(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -532,19 +551,123 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
-								   <tr>\
+			<tr>\
                         <th scope="row"><span class="legenda1">P.A.I. - Palermo&nbsp;<spam /></th>\
-                        <td><span class="legenda1">- Mappa dei Dissesti<spam /> <br /><br /></td>\
+                        <td><span class="legenda1">- Geomorfologia Siti di attenzione<spam /> <br /><br /></td>\
                     </tr>\
-			           <th scope="row">' + (feature.properties['ico_2'] !== null ? Autolinker.link(String(feature.properties['ico_2'])) : '') + '</th>\
-                <td>Tipologia:&nbsp;&nbsp;<span class="legenda1">' + (feature.properties['tipologia'] !== null ? Autolinker.link(String(feature.properties['tipologia'])) : '') + '<spam /></td>\
+					<tr>\
+                        <th scope="row">' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</th>\
+                       <td>Note:&nbsp;&nbsp;<span class="legenda1">' + (feature.properties['sa'] !== null ? Autolinker.link(String(feature.properties['sa'])) : '') + '<spam />			                     </td>\
+                    </tr>\
+					<th scope="row"><hr></th>\
+                        <td><hr></td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</th>\
-                        <td>Attività:&nbsp;&nbsp;<span class="legenda1">' + (feature.properties['attività'] !== null ? Autolinker.link(String(feature.properties['attività'])) : '') + '<spam />			                     </td>\
+                        <th scope="row">N° bacino:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['pai_nmr'] !== null ? Autolinker.link(String(feature.properties['pai_nmr'])) : '') + '</td>\
                     </tr>\
-					   <tr>\
-                        <th scope="row"><hr></th>\
+                    <tr>\
+                        <th scope="row">Bacino:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['bacino'] !== null ? Autolinker.link(String(feature.properties['bacino'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localita:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['localita'] !== null ? Autolinker.link(String(feature.properties['localita'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Etichetta:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['sigla'] !== null ? Autolinker.link(String(feature.properties['sigla'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipologia:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['tipologia'] !== null ? Autolinker.link(String(feature.properties['tipologia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nuova etichetta:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['nuova_sigl'] !== null ? Autolinker.link(String(feature.properties['nuova_sigl'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Altri Comuni:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['altri_comu'] !== null ? Autolinker.link(String(feature.properties['altri_comu'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Info ---</th>\
+                        <td>' + (feature.properties['info'] !== null ? Autolinker.link(String(feature.properties['info'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fonte dati:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['fonte dati'] !== null ? Autolinker.link(String(feature.properties['fonte dati'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Rielaborazione:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['rielaborazione'] !== null ? Autolinker.link(String(feature.properties['rielaborazione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Licenza:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['licenza'] !== null ? Autolinker.link(String(feature.properties['licenza'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SitidiAttenzione_0_0(feature) {
+            switch(String(feature.properties['sa'])) {
+                case 'Siti di attenzione':
+                    return {
+                pane: 'pane_SitidiAttenzione_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(48,200,224,0.75)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_SitidiAttenzione_0');
+        map.getPane('pane_SitidiAttenzione_0').style.zIndex = 400;
+        map.getPane('pane_SitidiAttenzione_0').style['mix-blend-mode'] = 'normal';
+        var layer_SitidiAttenzione_0 = new L.geoJson(json_SitidiAttenzione_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_SitidiAttenzione_0',
+            onEachFeature: pop_SitidiAttenzione_0,
+            style: style_SitidiAttenzione_0_0,
+        });
+        bounds_group.addLayer(layer_SitidiAttenzione_0);
+        map.addLayer(layer_SitidiAttenzione_0);
+		
+		// PAI - Geomorfologia Perciolosità Frana
+        function pop_PerciolositFrana_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+			            <tr>\
+                        <th scope="row"><span class="legenda1">P.A.I. - Palermo&nbsp;<spam /></th>\
+                        <td><span class="legenda1">- Perciolosità Geomorfologica<spam /> <br /><br /></td>\
+                    </tr>\
+					<tr>\
+                        <th scope="row">' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</th>\
+                       <td>Pericolo frana:&nbsp;&nbsp;<span class="legenda1">' + (feature.properties['note'] !== null ? Autolinker.link(String(feature.properties['note'])) : '') + '<spam />			                     </td>\
+                    </tr>\
+					<th scope="row"><hr></th>\
                         <td><hr></td>\
                     </tr>\
                     <tr>\
@@ -572,19 +695,19 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                         <td>' + (feature.properties['localita'] !== null ? Autolinker.link(String(feature.properties['localita'])) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">Coll. Diss.:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['coll_diss'] !== null ? Autolinker.link(String(feature.properties['coll_diss'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">Etichetta:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['sigla'] !== null ? Autolinker.link(String(feature.properties['sigla'])) : '') + '</td>\
+                        <td>' + (feature.properties['sigla_p'] !== null ? Autolinker.link(String(feature.properties['sigla_p'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Codice tipologia:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['cod_tip'] !== null ? Autolinker.link(String(feature.properties['cod_tip'])) : '') + '</td>\
+                        <th scope="row">Grado del pericolo:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['pericolo'] !== null ? Autolinker.link(String(feature.properties['pericolo'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Codice attività:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['cod_att'] !== null ? Autolinker.link(String(feature.properties['cod_att'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Aggiunto:&nbsp;&nbsp;</th>\
+                        <th scope="row">Aggiunto&nbsp;&nbsp;</th>\
                         <td>' + (feature.properties['aggiunto'] !== null ? Autolinker.link(String(feature.properties['aggiunto'])) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -609,59 +732,264 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     </tr>\
                     <tr>\
                         <th scope="row">Fonte dati:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['Fonte dati'] !== null ? Autolinker.link(String(feature.properties['Fonte dati'])) : '') + '</td>\
+                        <td>' + (feature.properties['fonte dati'] !== null ? Autolinker.link(String(feature.properties['fonte dati'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Rielaborazione:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['Rielaborazione'] !== null ? Autolinker.link(String(feature.properties['Rielaborazione'])) : '') + '</td>\
+                        <td>' + (feature.properties['rielaborazione'] !== null ? Autolinker.link(String(feature.properties['rielaborazione'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Licenza:&nbsp;&nbsp;</th>\
-                        <td>' + (feature.properties['Licenza'] !== null ? Autolinker.link(String(feature.properties['Licenza'])) : '') + '</td>\
+                        <td>' + (feature.properties['licenza'] !== null ? Autolinker.link(String(feature.properties['licenza'])) : '') + '</td>\
                     </tr>\
-                    <tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
-        function style_PAIDissestiAttivit_0_0(feature) {
-            switch(String(feature.properties['attività'])) {
-                case 'Attivo':
+        function style_PerciolositFrana_1_0(feature) {
+            switch(String(feature.properties['pericolo'])) {
+                case '4':
                     return {
-                pane: 'pane_PAIDissestiAttivit_0',
+                pane: 'pane_PerciolositFrana_1',
                 opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
+                color: 'rgba(0,0,0,0.75)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(104,104,104,0.75)',
+            }
+                    break;
+                case '3':
+                    return {
+                pane: 'pane_PerciolositFrana_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(156,156,156,0.75)',
+            }
+                    break;
+                case '2':
+                    return {
+                pane: 'pane_PerciolositFrana_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,204,204,0.75)',
+            }
+                    break;
+                case '1':
+                    return {
+                pane: 'pane_PerciolositFrana_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,226,226,0.75)',
+            }
+                    break;
+                case '0':
+                    return {
+                pane: 'pane_PerciolositFrana_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,250,250,0.75)',
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_PerciolositFrana_1');
+        map.getPane('pane_PerciolositFrana_1').style.zIndex = 401;
+        map.getPane('pane_PerciolositFrana_1').style['mix-blend-mode'] = 'normal';
+        var layer_PerciolositFrana_1 = new L.geoJson(json_PerciolositFrana_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_PerciolositFrana_1',
+            onEachFeature: pop_PerciolositFrana_1,
+            style: style_PerciolositFrana_1_0,
+        });
+        bounds_group.addLayer(layer_PerciolositFrana_1);
+        map.addLayer(layer_PerciolositFrana_1);
+		
+		// // PAI - Geomorfologia Rischio Frana
+        function pop_RischioFrana_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+						            <tr>\
+                        <th scope="row"><span class="legenda1">P.A.I. - Palermo&nbsp;<spam /></th>\
+                        <td><span class="legenda1">- Rischio Geomorfologico<spam /> <br /><br /></td>\
+                    </tr>\
+					<tr>\
+                        <th scope="row">' + (feature.properties['ico_1'] !== null ? Autolinker.link(String(feature.properties['ico_1'])) : '') + '</th>\
+                       <td>Rischio frana:&nbsp;&nbsp;<span class="legenda1">' + (feature.properties['note'] !== null ? Autolinker.link(String(feature.properties['note'])) : '') + '<spam />			                     </td>\
+                    </tr>\
+					<th scope="row"><hr></th>\
+                        <td><hr></td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">N° bacino:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['pai_nmr'] !== null ? Autolinker.link(String(feature.properties['pai_nmr'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bacino:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['bacino'] !== null ? Autolinker.link(String(feature.properties['bacino'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['provincia'] !== null ? Autolinker.link(String(feature.properties['provincia'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Comune:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['comune'] !== null ? Autolinker.link(String(feature.properties['comune'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Altri Comuni:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['altri_comu'] !== null ? Autolinker.link(String(feature.properties['altri_comu'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Coll. Diss.:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['coll_diss'] !== null ? Autolinker.link(String(feature.properties['coll_diss'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Etichetta:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['sigla_p'] !== null ? Autolinker.link(String(feature.properties['sigla_p'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Elemento R.:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['elemento_r'] !== null ? Autolinker.link(String(feature.properties['elemento_r'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">E:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['e'] !== null ? Autolinker.link(String(feature.properties['e'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Grado rischio:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['rischio'] !== null ? Autolinker.link(String(feature.properties['rischio'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Aggiunto&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['aggiunto'] !== null ? Autolinker.link(String(feature.properties['aggiunto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Modificato:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['modificato'] !== null ? Autolinker.link(String(feature.properties['modificato'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Eliminato:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['eliminato'] !== null ? Autolinker.link(String(feature.properties['eliminato'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Data prev.:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['data_prev'] !== null ? Autolinker.link(String(feature.properties['data_prev'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">n° dpr:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['n_dpr'] !== null ? Autolinker.link(String(feature.properties['n_dpr'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Data dpr:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['data_dpr'] !== null ? Autolinker.link(String(feature.properties['data_dpr'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Info ---</th>\
+                        <td>' + (feature.properties['info'] !== null ? Autolinker.link(String(feature.properties['info'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fonte dati:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['fonte dati'] !== null ? Autolinker.link(String(feature.properties['fonte dati'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Rielaborazione:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['rielaborazione'] !== null ? Autolinker.link(String(feature.properties['rielaborazione'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Licenza:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['licenza'] !== null ? Autolinker.link(String(feature.properties['licenza'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RischioFrana_2_0(feature) {
+            switch(String(feature.properties['note'])) {
+                case 'R4 - Molto Elevato':
+                    return {
+                pane: 'pane_RischioFrana_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(254,0,2,0.75)',
             }
                     break;
-                case 'Sospeso':
+                case 'R3 - Elevato':
                     return {
-                pane: 'pane_PAIDissestiAttivit_0',
+                pane: 'pane_RischioFrana_2',
                 opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
+                color: 'rgba(0,0,0,0.75)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(253,171,1,0.75)',
             }
                     break;
-                case 'Stabilizzato':
+                case 'R2 - Medio':
                     return {
-                pane: 'pane_PAIDissestiAttivit_0',
+                pane: 'pane_RischioFrana_2',
                 opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
+                color: 'rgba(0,0,0,0.75)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,0,0.75)',
+            }
+                    break;
+                case 'R1 - Moderata':
+                    return {
+                pane: 'pane_RischioFrana_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,191,0.75)',
@@ -669,26 +997,30 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                     break;
             }
         }
-        map.createPane('pane_PAIDissestiAttivit_0');
-        map.getPane('pane_PAIDissestiAttivit_0').style.zIndex = 400;
-        map.getPane('pane_PAIDissestiAttivit_0').style['mix-blend-mode'] = 'normal';
-        var layer_PAIDissestiAttivit_0 = new L.geoJson(json_PAIDissestiAttivit_0, {
+        map.createPane('pane_RischioFrana_2');
+        map.getPane('pane_RischioFrana_2').style.zIndex = 402;
+        map.getPane('pane_RischioFrana_2').style['mix-blend-mode'] = 'normal';
+        var layer_RischioFrana_2 = new L.geoJson(json_RischioFrana_2, {
             attribution: '<a href=""></a>',
-            pane: 'pane_PAIDissestiAttivit_0',
-            onEachFeature: pop_PAIDissestiAttivit_0,
-            style: style_PAIDissestiAttivit_0_0,
+            pane: 'pane_RischioFrana_2',
+            onEachFeature: pop_RischioFrana_2,
+            style: style_RischioFrana_2_0,
         });
-        bounds_group.addLayer(layer_PAIDissestiAttivit_0);
-        map.addLayer(layer_PAIDissestiAttivit_0);
-	
+        bounds_group.addLayer(layer_RischioFrana_2);
+        map.addLayer(layer_RischioFrana_2);
+		
+		
 <!-- Legenda mappa -->
         var baseMaps = {};
         L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;Piano Stralcio di Bacino per<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;l&lsquo;Assetto Idrogeologico (P.A.I.)</span><br /><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Regione Sicilia</span><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Palermo</span><hr>':layer_poligonoisola0,
-'<span class="legenda">&nbsp;C.T.R. 10k</span><hr><span class="legenda">Dissesti Geomorfologici<br /></span><br />':ctr10k,
+'<span class="legenda">&nbsp;C.T.R. 10k</span><hr><span class="legenda">Perciolosità e Rischio<br />Geomorfologico</span><br /><br />':ctr10k,
 
-'<span class="legenda1">&nbsp;Tipologia</span><br /><table><tr><td style="text-align: center;"><img src="legend/Crollo.png" /></td><td>&nbsp;&nbsp;&nbsp;Crollo</td></tr><tr><td style="text-align: center;"><img src="legend/Sprofondamento.png" /></td><td>&nbsp;&nbsp;&nbsp;Sprofondamento</td></tr><tr><td style="text-align: center;"><img src="legend/Scivolamento.png" /></td><td>&nbsp;&nbsp;&nbsp;Scivolamento</td></tr><tr><td style="text-align: center;"><img src="legend/Soliflusso.png" /></td><td>&nbsp;&nbsp;&nbsp;Soliflusso</td></tr><tr><td style="text-align: center;"><img src="legend/Erosioneconcrentrataodiffusa.png" /></td><td>&nbsp;&nbsp;&nbsp;Erosione concrentrata o diffusa</td></tr></table><br />':tipo_dissesto,
 
-'<span class="legenda1">&nbsp;Attività</span><br /><table><tr><td style="text-align: center;"><img src="legend/Attivo.png" /></td><td>&nbsp;&nbsp;&nbsp;Attivo</td></tr><tr><td style="text-align: center;"><img src="legend/Sospeso.png" /></td><td>&nbsp;&nbsp;&nbsp;Sospeso</td></tr><tr><td style="text-align: center;"><img src="legend/Stabilizzato.png" /></td><td>&nbsp;&nbsp;&nbsp;Stabilizzato</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br />': layer_PAIDissestiAttivit_0,
+'<span class="legenda1">&nbsp;Rischio Frana</span><br /><table><tr><td style="text-align: center;"><img src="legend/R4MoltoElevato0.png" /></td><td>&nbsp;&nbsp;&nbsp;R4 - Molto Elevato</td></tr><tr><td style="text-align: center;"><img src="legend/R3Elevato1.png" /></td><td>&nbsp;&nbsp;&nbsp;R3 - Elevato</td></tr><tr><td style="text-align: center;"><img src="legend/R2Medio2.png" /></td><td>&nbsp;&nbsp;&nbsp;R2 - Medio</td></tr><tr><td style="text-align: center;"><img src="legend/R1Moderata3.png" /></td><td>&nbsp;&nbsp;&nbsp;R1 - Moderata</td></tr></table><br />': layer_RischioFrana_2,
+			
+'<span class="legenda1">&nbsp;Perciolosità Frana</span><br /><table><tr><td style="text-align: center;"><img src="legend/P4Moltoelevata0.png" /></td><td>&nbsp;&nbsp;&nbsp;P4 - Molto elevata</td></tr><tr><td style="text-align: center;"><img src="legend/P3Elevata1.png" /></td><td>&nbsp;&nbsp;&nbsp;P3 - Elevata</td></tr><tr><td style="text-align: center;"><img src="legend/P2Media2.png" /></td><td>&nbsp;&nbsp;&nbsp;P2 - Media</td></tr><tr><td style="text-align: center;"><img src="legend/P1Moderata3.png" /></td><td>&nbsp;&nbsp;&nbsp;P1 - Moderata</td></tr><tr><td style="text-align: center;"><img src="legend/P0Basso4.png" /></td><td>&nbsp;&nbsp;&nbsp;P0 - Basso</td></tr></table><br />': layer_PerciolositFrana_1,
+			
+'<span class="legenda1">&nbsp;Siti di Attenzione</span><br /><table><tr><td style="text-align: center;"><img src="legend/sa.png" /></td><td>&nbsp;&nbsp;&nbsp;Siti di attenzione</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br />': layer_SitidiAttenzione_0,
 }).addTo(map);
       setBounds();
 		
@@ -696,7 +1028,6 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 		var zoomHome = L.Control.zoomHome();zoomHome.addTo(map);
 		var hash = new L.Hash(map);
 		
-			
 		  var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 		 <!--.zoomControl.setPosition("topleft") -->;
@@ -738,8 +1069,8 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                   <li class="dropdown">
                   <a href="#" title="Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" class="dropdown-toggle" data-toggle="dropdown"> <strong><span style="color: #ff9900;"> <i class="fa fa-list"></i> PAI <b class="caret"></b></span></strong></a>
 					<ul class="dropdown-menu">
-				 <li><a href="index_pai.html" title="Mappa delle Pericolosità e del Rischio Geomofologico" target="_parent">Pericolosità e Rischio Geomofologico</a></li>
-                <li><a href="dissesti.html" title="Mappa dei Dissesti" target="_parent"><strong><span style="color: #ff9900;">Dissesti</span></strong></a></li>
+				 <li><a href="index_pai.html" title="Mappa delle Pericolosità e del Rischio Geomofologico" target="_parent"><strong><span style="color: #ff9900;">Pericolosità e Rischio Geomofologico</span></strong></a></li>
+                <li><a href="dissesti.html" title="Mappa dei Dissesti" target="_parent">Dissesti</a></li>
                 <li><a href="idraulica.html" title="Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione">Pericolosità e Rischio Idraulico</a></li>
                 <li><a href="pericolosità_idrogeologica.html" title="Mappa della Pericolosità idrogeologica">Pericolosità idrogeologica</a></li>
                 <li><a href="rischio_idrogeologico.html" title="Mappa del Rischio idrogeologico">Rischio idrogeologico</a></li>
@@ -749,7 +1080,8 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                  <li><a href="#" title="Informazioni"> <i class="fa fa-info-circle" aria-hidden="true"></i> Info</a></li>
 			</ul>
 		</div></div></div>
-        <!--fine menu -->           
+        <!--fine menu -->      
+        
  <!-- script nuovo menu -->
 
 <script src="lib/js/menu_boots/bootstrap.min.js"></script>
@@ -766,6 +1098,8 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 <div id="tavolab"></div>           
 <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
 <img src="lib/images/ods.svg" width="80" title="opendatasicilia.it" alt="opendatasicilia"></a></div>  
-<!-- beta version  <div id="beta"><img src="legend/beta.png" width="80" title="beta version" alt="beta version"></a></div> -->  
+<!-- beta version   <div id="beta"><img src="legend/beta.png" width="80" title="beta version" alt="beta version"></a></div> -->  
+
+  
 </body>
 </html>  
