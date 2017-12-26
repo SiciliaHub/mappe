@@ -22,7 +22,7 @@ html body {
   scrollbar-3dlight-color : #F5F5F5;
   scrollbar-highlight-color :#F5F5F5;
 }
-hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900;}
+/*hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900;}*/
 
 
 
@@ -104,7 +104,7 @@ a:active {color: #FF0000; text-decoration:none; }
 
  @media (min-width: 320px) and (max-width: 1024px) { .legenda {font-style: normal; font-weight:bold; font-size:12px; color: #4E4B4B; text-align: justify; } }
 
-.legenda1 {font-style: normal; font-weight:bold; font-size:12px; color: #4E4B4B; text-align: justify; }
+/*.legenda1 {font-style: normal; font-weight:bold; font-size:12px; color: #4E4B4B; text-align: justify; padding: -5px;}*/
 
  @media (min-width: 320px) and (max-width: 1024px) { .legenda1 {font-style: normal; font-weight:bold; font-size:9px; color: #4E4B4B; text-align: justify; }}
 
