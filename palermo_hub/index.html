@@ -178,6 +178,8 @@ a:active {color: #FF0000; text-decoration:none; }
 		     src="legend/clip_index/rischio_idrogeo.jpg"
 		     data-description="TMappa del Rischio idrogeologico"
 		     style="display:none">
+             
+             
 		</a>
 
 		<a href="idraulica.html#14/38.1185/13.3595">
@@ -278,22 +280,39 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
 		jQuery(document).ready(function(){
 
 			jQuery("#gallery").unitegallery({
-				tile_border_color:"#7a7a7a",
-				tile_outline_color:"#8B8B8B",
-				tile_enable_shadow:true,
-				tile_shadow_color:"#8B8B8B",
+				tile_as_link:true,
+				//tile_border_color:"#7a7a7a",
+				//tile_outline_color:"#8B8B8B",
+				//tile_enable_shadow:true,
+				tile_shadow_color:"rgba(0,0,0,0.2)",
 				tile_overlay_opacity:0.3,
-				tile_show_link_icon:true,
-				tile_image_effect_type:"sepia",
+				tile_enable_image_effect:true,
+	            tile_image_effect_reverse:true,
+				//tile_show_link_icon:true,
+				// tile_image_effect_type:"sepia",
 				tile_image_effect_reverse:true,
+				tile_textpanel_title_text_align: "center",
 				tile_enable_textpanel:true,
 				lightbox_textpanel_title_color:"e5e5e5",
 				tiles_col_width:400,
-				tiles_space_between_cols:10			
+				tiles_space_between_cols:20	,
+				tile_enable_shadow:true,
+				// bordi
+				tile_enable_border:true,
+				tile_enable_outline:false,
+				tiles_space_between_cols:15,
+				tiles_justified_space_between:15,
+				tile_border_color: "#ccc",
+				tile_border_width:1,
+				tile_border_radius:5,
+				theme_gallery_padding:10,
+				tiles_type: "justified",
+						
 			});
 
 		});
 		
 	</script>
+    
  </body>
 </html>
