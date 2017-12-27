@@ -37,7 +37,7 @@
 .ug-gallery-wrapper{
 	overflow:hidden;
 	position:relative;
-	font-family:Arial, Helvetica, sans-serif;
+	font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;
 }
 
 .ug-error-message{
@@ -494,7 +494,7 @@ img.ug-sepia-effect{
 }
 
 .ug-gallery-wrapper .ug-textpanel-title{
-	font-size:16px;
+	font-size:12px;
 	font-weight:bold;
 	color:white;
 	text-align:left;
@@ -502,7 +502,7 @@ img.ug-sepia-effect{
 }
 
 .ug-gallery-wrapper .ug-textpanel-description{
-	font-size:14px;
+	font-size:12px;
 	color:white;
 	text-align:left;
 	z-index:3;
@@ -737,7 +737,7 @@ img.ug-sepia-effect{
 }
 
 .ug-tile .ug-textpanel-title{
-	font-size:14px;
+	font-size:12px;
 	font-weight:bold;
 }
 
@@ -864,14 +864,14 @@ img.ug-sepia-effect{
 }
 
 .ug-lightbox-compact .ug-lightbox-numbers{
-	font-size: 14px;
+	font-size: 12px;
 	padding-right:5px;
 	padding-top:7px;
 }
 
 .ug-lightbox .ug-textpanel-title,
 .ug-lightbox .ug-textpanel-description{
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: normal;
 	color: #e5e5e5;
 }
