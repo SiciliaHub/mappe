@@ -22,7 +22,13 @@
 <link href="lib/js/menu_boots/jquery.responsive-collapse.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="lib/css/extra_ods.css" rel="stylesheet" type="text/css">
-<style type="text/css">
+
+<!-- unite gallery -->
+<link rel='stylesheet' href='lib/js/unite/unite-gallery.css' type='text/css' />
+<script type='text/javascript' src='lib/js/unite/jquery-11.0.min.js'></script>	
+<script type='text/javascript' src='lib/js/unite/unitegallery.min.js'></script>	
+<script type='text/javascript' src='lib/js/unite/ug-theme-tiles.js'></script>
+
 <style type="text/css">
 a:link {color: #FF9900;	text-decoration:none;}
 a:visited {	color: #FF9900; text-decoration:none;}/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */
@@ -79,7 +85,7 @@ a:active {color: #FF0000; text-decoration:none; }
 
 <body>
 <!-- header -->  
-  <!-- inizio menu -->     
+  <!-- inizio menu -->  
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -121,7 +127,7 @@ a:active {color: #FF0000; text-decoration:none; }
         <!--fine menu -->
         
  <!-- script nuovo menu -->
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
+<!--  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
 <script src="lib/js/menu_boots/bootstrap.min.js"></script>
 <script src="lib/js/menu_boots/jquery.responsive-collapse.js"></script>
 <script type="text/javascript">
@@ -129,112 +135,85 @@ a:active {color: #FF0000; text-decoration:none; }
    	     $('ul.navbar-nav').responsiveCollapse();
 	});
 </script>
-		  <main class="container">
-		    <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
-		      <tbody>
-		        <tr>
-		          <td width="95%" valign="bottom">&nbsp;</td>
-		          <td width="5%" align="center" valign="middle" class="social1"></td>
-	            </tr>
-		        <tr>
-		          <td colspan="2">&nbsp;</td>
-	            </tr>
-		        <tr>
-		          <td colspan="2"><p class="lorem2"><strong>Lorem Ipsum</strong> è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.</p>
-<p class="lorem2">Proin a convallis turpis, nec gravida purus. Curabitur et scelerisque dolor. Morbi porta interdum malesuada. Maecenas malesuada et erat quis luctus. Proin dui mi, mollis eget sollicitudin sit amet, ultrices vel nunc. Pellentesque euismod, orci quis vehicula vehicula, ipsum sapien pellentesque tortor, eget ultricies est metus non tortor. Nullam quis purus consectetur, volutpat nisl ut, elementum turpis. Duis ut lorem sed erat congue scelerisque sit amet sit amet risus. Pellentesque vitae lacinia sem. Mauris gravida ante sed neque mollis consectetur. Nunc venenatis sagittis nunc, faucibus commodo nunc luctus placerat. Quisque gravida volutpat elit eu euismod. Donec fringilla enim sed mi egestas egestas. </p>
-<p class="lorem2">Curabitur eu mollis urna. Fusce mattis eu lorem quis lobortis. Nam metus felis, bibendum et interdum eu, scelerisque vel massa. Fusce a diam eu purus sagittis pharetra eget ac mauris. Donec vitae arcu ultricies, gravida nisl vel, tincidunt diam. Aliquam interdum magna vel felis consequat mattis. Sed imperdiet sapien a turpis cursus, quis feugiat neque suscipit. Nam tincidunt tortor non urna interdum, quis dapibus diam venenatis. Aenean ante lacus, pretium sed sollicitudin nec, cursus non erat. Sed a tincidunt massa. Quisque gravida vitae mauris vitae dictum. Sed dictum fringilla tellus sed ornare. Aliquam erat volutpat. </p>
-<table width="99%" border="0" cellspacing="0" cellpadding="0">
-  <tbody>
-    <tr>
-      <td width="32%"><a href="cartografia.html#14/38.1185/13.3595" title="Cartografia e Ortofoto di base - Palermo Hub" target="_parent"><img src="legend/clip_index/cartografia.jpg" alt="Cartografia e Ortofoto di base - Palermo Hub" class="clip_resize1"  title="Cartografia e Ortofoto di base - Palermo Hub"/></a></td>
-      <td width="2%">&nbsp;</td>
-      <td width="32%"><a href="index_prg.html#14/38.1185/13.3595" title="Palermo hub - Strumenti urbanistici di attuazione - Vigenti al 2017" target="_blank"><img src="legend/clip_index/prg.jpg" alt="Palermo hub - Strumenti urbanistici di attuazione - Vigenti al 2017" class="clip_resize1"  title="Palermo hub - Strumenti urbanistici di attuazione - Vigenti al 2017" border="0"/></a></td>
-      <td width="2%">&nbsp;</td>
-      <td width="32%"><a href="legend/clip_index/index_pai.jpg" title="Mappa delle Pericolosità e del Rischio Geomofologico - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" target="_parent"><img src="legend/clip_index/index_pai.jpg" alt="Mappa delle Pericolosità e del Rischio Geomofologico - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" class="clip_resize1"  title="Mappa delle Pericolosità e del Rischio Geomofologico - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo"/></a></td>
-    </tr>
-    <tr>
-      <td align="center" valign="middle"><pre id="line1"><a href="cartografia.html#14/38.1185/13.3595" title="Cartografia e Ortofoto di base - Palermo Hub&quot;" target="_blank">Cartografia e Ortofoto di base</a></pre></td>
-      <td align="center" valign="middle">&nbsp;</td>
-      <td align="center" valign="middle"><pre id="line1"><a href="index_prg.html#14/38.1185/13.3595" title="Palermo hub - Strumenti urbanistici di attuazione - Vigenti al 2017" target="_blank">Strumenti urbanistici di attuazione</a></pre></td>
-      <td align="center" valign="middle">&nbsp;</td>
-      <td align="center" valign="middle"><pre id="line1"><a href="index_pai.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e del Rischio Geomofologico - Piano Stralcio di Bacino per l‘Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" target="_blank">Mappa delle Pericolosità e del Rischio Geomofologico</a></pre></td>
-    </tr>
-    <tr>
-      <td width="32%">&nbsp;</td>
-      <td width="2%">&nbsp;</td>
-      <td width="32%">&nbsp;</td>
-      <td width="2%">&nbsp;</td>
-      <td width="32%">&nbsp;</td>
-    </tr>
-    <tr>
-      <td width="32%"><a href="dissesti.html#14/38.1185/13.3595" title="Mappa dei Dissesti - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" target="_parent"><img src="legend/clip_index/dissesti.jpg" alt="Mappa dei Dissesti - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" class="clip_resize1"  title="Mappa dei Dissesti - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo"/></a></td>
-      <td width="2%">&nbsp;</td>
-      <td width="32%"><a href="rischio_idrogeologico.html#14/38.1185/13.3595" title="Mappa del Rischio idrogeologico - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" target="_parent"><img src="legend/clip_index/rischio_idrogeo.jpg" alt="Mappa del Rischio idrogeologico - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" class="clip_resize1"  title="Mappa del Rischio idrogeologico - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo"/></a></td>
-      <td width="2%">&nbsp;</td>
-      <td width="32%"><a href="idraulica.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" target="_parent"><img src="legend/clip_index/pericolo_rischio_idra.jpg" alt="Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" class="clip_resize1"  title="Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo"/></a></td>
-    </tr>
-    <tr>
-      <td align="center" valign="middle"><pre id="line1"><a href="dissesti.html#14/38.1185/13.3595" title="Mappa dei Dissesti - Piano Stralcio di Bacino per l‘Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" target="_blank">Mappa dei Dissesti</a></pre></td>
-      <td align="center" valign="middle">&nbsp;</td>
-      <td align="center" valign="middle"><pre id="line1"><a href="rischio_idrogeologico.html#14/38.1185/13.3595" title="Mappa del Rischio idrogeologico - Piano Stralcio di Bacino per l‘Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" target="_blank">Mappa del Rischio idrogeologico</a></pre></td>
-      <td align="center" valign="middle">&nbsp;</td>
-      <td align="center" valign="middle"><pre id="line1"><a href="idraulica.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" target="_blank">Mappa delle Pericolosità e Rischio Idraulico</a></pre></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td><a href="pericolosità_idrogeologica.html#14/38.1185/13.3595" title="Mappa della Pericolosità idrogeologica - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palerm" target="_parent"><img src="legend/clip_index/pericolosita_idro_geo.jpg" alt="Mappa della Pericolosità idrogeologica - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palerm" class="clip_resize1"  title="Mappa della Pericolosità idrogeologica - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo"/></a></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td width="32%" align="center" valign="middle"><pre id="line1"><a href="pericolosità_idrogeologica.html#14/38.1185/13.3595" title="Mappa della Pericolosità idrogeologica - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palerm" target="_blank">Mappa del Rischio idrogeologico</a></pre></td>
-      <td width="2%" align="center" valign="middle">&nbsp;</td>
-      <td width="32%" align="center" valign="middle">&nbsp;</td>
-      <td width="2%" align="center" valign="middle">&nbsp;</td>
-      <td width="32%" align="center" valign="middle">&nbsp;</td>
-    </tr>
-    <tr>
-      <td width="32%" align="center" valign="middle">&nbsp;</td>
-      <td width="2%" align="center" valign="middle">&nbsp;</td>
-      <td width="32%" align="center" valign="middle">&nbsp;</td>
-      <td width="2%" align="center" valign="middle">&nbsp;</td>
-      <td width="32%" align="center" valign="middle">&nbsp;</td>
-    </tr>
-  </tbody>
-</table>
-<p class="lorem2">&nbsp;</p>
-<hr></td>
-	            </tr>
-	          </tbody>
-	        </table>
- <pre2>
-  </pre2> 
-  <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
-  <tbody>
-    <tr>
-      <td>Note:
-Le informazioni visibili e condivise non comportano la visualizzazione di dati sensibili.
-Data la natura esclusivamente informativa degli elaborati grafici e dei testi riportati, questi non costituiscono atti ufficiali.
-Per accedere agli atti ufficiali si rinvia agli elaborati definitivi allegati alle specifiche deliberazioni.
+<div class="container1">
 
-Si declina ogni responsabilità sulla veridicità dei dati.
-</td>
-      <td>&nbsp;</td>
-      </tr>
+		           <p class="lorem2"><strong>Lorem Ipsum</strong> è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli anni ’60, con la diffusione dei fogli di caratteri trasferibili “Letraset”, che contenevano passaggi del Lorem Ipsum, e più recentemente da software di impaginazione come Aldus PageMaker, che includeva versioni del Lorem Ipsum.</p>
+<p class="lorem2">Proin a convallis turpis, nec gravida purus. Curabitur et scelerisque dolor. Morbi porta interdum malesuada. Maecenas malesuada et erat quis luctus. Proin dui mi, mollis eget sollicitudin sit amet, ultrices vel nunc. Pellentesque euismod, orci quis vehicula vehicula, ipsum sapien pellentesque tortor, eget ultricies est metus non tortor. Nullam quis purus consectetur, volutpat nisl ut, elementum turpis. Duis ut lorem sed erat congue scelerisque sit amet sit amet risus. Pellentesque vitae lacinia sem. Mauris gravida ante sed neque mollis consectetur. Nunc venenatis sagittis nunc, faucibus commodo nunc luctus placerat. Quisque gravida volutpat elit eu euismod. Donec fringilla enim sed mi egestas egestas. </p>
+<p class="lorem2">Curabitur eu mollis urna. Fusce mattis eu lorem quis lobortis. Nam metus felis, bibendum et interdum eu, scelerisque vel massa. Fusce a diam eu purus sagittis pharetra eget ac mauris. Donec vitae arcu ultricies, gravida nisl vel, tincidunt diam. Aliquam interdum magna vel felis consequat mattis. Sed imperdiet sapien a turpis cursus, quis feugiat neque suscipit. Nam tincidunt tortor non urna interdum, quis dapibus diam venenatis. Aenean ante lacus, pretium sed sollicitudin nec, cursus non erat. Sed a tincidunt massa. Quisque gravida vitae mauris vitae dictum. Sed dictum fringilla tellus sed ornare. Aliquam erat volutpat. </p><br >
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td>
+       <!-- inizio unite gallery -->
+       <div id="gallery" style="display:none;">
+
+		<a href="cartografia.html#14/38.1185/13.3595">
+		<img alt="Cartografia e Ortofoto di base"
+		     src="legend/clip_index/cartografia.jpg"
+		     data-description="Cartografia e Ortofoto di base"
+		     style="display:none">
+		</a>
+
+		<a href="index_prg.html#14/38.1185/13.3595">
+       <img alt="Palermo hub - Strumenti urbanistici di attuazione - Vigenti al 2017"
+       		src="legend/clip_index/prg.jpg" 
+       	     data-description="Strumenti urbanistici di attuazione"
+		     style="display:none">
+		</a>
+
+		<a href="legend/clip_index/index_pai.jpg">
+		<img alt="Mappa delle Pericolosità e del Rischio Geomofologico"
+		     src="legend/clip_index/index_pai.jpg"
+		     data-description="Mappa delle Pericolosità e del Rischio Geomofologico"
+		     style="display:none">
+		</a>
+
+		<a href="dissesti.html#14/38.1185/13.3595">
+		<img alt="Mappa dei Dissesti"
+		     src="legend/clip_index/dissesti.jpg"
+		     data-description="Mappa dei Dissesti"
+		     style="display:none">
+		</a>
+
+		<a href="rischio_idrogeologico.html#14/38.1185/13.3595">
+		<img alt="Mappa del Rischio idrogeologico"
+		     src="legend/clip_index/rischio_idrogeo.jpg"
+		     data-description="TMappa del Rischio idrogeologico"
+		     style="display:none">
+		</a>
+
+		<a href="idraulica.html#14/38.1185/13.3595">
+		<img alt="Mappa delle Pericolosità e Rischio Idraulico"
+		    src="legend/clip_index/pericolo_rischio_idra.jpg"
+		    data-description="Mappa delle Pericolosità e Rischio Idraulico"
+		     style="display:none">
+		</a>
+
+		<a href="pericolosità_idrogeologica.html#14/38.1185/13.3595">
+		<img alt="Mappa del Rischio idrogeologico"
+		     src="legend/clip_index/pericolosita_idro_geo.jpg"
+		     data-description="Mappa del Rischio idrogeologico"
+		     style="display:none">
+		</a>
+	</div>
+    <br ><hr >
+    <span class="lorem2"><strong>Note:</strong><br >
+Le informazioni visibili e condivise non comportano la visualizzazione di dati sensibili.<br >
+Data la natura esclusivamente informativa degli elaborati grafici e dei testi riportati, questi non costituiscono atti ufficiali.<br >
+Per accedere agli atti ufficiali si rinvia agli elaborati definitivi allegati alle specifiche deliberazioni.<br >
+<br >
+Si declina ogni responsabilità sulla veridicità dei dati.</span><br >
+     <!-- fine unite gallery -->
+    </td>
+    </tr>
   </tbody>
 </table>
-<br />
-</main>
-		</div><!-- END .layout-left-flyout -->
-                <pre1><code>
+	</div>
+ <br > 
+
+  <!-- Footer -->  
+<pre1><code>
 <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tbody>
     <tr>
@@ -282,7 +261,8 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
               </span>
             </a></td>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td><!-- beta version  </div> -->  
+ <div id="beta2"><img src="legend/beta.png" width="80" title="beta version" alt="beta version"></a</td>
     </tr>
   </tbody>
 </table></td>
@@ -290,7 +270,27 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
   </tbody>
 </table>
 </code></pre1>
-<!-- beta version  </div> -->  
- <div id="beta"><img src="legend/beta.png" width="80" title="beta version" alt="beta version"></a>
+<script type="text/javascript">
+
+		jQuery(document).ready(function(){
+
+			jQuery("#gallery").unitegallery({
+				tile_border_color:"#7a7a7a",
+				tile_outline_color:"#8B8B8B",
+				tile_enable_shadow:true,
+				tile_shadow_color:"#8B8B8B",
+				tile_overlay_opacity:0.3,
+				tile_show_link_icon:true,
+				tile_image_effect_type:"sepia",
+				tile_image_effect_reverse:true,
+				tile_enable_textpanel:true,
+				lightbox_textpanel_title_color:"e5e5e5",
+				tiles_col_width:400,
+				tiles_space_between_cols:20			
+			});
+
+		});
+		
+	</script>
  </body>
 </html>

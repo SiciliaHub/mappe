@@ -28,28 +28,28 @@ html body {
 
 /* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it  */
 
-.beta{width: 70px; height: 70px; border-radius: 35px;  -moz-border-radius: 35px;  -webkit-border-radius: 35px; box-shadow: 0 1px 5px rgba(0,0,0,0.6); 
+.beta2 {width: 70px; height: 70px; border-radius: 35px;  -moz-border-radius: 35px;  -webkit-border-radius: 35px; box-shadow: 0 1px 5px rgba(0,0,0,0.6); 
 	}
-#beta { position:fixed; bottom:80px; left:60px; z-index: 800;}
+#beta2 { position:fixed; bottom:15px; left:100px; z-index: 800;}
   	/*  spento su display 4" */
-	@media screen and (width: 320px) {  #beta {left:80px;} .beta{width: 42px; height: 42px;}}
-	@media screen and (width: 480px) {  #beta {left:85px; bottom:40px; }.beta{width: 42px; height: 42px;}}
-	@media screen and (width: 533px) {  #beta {left:85px; bottom:60px; }.beta{width: 42px; height: 42px;}}
-    @media screen and (width: 568px) {  #beta {left:85px; bottom:60px; }.beta{width: 42px; height: 42px;}}
+	@media screen and (width: 320px) {  #beta2 {left:80px;} .beta2{width: 30px; height: 30px;}}
+	@media screen and (width: 480px) {  #beta2 {left:85px; bottom:40px; }.beta2{width: 30px; height: 30px;}}
+	@media screen and (width: 533px) {  #beta2 {left:85px; bottom:60px; }.beta2{width: 30px; height: 30px;}}
+    @media screen and (width: 568px) {  #beta2 {left:85px; bottom:60px; }.beta2{width: 30px; height: 30px;}}
 /*  spento su display 5" */
 
-	@media screen and (width: 384px) { #beta {left:80px;}.beta{width: 42px; height: 42px;}}
-	@media screen and (width: 360px) {#beta { left:50px; bottom:80px;} .beta{width: 42px; height: 42px;}}
-	@media screen and (width: 640px) { #beta {left:90px; bottom:50px;} .beta{width: 40px; height: 40px;}}
+	@media screen and (width: 384px) { #beta2 {left:80px;}.beta2{width: 30px; height: 30px;}}
+	@media screen and (width: 360px) {#beta2 { left:50px; bottom:80px;} .beta2{width: 30px; height: 30px;}}
+	@media screen and (width: 640px) { #beta2 {left:90px; bottom:50px;} .beta2{width: 40px; height: 40px;}}
 
 /*  spento su display 6" portrait */
    
-	@media screen and (width: 375px) {#beta {left:50px; bottom:80px;}.beta{width: 42px; height: 42px;}}
-	@media screen and (width: 414px) {#beta {left:50px; bottom:70px;}.beta{width: 42px; height: 42px;}}
-	@media screen and (width: 412px) {#beta {left:50px; bottom:70px;}.beta{width: 42px; height: 42px;}}
-	@media screen and (width: 667px) {#beta {left:90px; bottom:50px;}.beta{width: 42px; height: 42px;}}
-    @media screen and (width: 732px) {#beta {left:90px; bottom:60px;}.beta{width: 42px; height: 42px;}}
-	@media screen and (width: 736px) {#beta {left:90px; bottom:50px;}.beta{width: 42px; height: 42px;}}
+	@media screen and (width: 375px) {#beta2 {left:50px; bottom:80px;}.beta2{width: 30px; height: 30px;}}
+	@media screen and (width: 414px) {#beta2 {left:50px; bottom:70px;}.beta2{width: 30px; height: 30px;}}
+	@media screen and (width: 412px) {#beta2 {left:50px; bottom:70px;}.beta2{width: 30px; height: 30px;}}
+	@media screen and (width: 667px) {#beta2 {left:90px; bottom:50px;}.beta2{width: 30px; height: 30px;}}
+    @media screen and (width: 732px) {#beta2 {left:90px; bottom:60px;}.beta2{width: 30px; height: 30px;}}
+	@media screen and (width: 736px) {#beta2 {left:90px; bottom:50px;}.beta2{width: 30px; height: 30px;}}
 
 #ods { position:fixed; bottom:65px; right:17px; z-index: 800;}
 
@@ -89,7 +89,7 @@ a:active {color: #FF0000; text-decoration:none; }
 #threejs {resize:both; overflow:auto;  position:fixed; padding: 0; border-radius: 5px;	margin: 35px; bottom: 20px;	left: 20px; width: 30%;	height: 30%; background-color: rgba(255,255,255,0.80);	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	z-index: 1000; }
 #threejs_testo {position: fixed; width: 20%;	height: 20px;padding: 0;	margin: 35px; bottom: -5px;	left: 20px;	z-index: 1000; text-align:right;}
 
-#clip_gra {position:fixed; top:55px; right:250px; z-index: 1002; background-color:rgba(255,255,255,1.00);background-size: 45px 45px; width: 42px; height: 42px; 	border: 2px solid #ccc;
+#clip_gra {position:fixed; top:55px; right:250px; z-index: 1002; background-color:rgba(255,255,255,1.00);background-size: 45px 45px; width: 30px; height: 30px; 	border: 2px solid #ccc;
     margin: 2 2px;    border-radius: 40px;    box-shadow: 0 1px 5px rgba(0,0,0,0.6); }
 	
 	/* popup grafico spento su mobile" */
@@ -355,10 +355,15 @@ ul li {
 .pull-right {
   float: right;
 }
+@media screen and (min-width: 320px) {
+  .container1 {
+    width: 90%;
+    margin: 0 auto;
+  }
 
 .container1 {
 	font-family: 'Open Sans', Sans-serif;
-	width: 94%;
+	width: 95%;
 	margin: 0 auto;
 
   	/*background-image:url(../images/opendatasicilia1.svg);
