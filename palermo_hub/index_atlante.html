@@ -377,7 +377,7 @@ var ctc = L.tileLayer.mask("http://mapwarper.net/maps/tile/25750/{z}/{x}/{y}.png
       attribution: '<a href="https://github.com/frogcat/leaflet-tileoverlay-mask" target="_blank" title="Leaflet-tileoverlay-mask">Leaflet-tileoverlay-mask</a> - Cartografia storica - Carta Tecnica di Palermo - Sas 1987 - Rielaborazione di: <a href="https://twitter.com/aborruso" target="_blank" title="Andrea Borruso">@aborruso</a>, <a href="https://twitter.com/napo"target="_blank" title="Maurizio Napolitano">@napo</a>, <a href=" https://twitter.com/Piersoft" target="_blank" title="Francesco Piero Paolicelli">@piersoft</a>, <a href="https://twitter.com/cirospat" target="_blank" title="Ciro Spataro">@cirospat</a> e <a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a>  per <a href="https://twitter.com/opendatasicilia" target="_blank" title="opendatasicilia">@opendatasicilia</a>',
 minZoom: 13,   maxZoom: 17, maxNativeZoom: 17,  });
 
-var overlaysmap =  {'Carta tecnica Omira 1935 ': omira, 'Carta tecnica Irta 1956': irta, 'Carta tecnica Sas 1987': sas, 'Carta tecnica Comunale 19XX ': ctc,};
+var overlaysmap =  {'Carta tecnica Omira 1935 ': omira, 'Carta tecnica Municipale 19XX ': ctc, 'Carta tecnica Irta 1956': irta, 'Carta tecnica Sas 1987': sas, };
 
 var layerControl = new L.Control.Layers(overlaysmap);
          layerControl.addTo(map);
