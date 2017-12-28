@@ -2,10 +2,10 @@
 <html>
 
 <head>
-<title>Atlante delle Carte Tecniche di Palermo - OMIRA 1939</title>
+<title>Atlante delle Carte Tecniche storiche di Palermo</title>
   <meta charset="utf-8" />
 <meta name="author" content="Giovan Battista Vitrano per OpenDataSicilia.it">
-<meta name="description" content="Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo ">
+<meta name="description" content="Palermo hub - Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo ">
 <meta name="keywords" content="Open Data Sicilia, cartografia stroica, palermo,">
 <meta http-equiv="content-language" content="IT">
 <meta name="robots" content="index,follow">
@@ -18,26 +18,36 @@
 <meta name="apple-mobile-web-app-capable" content="yes"> -->
 
 <!-- Open Graph Protocol -->
-<meta property="og:title" content="Atlante delle Carte Tecniche di Palermo" />
+<meta property="og:title" content="Palermo hub - Atlante delle Carte Tecniche di Palermo" />
 <meta property="og:description" content="Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo " />
-<meta property="og:url" content="http://github.gbvitrano.it/atlante_palermo/index.html" />
+<meta property="og:url" content="https://siciliahub.github.io/mappe/palermo_hub/index_atlante.html" />
 <meta property="article:author" content="Giovan Battista Vitrano per Open Data Sicilia" />
-<meta property="og:image" content="http://github.gbvitrano.it/atlante_palermo/atlante/images/atlante.jpg" />
+<meta property="og:image" content="http://siciliahub.github.io/mappe/palermo_hub/clip_index/atlante.jpg" />
 <meta property="og:site_name" content="github.com/SiciliaHub/mappe"/>
 <!-- Open Graph Protocol -->
 
 <!-- twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Atlante delle Carte Tecniche di Palermo">
+<meta name="twitter:title" content="Palermo hub - Atlante delle Carte Tecniche di Palermo">
 <meta name="twitter:description" content="Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo">
-<meta name="twitter:image" content="http://github.gbvitrano.it/atlante_palermo/atlante/images/atlante.jpg">
+<meta name="twitter:image" content="ttp://siciliahub.github.io/mappe/palermo_hub/clip_index/atlante.jpg">
 <meta name="twitter:creator" content="@gbvitrano Giovan Battista Vitrano per Open Data Sicilia">
-<meta name="twitter:site" content="coseerobe.gbvitrano.it" />
-<meta name="twitter:url" content="https://github.com/SiciliaHub/mappe">
+<meta name="twitter:site" content="github.com/SiciliaHub/mappe" />
+<meta name="twitter:url" content="github.com/SiciliaHub/mappe">
 <!-- twitter -->
- <!-- css -->
+
+ <!-- css menu  -->
+<!-- Bootstrap -->
+<link href="lib/js/menu_boots/bootstrap.min.css" rel="stylesheet"> 
+<link href="lib/js/menu_boots/jquery.responsive-collapse.css" rel="stylesheet">
+
+<!-- css remoto -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css"/> 
+
+ <!-- css -->
 <link href="lib/css/base_ods.css" rel="stylesheet" type="text/css">
 <!-- <link href="atlante/css/atlante_01.css" rel="stylesheet" type="text/css"> -->
 
@@ -48,8 +58,8 @@
 <link rel="stylesheet" href="atlante/css/btns.min.css" type="text/css">
 <link href="atlante/ss/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link href="lib/css/LControlMousePosition_ods.css" rel="stylesheet" type="text/css">
-<link href="atlante/css/scalebar.css" rel="stylesheet" type="text/css">
-<link href="atlante/css/Leaflet_GraphicScale_min.css" rel="stylesheet" type="text/css">
+<link href="lib/css/scalebar_ods.css" rel="stylesheet" type="text/css">
+<link href="lib/css/Leaflet_GraphicScale_min.css" rel="stylesheet" type="text/css">
 <link href="atlante/css/L.Control.Basemaps.css" rel="stylesheet" type="text/css">
 <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
  <!-- script -->
@@ -61,8 +71,12 @@
 <script src="atlante/js/tileoverlay/leaflet-tileoverlay-mask.js"></script>
 <script src="atlante/js/social/jquery_csbuttons.js"></script>
 <script src="lib/js/mouseposition/LControlMousePosition.js"></script>
-<script type="text/javascript" src="atlante/js/graphicscale/Leaflet_GraphicScale_min.js"></script>
+
 <script src="atlante/js/basemap/L.Control.Basemaps.js"></script>
+
+  <!-- script automatico mobile/desktop --> 
+<script> if (screen && screen.width < 737) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min_mobile.js"><\/script>'); } </script>
+<script> if (screen && screen.width > 738) { document.write('<script type="text/javascript" src="lib/js/graphicscale/Leaflet_GraphicScale_min.js"><\/script>'); } </script> 
 
 </head>
 <body>
@@ -89,8 +103,8 @@
     <!-- Tab panes -->
     <div class="sidebar-content active">
       <div class="sidebar-pane" id="home">
-        <h2 class="sidebar-header">Palermo Hub - Atlante<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
-        <p class="legenda"> <strong>Osservare il cambiamento di una città grazie alla cartografia:</strong> <a href="http://opendatasicilia.it/2017/04/06/osservare-il-cambiamento-di-una-citta-grazie-alla-cartografia-il-caso-di-palermo/" title="Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo">il caso di Palermo</a></h3>
+        <h2 class="sidebar-header">Palermo Hub - Atlante<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2><br>
+        <p class="legenda"> <strong>Osservare il cambiamento di una città grazie alla cartografia:</strong> <a href="http://opendatasicilia.it/2017/04/06/osservare-il-cambiamento-di-una-citta-grazie-alla-cartografia-il-caso-di-palermo/" title="Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo">il caso di Palermo</a></p>
         <p class="lorem">Il bello di questa mappa è scoprire come questa città sia cambiata e ognuno troverà degli esempi diversi nei luoghi che conosce meglio.</p>  
       <h3 class="lorem">Villa Trabia</h3>
 <p class="lorem">La via Piersanti Mattarella, già “Via Villa Trabia” si estendeva da via Notarbartolo a poco dopo l’ingresso del CEI (l’istituto Gonzaga).<br><br>
@@ -105,7 +119,7 @@
        </div>
  <!-- Tab omira -->
   <div class="sidebar-pane" id="omira">
-        <h2 class="sidebar-header">Carta Tecnica OMIRA<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+        <h2 class="sidebar-header">Carta Tecnica OMIRA<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2><br><br>
              <p class="lorem"> <strong>Data:</strong> 1935-1937 <strong>scala:</strong> 1:5000<br>      
             Supporto e tecnica di riproduzione: digitale numero fogli: 17<br><br>
             Comparazione tra carta tecnica OMIRA del 1935 con oggi. 
@@ -159,7 +173,7 @@ L&rsquo;effetto &ldquo;occhio di bue&ldquo; ci permette di vedere come era la ci
       </div>     
        <!-- Tab IRTA -->
       <div class="sidebar-pane" id="irta">
-        <h2 class="sidebar-header">Carta Tecnica Irta<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+        <h2 class="sidebar-header">Carta Tecnica Irta<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2><br><br>
         <p class="lorem"><strong>Data:</strong> 1955-1957 <strong>scala:</strong> 1:5000 <br>
         Supporto e tecnica di riproduzione: digitale numero fogli: 12<br><br>
            Comparazione tra carta tecnica IRTA del 1955 con oggi. 
@@ -174,7 +188,7 @@ L&rsquo;effetto &ldquo;occhio di bue&ldquo; ci permette di vedere come era la ci
       </div>
        <!-- Tab sas -->
       <div class="sidebar-pane" id="sas">
-        <h2 class="sidebar-header">Carta Tecnica SAS<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+        <h2 class="sidebar-header">Carta Tecnica SAS<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2><br><br>
             <p class="lorem"><strong>Data:</strong> 1987 <strong>scala:</strong> 1:5000<br>
           Supporto e tecnica di riproduzione: digitale numero fogli: 14<br><br>
             Comparazione tra carta tecnica SAS del 1987 con oggi. 
@@ -185,7 +199,7 @@ L&rsquo;effetto &ldquo;occhio di bue&ldquo; ci permette di vedere come era la ci
       
   <!-- Tab about -->
 <div class="sidebar-pane" id="about">
-<h2 class="sidebar-header">#OpenDataSicilia<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+<h2 class="sidebar-header">#OpenDataSicilia<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2><br><br>
 <p class="lorem2"><strong>Che cos’è</strong><br>
 <strong><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank">#opendatasicilia</a></strong> e’ una iniziativa civica che si propone di far conoscere e diffondere la cultura dell’open government e le prassi dell’open data nel nostro territorio e aprire una discussione pubblica partecipata.<br><br>
 <strong>Chi siamo</strong>  <br>
@@ -238,7 +252,7 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
 
              <!-- Tab info -->
       <div class="sidebar-pane" id="info">
-      <h2 class="sidebar-header">Informazioni<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+      <h2 class="sidebar-header">Informazioni<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2><br><br>
  <p class="lorem"> <strong>Realizzato da:</strong><br><a href="https://twitter.com/aborruso" target="_blank" title="Andrea Borruso">@aborruso</a>, <a href=" https://twitter.com/Piersoft" target="_blank" title="Francesco Piero Paolicelli">@piersoft</a>, <a href="https://twitter.com/cirospat" target="_blank" title="Ciro Spataro">@cirospat</a> e <a href="https://twitter.com/gbvitrano" target="_blank" title="Giovan Battista Vitrano">@gbvitrano</a><br><br>per <strong><a href="http://opendatasicilia.it/" Title="Open Data Sicilia" target="_blank">Open Data Sicilia</a></strong><br><br>
 Le cartografie storiche in dotazione al <a href="https://www.comune.palermo.it/" title="Portale ufficiale del Comune di Palermo" target="_blank">Comune di Palermo</a> e presenti nel <a href="http://geosrv.comune.palermo.it/carto/" title="Portale Cartografico curato da Sispi.spa" target="_blank">Portale Cartografico</a>  dalla società comunale in house per i servizi informatici <a href="http://www.sispi.it/" title="SISPI - Sistema Palermo Informatica" target="_blank">SISPI SPA</a>, sono state scansionate e georeferenziate dal Geometra Liborio Plazza del Comune di Palermo<br><br><a href="http://geosrv.comune.palermo.it/carto/" title="Portale Cartografico curato da Sispi.spa" target="_blank">Portale Cartografico</a> a cura di: <a href="http://www.sispi.it/" title="SISPI - Sistema Palermo Informatica" target="_blank">SISPI SPA</a> <br><br>
 <a href="https://github.com/SiciliaHub/mappe"  title="Mappa create dagli utenti della comunità OpenDataSicilia" target="_blank">SiciliaHub/mappe</a>: <a href="https://github.com/SiciliaHub/mappe" title="SiciliaHub/mappe" target="_blank">repo github</a> in cui si trovano le mappa create dagli utenti della comunità <a href="http://opendatasicilia.it/" title="OpenDataSicilia.it" target="_blank">OpenDataSicilia.it</a><br><br>
@@ -249,7 +263,7 @@ Un ringraziamento particolare va a <a href="https://twitter.com/napo" target="_b
       </div>
       <!-- Tab condividi -->
             <div class="sidebar-pane" id="share">
-                <h1 class="sidebar-header">Condividi questa mappa<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h1 class="sidebar-header">Condividi questa mappa<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1><br><br>
                 <p class="lorem"><strong>Puoi condividere online la mappe con altre persone.</strong></p>
                 <p class="lorem"><strong>Condividi:</strong></p >
 <div id="social"><p >
@@ -276,7 +290,7 @@ Un ringraziamento particolare va a <a href="https://twitter.com/napo" target="_b
             
              <!-- Tab strumenti -->
       <div class="sidebar-pane" id="tools">
-      <h2 class="sidebar-header">Strumenti<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+      <h2 class="sidebar-header">Strumenti<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2><br><br>
         <p class="lorem"><strong>I principali strumenti usati per realizzare questa semplice mappa:</strong></p><br>
         <ul>
            <li><p class="lorem"><a href="https://medium.com/tantotanto/dati-da-un-server-wms-scaricarli-riproiettarli-comprimerli-e-tassellarli-da-riga-di-comando-a34cb6fe13e0" title="Dati da un server WMS: scaricarli, riproiettarli, comprimerli, tassellarli e piramidarli da riga di comando" target="_blank">Dati da un server WMS:</a> scaricarli, riproiettarli, comprimerli, tassellarli e piramidarli da riga di comando, di <a href="https://twitter.com/aborruso" target="_blank" title="Andrea Borruso">@aborruso</a>; <br><br></li></p>  
@@ -366,13 +380,8 @@ var overlaysmap =  {'Carta tecnica Omira 1935 ': omira, 'Carta tecnica Irta 1956
 
 var layerControl = new L.Control.Layers(overlaysmap);
          layerControl.addTo(map);
-
-			
 			var hash = new L.Hash(map);
 			var sidebar = L.control.sidebar('sidebar').addTo(map);
-		
-
-	
 	   map.addControl(L.control.basemaps({
             basemaps: basemaps,
             tileX: 0,
@@ -382,11 +391,60 @@ var layerControl = new L.Control.Layers(overlaysmap);
 
   </script>
  
+<!-- header -->  
+ <!-- inizio menu -->     
 <div id="bot" class="leaflet-control">
-<div id="logo"><a href="http://opendatasicilia.it/" target="_blank"><img src="atlante/images/ods_logo.png" alt="" width="42" height="42" title="opendatasicilia.it"/></a>  </div>  
-<div id="titolo"> <a href="http://opendatasicilia.it/2017/04/06/osservare-il-cambiamento-di-una-citta-grazie-alla-cartografia-il-caso-di-palermo/" title="Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo " target="_blank" class="btn btn--s btn--gray-border"><b>Osservare il cambiamento di una città grazie alla cartografia: <span style="color: #ff9900">il caso Palermo</span></b> </a>  </div> 
-</div> 
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a href="http://opendatasicilia.it/" title="Iniziativa civica per la promozione degli OpenData nell&#039;isola (e non solo)" target="_blank" ><img src="legend/pa_hub.svg" width="200" height="37" style="margin-top:8px; margin-bottom:1px;margin-left:5px" alt=""/></a>
+		</div>
+		<div class="navbar-collapse collapse navbar-right">
+		        <ul class="nav navbar-nav">
+               <li><a href="cartografia.html#14/38.1185/13.3595" title="Cartografia e Ortofoto di base" target="_parent">Cartografia</a></li>
+                  <li><a href="index_prg.html#14/38.1185/13.3595" title="Strumenti Urbanistici - Variante Generale al PRG - PPE Centro Storico" target="_parent">Strumenti Urbanistici</a></li>
+                   <li class="dropdown">
+                  <a href="#" title="Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i> P.A.I. <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+				 <li><a href="index_pai.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e del Rischio Geomofologico" target="_parent">Pericolosità e Rischio Geomofologico</a></li>
+                <li><a href="dissesti.html#14/38.1185/13.3595" title="Mappa dei Dissesti" target="_parent">Dissesti</a></li>
+                <li><a href="idraulica.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione">Pericolosità e Rischio Idraulico</a></li>
+                <li><a href="pericolosità_idrogeologica.html#14/38.1185/13.3595" title="Mappa della Pericolosità idrogeologica">Pericolosità idrogeologica</a></li>
+                <li><a href="rischio_idrogeologico.html#14/38.1185/13.3595" title="Mappa del Rischio idrogeologico">Rischio idrogeologico</a></li>
+					</ul>
+				</li>
+                          <li class="dropdown">
+                  <a href="#" title="Ambiente...coming soon" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i> Ambiente <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+                <li><a href="#" title="Carta dei suoli...coming soon" target="_parent">Carta dei suoli</a></li> 
+                <li><a href="#" title="Carta Desertificazione...coming soon" target="_parent">Carta Desertificazione</a></li> 
+                <li><a href="#" title="Carta Natura...coming soon" target="_parent">Carta Natura</a></li> 
+                	</ul>
+				</li>
+             <li><a href="index_atlante.html" title="Atlante delle Carte Tecniche - Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo" target="_parent"><strong><span style="color: #ff9900;">Atlante Storico</span></strong></a></li>
+                 <li><a href="#" title="Piano di emergenza Protezione Civile" target="_parent">Protezione Civile</a></li>
+                 <li><a href="index.html" title="Informazioni"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a></li>
+			</ul>
+		</div></div></div>
+        <!--fine menu -->
+        
+ <!-- script nuovo menu -->
+
+<script src="lib/js/menu_boots/bootstrap.min.js"></script>
+<script src="lib/js/menu_boots/jquery.responsive-collapse.js"></script>
+<script type="text/javascript">
+	$(window).load(function() {
+   	     $('ul.navbar-nav').responsiveCollapse();
+	});
+</script>
+   <!-- loghi -->    
+<div id="tavolab"></div>           
 <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
-<img src="atlante/images/ods_1.png" width="100" title="opendatasicilia.it" alt="opendatasicilia"></a></div>
+<img src="lib/images/ods.svg" width="80" title="opendatasicilia.it" alt="opendatasicilia"></a></div> 
 </body>
 </html>
