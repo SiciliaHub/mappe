@@ -117,6 +117,7 @@ a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hov
 <script src="data/classificazionesicilia0.js"></script> 
 <script src="data/pericolositsismica0.js"></script>
 <script src="data/PericolositSismicaIstat0.js"></script>
+<script src="data/zs9_0.js"></script>
 <script src="data/poligonoisola0.js"></script>
 
 
@@ -167,13 +168,17 @@ Con l'Ordinanza PCM 3274/2003 (GU n.108 dell'8 maggio 2003) si è avviato in Ita
  <p class="lorem2"><strong>- Classificazione e Zone sismiche -</strong><br> 
   <a href="http://www.protezionecivile.gov.it/jcms/it/classificazione.wp" title="Protezione Civile - Classificazione sismica" target="_blank">Classificazione sismica</a>, <a href="http://zonesismiche.mi.ingv.it/" title="Zone Sismiche, Valori di pericolosità sismica del territorio italiano" target="_blank">Zone Sismiche, Valori di pericolosità sismica del territorio italiano</a>  
 I valori di ag vengono forniti da <a href="http://zonesismiche.mi.ingv.it/elaborazioni/" title="INGV – zonesismiche.mi.ingv.it" target="_blank">INGV – zonesismiche.mi.ingv.it</a> per un uso consapevole da parte degli utenti e non possono essere commercializzati. Il loro utilizzo viene effettuato sotto la responsabilità dell’utente. I valori di ag devono essere citati come:
-Gruppo di Lavoro MPS (2004). Redazione della mappa di pericolosità sismica prevista dall’Ordinanza PCM 3274 del 20 marzo 2003. Rapporto Conclusivo per il Dipartimento della Protezione Civile, INGV, Milano-Roma, aprile 2004, 65 pp. + 5 appendici. <br><br>
+Gruppo di Lavoro MPS (2004). Redazione della mappa di pericolosità sismica prevista dall’Ordinanza PCM 3274 del 20 marzo 2003. Rapporto Conclusivo per il Dipartimento della Protezione Civile, INGV, Milano-Roma, aprile 2004, 65 pp. + 5 appendici. <br>
+<p class="lorem2"> <strong>- Zonazione sismogenetica ZS9 -</strong> <br>
+Sulla base della ZS4 e recependo le informazioni selle sorgenti sisomgenetiche messe a disposizione da DISS 2.0, è stato elaborato lo strato informativo relativo alla zonazione sismogenetica ZS9 (Zonazione sismogenetica ZS9 - App.2 al Rapporto Conclusivo. Gruppo di lavoro per la redazione della mappa della pericolosità sismica - Ordinanza PCM n.3247)<br>
+<a href="http://sit.protezionecivilesicilia.it/index.php?option=com_content&view=article&id=111:pericolosita-e-rischio&catid=2:uncategorised&Itemid=231" title="CATALOGO DATI - Pericolosità e rischio - Sismico" target="_blank">DIPARTIMENTO DELLA PROTEZIONE CIVILE -REGIONE SICILIANA </a><br>
+<a href="http://www.pcn.minambiente.it/geoportal/catalog/search/resource/details.page?uuid={0A1D88F5-54EC-430C-AE88-7636294953E3}" title="Zonazione sismogenetica ZS9" target="_blank">Geoportale Nazionale</a><br> 
+  <a href="https://www.google.it/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwiO_MGdhrDYAhVSpKQKHXGFAEIQFggoMAA&url=http%3A//zonesismiche.mi.ingv.it/documenti/App2.pdf&usg=AOvVaw0IimAffMTnfYeB6DyW-QYS" title="Zonazione sismogenetica ZS9 – App.2" target="_blank">Zonazione sismogenetica ZS9 – App.2 al ... - Zone sismiche - INGV</a> <br>
   <strong>- ISTAT Mappa dei rischi dei comuni italiani -</strong><br>
 <a href="http://gisportal.istat.it/mapparischi/index.html?extent=" title="Cartografia – Atlante con mappe interattive e tabelle associate" target="_blank">Cartografia</a> – Atlante con mappe interattive e tabelle associate<br>
 <a href="http://www.istat.it/it/mappa-rischi/indicatori" title="Dataset –  Comune,  Provincia o Regione da scaricare" target="_blank">Dataset</a> –  Comune,  Provincia o Regione da scaricare</p> 
 <p class="lorem2"> <strong>- Elenco nomi Comuni -</strong><br>L'elenco dei nomi dei Comuni Siciliani è estratto da <a href="https://www.openstreetmap.org/#map=9/37.5304/13.9911" title="OpenStreetMap" target="_blank">OpenStreetMap</a> con <a href="http://overpass-turbo.eu/" title="overpass-turbo.eu" target="_blank">overpass-turbo.eu</a> seguendo la <a href="https://geomappando.com/2016/04/20/estrarre-dati-openstreetmap-overpass-turbo/" title="Estrarre dati da OpenStreetMap con Overpass turbo" target="_blank">guida</a> del blog <a href="https://geomappando.com/" title="Geomappando - Soluzioni WebGIS Open Source" target="_blank">geomappando</a></p> 
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-<hr>
+<hr><br><br>
 <p class="lorem2">   <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="license"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i0.wp.com/i.creativecommons.org/l/by/4.0/88x31.png?ssl=1"  title="Tutto il materiale da me rielaborato è distribuito con Licenza Creative Commons Attribuzione 4.0 Internazionale." data-recalc-dims="1"/></a><br />
 <a href="http://creativecommons.org/licenses/by/4.0/" title="Licenza Creative Commons" target="_blank" rel="license">Creative Commons Attribuzione 4.0 Internazionale</a> - <a href="https://creativecommons.org/licenses/by/4.0/deed.it" title="Licenza Creative Commons" target="_blank" rel="license">Creative Commons Attribuzione 4.0 Italia</a> </p> 
 
@@ -918,12 +923,65 @@ function pop_PericolositSismicaIstat0(feature, layer) {
         bounds_group.addLayer(layer_PericolositSismicaIstat0);
 		<!-- Layer Pericolosità  Sismica Istat disattivatò all'avvio -->
        map.addLayer(layer_PericolositSismicaIstat0);	
+	   
+	   // ZS9
+        function pop_zs9_0(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+			<tr>\
+			  <th scope="row"><img src="legend/zs9_0.png" /><span class="legenda1">&nbsp;&nbsp;<spam /></th>\
+                        <td><span class="legenda1">ZS9 - Zonazione sismogenetica <spam /> <br /><br /></td>\
+                    </tr>\
+					<tr>\
+							    <tr>\
+                        <th scope="row">Nome:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['denomin'] !== null ? Autolinker.link(String(feature.properties['denomin'])) : '') + '<hr></td>\
+                    </tr>\
+			  <th scope="row"></th>\
+                        <td><span class="legenda3">Sulla base della ZS4 e recependo le informazioni selle sorgenti sisomgenetiche messe a disposizione da DISS 2.0, è stato elaborato lo strato informativo relativo alla <a href="https://www.google.it/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwiO_MGdhrDYAhVSpKQKHXGFAEIQFggoMAA&url=http%3A//zonesismiche.mi.ingv.it/documenti/App2.pdf&usg=AOvVaw0IimAffMTnfYeB6DyW-QYS" title="Zonazione sismogenetica ZS9 – App.2" target="_blank">Zonazione sismogenetica ZS9 – App.2</a> Rapporto Conclusivo. (Gruppo di lavoro per la redazione della mappa della pericolosità sismica - Ordinanza PCM n.3247)<spam /<br /><br /></td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_zs9_0_0() {
+            return {
+                pane: 'pane_zs9_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.75)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,0.376470588235)',
+            }
+        }
+        map.createPane('pane_zs9_0');
+        map.getPane('pane_zs9_0').style.zIndex = 600;
+        map.getPane('pane_zs9_0').style['mix-blend-mode'] = 'normal';
+        var layer_zs9_0 = new L.geoJson(json_zs9_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_zs9_0',
+            onEachFeature: pop_zs9_0,
+            style: style_zs9_0_0,
+        });
+        bounds_group.addLayer(layer_zs9_0);
 		
 <!-- Legenda mappa -->
         var baseMaps = {};
         L.control.layers(baseMaps,{'<span class="legenda1">&nbsp;#OpenDataSicilia - Palermo Hub</span><br><span class="legenda1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pericolosità Sismica</span>':layer_poligonoisola0,
-		
-'&nbsp;&nbsp;&nbsp;Classificazione Sismica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z1.png" /></td><td>&nbsp;&nbsp;Zona 1</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z2.png" /></td><td>&nbsp;&nbsp;Zona 2</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z3.png" /></td><td>&nbsp;&nbsp;Zona 3</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z4.png" /></td><td>&nbsp;&nbsp;Zona 4</td></tr></table>': layer_classificazionesicilia0, '&nbsp;&nbsp;&nbsp;Pericolosità Sismica (ISTAT)': layer_PericolositSismicaIstat0, '&nbsp;&nbsp;&nbsp;Pericolosità Sismica (INGV)<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/0.png" /></td><td>&nbsp;&nbsp;0.000 - 0.025</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/025.png" /></td><td>&nbsp;&nbsp;0.025 - 0.050</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/050.png" /></td><td>&nbsp;&nbsp;0.050 - 0.075</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/075.png" /></td><td>&nbsp;&nbsp;0.075 - 0.100</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/100.png" /></td><td>&nbsp;&nbsp;0.100 - 0.125</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/125.png" /></td><td>&nbsp;&nbsp;0.125 - 0.150</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/150.png" /></td><td>&nbsp;&nbsp;0.150 - 0.175</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/175.png" /></td><td>&nbsp;&nbsp;0.175 - 0.200</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/200.png" /></td><td>&nbsp;&nbsp;0.200 - 0.225</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/225.png" /></td><td>&nbsp;&nbsp;0.225 - 0.250</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/250.png" /></td><td>&nbsp;&nbsp;0.250 - 0.275</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/275.png" /></td><td>&nbsp;&nbsp;0.275 - 0.300</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br />': layer_pericolositsismica0, }).addTo(map);
+'&nbsp;&nbsp;&nbsp;Classificazione Sismica<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z1.png" /></td><td>&nbsp;&nbsp;Zona 1</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z2.png" /></td><td>&nbsp;&nbsp;Zona 2</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z3.png" /></td><td>&nbsp;&nbsp;Zona 3</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/Z4.png" /></td><td>&nbsp;&nbsp;Zona 4</td></tr></table>': layer_classificazionesicilia0, 
+'<img src="legend/zs9_0.png" /> Zonazione sismogenetica ZS9': layer_zs9_0,
+'&nbsp;&nbsp;&nbsp;Pericolosità Sismica (ISTAT)': layer_PericolositSismicaIstat0, '&nbsp;&nbsp;&nbsp;Pericolosità Sismica (INGV)<br /><table><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/0.png" /></td><td>&nbsp;&nbsp;0.000 - 0.025</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/025.png" /></td><td>&nbsp;&nbsp;0.025 - 0.050</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/050.png" /></td><td>&nbsp;&nbsp;0.050 - 0.075</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/075.png" /></td><td>&nbsp;&nbsp;0.075 - 0.100</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/100.png" /></td><td>&nbsp;&nbsp;0.100 - 0.125</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/125.png" /></td><td>&nbsp;&nbsp;0.125 - 0.150</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/150.png" /></td><td>&nbsp;&nbsp;0.150 - 0.175</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/175.png" /></td><td>&nbsp;&nbsp;0.175 - 0.200</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/200.png" /></td><td>&nbsp;&nbsp;0.200 - 0.225</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/225.png" /></td><td>&nbsp;&nbsp;0.225 - 0.250</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/250.png" /></td><td>&nbsp;&nbsp;0.250 - 0.275</td></tr><tr><td style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/275.png" /></td><td>&nbsp;&nbsp;0.275 - 0.300</td></tr></table><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/ods.svg" width="130" title="opendatasicilia.it" alt="opendatasicilia"><br /><br />': layer_pericolositsismica0, }).addTo(map);
         setBounds();
 		
 		<!-- strumenti di leaflet -->
