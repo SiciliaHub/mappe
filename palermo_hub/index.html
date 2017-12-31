@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Palermo Hub, su base opendata">
-        <meta name="keywords" content="Open Data,Sicilia,PAI,Geologia,CTR, PRG, Variente Generale, Palermo">
+        <meta name="keywords" content="Open Data, Sicilia, PAI, Geologia, CTR, PRG, Variente Generale, Palermo">
         <meta name="author" content="Giovan Battista Vitrano per OpenDataSicilia.it">
         <meta http-equiv="content-language" content="IT">
         <meta name="robots" content="index,follow">
@@ -65,18 +65,18 @@ a:active {color: #FF0000; text-decoration:none; }
 
  <!-- Open Graph Protocol -->
 <meta property="og:title" content="Palermo Hub" />
-<meta property="og:description" content="Palermo Hub, su base opendata." />
+<meta property="og:description" content="Contenitore di mappe su Palermo realizzato da OpenDataSicilia.it" />
 <meta property="og:url" content="http://siciliahub.github.io/mappe/pai_palermo/index.html" />
 <meta property="article:author" content="Giovan Battista Vitrano per Open Data Sicilia" />
-<meta property="og:image" content="http://siciliahub.github.io/mappe/palermo_hub/clip_index/prg.jpg" />
+<meta property="og:image" content="http://siciliahub.github.io/mappe/palermo_hub/clip_index/palermo_hub.jpg" />
 <meta property="og:site_name" content="github.com/SiciliaHub/mappe" />
 <!-- Open Graph Protocol -->
 
 <!-- twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Palermo Hub">
-<meta name="twitter:description" content="Palermo Hub, su base opendata.">
-<meta name="twitter:image" content="http://siciliahub.github.io/mappe/palermo_hub/clip_index/prg.jpg">
+<meta name="twitter:description" content="Contenitore di mappe su Palermo realizzato da OpenDataSicilia.it">
+<meta name="twitter:image" content="http://siciliahub.github.io/mappe/palermo_hub/clip_index/palermo_hub.jpg">
 <meta name="twitter:creator" content="@gbvitrano Giovan Battista Vitrano per Open Data Sicilia">
 <meta name="twitter:site" content="github.com/SiciliaHub/mappe" />
 <meta name="twitter:url" content="github.com/SiciliaHub/mappe">
@@ -177,8 +177,23 @@ a:active {color: #FF0000; text-decoration:none; }
       
   <a href="index_3d.html" title="Palermo 3D Maps WRLD" target="_parent" class="tooltips"><strong>7 - Palermo 3D Maps WRLD<span><img src="legend/clip_index/3d_wrld.jpg" class="clip_tooltips"  /></span></strong></a> - WRLD è una piattaforma dinamica di mappatura 3D per edifici intelligenti, città, giochi, e esperienze virtuali. Fornisce un ambiente 3D completamente testurizzato che utilizza un sistema di coordinate globali in modo reale, quindi è pronto per essere utilizzato immediatamente.</p>
 <br />
+<strong>Condividi:</strong></td></tr>
+    <tr>
+      <td>  <div id="social">  <p >
+		<a href="#" title="Condividi su Facebook" class="csbuttons soc" data-type="facebook"><img src="lib/images/fb.png" alt="facebook" width="32" height="32"></a>&nbsp;&nbsp;
+	    <a href="#" title="Condividi su Twitter" class="csbuttons soc" data-type="twitter"><img src="lib/images/tw.png" alt="twitter" width="32" height="32"></a>&nbsp;&nbsp;
+		<a href="#" title="Condividi su GooglePlus" class="csbuttons soc" data-type="google" ><img src="lib/images/gp.png"width="32" height="32" alt="google"></a>&nbsp;&nbsp;
+		<a href="#" title="Condividi su Linkedin" class="csbuttons soc" data-type="linkedin"><img src="lib/images/in.png"width="32" height="32" alt="linkedin"></a>&nbsp;&nbsp;
+    <a href="#" title="Condividi su Pinterest" class="csbuttons soc" data-type="pinterest"><img src="lib/images/pin.png" width="32" height="32"alt="pinterest"></a></p>
+</div>
 
-<hr ></td></tr>
+<script>
+			$(document).ready(function(){
+				$('.csbuttons').cSButtons({total : "#total","url" 	: "http://siciliahub.github.io/mappe/palermo_hub/index.html",});
+			});
+		</script>
+        <hr ></td>
+    </tr>
     <tr>
       <td><!-- inizio unite gallery -->
        <div id="gallery" style="display:none;">
@@ -376,10 +391,6 @@ Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo 
 		});
 		
 	</script>
-    
-
-    
-    
-    
- </body>
+<script src="lib/js/social/jquery_csbuttons.js"></script>  
+</body>
 </html>
