@@ -47,6 +47,7 @@
  
  <!-- css menu  -->
 <!-- Bootstrap -->
+<link href="lib/js/menu_boots/bootstrap.min1.css" rel="stylesheet"> 
 <link href="lib/js/menu_boots/bootstrap.min.css" rel="stylesheet"> 
 <link href="lib/js/menu_boots/jquery.responsive-collapse.css" rel="stylesheet">
 
@@ -754,9 +755,9 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                 <li><a href="#" title="Carta dei suoli...coming soon" target="_parent">Carta dei suoli</a></li> 
                 <li><a href="#" title="Carta Desertificazione...coming soon" target="_parent">Carta Desertificazione</a></li> 
                 <li><a href="#" title="Carta Natura...coming soon" target="_parent">Carta Natura</a></li> 
-                <li class="dropdown">
-                <a href="#" title="Rimozione di cemento amianto" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i> Rimozione di cemento amianto <b class="caret"></b></a>
-					<ul class="dropdown-menu">
+                  <li class="dropdown1">
+             <a href="#" title="Rimozione di cemento amianto" class="dropdown1-toggle1" data-toggle="dropdown1"><i class="fa fa-list"></i> Rimozione di cemento amianto <b class="caret"></b></a>
+					<ul class="dropdown1-menu">
                     <li><a href="2016_rim_ami.html" title="Rimozione di cemento amianto - Anno 2016" target="_parent">Anno 2016</a></li>
                 <li><a href="2015_rim_ami.html" title="Rimozione di cemento amianto - Anno 2015" target="_parent">Anno 2015</a></li> 
                 <li><a href="2014_rim_ami.html" title="Rimozione di cemento amianto - Anno 2014" target="_parent">Anno 2014</a></li> 
@@ -770,11 +771,14 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
                  <li><a href="index.html" title="Informazioni"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a></li>
 			</ul>
 		</div></div></div>
-        <!--fine menu -->           
+        <!--fine menu -->  
+                 
  <!-- script nuovo menu -->
-
+<!--  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
 <script src="lib/js/menu_boots/bootstrap.min.js"></script>
+<script src="lib/js/menu_boots/bootstrap.min1.js"></script>
 <script src="lib/js/menu_boots/jquery.responsive-collapse.js"></script>
+<script src="lib/js/menu_boots/jquery.responsive-collapse1.js"></script>
 <script type="text/javascript">
 	$(window).load(function() {
    	     $('ul.navbar-nav').responsiveCollapse();
