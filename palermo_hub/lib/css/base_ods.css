@@ -93,6 +93,8 @@ a:active {color: #FF0000; text-decoration:none; }
 #note {position: relative;left:60px; bottom: 20px; width: 290px;	padding: 0;   /*top:60px;*/ right: 0px;	z-index: 1000;	text-align: right;}
 
 .legenda  {font-style: normal; font-weight:bold; font-size:16px; color: #4E4B4B; text-align: justify; }
+#legenda {position:fixed; top:140px;right:10px; z-index: 999; background-image: url(../images/chart.jpg);	background-size: 45px 45px; width: 42px; height: 42px; 	border: 2px solid #ccc;
+    margin: 2 2px;    border-radius: 40px;    box-shadow: 0 1px 5px rgba(0,0,0,0.6); }
 
  @media (min-width: 320px) and (max-width: 1024px) { .legenda {font-style: normal; font-weight:bold; font-size:12px; color: #4E4B4B; text-align: justify; } }
 

@@ -1,21 +1,31 @@
 @charset "utf-8";
-body {
-		/*font-family: 'Open Sans', Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
-	font-size: 12px;
-	 background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;
-	background-size: cover;
-	height: 100vh;
-	right: 25px;
-margin-top: 120px;*/*/
-	}
-#detra {
-font: 14px "Helvetica Neue", Arial, Helvetica, sans-serif;
-position:fixed;
-top:45px;
-right:10px;
-z-index: 1001;}
+/* CSS Document */
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
 
-.sopra {
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -26,50 +36,52 @@ z-index: 1001;}
   visibility: hidden;
   opacity: 0;
 }
-.sopra:target {
+.overlay:target {
   visibility: visible;
   opacity: 1;
 }
 
-.pop {
-  margin: 140px auto;
+.popup {
+  margin: 150px 5%;
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  width: 80%;
+  width: 75%;
+  height:85%;
   position: relative;
   transition: all 5s ease-in-out;
 }
 
-.pop h2 {
+.popup h2 {
   margin-top: 0;
   color: #333;
- font-family: 'Open Sans', Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+  font-family: Tahoma, Arial, sans-serif;
 }
-.pop .chiudi {
+.popup .close {
   position: absolute;
-  top: 10px;
-  right: 30px;
+  top: 5px;
+  right: 10px;
   transition: all 200ms;
   font-size: 30px;
   font-weight: bold;
   text-decoration: none;
   color: #333;
 }
-.pop .chiudi:hover {
-  color: #E81418;
+.popup .close:hover {
+  color: #ff0000;
 }
-.pop .contenitore {
-  max-height: 30%;
-  overflow: auto;
-  text-align: justify;
+.popup .contentp {
+	max-height: 95%;
+	overflow: auto;
+	text-align: justify;
 }
 
 @media screen and (max-width: 700px){
   .box{
     width: 70%;
   }
-  .pop{
-    width: 70%;
+  .popup{
+    
+	width: 70%;
   }
 }
