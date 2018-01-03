@@ -79,13 +79,15 @@ input[type='search']::-webkit-search-decoration, input[type='search']::-webkit-s
 }
 
 body, html {
-  background: #dadada;
+	
+  background: #fff;
   box-sizing: border-box;
   color: #282828;
-  font: 16px/1.7 'Roboto';
+  font: 16px/1.7 'Open Sans';
   font-weight: normal;
   height: 100%;
-  margin: 0;
+  /*margin-top:-70px;*/
+  margin: 0px;
   overflow-wrap: break-word;
   padding: 0;
   position: relative;
@@ -95,7 +97,7 @@ body, html {
   z-index: 4500;
 }
 
-html { overflow-x: hidden; }
+html {overflow-x: hidden; }
 
 body, figure, h1, h2, h3, h4, h5, h6, html, img, p, fieldset {
   margin: 0;
@@ -182,19 +184,23 @@ input:focus, textarea:focus { box-shadow: none; }
 #logo {
   height: 50px;
   line-height: 50px;
-  text-indent: -20px;
+  text-indent: -5px;
   width: 200px;
+
 }
  @media (min-width: 320px) and (max-width: 1024px) { #logo {text-indent: 10px; }}
- /* @media (min-width: 1025px) and (max-width: 1279px) { #logo {text-indent: -300px; }}*/
-  @media (min-width: 1282px) and (max-width: 1450px) { #logo {text-indent: -70px; }}
+ @media (min-width: 1025px) and (max-width: 1280px) { #logo {text-indent: -25px; }}
+ @media (min-width: 1281px) and (max-width: 1366px) { #logo {text-indent: -70px; }}
+ @media (min-width:1367px) and (max-width:1920px) { #logo {text-indent: -340px; }}
+
+
 
 
 
 
 #top-bar {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  background: #F8F8F0;
+  background: #fff;
   height: 50px;
   left: 0;
   position: fixed;
