@@ -76,6 +76,10 @@ a:active {color: #FF0000; text-decoration:none; }
 .clip_tav:hover {opacity: 1;  -webkit-filter: grayscale(100%); } 
 
 #bot {	position: fixed; width: 100%;	height: 40px;	/*background-color: rgba(255,255,255,1); rgba(78,75,75,1.00);*/	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	padding: 0;	margin: 0;top: 0px;	right: 0px;	z-index: 2000;	text-align: left;}
+
+#menu {	position: fixed; width: 100%;	height: 100%;	/*background-color: rgba(255,255,255,1); rgba(78,75,75,1.00);text-align: left;	box-shadow: 0 1px 5px rgba(0,0,0,0.65);*/	padding: 0;	margin: 0;top: 0px;	right: 0px;	z-index: 3000;	}
+		
+
 #page {	position: fixed; width: 100%;	height: 100%;	/*background: #fff;/*	background-color: /*rgba(255,255,255,1);*/ rgba(78,75,75,1.00);	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	padding: 0;	margin: 0;top: 0px;	right: 0px;	z-index: 1000;	text-align: left;}
 
 /*Clip tooltips;*/
@@ -137,7 +141,10 @@ a:active {color: #FF0000; text-decoration:none; }
 	text-align: right;
 }
 
-#url_breve { width: 100%; margin: 0px auto; 	background-color: transparent; padding: 2px; overflow: hidden; 	border-radius: 2px; border-color: #C1C0C0; 	color: #4E4B4B; border-width: 1px;} #iframe {width: 100%; 	height:100px; 	margin: 0px auto;	background-color: transparent; 	padding: 2px; 	overflow-y: hidden; border-radius: 2px; border-color: #C1C0C0; 	color: #4E4B4B; border-width: 1px;}
+#url_breve { width: 100%; margin: 0px auto; 	background-color: transparent; padding: 2px; overflow: hidden; 	border-radius: 2px; border-color: #C1C0C0; 	color: #4E4B4B; border-width: 1px;}
+
+/*#iframe {width: 100%; 	height:100px; 	margin: 0px auto;	background-color: transparent; 	padding: 2px; 	overflow-y: hidden; border-radius: 0px; border-color: #C1C0C0; 	color: #4E4B4B; border-width: 1px; z-index:2000}*/
+
 /*hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900; margin-top:10px;margin-bottom:10px;}*/
 /* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */ .clip {    width: 42px;    border: 2px solid #FFF;    margin: 2 2px;    border-radius: 40px;    box-shadow: 0 1px 5px rgba(0,0,0,0.65)	} .clip_tab {width:98%;height:98%;border-radius: 5px; -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) }
 
@@ -292,7 +299,9 @@ hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900;}
 .awesome {font-style:fontawesome;  color: #4E4B4B;  }
 .footer {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; font-size: 14px;}
 
- .lorem2 {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 12px;}.awesome {font-style:fontawesome;  color: #4E4B4B; }
+ .lorem2 {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 12px;}
+ 
+ .awesome {font-style:fontawesome;  color: #4E4B4B; }
  
   @media (min-width: 320px) and (max-width: 1024px) { .lorem2 {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 9.8px;}.awesome {font-style:fontawesome;  color: #4E4B4B; }}
   

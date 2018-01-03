@@ -36,12 +36,6 @@
 <meta name="twitter:url" content="github.com/SiciliaHub/mappe">
 <!-- twitter -->      
   
- <!-- css menu  -->
-<!-- Bootstrap -->
-<link href="lib/js/menu_boots/bootstrap.min1.css" rel="stylesheet"> 
-<link href="lib/js/menu_boots/bootstrap.min.css" rel="stylesheet"> 
-<link href="lib/js/menu_boots/jquery.responsive-collapse.css" rel="stylesheet">
-
  <!-- css mappa -->
 <link href="lib/css/base_ods.css" rel="stylesheet" type="text/css">
 <link href="lib/css/leaflet_ods.css" rel="stylesheet" type="text/css">
@@ -81,8 +75,15 @@
 <script src="lib/js/qgi2web/Autolinker.min.js"></script>
 <script src="lib/js/qgi2web/leaflet.markercluster.js"></script>
 
+  <!-- script mappa remoto -->  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>        
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>  
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+ 
+<!-- script menu includes -->
+<script type="text/javascript" src="script.js"></script> 
+       
 <script src="lib/js/sidebar/leaflet-sidebar.js"></script>
 <script src="lib/js/social/jquery_csbuttons.js"></script>
 <script src="lib/js/mouseposition/LControlMousePosition.js"></script>
@@ -97,6 +98,10 @@
 
     </head>
     <body>
+       <!-- header --> 
+    <div id="header">
+      <!-- Content will be inserted by jQuery from menu.html -->
+    </div> 
 <div id="legenda"><a class="legenda" href="#chart" title="Grafici rimozione di cemento amianto negli spazi pubblici comunali"><img src="legend/tra.png" width="42" height="42" alt=""/></a></div>
  <div id="sidebar" class="sidebar collapsed">
    <!-- popup grafico -->  
@@ -627,69 +632,6 @@ I dataset  attribuiscono ad ogni quartiere della città di Palermo il dato relat
 			   var sidebar = L.control.sidebar('sidebar').addTo(map);
 		L.easyPrint({title: 'Stampa la mappa',	position: 'topleft'}).addTo(map);
         </script>
- <!-- header -->  
- <!-- inizio menu -->     
-<div id="bot" class="leaflet-control">
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span> </a>
-			<a href="http://opendatasicilia.it/" title="Iniziativa civica per la promozione degli OpenData nell&#039;isola (e non solo)" target="_blank" ><img src="legend/pa_hub.svg" width="200" height="37" style="margin-top:8px; margin-bottom:1px;margin-left:5px" alt=""/></a>
-		</div>
-		<div class="navbar-collapse collapse navbar-right">
-		        <ul class="nav navbar-nav">
-                 <li><a href="index.html" title="Home - Informazioni" target="_parent"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-             <li><a href="cartografia.html#14/38.1185/13.3595" title="Cartografia e Ortofoto di base" target="_parent">Cartografia</a></li>
-                  <li><a href="index_prg.html#14/38.1185/13.3595" title="Strumenti Urbanistici - Variante Generale al PRG - PPE Centro Storico" target="_parent">Strumenti Urbanistici</a></li>
-                   <li class="dropdown">
-                  <a href="#" title="Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i> P.A.I. <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-				 <li><a href="index_pai.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e del Rischio Geomofologico" target="_parent">Pericolosità e Rischio Geomofologico</a></li>
-                <li><a href="dissesti.html#14/38.1185/13.3595" title="Mappa dei Dissesti" target="_parent">Dissesti</a></li>
-                <li><a href="idraulica.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione">Pericolosità e Rischio Idraulico</a></li>
-                <li><a href="pericolosità_idrogeologica.html#14/38.1185/13.3595" title="Mappa della Pericolosità idrogeologica">Pericolosità idrogeologica</a></li>
-                <li><a href="rischio_idrogeologico.html#14/38.1185/13.3595" title="Mappa del Rischio idrogeologico">Rischio idrogeologico</a></li>
-					</ul>
-				</li>
-                <li class="dropdown">
-                                  <a href="#" title="Ambiente" class="dropdown-toggle" data-toggle="dropdown"><strong><span style="color: #ff9900;"><i class="fa fa-list"></i> Ambiente <b class="caret"></b></span></strong></a>
-					<ul class="dropdown-menu">
-                    <li><a href="peric_sismica.html" title="Carta della Pericolosità Sismica" target="_parent">Pericolosità Sismica</a></li>
-                <li><a href="#" title="Carta dei suoli...coming soon" target="_parent">Carta dei suoli</a></li> 
-                <li><a href="#" title="Carta Desertificazione...coming soon" target="_parent">Carta Desertificazione</a></li> 
-                <li><a href="#" title="Carta Natura...coming soon" target="_parent">Carta Natura</a></li> 
-                <li class="dropdown1">
-                <a href="#" title="Rimozione di cemento amianto" class="dropdown1-toggle1" data-toggle="dropdown1"><strong><span style="color: #ff9900;"><i class="fa fa-list"></i> Rimozione di cemento amianto <b class="caret"></b></span></strong></a>
-					<ul class="dropdown1-menu">
-                    <li><a href="2016_rim_ami.html" title="Rimozione di cemento amianto - Anno 2016" target="_parent">Anno 2016</a></li>
-                <li><a href="2015_rim_ami.html" title="Rimozione di cemento amianto - Anno 2015" target="_parent">Anno 2015</a></li> 
-                <li><a href="2014_rim_ami.html" title="Rimozione di cemento amianto - Anno 2014" target="_parent">Anno 2014</a></li> 
-                <li><a href="2010_13_rim_ami.html" title="Rimozione di cemento amianto - Anno 2010/13" target="_parent"><strong><span style="color: #ff9900;">Anno 2010/13</span></strong></a></li> 
-                	</ul>
-                	</ul>
-				</li>
-            <li><a href="index_atlante.html" title="Atlante delle Carte Tecniche - Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo" target="_parent">Atlante Storico</a></li>
-              <li><a href="piano_prot_civ.html" title="Piano di emergenza Protezione Civile" target="_parent">Protezione Civile</a></li>
-              <li><a href="index_3d.html" title="Palermo - 3D Maps WRLDe" target="_parent">3D Maps WRLD</a></li>
-                 <li><a href="index.html" title="Informazioni"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</a></li>
-			</ul>
-		</div></div></div>
-        <!--fine menu -->
-        
- <!-- script nuovo menu -->
-<!--  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
-<script src="lib/js/menu_boots/bootstrap.min.js"></script>
-<script src="lib/js/menu_boots/bootstrap.min1.js"></script>
-<script src="lib/js/menu_boots/jquery.responsive-collapse.js"></script>
-<script src="lib/js/menu_boots/jquery.responsive-collapse1.js"></script>
-<script type="text/javascript">
-	$(window).load(function() {
-   	     $('ul.navbar-nav').responsiveCollapse();
-	});
-</script>
 
 <script src="lib/js/social/jquery_csbuttons.js"></script>
 </div>  
