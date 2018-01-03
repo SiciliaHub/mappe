@@ -17,22 +17,17 @@
         <link rel="icon" href="favicon.png" type="image/png"/> 
 
  <!-- css menu  -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<!-- Bootstrap -->
+<link href="lib/js/menu_boots/bootstrap.min.css" rel="stylesheet"> 
+<link href="lib/js/menu_boots/bootstrap.min1.css" rel="stylesheet"> 
+<link href="lib/js/menu_boots/jquery.responsive-collapse.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="lib/css/extra_ods.css" rel="stylesheet" type="text/css">
 <link href="lib/css/tooltips.css" rel="stylesheet" type="text/css">
 
-  <!-- script mappa remoto   -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-
-<!-- script menu includes 
-<script type="text/javascript" src="script.js"></script> -->
-
- <script src="https://www.w3schools.com/lib/w3.js"></script> 
-
 <!-- unite gallery -->
 <link rel='stylesheet' href='lib/js/unite/unite-gallery.css' type='text/css' />
-<!--<script type='text/javascript' src='lib/js/unite/jquery-11.0.min.js'></script>	
- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+<script type='text/javascript' src='lib/js/unite/jquery-11.0.min.js'></script>	
 <script type='text/javascript' src='lib/js/unite/unitegallery.min.js'></script>	
 <script type='text/javascript' src='lib/js/unite/ug-theme-tiles.js'></script>
 
@@ -69,7 +64,6 @@ a:active {color: #FF0000; text-decoration:none; }
 
 </script> 
 
-
  <!-- Open Graph Protocol -->
 <meta property="og:title" content="Palermo Hub" />
 <meta property="og:description" content="Contenitore di mappe su Palermo realizzato da OpenDataSicilia.it" />
@@ -88,15 +82,74 @@ a:active {color: #FF0000; text-decoration:none; }
 <meta name="twitter:site" content="github.com/SiciliaHub/mappe" />
 <meta name="twitter:url" content="github.com/SiciliaHub/mappe">
 <!-- twitter --> 
+
+
 </head>
 
 <body>
-  <div id="header">   
-       <div w3-include-html="menu.html"></div> 
-  </div>
-     <script>
-w3.includeHTML();
-</script> 
+<!-- header -->  
+  <!-- inizio menu -->  
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a href="http://opendatasicilia.it/" title="Iniziativa civica per la promozione degli OpenData nell&#039;isola (e non solo)" target="_blank" ><img src="legend/pa_hub.svg" width="200" height="37" style="margin-top:8px; margin-bottom:1px;margin-left:5px" alt=""/></a>
+		</div>
+		<div class="navbar-collapse collapse navbar-right">
+		        <ul class="nav navbar-nav">
+               <li><a href="cartografia.html#14/38.1185/13.3595" title="Cartografia e Ortofoto di base" target="_parent">Cartografia</a></li>
+                  <li><a href="index_prg.html#14/38.1185/13.3595" title="Strumenti Urbanistici - Variante Generale al PRG - PPE Centro Storico" target="_parent">Strumenti Urbanistici</a></li>
+                   <li class="dropdown">
+                  <a href="#" title="Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i> P.A.I. <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+				 <li><a href="index_pai.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e del Rischio Geomofologico" target="_parent">Pericolosità e Rischio Geomofologico</a></li>
+                <li><a href="dissesti.html#14/38.1185/13.3595" title="Mappa dei Dissesti" target="_parent">Dissesti</a></li>
+                <li><a href="idraulica.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione">Pericolosità e Rischio Idraulico</a></li>
+                <li><a href="pericolosità_idrogeologica.html#14/38.1185/13.3595" title="Mappa della Pericolosità idrogeologica">Pericolosità idrogeologica</a></li>
+                <li><a href="rischio_idrogeologico.html#14/38.1185/13.3595" title="Mappa del Rischio idrogeologico">Rischio idrogeologico</a></li>
+					</ul>
+				</li>
+              <li class="dropdown">
+                  <a href="#" title="Ambiente...coming soon" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i> Ambiente <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+                    <li><a href="peric_sismica.html" title="Carta della Pericolosità Sismica" target="_parent">Pericolosità Sismica</a></li>
+                <li><a href="#" title="Carta dei suoli...coming soon" target="_parent">Carta dei suoli</a></li> 
+                <li><a href="#" title="Carta Desertificazione...coming soon" target="_parent">Carta Desertificazione</a></li> 
+                <li><a href="#" title="Carta Natura...coming soon" target="_parent">Carta Natura</a></li> 
+                  <li class="dropdown1">
+             <a href="#" title="Rimozione di cemento amianto" class="dropdown1-toggle1" data-toggle="dropdown1"><i class="fa fa-list"></i> Rimozione di cemento amianto <b class="caret"></b></a>
+					<ul class="dropdown1-menu">
+                    <li><a href="2016_rim_ami.html" title="Rimozione di cemento amianto - Anno 2016" target="_parent">Anno 2016</a></li>
+                <li><a href="2015_rim_ami.html" title="Rimozione di cemento amianto - Anno 2015" target="_parent">Anno 2015</a></li> 
+                <li><a href="2014_rim_ami.html" title="Rimozione di cemento amianto - Anno 2014" target="_parent">Anno 2014</a></li> 
+                <li><a href="2010_13_rim_ami.html" title="Rimozione di cemento amianto - Anno 2010/13" target="_parent">Anno 2010/13</a></li> 
+                    </ul></li> 
+               </ul></li> 
+               <li><a href="index_atlante.html" title="Atlante delle Carte Tecniche - Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo" target="_parent">Atlante Storico</a></li>
+                  <li><a href="piano_prot_civ.html" title="Piano di emergenza Protezione Civile" target="_parent">Protezione Civile</a></li>
+                   <li><a href="index_3d.html" title="Palermo - 3D Maps WRLDe" target="_parent">3D Maps WRLD</a></li>
+                 <li><a href="index.html" title="Informazioni"> <strong><span style="color: #ff9900;"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></strong></a></li>
+			</ul>
+		</div></div></div>
+        <!--fine menu -->
+        
+  
+        
+ <!-- script nuovo menu -->
+<!--  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+<script src="lib/js/menu_boots/bootstrap.min.js"></script>
+<script src="lib/js/menu_boots/bootstrap.min1.js"></script>
+<script src="lib/js/menu_boots/jquery.responsive-collapse.js"></script>
+<script src="lib/js/menu_boots/jquery.responsive-collapse1.js"></script>
+<script type="text/javascript">
+	$(window).load(function() {
+   	     $('ul.navbar-nav').responsiveCollapse();
+	});
+</script>
 <div class="container1">
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tbody>
@@ -116,6 +169,9 @@ w3.includeHTML();
 <a href="rischio_idrogeologico.html#14/38.1185/13.3595" title="Mappa del Rischio idrogeologico" target="_parent" class="tooltips">&nbsp;&nbsp;&nbsp;&nbsp;<strong>4d - Mappa del Rischio idrogeologico</strong><span><img src="legend/clip_index/rischio_idrogeo.jpg" class="clip_tooltips"  /></span></a> - Assieme a quello sismico e a quello vulcanico, è da ritenersi uno dei   maggiori rischi ambientali connessi alle attività umane. Dal nome, che   richiama l&rsquo;acqua, potrebbe far meno paura, e invece abbiamo tutte le   ragioni per stare in guardia da questa categoria. Lo vedremo dai numeri   aggiornati, grazie a report di Legambiente, e tornando con la mente a   numerosi episodi a cui abbiamo assistito, in Italia e nel mondo.<br>
 <a href="pericolosità_idrogeologica.html#14/38.1185/13.3595" title="Mappa della Pericolosità idrogeologica" target="_parent" class="tooltips">&nbsp;&nbsp;&nbsp;&nbsp;<strong>4e - Mappa della Pericolosità idrogeologica<span><img src="legend/clip_index/pericolosita_idro_geo.jpg" class="clip_tooltips"  /></span></strong></a> - La pericolosità è definita in letteratura in vari modi e con diverse accezioni. Quella più largamente accettata in relazione ai fenomeni naturali è quella proposta nel rapporto UNESCO del 1984, secondo cui la pericolosità è definita come ”probabilità di occorrenza di un fenomeno potenzialmente pericoloso in un determinato intervallo di tempo e in una certa area”<br /> 
 
+ 
+  
+      
   <a href="peric_sismica.html" title="Mappa della Pericolosità sismica - Sicilia" target="_parent" class="tooltips"><strong>5 - Mappa della Pericolosità sismica - Sicilia<span><img src="legend/clip_index/peric_sismica.jpg" class="clip_tooltips"  /></span></strong></a> - La pericolosità sismica, intesa in senso probabilistico, è lo scuotimento del suolo atteso in un dato sito con una certa probabilità di eccedenza in un dato intervallo di tempo, ovvero la probabilità che un certo valore di scuotimento si verifichi in un dato intervallo di tempo. <br />
       
   <a href="piano_prot_civ.html#14/38.1185/13.3595" title="Piano di emergenza Protezione Civile" target="_parent" class="tooltips"><strong>6 - Piano di emergenza Protezione Civile<span><img src="legend/clip_index/piano_pc.jpg" class="clip_tooltips"  /></span></strong></a> - Censimento delle aree di emergenza ai fini della pianificazione di Protezione Civile (Aree di attesa della popolazione, Aree di accoglienza o di ricovero della popolazione e Aree di ammassamento soccorritori e risorse) dei Comuni delle Provincia di Catania, Enna, Messina, Ragusa e del Comune di Palermo. Inoltre disponibili informazioni sulle principali strutture operative (Prefetture, Carabinieri, Polizia di Stato, Guardia di Finanza, Capitanerie di porto, Vigili del Fuoco, Ass. Volontariato iscritte nel Registro Regionale del DRPC).<br />
