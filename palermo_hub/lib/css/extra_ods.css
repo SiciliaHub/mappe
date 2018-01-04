@@ -431,6 +431,7 @@ color: #cccccc;
    z-index:1500;
     position: fixed;
   bottom: 0;
+   width:100%;
 }
 pre1 code {
   background: #F5F5F5;
@@ -439,4 +440,5 @@ pre1 code {
   overflow: auto;
  display: block;
  border-top: 1px solid #ccc;
+ width:100%;
 }
