@@ -13,6 +13,8 @@ html body {
   font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;  /* 1 */
   font-size: 12px;
   margin-top:60px;
+ overflow-y:hidden;
+ 
 
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -52,7 +54,7 @@ html body {
 	@media screen and (width: 736px) {#beta {left:90px; bottom:50px;}.beta{width: 30px; height: 30px;}}
 
 #ods { position:fixed; bottom:65px; right:17px; z-index: 800;}
-
+#intro {position:fixed; width:96%; top:60px;  left:20px; z-index: 1000;}
 #db {position:fixed; top:-30px; right:0px; left:0px; height:520px;z-index: 1000;}
 
 /*#itaf { position:fixed; bottom:95px; right:37px; z-index: 1014;}*/
@@ -440,5 +442,4 @@ pre1 code {
   overflow: auto;
  display: block;
  border-top: 1px solid #ccc;
- width:100%;
 }
