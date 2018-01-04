@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="utf-8">
+	<title>Palermo hub è un contenitore di mappe su Palermo realizzato da opendatasicilia.it</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Palermo hub è un contenitore di mappe su Palermo realizzato da opendatasicilia.it">
+	<meta name="author" content="OpenDataSicilia">
+
+	<meta property="og:image" content="http://accussi.opendatasicilia.it/img/accussiShare.jpg" />
+	<meta property="og:title" content="Accussì è un catalogo di tutorial sul mondo dei dati" />
+	<meta property="og:url" content="http://accussi.opendatasicilia.it" />
+	<meta property="og:image:width" content="927" />
+	<meta property="og:image:height" content="624" />
+
+
+<!-- twitter card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@opendatasicilia">
+	<meta name="twitter:title" content="Accussì">
+	<meta name="twitter:description" content="Accussì è un catalogo di tutorial sul mondo dei dati.">
+	<meta name="twitter:image" content="http://accussi.opendatasicilia.it/img/accussiShare.png">
+<!-- twitter card -->
+
+	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+	<!--script src="js/less-1.3.3.min.js"></script-->
+	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+
+	<link href="lib/js/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="lib/js/dist/css/style.css" rel="stylesheet">
+    
+  	<!-- CSS Palermo hub  
+<link href="lib/css/extra_ods.css" rel="stylesheet" type="text/css">
+<link href="lib/css/tooltips.css" rel="stylesheet" type="text/css">--> 
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  	<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="favicon.ico"/> 
+    <link rel="icon" href="favicon.png" type="image/png"/>
+<link href="lib/css/tooltips.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" src="lib/js/dist/jquery.min.js"></script>  
+    <script type="text/javascript" src="lib/js/dist/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/js/dist/scripts.js"></script>
+
+    <link rel="exhibit/data"
+    type="application/jsonp"
+    href="https://spreadsheets.google.com/feeds/list/1A-U8JCbH8Rh2PHoIHG2DL3uPNncR8DpGm3_nzBxRbHA/od6/public/basic?alt=json-in-script"
+    ex:converter="googleSpreadsheets" />
+
+    <script src="lib/js/dist/exhibit-api.js?locale=it"></script>
+
+    <script type="text/javascript">
+    var tableStyler = function(table, database) {
+    	$(table).addClass("table table-condensed table-striped");
+    };
+    </script>
+
+
+
+</head>
+
+<body>
+<div class="container">
+	
+		<div class="row clearfix">
+			
+			<div class="col-md-12 column"><br /><br><br><br><br><br><br>
+				<strong>Cerca</strong><div ex:role="facet" ex:facetClass="TextSearch"></div><br />
+			</div>
+			
+		</div>
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<div ex:role="facet"
+				ex:facetClass="Cloud"
+				ex:expression=".tag"
+				ex:facetLabel="Tag"
+				ex:sortMode="count"></div>
+			</div>
+			<div class="col-md-2 column">
+				<div ex:role="facet"
+				ex:expression=".fontedati"
+				ex:facetLabel="Fonte Dati"
+				ex:sortMode="count"></div>
+			</div>
+            <div class="col-md-2 column">
+				<div ex:role="facet"
+				ex:expression=".categoria"
+				ex:facetLabel="Categoria"
+				data-ex-missing-label="Non specificato">
+				</div>
+			</div>
+			<div class="col-md-2 column">
+				<div ex:role="facet"
+				ex:expression=".data"
+				ex:facetLabel="Data"
+				data-ex-missing-label="Non specificato">
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+			
+            	<div ex:role="viewPanel" style="padding: 0in;">
+
+					<div ex:role="exhibit-view"
+					ex:viewClass="Exhibit.TabularView"
+					ex:label="Table"
+					ex:columns=".titolo,.descrizione,.immago,.categoria,.tag,.data,.collaborazione,.primamappa,.titolo_pm,.fontedati"
+					ex:columnLabels="Titolo, Descrizione, Immagine, Categoria,  Tag, Data inserimento, Collaborazione, Prima mappa, Fonte Dati,"
+					ex:columnFormats="list,list,list,list,list,list,list,list,list,list"
+					ex:sortColumn="4"
+					ex:sortAscending="false"
+					ex:tableStyler="tableStyler">
+					<div ex:role="exhibit-lens">
+					<div class="table-responsive">
+							<table class="table" ex:class-content=".territorio">
+								<tr>
+	<td><a ex:href-content=".URL" ex:onclick-subcontent="trackOutboundLink('{{.URL}}'); return false;" target="_blank"><strong><span ex:content=".titolo" class="accussì"></strong></span></a></td>
+   									 <td><span ex:content=".descrizione"></td>
+						<td><a ex:href-content=".immago" ex:onclick-subcontent="trackOutboundLink('{{.URL}}'); return false;" target="_blank"><strong><span ex:content=".immago" class="accussì"></strong></span></a></td>
+									<td><span ex:content=".categoria"></td>
+                                    <td><span ex:content=".tag" ></span></td>
+									<td><span ex:content=".data" ></span></td>
+                                    <td><span ex:content=".collaborazione"></span></td>
+                                    <td><a ex:href-content=".primamappa" ex:onclick-subcontent="trackOutboundLink('{{.primamappa}}'); return false;" target="_blank"><strong><span ex:content=".titolo_pm" class="accussì"></strong></span></a></td>
+                                    <td><span ex:content=".fontedati"></span></td>
+ 
+								</tr>
+							</table> 
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<footer>
+			<p class="text-center">
+				<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licenza Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a> <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Palermo Hub</span><a xmlns:cc="http://creativecommons.org/ns#" href="http://opendatasicilia.it" property="cc:attributionName" rel="cc:attributionURL"> Open Data Sicilia</a> è distribuito con Licenza <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale</a>.
+			</p>
+		</footer>
+
+	</div>
+</body>
+</html>
