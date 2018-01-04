@@ -53,6 +53,8 @@ html body {
 
 #ods { position:fixed; bottom:65px; right:17px; z-index: 800;}
 
+#db {position:fixed; top:-30px; right:0px; left:0px; height:520px;z-index: 1000;}
+
 /*#itaf { position:fixed; bottom:95px; right:37px; z-index: 1014;}*/
 
 .lorem {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 11px;}.awesome {font-style:fontawesome;  color: #4E4B4B; }
@@ -406,6 +408,7 @@ pre2 code {
   white-space: pre;
   overflow: auto;
   display: block;
+
 }
 
 pre1 {
@@ -426,6 +429,8 @@ color: #cccccc;
   hyphens: none;
   position: relative;
    z-index:1500;
+    position: fixed;
+  bottom: 0;
 }
 pre1 code {
   background: #F5F5F5;
