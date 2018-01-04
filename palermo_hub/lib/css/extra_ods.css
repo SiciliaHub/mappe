@@ -288,7 +288,7 @@ z-index: 1010;}
 
 /* extra */
 
-hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900;}
+hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900; margin-top:10px;margin-bottom:10px;}
 
   /*Clip resize; */
 .clip_resize {width: 100%; /*height: 100%; */ border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) } 

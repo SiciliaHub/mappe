@@ -15,9 +15,11 @@ div.app-thumbnail {
 
 }
 
-hr { display: block; height: 1px;
+/*hr { display: block; height: 1px;
  border: 0; border-top: 1px solid #FF9900;
- margin: 1em 0; padding: 0; } 
+ margin: 1em 0; padding: 0; } */
+ 
+hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900; margin-top:10px;margin-bottom:10px;}
 
  .petrosino {
   color: #FF9900 !important;
