@@ -9,14 +9,16 @@ url("fonts/fontawesome-webfont.ttf") format("truetype"),
 url("fontst/fontawesome-webfont.svg#fontawesome") format("svg");
 font-weight:normal; font-style:normal;}
 
-html, body {padding: 0; overflow: hidden;   margin: 0;height: 100%; font: 12px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; background-color:#ffffff; 
+html, body {padding: 0; overflow: hidden;    margin: 0;height: 100%; font: 12px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; background-color:#ffffff; 
 /*background-image:url(../images/ods_02.png); background-size: 30px 30px;background-repeat:no-repeat;background-position:5px 3px;background-attachment: fixed;*/}
 
-
+#header { margin-top:0px;
+ 
+}
 
 /* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it  */
 
- #map { height: 100%; top:0px; font: 11px "Open Sans", Helvetica Neue, fontawesome, Arial, Helvetica, sans-serif; background-color: #fff; z-index: 1000;}
+ #map { height: 100%; top:0px; /*top:-86px;*/ /*menu seconda versione*/ font: 11px "Open Sans", Helvetica Neue, fontawesome, Arial, Helvetica, sans-serif; background-color: #fff; z-index: 1000;}
 
 .beta{width: 70px; height: 70px; border-radius: 35px;  -moz-border-radius: 35px;  -webkit-border-radius: 35px; box-shadow: 0 1px 5px rgba(0,0,0,0.6); 
 	}
@@ -70,12 +72,12 @@ a:active {color: #FF0000; text-decoration:none; }
 /*#menu {	position: fixed; width: 100%;	height: 60px;	/*background-color: rgba(255,255,255,1); rgba(78,75,75,1.00);*//*	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	padding: 0;	margin: 0;top: 0px;	right: 0px;	z-index: 2000;	text-align: left;}*/
 
 #menu {	position:fixed; width: 100%; height: 100%;cursor:pointer; /*background-color: rgba(255,255,255,1); rgba(78,75,75,1.00);text-align: left;	box-shadow: 0 1px 5px rgba(0,0,0,0.65);*/ padding: 0;	margin: 0;top: 0px;	right: 0px;	z-index: 1500;  }
-.menu {  cursor: pointer;
+/*.menu {  cursor: pointer;
     width: 100%,;
     height: 100%;
 	opacity: .95;
    	
-	}
+	}*/
 
 #page {	position: fixed; width: 100%;	height: 100%;	/*background: #fff;/*	background-color: /*rgba(255,255,255,1);*/ rgba(78,75,75,1.00);	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	padding: 0;	margin: 0;top: 0px;	right: 0px;	z-index: 1000;	text-align: left;}
 

@@ -14,6 +14,7 @@ html body {
   font-size: 12px;
   margin-top:60px;
  overflow-y:hidden;
+  /*-ms-scroll-limit: 0 0 0 0;*/
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
   /* ie scrollbar*/
@@ -22,9 +23,18 @@ html body {
   scrollbar-3dlight-color : #F5F5F5;
   scrollbar-highlight-color :#F5F5F5;
 }
-/*hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900;}*/
-#mainContent { width: 100%; overflow-x:hidden;}
+html  {overflow-y:hidden;
 
+}
+footer {background: #F5F5F5;  border-top: 1px solid #ccc; width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;/*
+	color: white;
+   
+	text-align: center;*/
+	
+/*hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900;}*/
 
 /* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it  */
 
@@ -74,9 +84,6 @@ a:active {color: #FF0000; text-decoration:none; }
 .clip_irta {width: 370px; height: 524px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) } 
 .clip_irta:hover {opacity: 1;  -webkit-filter: grayscale(100%); }
 
-.clip_tav { width: 138px; height: 20px; /*border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) */}
-.clip_tav:hover {opacity: 1;  -webkit-filter: grayscale(100%); } 
-
 #bot {	position: fixed; width: 100%;	height: 40px;	/*background-color: rgba(255,255,255,1); rgba(78,75,75,1.00);*/	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	padding: 0;	margin: 0;top: 0px;	right: 0px;	z-index: 2000;	text-align: left;}
 
 #menu {	position: fixed; width: 100%;	height: 100%;	/*background-color: rgba(255,255,255,1); rgba(78,75,75,1.00);text-align: left;	box-shadow: 0 1px 5px rgba(0,0,0,0.65);*/	padding: 0;	margin: 0;top: 0px;	right: 0px;	z-index: 3000;	}
@@ -86,6 +93,10 @@ a:active {color: #FF0000; text-decoration:none; }
 
 /*Clip tooltips;*/
 .clip_tooltips {width: 250px; height: 140px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) } 
+.clip_tooltips:hover {opacity: 1;  -webkit-filter: grayscale(100%); }
+ @media (min-width: 320px) and (max-width: 1024px) {.clip_tooltips {width: 185px;height: 104px;}}
+
+
 
 #grafico {resize: both; overflow: auto;  position:fixed; padding: 0;	margin: 35px; bottom: 20px; right:	left: 20px; width: 650px;	height:485px; background-color: rgba(255,255,255,0.80);	box-shadow: 0 1px 5px rgba(0,0,0,0.65);	z-index: 1000; }
 
@@ -292,6 +303,8 @@ hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900; margin-t
 
   /*Clip resize; */
 .clip_resize {width: 100%; /*height: 100%; */ border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) } 
+
+ @media (min-width: 320px) and (max-width: 1024px) { .clip_resiz {font-style: italic; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;    font-size: 8.5px;}}
 
   /*Clip resize1 */
 .clip_resize1 {width: 100%; /*height: 100%; */ border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) } 

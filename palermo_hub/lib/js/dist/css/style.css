@@ -1,7 +1,6 @@
-
+#db {position: absolute; left: 1%; right:1% top: 0px;  width: 98%; overflow-x:hidden;}
 .exhibit-tileView-body { list-style: none; }
 .exhibit-collectionView-group-count { display: none; }
-
 
 div.app-thumbnail {
    float:      left;
@@ -47,23 +46,36 @@ ul.share-buttons li{
 }
 
 ul.nav li a, ul.nav li a:visited {
-    color: #FF9900 !important;
+    color: #4E4B4B !important;
 }
 
 ul.nav li a:hover, ul.nav li a:active {
-    color: #FF9900 !important;
+    color: #4E4B4B !important;
 }
 
 ul.nav li.active a {
-    color: #FF9900 !important;
+    color: #4E4B4B !important;
 }
-
-a {
+ @media (min-width: 320px) and (max-width: 1024px) {body {font-size: 9px; color: #4E4B4B;}}
+/*a {
     color: #FF9900 !important;
-}
+}*/
 
 /* rimosso momentaneamente export tool */
 .exhibit-toolboxWidget-button {
     visibility: hidden !important;
 }
 /* rimosso momentaneamente export tool */
+
+footer {background: #F5F5F5;  border-top: 1px solid #ccc; width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 60px;
+	/*
+	color: white;
+   
+	text-align: center;*/
+ 
+    
+    
+}
