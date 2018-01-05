@@ -49,7 +49,10 @@ a {
  
 .clip_tooltips {width: 250px; height: 140px; border-radius: 5px;  -moz-border-radius: 5px;  -webkit-border-radius: 5px;border: 1px solid #ccc;background-color:#fff; padding:1px; box-shadow: 0 2px 5px rgba(0,0,0,0.2) } 
 .clip_tooltips:hover {opacity: 1;  -webkit-filter: grayscale(100%); }
+
  @media (min-width: 320px) and (max-width: 1024px) {.clip_tooltips {width: 185px;height: 104px;}}
+ 
+  @media (min-width: 320px) and (max-width: 1024px) {.clip_socialr {width: 24px;height: 24px;}}
  
  .lorem0 {font-style: normal; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;  font-size: 11px;}.awesome {font-style:fontawesome;  color: #4E4B4B; }
  
