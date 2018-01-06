@@ -39,8 +39,12 @@
     <!-- Bootstrap stuff -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASUR-zcglbhzMCK73dD0ZzHSGFyzQXt10&libraries=places"></script>
+    <script src="js/locationpicker.jquery.min.js"></script>
+     
     <style type="text/css">
 	html, body {padding: 10px; font: 14px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; background-color:#ffffff; }
 	hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900; margin-top:10px;margin-bottom:10px;}
@@ -53,11 +57,8 @@ a:visited {	color: #FF9900;}
 a:hover {color: ##4E4B4B; text-decoration:underline; } 
 a:active {color: #FF0000; text-decoration:none; } 
     </style>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASUR-zcglbhzMCK73dD0ZzHSGFyzQXt10&libraries=places"></script>
-<script src="http://rawgit.com/Logicify/jquery-locationpicker-plugin/master/dist/locationpicker.jquery.js"></script>
-  <!--  <script src="js/angularLocationpicker.jquery.js"></script> -->
+
+
      
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -104,32 +105,39 @@ a:active {color: #FF0000; text-decoration:none; }
             <div class="col-sm-4">
                 <input type="text" class="form-control" style="width: 110px" id="us3-lon" />
             </div>
-        </div>
+            </div>
+                    </div>
         <div class="clearfix"></div>
 </div>
 <hr><br>
 <p class="lorem0">La geocodifica dell'indizizzo si basa sul plugin<a href="https://github.com/Logicify/jquery-locationpicker-plugin" title="jquery-locationpicker-plugin" target="_blank"> jquery-locationpicker-plugin </a> di <a href="https://github.com/wimagguc" title="Logicify" target="_blank">Logicify</a></p >
  <script>
+// function updateControls(addressComponents) {
+  //  $('#us3-street1').val(addressComponents.addressLine1);
+ //   $('#us3-city').val(addressComponents.city);
+ //   $('#us3-state').val(addressComponents.stateOrProvince);
+ //   $('#us3-zip').val(addressComponents.postalCode);
+ //   $('#us3-country').val(addressComponents.country);
+//}
             $('#us3').locationpicker({
                 location: {
                    latitude: 38.11568799,
                             longitude: 13.361267099999964
                 },
-                radius: 0,
+                radius: 20,
                 inputBinding: {
                     latitudeInput: $('#us3-lat'),
                     longitudeInput: $('#us3-lon'),
                     radiusInput: $('#us3-radius'),
-                    locationNameInput: $('#us3-address')
+                    locationNameInput: $('#us3-address'),
+					
                 },
+				addressFormat: 'address',
 				// mapTypeId: google.maps.MapTypeId.SATELLITE,
                 enableAutocomplete: true,
-				autocompleteOptions: {types: ['(cities)'], componentRestrictions: {country: 'it'}
-               // onchanged: function (currentLocation, radius, isMarkerDropped) {
-                    // Uncomment line below to show alert on each Location Changed event
-                    //alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
-					                }
-            });
+				autocompleteOptions: {types: ['(cities)'], componentRestrictions: {country: 'it'},
+             
+        }     });
         </script>
 
 </body>
