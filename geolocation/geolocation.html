@@ -56,7 +56,8 @@ a:active {color: #FF0000; text-decoration:none; }
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src='https://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASUR-zcglbhzMCK73dD0ZzHSGFyzQXt10&libraries=geometry,places"></script>
+</script>
     <script src="js/locationpicker.jquery.min.js"></script>
 
     <script src="js/angularLocationpicker.jquery.js"></script>
@@ -113,7 +114,7 @@ a:active {color: #FF0000; text-decoration:none; }
     <div class="clearfix"></div>
 </div>
 <hr><br>
-<p class="lorem0">La geocodifica dell'indizizzo si basa sul plugin<a href="https://github.com/Logicify/jquery-locationpicker-plugin" title="jquery-locationpicker-plugin" target="_blank"> jquery-locationpicker-plugin </a> di <a href="https://github.com/Logicify" title="Logicify" target="_blank">Logicify</a></p >
+<p class="lorem0">La geocodifica dell'indizizzo si basa sul plugin<a href="https://github.com/Logicify/jquery-locationpicker-plugin" title="jquery-locationpicker-plugin" target="_blank"> jquery-locationpicker-plugin </a> di <a href="https://github.com/wimagguc" title="Logicify" target="_blank">Logicify</a></p >
  <script>
     angular.module('locationpickerApp', ['angular-jquery-locationpicker'])
             .controller('locationpickerController', [
@@ -132,8 +133,9 @@ a:active {color: #FF0000; text-decoration:none; }
                         },
                        radius: 0,
                         enableAutocomplete: true
-                    };
+                    }
                 }
+				
             ]);
 </script>
 
