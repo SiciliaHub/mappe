@@ -4,7 +4,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Geocodifica la tua geoposizione">
+        <meta name="description" content="Geocodifica il tuo indirizzo">
         <meta name="keywords" content="Open Data, Sicilia, Indirizzi geocoding, geo-metatags, geotags ">
         <meta name="author" content="Giovan Battista Vitrano per OpenDataSicilia.it">
         <meta http-equiv="content-language" content="IT">
@@ -18,8 +18,8 @@
             <title>OpenDataSicilia.it - Geocodifica la tua geoposizione</title>
             
      <!-- Open Graph Protocol -->
-<meta property="og:title" content="Geocodifica la tua geoposizione" />
-<meta property="og:description" content="Geocodifica la tua geoposizione" />
+<meta property="og:title" content="Geocodifica il tuo indirizzo" />
+<meta property="og:description" content="Open Data Sicilia" />
 <meta property="og:url" content="https://siciliahub.github.io/mappe/geolocation/geolocation.html" />
 <meta property="article:author" content="Giovan Battista Vitrano per Open Data Sicilia" />
 <meta property="og:image" content="http://siciliahub.github.io/mappe/geolocation/images/geo_ods.jpg" />
@@ -28,8 +28,8 @@
 
 <!-- twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Geocodifica la tua geoposizione">
-<meta name="twitter:description" content="Geocodifica la tua geoposizione.">
+<meta name="twitter:title" content="Geocodifica il tuo indirizzo ">
+<meta name="twitter:description" content="Open Data Sicilia.">
 <meta name="twitter:image" content="http://siciliahub.github.io/mappe/geolocation/images/geo_ods.jpg">
 <meta name="twitter:creator" content="@gbvitrano Giovan Battista Vitrano per Open Data Sicilia">
 <meta name="twitter:site" content="github.com/SiciliaHub/mappe" />
@@ -58,7 +58,7 @@ a:active {color: #FF0000; text-decoration:none; }
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASUR-zcglbhzMCK73dD0ZzHSGFyzQXt10&libraries=places"></script>
 </script>
-    <script src="js/locationpicker.jquery.min.js"></script>
+     <script src="http://rawgit.com/Logicify/jquery-locationpicker-plugin/master/dist/locationpicker.jquery.js"></script>
 
     <script src="js/angularLocationpicker.jquery.js"></script>
      
@@ -132,11 +132,18 @@ a:active {color: #FF0000; text-decoration:none; }
                             locationNameInput: $('#us3-address')
                         },
                        radius: 0,
-                        enableAutocomplete: true
-                    }
-                }
+					   //mapTypeId: google.maps.MapTypeId.SATELLITE,
+					   markerInCenter: true,
+                        enableAutocomplete: true,
+			// onchanged: function (currentLocation, radius, isMarkerDropped) {alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")"); }
+					autocompleteOptions: {types: ['(cities)'], componentRestrictions: {country: 'it'}}
+		
+		
+		
+					} }]);
+               
 				
-            ]);
+            
 </script>
 
 </body>
