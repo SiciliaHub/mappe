@@ -73,7 +73,7 @@ a:active {color: #FF0000; text-decoration:none; }
       
 </head>
 
-<body ng-app="locationpickerApp" ng-controller="locationpickerController">
+<body>
 <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
 <img src="images/geo_ods.svg" width="250px" title="opendatasicilia.it" alt="opendatasicilia"></a></div> <br>
     <div class="form-horizontal" style="width: 550px">
@@ -96,12 +96,12 @@ a:active {color: #FF0000; text-decoration:none; }
         <div class="m-t-small">
             <label class="p-r-small col-sm-2 control-label"><i class="fa fa-compass" aria-hidden="true"></i>&nbsp;Lat.&nbsp;: </label>
 
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <input type="text" class="form-control" style="width: 110px" id="us3-lat" />
             </div>
              <label class="p-r-small col-sm-2 control-label"><i class="fa fa-compass" aria-hidden="true"></i>&nbsp;Long.&nbsp;: </label>
 
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <input type="text" class="form-control" style="width: 110px" id="us3-lon" />
             </div>
         </div>
@@ -112,21 +112,23 @@ a:active {color: #FF0000; text-decoration:none; }
  <script>
             $('#us3').locationpicker({
                 location: {
-                    latitude: 38.11568799,
+                   latitude: 38.11568799,
                             longitude: 13.361267099999964
                 },
-                radius: 10,
+                radius: 0,
                 inputBinding: {
                     latitudeInput: $('#us3-lat'),
                     longitudeInput: $('#us3-lon'),
-                  //  radiusInput: $('#us3-radius'),
+                    radiusInput: $('#us3-radius'),
                     locationNameInput: $('#us3-address')
                 },
+				// mapTypeId: google.maps.MapTypeId.SATELLITE,
                 enableAutocomplete: true,
-                onchanged: function (currentLocation, radius, isMarkerDropped) {
+				autocompleteOptions: {types: ['(cities)'], componentRestrictions: {country: 'it'}
+               // onchanged: function (currentLocation, radius, isMarkerDropped) {
                     // Uncomment line below to show alert on each Location Changed event
                     //alert("Location changed. New location (" + currentLocation.latitude + ", " + currentLocation.longitude + ")");
-                }
+					                }
             });
         </script>
 
