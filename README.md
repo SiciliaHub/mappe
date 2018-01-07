@@ -52,4 +52,4 @@ Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di app
 
 - [**Palermo Hub - (contenitore di mappe su Palermo) Work in progress...**](https://siciliahub.github.io/mappe/palermo_hub/index.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano)
 
-- [**Geocodifica il tuo indirizzo - Work in progress...**](https://siciliahub.github.io/mappe/geolocation/geolocation.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano)
+- [**Geocodifica il tuo indirizzo - Utility**](https://siciliahub.github.io/mappe/geolocation/geolocation.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano)
