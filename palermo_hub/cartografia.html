@@ -76,7 +76,7 @@ a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hov
 
 <!-- script mappa -->
 <script src="lib/js/qgi2web/qgis2web_expressions.js"></script>
-<script src="lib/js/qgi2web/leaflet.js"></script>
+ <script src="lib/js/qgi2web/leaflet.js"></script> 
 <script src="lib/js/qgi2web/L.Control.Locate.min.js"></script>
 <script src="lib/js/qgi2web/multi-style-layer.js"></script>
 <script src="lib/js/qgi2web/leaflet-heat.js"></script>
@@ -112,8 +112,8 @@ a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hov
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>  
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
  
-<!-- script menu includes -->
-<script type="text/javascript" src="script.js"></script>    
+<!-- script menu includes 
+<script type="text/javascript" src="script.js"></script>   --> 
 
 <!-- script dati mappa -->
 <script src="data/poligonoisola0.js"></script>
@@ -128,10 +128,18 @@ a:link {color: #FF9900;	text-decoration:none;} a:visited {	color: #FF9900;}a:hov
 </head>
 
 <body>
- <!-- header --> 
-    <div id="header">
-      <!-- Content will be inserted by jQuery from menu.html -->
-    </div> 
+ <!-- header -->    
+<header>
+     <div data-includeHTML="menu.html"></div>
+</header>
+<script>
+    $(document).ready(function () {
+        $("div[data-includeHTML]").each(function () {                
+            $(this).load($(this).attr("data-includeHTML"));
+        });
+    });
+</script>
+
 <!-- Sidebar SX -->
 <div id="sidebar" class="sidebar collapsed">
 <!-- Nav tabs -->

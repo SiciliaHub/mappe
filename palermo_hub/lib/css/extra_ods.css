@@ -9,20 +9,8 @@ url("fonts/fontawesome-webfont.ttf") format("truetype"),
 url("fontst/fontawesome-webfont.svg#fontawesome") format("svg");
 font-weight:normal; font-style:normal;}
 
-html body {
-  font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;  /* 1 */
-  font-size: 12px;
-  margin-top:60px;
- overflow-y:hidden;
-  /*-ms-scroll-limit: 0 0 0 0;*/
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  /* ie scrollbar*/
-  scrollbar-base-color : #F5F5F5;
-  scrollbar-arrow-color: #fff;
-  scrollbar-3dlight-color : #F5F5F5;
-  scrollbar-highlight-color :#F5F5F5;
-}
+html, body {padding: 0; overflow: hidden;    margin: 0;height: 100%; font: 12px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; background-color:#ffffff; }
+
 html  {overflow-y:hidden;
 
 }

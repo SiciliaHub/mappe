@@ -18,41 +18,21 @@
 
  <!-- css menu  -->
 <!-- Bootstrap -->
-<link href="lib/js/menu_boots/bootstrap.min.css" rel="stylesheet"> 
-<link href="lib/js/menu_boots/bootstrap.min1.css" rel="stylesheet"> 
-<link href="lib/js/menu_boots/jquery.responsive-collapse.css" rel="stylesheet">
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="lib/css/extra_ods.css" rel="stylesheet" type="text/css">
 <link href="lib/css/tooltips.css" rel="stylesheet" type="text/css">
-
-<!-- unite gallery -->
-<link rel='stylesheet' href='lib/js/unite/unite-gallery.css' type='text/css' />
-<script type='text/javascript' src='lib/js/unite/jquery-11.0.min.js'></script>	
-<script type='text/javascript' src='lib/js/unite/unitegallery.min.js'></script>	
-<script type='text/javascript' src='lib/js/unite/ug-theme-tiles.js'></script>
-
 <style type="text/css">
-a:link {color: #FF9900;	text-decoration:none;}
-a:visited {	color: #FF9900; text-decoration:none;}/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */
-a:hover {color: #FF9900; text-decoration:underline; } 
-a:active {color: #FF0000; text-decoration:none; }
+body {
+	background-color: #FFFFFF;
+	 overflow-y:hidden;
+		}
 
-.footer a:link{color: #FF9900;	text-decoration:none;}
-.footer a:visited {	color: #FF9900; text-decoration:none;}
-.footer a:hover {color: #FF9900; text-decoration:underline; } 
-
-.social a:link{color: #4E4B4B;	text-decoration:none;}
-.social a:visited {	color: #4E4B4B; text-decoration:none;}
-.social a:hover {color: #FFFFFF; text-decoration:none; } 
-
-.social1 a:link{color: #4E4B4B;	text-decoration:none;}
-.social1 a:visited {	color: #4E4B4B; text-decoration:none;}
-.social1 a:hover {color: #FF9900; text-decoration:none; } 
-
-.lorem a:link{color: #FF9900;	text-decoration:none;}
-.lorem a:visited {	color: #FF9900; text-decoration:none;}
-.lorem a:hover {color: #FF9900; text-decoration:underline; } 
 </style>
+
+  <!-- script mappa remoto -->  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -85,338 +65,35 @@ a:active {color: #FF0000; text-decoration:none; }
 
 
 </head>
-
 <body>
-<!-- header -->  
-  <!-- inizio menu -->  
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<a href="http://opendatasicilia.it/" title="Iniziativa civica per la promozione degli OpenData nell&#039;isola (e non solo)" target="_blank" ><img src="legend/pa_hub.svg" width="200" height="37" style="margin-top:8px; margin-bottom:1px;margin-left:5px" alt=""/></a>
-		</div>
-		<div class="navbar-collapse collapse navbar-right">
-		        <ul class="nav navbar-nav">
-               <li><a href="cartografia.html#14/38.1185/13.3595" title="Cartografia e Ortofoto di base" target="_parent">Cartografia</a></li>
-                  <li><a href="index_prg.html#14/38.1185/13.3595" title="Strumenti Urbanistici - Variante Generale al PRG - PPE Centro Storico" target="_parent">Strumenti Urbanistici</a></li>
-                   <li class="dropdown">
-                  <a href="#" title="Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - Palermo" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i> P.A.I. <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-				 <li><a href="index_pai.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e del Rischio Geomofologico" target="_parent">Pericolosità e Rischio Geomofologico</a></li>
-                <li><a href="dissesti.html#14/38.1185/13.3595" title="Mappa dei Dissesti" target="_parent">Dissesti</a></li>
-                <li><a href="idraulica.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione">Pericolosità e Rischio Idraulico</a></li>
-                <li><a href="pericolosità_idrogeologica.html#14/38.1185/13.3595" title="Mappa della Pericolosità idrogeologica">Pericolosità idrogeologica</a></li>
-                <li><a href="rischio_idrogeologico.html#14/38.1185/13.3595" title="Mappa del Rischio idrogeologico">Rischio idrogeologico</a></li>
-					</ul>
-				</li>
-              <li class="dropdown">
-                  <a href="#" title="Ambiente...coming soon" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-list"></i> Ambiente <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-                    <li><a href="peric_sismica.html" title="Carta della Pericolosità Sismica" target="_parent">Pericolosità Sismica</a></li>
-                <li><a href="#" title="Carta dei suoli...coming soon" target="_parent">Carta dei suoli</a></li> 
-                <li><a href="#" title="Carta Desertificazione...coming soon" target="_parent">Carta Desertificazione</a></li> 
-                <li><a href="#" title="Carta Natura...coming soon" target="_parent">Carta Natura</a></li> 
-                  <li class="dropdown1">
-             <a href="#" title="Rimozione di cemento amianto" class="dropdown1-toggle1" data-toggle="dropdown1"><i class="fa fa-list"></i> Rimozione di cemento amianto <b class="caret"></b></a>
-					<ul class="dropdown1-menu">
-                    <li><a href="2016_rim_ami.html" title="Rimozione di cemento amianto - Anno 2016" target="_parent">Anno 2016</a></li>
-                <li><a href="2015_rim_ami.html" title="Rimozione di cemento amianto - Anno 2015" target="_parent">Anno 2015</a></li> 
-                <li><a href="2014_rim_ami.html" title="Rimozione di cemento amianto - Anno 2014" target="_parent">Anno 2014</a></li> 
-                <li><a href="2010_13_rim_ami.html" title="Rimozione di cemento amianto - Anno 2010/13" target="_parent">Anno 2010/13</a></li> 
-                    </ul></li> 
-               </ul></li> 
-               <li><a href="index_atlante.html" title="Atlante delle Carte Tecniche - Osservare il cambiamento di una città grazie alla cartografia: il caso di Palermo" target="_parent">Atlante Storico</a></li>
-                  <li><a href="piano_prot_civ.html" title="Piano di emergenza Protezione Civile" target="_parent">Protezione Civile</a></li>
-                   <li><a href="index_3d.html" title="Palermo - 3D Maps WRLDe" target="_parent">3D Maps WRLD</a></li>
-                 <li><a href="index.html" title="Informazioni"> <strong><span style="color: #ff9900;"><i class="fa fa-info-circle" aria-hidden="true"></i> Info</span></strong></a></li>
-			</ul>
-		</div></div></div>
-        <!--fine menu -->
-        
-  
-        
- <!-- script nuovo menu -->
-<!--  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
-<script src="lib/js/menu_boots/bootstrap.min.js"></script>
-<script src="lib/js/menu_boots/bootstrap.min1.js"></script>
-<script src="lib/js/menu_boots/jquery.responsive-collapse.js"></script>
-<script src="lib/js/menu_boots/jquery.responsive-collapse1.js"></script>
-<script type="text/javascript">
-	$(window).load(function() {
-   	     $('ul.navbar-nav').responsiveCollapse();
-	});
-</script>
-<div class="container1">
-<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+<header>
+  <div data-includeHTML="menu.html"></div>
+     <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tbody>
     <tr>
-      <td>  <p class="lorem2"><img src="legend/beta.png" width="60" title="beta version" alt="beta version">&nbsp;&nbsp;<br />
-        <strong>Palermo hub</strong> è un contenitore di mappe su Palermo realizzato da <a href="http://opendatasicilia.it" title="opendatasicilia.it" target="_parent" class="tooltips">opendatasicilia.it<span><img src="legend/clip_index/ods.jpg" class="clip_tooltips"  /></span></a>,&nbsp;&nbsp;non ha alcun intento commerciale,&nbsp;&nbsp;l’unica finalità è mostrare le possibilità di rielaborazione e comunicazione offerte dagli <a title="Da Wikipedia, l'enciclopedia libera" href="https://it.wikipedia.org/wiki/Dati_aperti" target="_blank" rel="noopener noreferrer">open data</a> o   <a href="https://medium.com/open-data-stories/non-open-data-ma-dati-pubblici-la-metafora-dellacqua-b09ff1c24fe3" title="Non “open data”, ma “dati pubblici”: la metafora dell’acqua" target="_parent" class="tooltips">dati pubblici<span><img src="https://cdn-images-1.medium.com/max/2000/1*iQIt7bAThmJXh5hEU_Q9qg.jpeg" class="clip_tooltips"  /></span>  </a> comunali, regionali e  nazionali. <br /> 
-    <p class="lorem2">&nbsp;</p>
-    <p class="lorem2"><strong>Attualmente sono disponibili le segeunti mappe:</strong><br />
-  <a href="index_atlante.html" title="Atlante delle Carte Tecniche storiche" target="_parent" class="tooltips"><strong>1 - Atlante delle Carte Tecniche storiche<span><img src="legend/clip_index/atlante.jpg" class="clip_tooltips"  /></span></strong></a> - Osservare il cambiamento di una città grazie alla cartografia... Rispetto alla  <a href="http://siciliahub.github.io/mappe/atlante_carto_pa/index.html" title="Osservare il cambiamento di una città grazie alla cartografia: Il caso Palermo" target="_blank">mappa</a> pubblicata ad Aprile 2017, è stata aggiunta una nuova carta tecnica ed è stato migliorato il passaggio da una carta all'altra, mantenendo posizione e zoom<br /> 
-      <a href="cartografia.html#14/38.1185/13.3595" title="Cartografia CTR 10k e Ortofoto di base" target="_parent" class="tooltips"><strong>2 - Cartografia CTR 10k e Ortofoto di base</strong><span><img src="legend/clip_index/cartografia.jpg" class="clip_tooltips"  /></span></a> - Carta Tecnica Regionale 10K (C.T.R.), Ortofoto volo ATA 2012-2013 (Sicilia) e Ortofoto volo ATA 2012-2013 Palermo 14 cm <br /> 
-      
-  <a href="index_prg.html#14/38.1185/13.3595" target="_parent"  title="Strumenti Urbanistici Vigenti al 2017 - Variante Generale al PRG - PPE Centro Storico"class="tooltips"><strong>3 - Strumenti Urbanistici Vigenti al 2017 - Variante Generale al PRG - PPE Centro Storico<span><img src="legend/clip_index/prg.jpg" class="clip_tooltips"  /></span></strong></a> - Variente Generle l P.R.G. - Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di approvazione - Luglio 2003 - Presa D'atto Delibera 7/2004 e Piano Particolareggiato Esecutivo del centro storico. Variente Generle l P.R.G. - Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di approvazione - Luglio 2003 - Presa D'atto Delibera 7/2004 e Piano Particolareggiato Esecutivo del centro storico. <br />
-  4 - Piano Stralcio di Bacino per l&lsquo;Assetto Idrogeologico (P.A.I.) Regione Sicilia - (Palermo), strumento fondamentale della politica di assetto territoriale delineata dalla legge 183/89,  avviata in ogni regione la pianificazione di bacino, esso ne costituisce il primo stralcio tematico e funzionale.<br />   
-  <a href="index_pai.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e del Rischio Geomofologico (P.A.I.) Regione Sicilia" target="_parent" class="tooltips">&nbsp;&nbsp;&nbsp;&nbsp;<strong>4a - Mappa delle Pericolosità e del Rischio Geomofologico</strong> <span><img src="legend/clip_index/index_pai.jpg" class="clip_tooltips"  /></span></a> - Pericolosità ambientale riferita alla probabilità che si verifichi un fenomeno di instabilità geomorfologica, cioè un fenomeno connesso a forme del terreno che non sono in equilibrio con l’ambiente naturale o che lo sono ma in modo particolarmente dinamico. <br />
-<a href="dissesti.html#14/38.1185/13.3595" title="bla bla" target="_parent" class="tooltips">&nbsp;&nbsp;&nbsp;&nbsp;<strong>4b - Mappa dei Dissesti<span><img src="legend/clip_index/dissesti.jpg" class="clip_tooltips"  /></span></strong></a> - Insieme dei processi morfologici che hanno un'azione fortemente   distruttiva in termini di degradazione del suolo e quindi indirettamente   nei confronti dei manufatti. Esso comprende tutti quei processi, a   partire dall'erosione superficiale e sotto la superficie, fino agli   eventi più catastrofici quali frane e alluvioni.<br />  
-<a href="idraulica.html#14/38.1185/13.3595" title="Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione" target="_parent" class="tooltips">&nbsp;&nbsp;&nbsp;&nbsp;<strong>4c - Mappa delle Pericolosità e Rischio Idraulico per fenomeni di esondazione</strong><span><img src="legend/clip_index/pericolo_rischio_idra.jpg" class="clip_tooltips"  /></span></a> - Con il termine di pericolosità idraulica , in idrologia, si definisce la probabilità che un fenomeno naturale potenzialmente distruttivo si verifichi in un dato tempo ed in una data area. La pericolosità di evento naturale è definita sulla base del tempo di ritorno oppure del rischio idraulico. La pericolosità idraulica si differenzia in quattro classi.<br />  
-<a href="rischio_idrogeologico.html#14/38.1185/13.3595" title="Mappa del Rischio idrogeologico" target="_parent" class="tooltips">&nbsp;&nbsp;&nbsp;&nbsp;<strong>4d - Mappa del Rischio idrogeologico</strong><span><img src="legend/clip_index/rischio_idrogeo.jpg" class="clip_tooltips"  /></span></a> - Assieme a quello sismico e a quello vulcanico, è da ritenersi uno dei   maggiori rischi ambientali connessi alle attività umane. Dal nome, che   richiama l&rsquo;acqua, potrebbe far meno paura, e invece abbiamo tutte le   ragioni per stare in guardia da questa categoria. Lo vedremo dai numeri   aggiornati, grazie a report di Legambiente, e tornando con la mente a   numerosi episodi a cui abbiamo assistito, in Italia e nel mondo.<br>
-<a href="pericolosità_idrogeologica.html#14/38.1185/13.3595" title="Mappa della Pericolosità idrogeologica" target="_parent" class="tooltips">&nbsp;&nbsp;&nbsp;&nbsp;<strong>4e - Mappa della Pericolosità idrogeologica<span><img src="legend/clip_index/pericolosita_idro_geo.jpg" class="clip_tooltips"  /></span></strong></a> - La pericolosità è definita in letteratura in vari modi e con diverse accezioni. Quella più largamente accettata in relazione ai fenomeni naturali è quella proposta nel rapporto UNESCO del 1984, secondo cui la pericolosità è definita come ”probabilità di occorrenza di un fenomeno potenzialmente pericoloso in un determinato intervallo di tempo e in una certa area”<br /> 
-
- 
-  
-      
-  <a href="peric_sismica.html" title="Mappa della Pericolosità sismica - Sicilia" target="_parent" class="tooltips"><strong>5 - Mappa della Pericolosità sismica - Sicilia<span><img src="legend/clip_index/peric_sismica.jpg" class="clip_tooltips"  /></span></strong></a> - La pericolosità sismica, intesa in senso probabilistico, è lo scuotimento del suolo atteso in un dato sito con una certa probabilità di eccedenza in un dato intervallo di tempo, ovvero la probabilità che un certo valore di scuotimento si verifichi in un dato intervallo di tempo. <br />
-      
-  <a href="piano_prot_civ.html#14/38.1185/13.3595" title="Piano di emergenza Protezione Civile" target="_parent" class="tooltips"><strong>6 - Piano di emergenza Protezione Civile<span><img src="legend/clip_index/piano_pc.jpg" class="clip_tooltips"  /></span></strong></a> - Censimento delle aree di emergenza ai fini della pianificazione di Protezione Civile (Aree di attesa della popolazione, Aree di accoglienza o di ricovero della popolazione e Aree di ammassamento soccorritori e risorse) dei Comuni delle Provincia di Catania, Enna, Messina, Ragusa e del Comune di Palermo. Inoltre disponibili informazioni sulle principali strutture operative (Prefetture, Carabinieri, Polizia di Stato, Guardia di Finanza, Capitanerie di porto, Vigili del Fuoco, Ass. Volontariato iscritte nel Registro Regionale del DRPC).<br />
-  
-    <a href="2016_rim_ami.html" title="Rielaborazione rimozione di cemento amianto negli spazi pubblici comunali" target="_parent" class="tooltips"><strong>7 - Rimozione di cemento amianto<span><img src="legend/clip_index/amianto.jpg" class="clip_tooltips"  /></span></strong></a> - Rimozione dagli spazi pubblici comunali dall'anno 2010 al 2016<br />
-    
-  <a href="index_3d.html" title="Palermo 3D Maps WRLD" target="_parent" class="tooltips"><strong>8 - Palermo 3D Maps WRLD<span><img src="legend/clip_index/3d_wrld.jpg" class="clip_tooltips"  /></span></strong></a> - WRLD è una piattaforma dinamica di mappatura 3D per edifici intelligenti, città, giochi, e esperienze virtuali. Fornisce un ambiente 3D completamente testurizzato che utilizza un sistema di coordinate globali in modo reale, quindi è pronto per essere utilizzato immediatamente.</p>      
-<!--     
-<a href="#" title="bla bla" target="_parent" class="tooltips"><strong>x - xxxxxxxx<span><img src="legend/clip_index/tra.png" class="clip_tooltips"  /></span></strong></a> - xxxxxxxxxxxx<br />
-
-<a href="#" title="bla bla" target="_parent" class="tooltips"><strong>x - xxxxxxxx<span><img src="legend/clip_index/tra.png" class="clip_tooltips"  /></span></strong></a> - xxxxxxxxxxxx<br />
-
-<a href="#" title="bla bla" target="_parent" class="tooltips"><strong>x - xxxxxxxx<span><img src="legend/clip_index/tra.png" class="clip_tooltips"  /></span></strong></a> - xxxxxxxxxxxx<br />
-      
-   -->
-      
-
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tbody>
-        <tr>
-          <td valign="middle"><div id="social"> <p class="lorem2"><strong>Condividi:&nbsp;&nbsp;</strong> 
-            <a href="#" title="Condividi su Facebook" class="csbuttons soc" data-type="facebook"><img src="lib/images/fb.png" alt="facebook" width="32" height="32"></a>&nbsp;&nbsp;
-            <a href="#" title="Condividi su Twitter" class="csbuttons soc" data-type="twitter"><img src="lib/images/tw.png" alt="twitter" width="32" height="32"></a>&nbsp;&nbsp;
-            <a href="#" title="Condividi su GooglePlus" class="csbuttons soc" data-type="google" ><img src="lib/images/gp.png"width="32" height="32" alt="google"></a>&nbsp;&nbsp;
-            <a href="#" title="Condividi su Linkedin" class="csbuttons soc" data-type="linkedin"><img src="lib/images/in.png"width="32" height="32" alt="linkedin"></a>&nbsp;&nbsp;
-            <a href="#" title="Condividi su Pinterest" class="csbuttons soc" data-type="pinterest"><img src="lib/images/pin.png" width="32" height="32"alt="pinterest"></a></p>
-          </div>
-            
-  <script>
-			$(document).ready(function(){
-				$('.csbuttons').cSButtons({total : "#total","url" 	: "http://siciliahub.github.io/mappe/palermo_hub/index.html",});
-			});
-		</script></td>
-          </tr>
-      </tbody>
-    </table>
-    </td></tr>
+      <td>
+        
+      </td></tr>
     <tr>
-      <td>  
-        <hr ></td>
+      <td>         <!-- <div data-includeHTML="database.html"></div> -->
+ <iframe src="database.html" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:65px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe></td>
     </tr>
     <tr>
-      <td><!-- inizio unite gallery -->
-       <div id="gallery" style="display:none;">
-       
-       		<a href="index_atlante.html">
-		<img alt="Atlante delle Carte Tecniche storiche"
-		     src="legend/clip_index/atlante.jpg"
-		     data-description="Atlante delle Carte Tecniche storiche"
-		     style="display:none">
-		</a>
-
-		<a href="cartografia.html#14/38.1185/13.3595">
-		<img alt="Cartografia e Ortofoto di base"
-		     src="legend/clip_index/cartografia.jpg"
-		     data-description="Cartografia e Ortofoto di base"
-		     style="display:none">
-		</a>
-
-		<a href="index_prg.html#14/38.1185/13.3595">
-       <img alt="Strumenti urbanistici di attuazione - Vigenti al 2017"
-       		src="legend/clip_index/prg.jpg" 
-       	     data-description="Strumenti urbanistici di attuazione"
-		     style="display:none">
-		</a>
-
-		<a href="index_pai.html#14/38.1185/13.3595">
-		<img alt="Mappa delle Pericolosità e del Rischio Geomofologico"
-		     src="legend/clip_index/index_pai.jpg"
-		     data-description="Mappa delle Pericolosità e del Rischio Geomofologico"
-		     style="display:none">
-		</a>
-
-		<a href="dissesti.html#14/38.1185/13.3595">
-		<img alt="Mappa dei Dissesti"
-		     src="legend/clip_index/dissesti.jpg"
-		     data-description="Mappa dei Dissesti"
-		     style="display:none">
-		</a>
-
-		<a href="rischio_idrogeologico.html#14/38.1185/13.3595">
-		<img alt="Mappa del Rischio idrogeologico"
-		     src="legend/clip_index/rischio_idrogeo.jpg"
-		     data-description="TMappa del Rischio idrogeologico"
-		     style="display:none">
-		</a>
-
-		<a href="idraulica.html#14/38.1185/13.3595">
-		<img alt="Mappa delle Pericolosità e Rischio Idraulico"
-		    src="legend/clip_index/pericolo_rischio_idra.jpg"
-		    data-description="Mappa delle Pericolosità e Rischio Idraulico"
-		     style="display:none">
-		</a>
-
-		<a href="pericolosità_idrogeologica.html#14/38.1185/13.3595">
-		<img alt="Mappa del Rischio idrogeologico"
-		     src="legend/clip_index/pericolosita_idro_geo.jpg"
-		     data-description="Mappa del Rischio idrogeologico"
-		     style="display:none">
-		</a>
-        
-                	<a href="peric_sismica.html">
-		<img alt="Mappa della Pericolosità sismica"
-		     src="legend/clip_index/peric_sismica.jpg"
-		     data-description="Mappa della Pericolosità sismica"
-		     style="display:none">
-		</a> 
-        
-    	<a href="piano_prot_civ.html#14/38.1185/13.3595">
-		<img alt="Piano di emergenza Protezione Civile"
-		     src="legend/clip_index/piano_pc.jpg"
-		     data-description="Piano di emergenza Protezione Civile"
-		     style="display:none">
-		</a> 
-        
-       		<a href="2016_rim_ami.html">
-		<img alt="Rielaborazione rimozione di cemento amianto"
-		     src="legend/clip_index/amianto.jpg"
-		     data-description="Rielaborazione rimozione di cemento amianto"
-		     style="display:none">
-		</a> 
-
-       <!--- Palermo 3D Maps WRLD deve chidere il blocco  -->
-                	<a href="index_3d.html">
-		<img alt="Palermo 3D Maps WRLD"
-		     src="legend/clip_index/3d_wrld.jpg"
-		     data-description="Palermo 3D Maps WRLD"
-		     style="display:none">
-		</a> 
-        
-        
-	</div>
-    <br ><hr ></td>
-    </tr>
-    <tr>
-      <td> <p class="lorem2"><strong>Disclaimer:</strong><br >
-          Le informazioni visibili e condivise non comportano la visualizzazione di dati sensibili. Data la natura esclusivamente informativa degli elaborati grafici e dei testi riportati, questi non costituiscono atti ufficiali. Per accedere agli atti ufficiali si rinvia agli elaborati definitivi allegati alle specifiche deliberazioni.<br >
-<strong>Si declina ogni responsabilità sulla veridicità dei dati.</strong><br ></td>
-    </tr>
-    <tr>
-      <td><p class="lorem2"><strong>Tutto il materiale rielaborato per Palermo Hub di <a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank">OpenDataSicilia.ti</a> è distribuito con licenza <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)" target="_blank">Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) </a>- <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.it" title="Attribuzione – Condividi allo stesso modo 4.0 Internazionale (CC BY-SA 4.0)" target="_blank">Attribuzione – Condividi allo stesso modo 4.0 Internazionale (CC BY-SA 4.0)</a> tranne diversa indicazione</strong></p></td>
+      <td></td>
     </tr>
     <tr>
       <td align="center" valign="middle"></td>
     </tr>
   </tbody>
 </table>
-	</div>
- <br > 
+</header>
 
-  <!-- Footer -->  
-<pre1><code>
-  <table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tbody>
-    <tr>
-      <td width="5%" align="center" valign="top"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"><img src="lib/images/ods.svg" width="95" title="opendatasicilia.it" alt="opendatasicilia"></a></td>
-      <td width="2%">&nbsp;</td>
-      <td width="93%" valign="top"><p class="footer"><a target="_blank" href="http://opendatasicilia.it/" title="opendatasicilia.it"><strong>#OpenDataSicilia</strong></a> e’ una iniziativa civica che si propone di far conoscere e diffondere la cultura dell’open government e le prassi dell’open data nel nostro territorio e aprire una discussione pubblica partecipata.<br>
-Siamo un gruppo di cittadini con diverse storie, competenze, professioni. Siamo accomunati dalla genuina volontà di contribuire a migliorare la qualità della vita della nostra comunità. Lo vogliamo fare con spirito di collaborazione e concretezza.
-</td>
-    </tr>
-    <tr>
-      <td align="center" valign="middle"><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.it" target="_blank" rel="license noopener"><img class="alignnone" style="border-width: 0;" title="Tutto il materiale rielaborato per Palermo Hub di OpenDataSicilia.it è distribuito con licenza Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale (CC BY-SA 4.0) tranne diversa indicazione." src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" alt="Licenza Creative Commons" width="88" height="31" /></a></td>
-      <td>&nbsp;</td>
-      <td align="right" valign="middle"><!-- table social -->
-  <table width="10%" border="0" align="right" cellpadding="0" cellspacing="0" class="ods_social" >
-  <tbody>
-    <tr>
-      <td><a href="https://www.facebook.com/groups/opendatasicilia/" target="_blank" title="Facebook"><span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-              </span>
-            </a></td>
-      <td>&nbsp;</td>
-      <td><a href="https://github.com/SiciliaHub" target="_blank" title="GitHub"><span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a></td>
-      <td>&nbsp;</td>
-      <td><a href="https://twitter.com/opendatasicilia" target="_blank" title="Twitter"> <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-              </span>
-            </a></td>
-      <td>&nbsp;</td>
-      <td><a href="http://opendatasicilia.it/" target="_blank" title="OpenDataSicilia.it"><span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
-              </span>
-            </a></td>
-            <td>&nbsp;</td>
-      <td><a href="https://groups.google.com/d/forum/opendatasicilia" target="_blank" title="mailing list OpenDataSicilia.it"><span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-envelope-open fa-stack-1x fa-inverse"></i>
-              </span>
-            </a></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-    </tr>
-  </tbody>
-</table></td>
-    </tr>
-  </tbody>
-</table>
-</code></pre1>
-<script type="text/javascript">
-
-		jQuery(document).ready(function(){
-
-			jQuery("#gallery").unitegallery({
-				tile_as_link:true,
-				//tile_border_color:"#7a7a7a",
-				//tile_outline_color:"#8B8B8B",
-				//tile_enable_shadow:true,
-				tile_shadow_color:"rgba(0,0,0,0.2)",
-				tile_overlay_opacity:0.3,
-				tile_enable_image_effect:true,
-	            tile_image_effect_reverse:true,
-				//tile_show_link_icon:true,
-				// tile_image_effect_type:"sepia",
-				tile_image_effect_reverse:true,
-				//tile_textpanel_always_on:true,
-				tile_textpanel_title_text_align: "center",
-				tile_enable_textpanel:true,
-				lightbox_textpanel_title_color:"e5e5e5",
-				tiles_col_width:400,
-				tiles_space_between_cols:20	,
-				tile_enable_shadow:true,
-				// bordi
-				tile_enable_border:true,
-				tile_enable_outline:false,
-				tiles_space_between_cols:15,
-				tiles_justified_space_between:15,
-				tile_border_color: "#ccc",
-				tile_border_width:1,
-				tile_border_radius:5,
-				theme_gallery_padding:10,
-				tiles_type: "justified",
-						
-			});
-
-		});
-		
-	</script>
-<script src="lib/js/social/jquery_csbuttons.js"></script>  
+<script>
+    $(document).ready(function () {
+        $("div[data-includeHTML]").each(function () {                
+            $(this).load($(this).attr("data-includeHTML"));
+        });
+    });
+</script>
 </body>
 </html>

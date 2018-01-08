@@ -98,10 +98,17 @@
 
     </head>
     <body>
-       <!-- header --> 
-    <div id="header">
-      <!-- Content will be inserted by jQuery from menu.html -->
-    </div> 
+ <!-- header -->    
+<header>
+     <div data-includeHTML="menu.html"></div>
+</header>
+<script>
+    $(document).ready(function () {
+        $("div[data-includeHTML]").each(function () {                
+            $(this).load($(this).attr("data-includeHTML"));
+        });
+    });
+</script>
 <div id="legenda"><a class="legenda" href="#chart" title="Grafici rimozione di cemento amianto negli spazi pubblici comunali"><img src="legend/tra.png" width="42" height="42" alt=""/></a></div>
  <div id="sidebar" class="sidebar collapsed">
    <!-- popup grafico -->  
