@@ -156,8 +156,8 @@ body {
 					<div ex:role="exhibit-view"
 					ex:viewClass="Exhibit.TabularView"
 					ex:label="Table"
-					ex:columns=".titolo,.descrizione,.immago,.categoria,.tag,.collaborazione,.data,.primamappa,.titolo_pm,.fontedati"
-					ex:columnLabels="Titolo, Descrizione, Immagine, Categoria,  Tag, Autore, Data inserimento,  Prima mappa, Fonte Dati,"
+					ex:columns=".titolo,.descrizione,.immago,.categoria,.tag,.collaborazione,.primamappa,.titolo_pm,.fontedati"
+					ex:columnLabels="Titolo, Descrizione, Immagine, Categoria,  Tag, Autore, Prima mappa, Fonte Dati,"
 					ex:columnFormats="list,list,list,list,list,list,list,list,list,list"
 					ex:sortColumn="4"
 					ex:sortAscending="false"
@@ -172,8 +172,7 @@ body {
 									<td><span ex:content=".categoria"></td>
                                     <td><span ex:content=".tag" ></span></td>
                                     <td><span ex:content=".collaborazione"></span></td>
-									<td><span ex:content=".data" ></span></td>
-                                    <td><a ex:href-content=".primamappa" ex:onclick-subcontent="trackOutboundLink('{{.primamappa}}'); return false;" title="Prima mappa rielaborata"  target="_blank"><strong><span ex:content=".titolo_pm" class="accussì"></strong></span></a></td>
+									<td><a ex:href-content=".primamappa" ex:onclick-subcontent="trackOutboundLink('{{.primamappa}}'); return false;" title="Prima mappa rielaborata"  target="_blank"><strong><span ex:content=".titolo_pm" class="accussì"></strong></span></a></td>
                                     <td><span ex:content=".fontedati"></span></td>
 								</tr>
 							</table> 
