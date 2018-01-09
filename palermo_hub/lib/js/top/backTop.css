@@ -3,6 +3,7 @@
     width:20px;
     height:20px;
     padding:10px;
+	right:15px;bottom:150px;  position:fixed;
     border-radius:20px;
     text-indent:-9999px;
     cursor:pointer;
@@ -11,6 +12,9 @@
 	box-sizing:content-box;
 	-webkit-box-sizing:content-box;
 }
+
+@media (min-width: 320px) and (max-width: 1023px) {#backTop {width:10px; height:10px;border-radius:30px;}}
+
 #backTop.white{
      background:url(img/uparr-48-b.png) no-repeat center center rgba(255,255,255,0.8);
     border:1px solid #ccc;
