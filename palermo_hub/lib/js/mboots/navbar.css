@@ -14,6 +14,9 @@
 .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {color: #000; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;}
 .caret {color: #4E4B4B; }
 
+
+.dropdown-menu {font-size:12px; }
+
 @media (min-width: 767px) {
     .caret-right {
         width: 0; 
