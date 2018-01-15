@@ -32,7 +32,7 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	</head>
 	<body>
-		<div id="map"></div>
+		<div id="map" class="blurbox-bodyContent"></div>
         <script src="data/exp_QuadroUnione.js"></script>
 		<script src="data/exp_AreeedimmobilisogettiatutelaamvientaleNettoStorico.js"></script>
 		<script src="data/exp_ZoneAA1.js"></script>
@@ -1783,5 +1783,61 @@ function pop_AreeedimmobilisogettiatutelaamvientaleFasciaCostiera(feature, layer
 	L.control.layers(baseMaps,{"Netto Storico": exp_AreeedimmobilisogettiatutelaamvientaleNettoStoricoJSON,"Zone A - A1": exp_ZoneAA1JSON,"Zone A - A2": exp_ZoneAA2JSON,"Zone B - B0a": exp_ZoneBB0aJSON,"Zone B - B0b": exp_ZoneBB0bJSON,"Zone B - B1": exp_ZoneBB1JSON,"Zone B - B2": exp_ZoneBB2JSON,"Zone B - B3": exp_ZoneBB3JSON,"Zone B - B4a": exp_ZoneBB4aJSON,"Zone B - B4b ": exp_ZoneBB4bJSON,"Zone B - B5": exp_ZoneBB5JSON,"Zone C - Ca": exp_ZoneCCaJSON,"Zone C - Cb": exp_ZoneCCbJSON,"Zone D - D1": exp_ZoneDD1JSON,"Zone D - D2": exp_ZoneDD2JSON,"Centro di municipalità": exp_CentrodimunicipalitJSON,"Zone E - E1 ": exp_ZoneEE1JSON,"Zone E - E2": exp_ZoneEE2JSON,"Zone F": exp_ZoneFSpaziedAttrezzaturepubblichediinteressegeneraleJSON,"Zone S": exp_ZoneSIstruzioneAsiliNidoeScuoledellobbligoJSON,"Parcheggi": exp_ParcheggiJSON,"Attrezzature di Interessi Comune": exp_ZoneICAttrezzaturediInteressiComuneJSON,"Fascia Costiera": exp_AreeedimmobilisogettiatutelaamvientaleFasciaCostieraJSON,"Icd": exp_IcdJSON,"Verde Pubblico": exp_ZoneVerdePubblicoJSON,"Verde Storico": exp_AreeedimmobilisogettiatutelaamvientaleVerdeStoricoJSON, "Quadro Unione 5K": exp_QuadroUnioneJSON, "Città Storica": exp_AreeedimmobilisogettiatutelaamvientaleCittaStoricaJSON},{collapsed:true}).addTo(map);
 		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
 	</script>
+    
+    <!-- popup Palermo  invito a visitare Hub class="blurbox-bodyContent"> -->
+<div id="blurbox" style="width: 500px; display: none;">
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+      <td colspan="3" align="center">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="25%" align="center">&nbsp;</td>
+      <td width="50%" align="center" class="lorem"><strong style="font-size: 18px;">Visita   <a href="http://palermohub.opendatasicilia.it/index.html" title="palermohub.opendatasicilia.it" target="_blank">Palermo Hub</a></strong></td>
+      <td width="25%" align="center">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3"><p class="lorem">Palermo Hub di <a href="http://opendatasicilia.it/" rel="nofollow"><strong>opendatasicilia.it</strong></a> è un contenitore di mappe realizzate/rielaborate da liberi cittadini o   da civic hackers prevalentemente sul territorio comunale di Palermo, non   ha alcun intento commerciale, l&rsquo;unica finalità è mostrare le   possibilità di rielaborazione e comunicazione offerte dagli open data o   dati pubblici comunali, regionali e nazionali. <br>
+  a cura di <a href="https://twitter.com/aborruso" rel="nofollow">@aborruso</a>, <a href="https://twitter.com/cirospat" rel="nofollow">@cirospat</a> e <a href="https://twitter.com/gbvitrano" rel="nofollow">@gbvitrano</a> </p></td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="lorem">Variante Generale al P.R.G. - Palermo - Zonizzazione: e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di approvazione - Luglio 2003 - Presa D atto Delibera 7/2004 - Rielabolazione Opendata - <a href="http://palermohub.opendatasicilia.it/index_prg.html#14/38.1185/13.3595" title="Variante Generale al P.R.G. - Palermo - Zonizzazione: e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di approvazione - Luglio 2003 - Presa D atto Delibera 7/2004 - Rielabolazione Opendata" target="_blank">Qui il nuovo link </a></td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="25%" height="90" align="center" valign="middle"><p class="lorem">&nbsp;</p></td>
+      <td width="50%" align="center" valign="middle"><span class="lorem"><a href="http://palermohub.opendatasicilia.it/index.html" rel="nofollow"><a href="http://palermohub.opendatasicilia.it/index.html" rel="nofollow"><strong>PalermoHub - Demo</strong></a><a href="http://palermohub.opendatasicilia.it/index.html" target="_blank"><img src="https://github.com/SiciliaHub/palermohub/raw/gh-pages/legend/beta.png" title=" PalermoHub beta version" width="80"></a></span></td>
+      <td width="25%" align="center" valign="middle">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" valign="middle">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://siciliahub.github.io/mappe/palermo_hub/data/blurbox/blurbox.js"></script>
+<script>
+setTimeout(function() {
+	var bb = $('#blurbox').blurbox({blur: 10, animateBlur: true, bgColor: 'rgba(255,255,0,0.2)'})
+	bb.show();
+},1000);
+</script> 
+    
 </body>
 </html>
