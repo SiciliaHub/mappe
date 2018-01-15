@@ -36,7 +36,7 @@ z-index: 999;}
 </head>
 <body>
     <body>
-        <div id="map">
+        <div id="map" class="blurbox-bodyContent">
         </div>
 
         <script type="text/JavaScript">
@@ -81,5 +81,59 @@ minZoom: 13,
         </script>
          <div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
 <img src="images/opendatasicilia.png" width="48px" title="opendatasicilia.it" alt="opendatasicilia"></a></div>
+<!-- popup Palermo  invito a visitare Hub class="blurbox-bodyContent"> -->
+<div id="blurbox" style="width: 500px; display: none;">
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+      <td colspan="3" align="center">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="25%" align="center">&nbsp;</td>
+      <td width="50%" align="center" class="lorem"><strong style="font-size: 18px;">Visita   <a href="http://palermohub.opendatasicilia.it/index.html" title="palermohub.opendatasicilia.it" target="_blank">Palermo Hub</a></strong></td>
+      <td width="25%" align="center">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3"><p class="lorem">Palermo Hub di <a href="http://opendatasicilia.it/" rel="nofollow"><strong>opendatasicilia.it</strong></a> è un contenitore di mappe realizzate/rielaborate da liberi cittadini o   da civic hackers prevalentemente sul territorio comunale di Palermo, non   ha alcun intento commerciale, l&rsquo;unica finalità è mostrare le   possibilità di rielaborazione e comunicazione offerte dagli open data o   dati pubblici comunali, regionali e nazionali. <br>
+  a cura di <a href="https://twitter.com/aborruso" rel="nofollow">@aborruso</a>, <a href="https://twitter.com/cirospat" rel="nofollow">@cirospat</a> e <a href="https://twitter.com/gbvitrano" rel="nofollow">@gbvitrano</a> </p></td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" class="lorem">Osservare il cambiamento di una città grazie alla cartografia...   Rispetto alla mappa pubblicata ad Aprile 2017, è stata aggiunta una   nuova carta tecnica ed è stato migliorato il passaggio da una carta   all'altra, mantenendo posizione e zoom - <a href="http://palermohub.opendatasicilia.it/index_atlante.html" title="Osservare il cambiamento di una città grazie alla cartografia." target="_blank">Qui il nuovo link </a></td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="25%" height="90" align="center" valign="middle"><p class="lorem">&nbsp;</p></td>
+      <td width="50%" align="center" valign="middle"><span class="lorem"><a href="http://palermohub.opendatasicilia.it/index.html" rel="nofollow"><a href="http://palermohub.opendatasicilia.it/index.html" rel="nofollow"><strong>PalermoHub - Demo</strong></a><a href="http://palermohub.opendatasicilia.it/index.html" target="_blank"><img src="https://github.com/SiciliaHub/palermohub/raw/gh-pages/legend/beta.png" title=" PalermoHub beta version" width="80"></a></span></td>
+      <td width="25%" align="center" valign="middle">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" valign="middle">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://siciliahub.github.io/mappe/palermo_hub/data/blurbox/blurbox.js"></script>
+<script>
+setTimeout(function() {
+	var bb = $('#blurbox').blurbox({blur: 10, animateBlur: true, bgColor: 'rgba(255,255,0,0.2)'})
+	bb.show();
+},1000);
+</script>
+
     </body>
 </html>
