@@ -2,7 +2,7 @@
 
 <a href="http://siciliahub.github.io/mappe/atlante_carto_pa/index.html"><img width="1000" src="http://siciliahub.github.io/mappe/atlante_carto_pa/images/atlante.jpg" Title=" Atlante - Cartografie storiche di Palermo - scala 1:5000" alt="Atlante delle cartografie tecniche storiche di Palermo" /></a>
 
-# Vista Palermo Hub  [Nuovo link per Atlante Storico](http://palermohub.opendatasicilia.it/index_atlante.html)
+# Vista [Palermo Hub](http://palermohub.opendatasicilia.it) - [Nuovo link per Atlante Storico](http://palermohub.opendatasicilia.it/index_atlante.html)
 
 [**Atlante delle cartografie tecniche storiche di Palermo**](http://siciliahub.github.io/mappe/atlante_carto_pa/index.html) a cura di [@aborruso](https://twitter.com/aborruso), [@piersoft](https://twitter.com/Piersoft), [@cirospat](https://twitter.com/cirospat), [@napo](https://twitter.com/napo) e [@gbvitrano](https://twitter.com/gbvitrano)
 
