@@ -31,7 +31,7 @@ html, body{padding: 0;    margin: 0;	height: 100%; font: 11px "Open Sans", Helve
 #ods { position:fixed; bottom:51px; right:17px; z-index: 800;}
 #itaf { position:fixed; bottom:95px; right:37px; z-index: 800;}
 
-.lorem {font-style: italic; color: #4E4B4B; text-align: justify; }.awesome {font-style:fontawesome;  color: #4E4B4B;  }
+.lorem {font-style: italic; color: #4E4B4B; text-align: justify; font-size: 11px;}.awesome {font-style:fontawesome;  color: #4E4B4B;  }
 a:link {color: #FF9900;	text-decoration:none;}
 a:visited {	color: #FF9900;}/* foglio di stile atlante cartografico palermo - giovan battista vitrano per opendatasicilia.it */
 a:hover {color: #FF9900; text-decoration:underline; } 
