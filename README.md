@@ -50,6 +50,6 @@ Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di app
 
 - [**Piano per l’Assetto Idrogeologico (PAI) - Palermo**](http://siciliahub.github.io/mappe/pai_palermo/index.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano)
 
-- [**Palermo Hub - (contenitore di mappe su Palermo) Work in progress...**](https://siciliahub.github.io/palermohub/index.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano)
+- [**Palermo Hub - (contenitore di mappe su Palermo)**](https://siciliahub.github.io/palermohub/index.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano)
 
 - [**Geocodifica il tuo indirizzo - Utility**](https://siciliahub.github.io/mappe/geolocation/geolocation.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano)
