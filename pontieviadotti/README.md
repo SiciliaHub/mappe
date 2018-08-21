@@ -9,6 +9,8 @@ I file sono stati usati per realizzare la mappa [Ponti e viadotti italiani – 2
 
 <a href="http://bit.ly/pontieviadotti"><img width="1000" src="http://siciliahub.github.io/mappe/pontieviadotti/mappa_pontieviadotti.png" Title="Ponti e viadotti italiani – 2018" /></a>
 
+**Mappa vector-tiles in progress...**
+
 
 []()
 []()
