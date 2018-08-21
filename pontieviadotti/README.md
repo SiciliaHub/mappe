@@ -8,7 +8,7 @@ In alternativa si possono scaricare i dati [OSM](https://www.openstreetmap.org) 
 Sono state utilizzate anche le basi territoriali Istat [Confini delle unità amministrative a fini statistici al 1 gennaio 2018](https://www.istat.it/it/archivio/210584) per inserire la Regione, Provincia e Comune.<br><br>
 I file sono stati usati per realizzare la mappa [Ponti e viadotti italiani – 2018](http://bit.ly/pontieviadotti) su [**Umap**](http://umap.openstreetmap.fr/it/) <br>
 
-<a href="http://bit.ly/pontieviadotti"><img width="1000" src="http://siciliahub.github.io/mappe/pontieviadotti/mappa_pontieviadotti.png" Title="Ponti e viadotti italiani – 2018" /></a>
+<a href="http://bit.ly/pontieviadotti"><img width="1000" src="http://siciliahub.github.io/mappe/pontieviadotti/mappa_pontieviadotti_02.jpg" Title="Ponti e viadotti italiani – 2018" /></a>
 
 **Mappa vector-tiles in progress...**
 
