@@ -10,8 +10,10 @@ I file sono stati usati per realizzare la mappa [Ponti e viadotti italiani – 2
 
 <a href="http://bit.ly/pontieviadotti"><img width="1000" src="http://siciliahub.github.io/mappe/pontieviadotti/mappa_pontieviadotti_02.jpg" Title="Ponti e viadotti italiani – 2018" /></a>
 
-**Mappa vector-tiles in progress...**
+[**Mappa realizzata con QGIS Cloud**](https://qgiscloud.com/coseerobe/pontieviadotti_qgiscloud/)<br>
+[**Server WMS QGIS Cloud**](https://qgiscloud.com/coseerobe/pontieviadotti_qgiscloud/wms?SERVICE=WMS&REQUEST=GetCapabilities)
 
+**Mappa vector-tiles in progress...**
 
 []()
 []()
