@@ -1,4 +1,4 @@
-# Ponti e Viadotti italiani - Agosto 2018 (tot. 126.881)
+# Ponti e viadotti italiani - Agosto 2018 (tot. 126.881)
 
 I file contenuti in questa cartella sono stati estratti da [OSM](https://www.openstreetmap.org) utilizzando [overpass-turbo.eu](http://overpass-turbo.eu), da [gbvitrano](https://twitter.com/gbvitrano). <br>
 Il contenuto dei file é rilasciato con la licenza [ODbL](https://www.openstreetmap.org/copyright). <br><br>
