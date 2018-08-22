@@ -53,3 +53,5 @@ Zonizzazione e vincoli sul territorio adeguati ai D. Dir 558 e 124/DRU/02 di app
 - [**Palermo Hub - (contenitore di mappe su Palermo)**](https://siciliahub.github.io/palermohub/index.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano)
 
 - [**Geocodifica il tuo indirizzo - Utility**](https://siciliahub.github.io/mappe/geolocation/geolocation.html) a cura di [@gbvitrano](https://twitter.com/gbvitrano)
+
+- [Ponti e Viadotti italiani - Agosto 2018](https://github.com/SiciliaHub/mappe/tree/gh-pages/pontieviadotti) estratti da [OSM](https://www.openstreetmap.org) utilizzando [overpass-turbo.eu](http://overpass-turbo.eu) a cura di [gbvitrano](https://twitter.com/gbvitrano). 
