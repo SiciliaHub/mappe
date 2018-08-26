@@ -1,4 +1,4 @@
-# Ponti e viadotti italiani - Agosto 2018 (tot. 126.881)
+# Ponti e viadotti italiani - Agosto 2018 (126.881 tratte stradali su ponte o viadotti)
 
 I file contenuti in questa cartella sono stati estratti da [OSM](https://www.openstreetmap.org) utilizzando [overpass-turbo.eu](http://overpass-turbo.eu), da [gbvitrano](https://twitter.com/gbvitrano). <br>
 Il contenuto dei file è rilasciato con la licenza [ODbL](https://www.openstreetmap.org/copyright). <br><br>
