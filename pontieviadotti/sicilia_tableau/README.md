@@ -4,9 +4,9 @@ I file contenuti in questa cartella sono stati estratti da [OSM](https://www.ope
 Il contenuto dei file è rilasciato con la licenza [ODbL](https://www.openstreetmap.org/copyright). <br><br>
 [**Esempio di query overpass-turbo**](http://overpass-turbo.eu/s/Bfs) per estrarre ponti e viadotti della Sicilia.<br>
 
-[**Mappa interattiva e grafica dinamica Tableau Public - (tratte Stradali)](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia/Mappamultimediale)
+[**Mappa interattiva e grafica dinamica Tableau Public - (tratte Stradali)**](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia/Mappamultimediale)
 
-[**Mappa interattiva e grafica dinamica Tableau Public - ( centroidi tratte stradali)](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia_centroidi/Mappamultimediale)
+[**Mappa interattiva e grafica dinamica Tableau Public - ( centroidi tratte stradali)**](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia_centroidi/Mappamultimediale)
 
 []()
 []()
