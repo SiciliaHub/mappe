@@ -15,6 +15,23 @@ I file sono stati usati per realizzare la mappa [Ponti e viadotti italiani – 2
 
 **Mappa vector-tiles in progress...**
 
+## Mappa interattiva e grafica dinamica utilizzando Tableau Public
+
+[**Mappa interattiva - (tratte Stradali)**](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia/Mappamultimediale) elaborata con Tableau Public<br><br>
+[**Mappa interattiva - (centroidi tratte stradali)**](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia_centroidi/Mappamultimediale) elaborata con Tableau Public<br><br>
+<a href="http://palermohub.opendatasicilia.it/ponti_sicilia_centroidi.html"><img width="1000" src="http://palermohub.opendatasicilia.it/legend/clip_index/ponti_tableau.jpg" Title=" Ponti e viadotti siciliani - Agosto 2018 (più di 8.700 tratte stradali su ponti o viadotti)" /></a>
+[**consulta la mappa su PalermoHub**](http://palermohub.opendatasicilia.it/ponti_sicilia_centroidi.html)<br><br>
+Per estrarre i centroidi anche sulle **linee curve** è stato utilizzato QGIS e la **query** scritta da [@totofiandaca](https://twitter.com/totofiandaca) - [pigrecoinfinito](https://pigrecoinfinito.wordpress.com/)
+
+<img width="1000" src="http://siciliahub.github.io/mappe/pontieviadotti/sicilia_tableau/qgis_centroidi.jpg" Title="Ponti e viadotti italiani – 2018" /></a>
+
+**la query**
+```html
+select id,Line_Interpolate_Point(geometry, st_length(geometry)/2) as geometry
+from linee_ponti_sicilia
+```
+Grazie [Totò](https://twitter.com/totofiandaca) :-)
+
 []()
 []()
 
