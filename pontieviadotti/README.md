@@ -15,7 +15,7 @@ I file sono stati usati per realizzare la mappa [Ponti e viadotti italiani – 2
 
 **Mappa vector-tiles in progress...**
 
-## Mappa interattiva e grafica dinamica utilizzando Tableau Public
+## Mappa interattiva e grafica dinamica elaborata con Tableau Public
 
 [**Mappa interattiva - (tratte Stradali)**](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia/Mappamultimediale) elaborata con Tableau Public<br><br>
 [**Mappa interattiva - (centroidi tratte stradali)**](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia_centroidi/Mappamultimediale) elaborata con Tableau Public<br><br>
