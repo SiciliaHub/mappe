@@ -1,11 +1,11 @@
-# Mappa interattiva e grafica dinamica utilizzando Tableau Public
+# Mappa interattiva e grafica dinamica elaborata con Tableau Public
 ### Ponti e viadotti siciliani - Agosto 2018 (più di 8.700 tratte stradali su ponti o viadotti)
 
 I file contenuti in questa cartella sono stati estratti da [OSM](https://www.openstreetmap.org) utilizzando [overpass-turbo.eu](http://overpass-turbo.eu), da [gbvitrano](https://twitter.com/gbvitrano). <br>
 Il contenuto dei file è rilasciato con la licenza [ODbL](https://www.openstreetmap.org/copyright). <br><br>
 [**Esempio di query overpass-turbo**](http://overpass-turbo.eu/s/Bfs) per estrarre ponti e viadotti della Sicilia.<br><br><br>
-[**Mappa interattiva - (tratte Stradali)**](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia/Mappamultimediale) con Tableau Public<br><br>
-[**Mappa interattiva - (centroidi tratte stradali)**](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia_centroidi/Mappamultimediale) con Tableau Public<br><br>
+[**Mappa interattiva - (tratte Stradali)**](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia/Mappamultimediale) elaborata con Tableau Public<br><br>
+[**Mappa interattiva - (centroidi tratte stradali)**](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia_centroidi/Mappamultimediale) elaborata con Tableau Public<br><br>
 <a href="http://palermohub.opendatasicilia.it/ponti_sicilia_centroidi.html"><img width="1000" src="http://palermohub.opendatasicilia.it/legend/clip_index/ponti_tableau.jpg" Title=" Ponti e viadotti siciliani - Agosto 2018 (più di 8.700 tratte stradali su ponti o viadotti)" /></a>
 [**consulta la mappa su PalermoHub**](http://palermohub.opendatasicilia.it/ponti_sicilia_centroidi.html)<br><br>
 Per estrarre i centroidi anche sulle **linee curve** è stato utilizzato QGIS e la **query** scritta da [@totofiandaca](https://twitter.com/totofiandaca) - [pigrecoinfinito](https://pigrecoinfinito.wordpress.com/)
