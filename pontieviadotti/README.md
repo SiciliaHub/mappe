@@ -23,8 +23,7 @@ I file sono stati usati per realizzare la mappa [Ponti e viadotti italiani – 2
 [**Mappa interattiva - (centroidi tratte stradali)**](https://public.tableau.com/profile/gbvitrano#!/vizhome/Ponti_Sicilia_centroidi/Mappamultimediale) elaborata con Tableau Public<br><br>
 <a href="http://palermohub.opendatasicilia.it/ponti_sicilia_centroidi.html"><img width="1000" src="http://palermohub.opendatasicilia.it/legend/clip_index/ponti_tableau.jpg" Title=" Ponti e viadotti siciliani - Agosto 2018 (più di 8.700 tratte stradali su ponti o viadotti)" /></a>
 [**consulta la mappa su PalermoHub**](http://palermohub.opendatasicilia.it/ponti_sicilia_centroidi.html)<br><br>
-Per estrarre i centroidi anche sulle **linee curve** è stato utilizzato QGIS e la **query** scritta da [@totofiandaca](https://twitter.com/totofiandaca) - [pigrecoinfinito](https://pigrecoinfinito.wordpress.com/)
-
+Per ottenere i centroidi sulle linee (anche nel caso di linee curve) è stato usato QGIS e i virtual layer e la **query** scritta da [@totofiandaca](https://twitter.com/totofiandaca) - [pigrecoinfinito](https://pigrecoinfinito.wordpress.com/)<br><br>
 <img width="1000" src="http://siciliahub.github.io/mappe/pontieviadotti/sicilia_tableau/qgis_centroidi.jpg" Title="Ponti e viadotti italiani – 2018" /></a>
 
 **la query**
