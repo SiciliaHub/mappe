@@ -15,7 +15,7 @@ Per estrarre i centroidi anche dalle linee curve è stato utilizzato QGIS e la *
 select id,Line_Interpolate_Point(geometry, st_length(geometry)/2) as geometry
 from linee_ponti_sicilia
 ```
-Grazie [Totò](https://twitter.com/totofiandaca)
+Grazie [Totò](https://twitter.com/totofiandaca) :-)
 
 []()
 []()
