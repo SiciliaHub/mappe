@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="it">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Geocodifica il tuo indirizzo">
+        <meta name="keywords" content="Open Data, Sicilia, Indirizzi geocoding, geo-metatags, geotags ">
+        <meta name="author" content="Giovan Battista Vitrano per OpenDataSicilia.it">
+        <meta http-equiv="content-language" content="IT">
+        <meta name="robots" content="noindex,nofollow">
+        <meta name="creation_Date" content="22/07/2017">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="shortcut icon" href="favicon.ico"/> 
+        <link rel="icon" href="favicon.png" type="image/png"/> 
+            <title>OpenDataSicilia.it - Geocodifica il tuo indirizzo</title>
+            
+     <!-- Open Graph Protocol -->
+<meta property="og:title" content="Geocodifica il tuo indirizzo" />
+<meta property="og:description" content="Open Data Sicilia" />
+<meta property="og:url" content="https://siciliahub.github.io/mappe/geolocation/geolocation.html" />
+<meta property="article:author" content="Giovan Battista Vitrano per Open Data Sicilia" />
+<meta property="og:image" content="http://siciliahub.github.io/mappe/geolocation/images/geo_ods.jpg" />
+<meta property="og:site_name" content="github.com/SiciliaHub/mappe" />
+<!-- Open Graph Protocol -->
+
+<!-- twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Geocodifica il tuo indirizzo ">
+<meta name="twitter:description" content="Open Data Sicilia.">
+<meta name="twitter:image" content="http://siciliahub.github.io/mappe/geolocation/images/geo_ods.jpg">
+<meta name="twitter:creator" content="@gbvitrano Giovan Battista Vitrano per Open Data Sicilia">
+<meta name="twitter:site" content="github.com/SiciliaHub/mappe" />
+<meta name="twitter:url" content="github.com/SiciliaHub/mappe">
+<!-- twitter -->         
+ 
+    <!-- Bootstrap stuff -->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASUR-zcglbhzMCK73dD0ZzHSGFyzQXt10&libraries=places"></script>
+<script src="js/locationpicker.jquery.min.js"></script>
+     
+    <style type="text/css">
+html, body {padding: 10px; font: 14px "Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif; background-color:#ffffff; }
+hr {border: 0; background-color: #fff;  border-top: 1px dashed #ff9900; margin-top:10px;margin-bottom:10px;}
+.lorem0 {font-style: normal; color: #4E4B4B; text-align: justify; font-family:"Open Sans", Helvetica Neue, Arial, Helvetica, sans-serif;  font-size: 14px;}.awesome {font-style:fontawesome;  color: #4E4B4B; }
+#ods {  top:5px; left:5px; z-index: 800;}
+ @media (min-width: 320px) and (max-width: 1024px) {.lorem0 {font-size: 11px; color: #4E4B4B; text-align: justify;}}
+ @media (min-width: 320px) and (max-width: 1024px) {html, body {font: 11px "Open Sans",}}
+ 
+a:link {color: #FF9900;	text-decoration:none;}
+a:visited {	color: #FF9900;}
+a:hover {color: ##4E4B4B; text-decoration:underline; } 
+a:active {color: #FF0000; text-decoration:none; } 
+    </style>
+    
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-87653723-1', 'auto');
+  ga('send', 'pageview');
+
+</script>       
+</head>
+<body>
+<div class="container-fluid " style="width: 100">
+        <div class="form-group">
+             <label class="col-sm-2 control-label "><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> Scrivi qui l'ndirizzo: </label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="us3-address" /> <br>
+            </div>
+        </div>
+     <!--   <div class="form-group">
+            <label class="col-sm-2 control-label">Radius:</label>
+
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="us3-radius" />
+            </div>
+        </div> -->
+        <div id="us3" style="width: 100%; height: 550px;"></div>
+        <div class="clearfix">&nbsp;</div>
+        <div class="m-t-small">
+            <label class="p-r-small col-sm-2 control-label"><i class="fa fa-compass" aria-hidden="true"></i>&nbsp;Lat.&nbsp;: </label>
+
+            <div class="col-sm-4">
+                <input type="text" class="form-control" style="width: 110px" id="us3-lat" />
+            </div>
+             <label class="p-r-small col-sm-2 control-label"><i class="fa fa-compass" aria-hidden="true"></i>&nbsp;Long.&nbsp;: </label>
+
+            <div class="col-sm-4">
+                <input type="text" class="form-control" style="width: 110px" id="us3-lon" />
+            </div>
+            <!-- -->       
+            <!-- -->
+            </div>
+                    </div>
+        <div class="clearfix"></div>
+</div>
+<hr><br>
+<p class="lorem0">Usa questa utility  per trovare le coordinate geografiche di un punto  di una  via, una località, un comune o una regione.<br>
+Per otterere le coordinate latitudine e longitudine puoi:</p >
+
+<ul>
+	<li><p class="lorem0">Scrivere per esteso il nome della via o della località (semplificato dal completamento automatico di Google per le località Italiane) che ti interessa e cliccare su invio.</p ></li>
+	<li><p class="lorem0">Trascinare il marker<img class="" src="http://maps.google.com/mapfiles/kml/paddle/red-circle.png" alt="" width="28" height="28" />nella mappa per ottenere le coordinate e l'indirizzo.</p ></li>
+</ul><p class="lorem0">La geocodifica dell'indirizzo si basa sul plugin<a href="https://github.com/Logicify/jquery-locationpicker-plugin" title="jquery-locationpicker-plugin" target="_blank"> jquery-locationpicker-plugin </a> di <a href="https://github.com/wimagguc" title="Logicify" target="_blank">Logicify</a></p >
+ <script>
+ //function updateControls(addressComponents) {
+ //   $('#us3-street1').val(addressComponents.addressLine1);
+ //   $('#us3-city').val(addressComponents.city);
+ //   $('#us3-state').val(addressComponents.stateOrProvince);
+ //   $('#us3-zip').val(addressComponents.postalCode);
+ //   $('#us3-country').val(addressComponents.country);
+//}
+            $('#us3').locationpicker({
+                location: {
+                   latitude: 38.11568799,
+                            longitude: 13.361267099999964
+                },
+                radius: 20,
+                inputBinding: {
+                    latitudeInput: $('#us3-lat'),
+                    longitudeInput: $('#us3-lon'),
+                    radiusInput: $('#us3-radius'),
+                    locationNameInput: $('#us3-address'),
+					
+                },
+				addressFormat: 'address',
+				// mapTypeId: google.maps.MapTypeId.SATELLITE,
+                enableAutocomplete: true,
+				//autocompleteOptions: {types: ['(cities)'], componentRestrictions: {country: 'it'}},
+             
+             });
+        </script>
+
+</body>
+
+</html>
