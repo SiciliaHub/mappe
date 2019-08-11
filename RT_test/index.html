@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet_rt.css">
+		        <link rel="stylesheet" href="css/base_ods.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+		    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="icon" href="favicon.png" type="image/png"/>
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title>Sicilia, quadro unione rete trazzerale - Scala 1:250.000 rielaborato da @opendatasicilia - TEST</title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Provincie1961_1.js"></script>
+        <script src="data/RegietrazzereProvEnna_2.js"></script>
+        <script src="data/Comuni_3.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:12, minZoom:8
+        }).fitBounds([[36.509957463201836,11.986311610485506],[38.51675201480156,15.885780290914752]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('Sicilia, quadro unione rete trazzerale - Scala 1:250.000 rielaborato da: <a href="http://opendatasicilia.it/" target="_blank">@opendatasicilia</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var layer_DarkMatternolabelsretina_0 = L.tileLayer('http://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}@2x.png', {
+            opacity: 1.0,
+            attribution: '<a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
+        });
+        layer_DarkMatternolabelsretina_0;
+        map.addLayer(layer_DarkMatternolabelsretina_0);
+        function pop_Provincie1961_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>COD_PROV</strong><br />' + (feature.properties['COD_PROV'] !== null ? Autolinker.link(String(feature.properties['COD_PROV'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>DEN_PROV</strong><br />' + (feature.properties['DEN_PROV'] !== null ? Autolinker.link(String(feature.properties['DEN_PROV'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Provincie1961_1_0(feature) {
+            switch(String(feature.properties['DEN_PROV'])) {
+                case 'Agrigento':
+                    return {
+                pane: 'pane_Provincie1961_1',
+                opacity: 1,
+                color: 'rgba(42,42,42,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight:1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,198,198,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Caltanissetta':
+                    return {
+                pane: 'pane_Provincie1961_1',
+                opacity: 1,
+                color: 'rgba(42,42,42,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight:1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,198,198,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Catania':
+                    return {
+                pane: 'pane_Provincie1961_1',
+                opacity: 1,
+                color: 'rgba(42,42,42,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight:1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,198,198,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Enna':
+                    return {
+                pane: 'pane_Provincie1961_1',
+                opacity: 1,
+                color: 'rgba(42,42,42,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight:1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(251,245,57,0.25098039215686274)',
+                interactive: false,
+            }
+                    break;
+                case 'Messina':
+                    return {
+                pane: 'pane_Provincie1961_1',
+                opacity: 1,
+                color: 'rgba(42,42,42,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight:1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,198,198,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Palermo':
+                    return {
+                pane: 'pane_Provincie1961_1',
+                opacity: 1,
+                color: 'rgba(42,42,42,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight:1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,198,198,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Ragusa':
+                    return {
+                pane: 'pane_Provincie1961_1',
+                opacity: 1,
+                color: 'rgba(42,42,42,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight:1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,198,198,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Siracusa':
+                    return {
+                pane: 'pane_Provincie1961_1',
+                opacity: 1,
+                color: 'rgba(42,42,42,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight:1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,198,198,1.0)',
+                interactive: false,
+            }
+                    break;
+                case 'Trapani':
+                    return {
+                pane: 'pane_Provincie1961_1',
+                opacity: 1,
+                color: 'rgba(42,42,42,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight:1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,198,198,1.0)',
+                interactive: false,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Provincie1961_1');
+        map.getPane('pane_Provincie1961_1').style.zIndex = 401;
+        map.getPane('pane_Provincie1961_1').style['mix-blend-mode'] = 'normal';
+        var layer_Provincie1961_1 = new L.geoJson(json_Provincie1961_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Provincie1961_1',
+            layerName: 'layer_Provincie1961_1',
+            pane: 'pane_Provincie1961_1',
+            onEachFeature: pop_Provincie1961_1,
+            style: style_Provincie1961_1_0,
+        });
+        bounds_group.addLayer(layer_Provincie1961_1);
+        map.addLayer(layer_Provincie1961_1);
+        function pop_RegietrazzereProvEnna_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+			                    <tr>\<strong style="text-align: center; color: #FF0000;font-size:12px;">Sicilia, quadro unione rete trazzerale - Scala 1:250.000</strong> </br></br></tr>\
+                    <tr>\
+                        <th scope="row"><a href="http://opendatasicilia.it/" target="_blank"><img src="images/ods.svg" width="110" Title="opendatasicilia.it" alt=""/></a></th>\
+                        <td>' + (feature.properties['clip'] !== null ? Autolinker.link(String(feature.properties['clip'])) : '') + '</td>\
+                    </tr>\
+					                    <tr>\
+                        <th scope="row">Regia trazzera n°:&nbsp;&nbsp;</th>\
+                        <td class="testo_album ">' + (feature.properties['RT'] !== null ? Autolinker.link(String(feature.properties['RT'])) : '') + '</td>\
+                    </tr>\
+                                        <tr>\
+                        <th scope="row">Denominazione:&nbsp;&nbsp;</th>\
+                        <td class="testo_album ">' + (feature.properties['denominazione_1'] !== null ? Autolinker.link(String(feature.properties['denominazione_1'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Denominazione bis:&nbsp;&nbsp;</th>\
+                        <td class="testo_album ">' + (feature.properties['denominazione 2'] !== null ? Autolinker.link(String(feature.properties['denominazione 2'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Scala grafico:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['scala grafico'] !== null ? Autolinker.link(String(feature.properties['scala grafico'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tipologia del decreto:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['decreto_tipo'] !== null ? Autolinker.link(String(feature.properties['decreto_tipo'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Decreto n°:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['decreto_numero'] !== null ? Autolinker.link(String(feature.properties['decreto_numero'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Data:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['decreto_data'] !== null ? Autolinker.link(String(feature.properties['decreto_data'])) : '') + '</td>\
+                    </tr>\
+					<tr>\
+                        <th scope="row">Scari il file pdf:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['n_RT'] !== null ? Autolinker.link(String(feature.properties['n_RT']  )) : '') +  '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RegietrazzereProvEnna_2_0() {
+            return {
+                pane: 'pane_RegietrazzereProvEnna_2',
+                opacity: 1,
+                color: 'rgba(219,30,42,1.0)',
+                dashArray: '5,5',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RegietrazzereProvEnna_2');
+        map.getPane('pane_RegietrazzereProvEnna_2').style.zIndex = 402;
+        map.getPane('pane_RegietrazzereProvEnna_2').style['mix-blend-mode'] = 'normal';
+        var layer_RegietrazzereProvEnna_2 = new L.geoJson(json_RegietrazzereProvEnna_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_RegietrazzereProvEnna_2',
+            layerName: 'layer_RegietrazzereProvEnna_2',
+            pane: 'pane_RegietrazzereProvEnna_2',
+            onEachFeature: pop_RegietrazzereProvEnna_2,
+            style: style_RegietrazzereProvEnna_2_0,
+        });
+        bounds_group.addLayer(layer_RegietrazzereProvEnna_2);
+        map.addLayer(layer_RegietrazzereProvEnna_2);
+        function pop_Comuni_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+			                    <tr>\
+                        <th scope="row">Comune di:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['Comune'] !== null ? Autolinker.link(String(feature.properties['Comune'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Provincia di:&nbsp;&nbsp;</th>\
+                        <td>' + (feature.properties['Provincia'] !== null ? Autolinker.link(String(feature.properties['Provincia'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Comuni_3_0() {
+            return {
+                pane: 'pane_Comuni_3',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 0.5,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+        }
+        function style_Comuni_3_1() {
+            return {
+                pane: 'pane_Comuni_3',
+                radius: 1.5,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 0.7,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Comuni_3');
+        map.getPane('pane_Comuni_3').style.zIndex = 403;
+        map.getPane('pane_Comuni_3').style['mix-blend-mode'] = 'normal';
+        var layer_Comuni_3 = new L.geoJson.multiStyle(json_Comuni_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Comuni_3',
+            layerName: 'layer_Comuni_3',
+            pane: 'pane_Comuni_3',
+            onEachFeature: pop_Comuni_3,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Comuni_3_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Comuni_3_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_Comuni_3);
+        map.addLayer(layer_Comuni_3);
+        map.on("zoomend", function(){
+
+                if (map.hasLayer(layer_RegietrazzereProvEnna_2)) {
+                    if (map.getZoom() <= 13 && map.getZoom() >= 8) {
+                        layer_RegietrazzereProvEnna_2.eachLayer(function (layer) {
+                            layer.openTooltip();
+                        });
+                    } else {
+                        layer_RegietrazzereProvEnna_2.eachLayer(function (layer) {
+                            layer.closeTooltip();
+                        });
+                    }
+                }
+                if (map.hasLayer(layer_Comuni_3)) {
+                    if (map.getZoom() <= 13 && map.getZoom() >= 8) {
+                        layer_Comuni_3.eachLayer(function (layer) {
+                            layer.openTooltip();
+                        });
+                    } else {
+                        layer_Comuni_3.eachLayer(function (layer) {
+                            layer.closeTooltip();
+                        });
+                    }
+                }
+        });
+        setBounds();
+        var i = 0;
+        layer_RegietrazzereProvEnna_2.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['RT'] !== null?String('<div style="color: #000; font: bold 10px Arial; background-color: #fff; border-radius: 2px;  -moz-border-radius: 2px;  -webkit-border-radius: 2px; box-shadow: 0 1px 5px rgba(0,0,0,0.6); padding: 2px 2px; ">' + layer.feature.properties['RT']) + '</div>':''), {permanent: true, offset: [-0, -0], className: 'css_RegietrazzereProvEnna_2'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_Comuni_3.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Comune'] !== null?String('<div style="color: #fff; font: bold 10px Arial; background-color: #0000ff; border-radius: 2px;  -moz-border-radius: 2px;  -webkit-border-radius: 2px; box-shadow: 0 1px 5px rgba(0,0,0,0.6); padding: 2px 2px; ">' + layer.feature.properties['Comune']) + '</div>':''), {permanent: true, offset: [-10,-10], className: 'css_Comuni_3'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+                if (map.hasLayer(layer_RegietrazzereProvEnna_2)) {
+                    if (map.getZoom() <= 12 && map.getZoom() >= 9) {
+                        layer_RegietrazzereProvEnna_2.eachLayer(function (layer) {
+                            layer.openTooltip();
+                        });
+                    } else {
+                        layer_RegietrazzereProvEnna_2.eachLayer(function (layer) {
+                            layer.closeTooltip();
+                        });
+                    }
+                }
+                if (map.hasLayer(layer_Comuni_3)) {
+                    if (map.getZoom() <= 13 && map.getZoom() >= 9) {
+                        layer_Comuni_3.eachLayer(function (layer) {
+                            layer.openTooltip();
+                        });
+                    } else {
+                        layer_Comuni_3.eachLayer(function (layer) {
+                            layer.closeTooltip();
+                        });
+                    }
+                }
+        resetLabels([layer_Provincie1961_1,layer_RegietrazzereProvEnna_2,layer_Comuni_3]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Provincie1961_1,layer_RegietrazzereProvEnna_2,layer_Comuni_3]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Provincie1961_1,layer_RegietrazzereProvEnna_2,layer_Comuni_3]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Provincie1961_1,layer_RegietrazzereProvEnna_2,layer_Comuni_3]);
+        });
+        </script>
+		   <!-- loghi -->    
+      
+<div id="ods"><a href="http://opendatasicilia.it/" title="opendatasicilia.it" target="_blank"> 
+<img src="images/opendatasicilia.png" alt="opendatasicilia" width="50" border="0" title="opendatasicilia.it"></a></div> 
+    </body>
+</html>
