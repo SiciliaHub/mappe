@@ -8,7 +8,13 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet_rt.css">
 		        <link rel="stylesheet" href="css/base_ods.css">
+				<link href="lib/css/leaflet.zoomhome.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+		
+		
+		<!-- css remoto -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 		    <link rel="shortcut icon" href="favicon.ico"/>
     <link rel="icon" href="favicon.png" type="image/png"/>
         <style>
@@ -37,6 +43,7 @@
         <script src="data/Provincie1961_1.js"></script>
         <script src="data/RegietrazzereProvEnna_2.js"></script>
         <script src="data/Comuni_3.js"></script>
+		<script src="lib/js/zoomhome/leaflet.zoomhome.js"></script>  
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -54,9 +61,11 @@
             }
         }
         var map = L.map('map', {
-            zoomControl:true, maxZoom:12, minZoom:8
+            zoomControl:false, maxZoom:12, minZoom:8
         }).fitBounds([[36.509957463201836,11.986311610485506],[38.51675201480156,15.885780290914752]]);
         var hash = new L.Hash(map);
+		var zoomHome = L.Control.zoomHome();zoomHome.addTo(map);
+		
         map.attributionControl.setPrefix('Sicilia, quadro unione rete trazzerale - Scala 1:250.000 rielaborato da: <a href="http://opendatasicilia.it/" target="_blank">@opendatasicilia</a>');
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
@@ -422,6 +431,7 @@
                 }
         });
         setBounds();
+		
         var i = 0;
         layer_RegietrazzereProvEnna_2.eachLayer(function(layer) {
             var context = {
