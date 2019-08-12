@@ -24,7 +24,7 @@
         .leaflet-popup-content {
             width:auto !important;
 			height:auto !important;
-            /*padding-right:10px;*/
+            /*padding-right:10px;*/			overflow:hidden!important;
         }
         .leaflet-tooltip {
             background: none;
