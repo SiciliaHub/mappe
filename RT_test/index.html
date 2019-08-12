@@ -61,12 +61,7 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        var layer_DarkMatternolabelsretina_0 = L.tileLayer('http://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}@2x.png', {
-            opacity: 1.0,
-            attribution: '<a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
-        });
-        layer_DarkMatternolabelsretina_0;
-        map.addLayer(layer_DarkMatternolabelsretina_0);
+
         function pop_Provincie1961_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -264,7 +259,7 @@
                         <td class="testo_album ">' + (feature.properties['denominazione_1'] !== null ? Autolinker.link(String(feature.properties['denominazione_1'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Denominazione bis:&nbsp;&nbsp;</th>\
+                        <th scope="row">Denominazione bi:&nbsp;&nbsp;</th>\
                         <td class="testo_album ">' + (feature.properties['denominazione 2'] !== null ? Autolinker.link(String(feature.properties['denominazione 2'])) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -398,6 +393,9 @@
         ]});
         bounds_group.addLayer(layer_Comuni_3);
         map.addLayer(layer_Comuni_3);
+		
+		        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/Comuni_3.png" /> Comuni': layer_Comuni_3,'<img src="legend/RegietrazzereProvEnna_2.png" /> Regie trazzere': layer_RegietrazzereProvEnna_2,}).addTo(map);
         map.on("zoomend", function(){
 
                 if (map.hasLayer(layer_RegietrazzereProvEnna_2)) {
